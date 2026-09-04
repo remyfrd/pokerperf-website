@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PokerPerf — Level up your poker</title>
+<meta name="description" content="PokerPerf. Level up your poker. Get an email when the app launches.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --felt:oklch(0.19 0.045 158);
+    --felt-deep:oklch(0.145 0.03 158);
+    --cream:oklch(0.955 0.018 85);
+    --gold:oklch(0.82 0.06 85);
+    --ink:oklch(0.2 0.025 35);
+    --muted:oklch(0.78 0.05 95);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    background:
+      radial-gradient(120% 80% at 50% 0%, oklch(0.235 0.05 158) 0%, transparent 60%),
+      var(--felt);
+    color:var(--cream);
+    font-family:Geist,"Helvetica Neue",system-ui,sans-serif;
+    display:flex;flex-direction:column;
+    min-height:100%;
+  }
+  a{color:var(--gold);text-decoration:none}
+  a:hover{color:oklch(0.9 0.05 90)}
+
+  .wrap{
+    flex:1;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:34px;
+    padding:64px 24px;
+    text-align:center;
+    position:relative;
+  }
+  /* arrondi de la table de poker */
+  .table{
+    position:absolute;
+    left:50%;top:50%;transform:translate(-50%,-50%);
+    width:min(620px, 90vw);
+    height:min(760px, 82vh);
+    border-radius:999px;
+    border:1px solid oklch(0.82 0.06 85 / .22);
+    box-shadow:
+      inset 0 0 0 9px oklch(0.16 0.035 158 / .55),
+      inset 0 0 0 10px oklch(0.82 0.06 85 / .13),
+      inset 0 0 90px oklch(0.1 0.02 158 / .5);
+    background:radial-gradient(70% 55% at 50% 42%, oklch(0.225 0.05 158) 0%, transparent 72%);
+    pointer-events:none;
+  }
+  @media (min-width:860px){
+    .table{width:min(900px,86vw);height:min(560px,80vh)}
+  }
+  .wrap > *:not(.table){position:relative}
+  .mark{
+    display:inline-flex;align-items:baseline;gap:8px;
+    padding:6px 13px;border-radius:999px;
+    background:var(--felt-deep);
+    border:1px solid oklch(0.82 0.06 85 / .32);
+    font:500 9.5px "IBM Plex Mono",monospace;letter-spacing:.18em;
+    color:var(--gold);
+  }
+  h1{
+    margin:0;
+    font:600 clamp(44px,11vw,84px)/1.02 "Cormorant Garamond",serif;
+    color:oklch(0.97 0.018 85);
+    letter-spacing:-.01em;
+    text-wrap:balance;
+  }
+  .lede{
+    margin:0;max-width:34ch;
+    font:400 15.5px/1.6 Geist,system-ui;
+    color:var(--muted);
+    text-wrap:pretty;
+  }
+
+  form{
+    display:flex;flex-direction:column;gap:10px;
+    width:100%;max-width:390px;
+  }
+  .row{display:flex;gap:9px}
+  input[type=email]{
+    flex:1;min-width:0;
+    padding:15px 16px;border-radius:9px;
+    border:1px solid oklch(0.82 0.06 85 / .28);
+    background:oklch(0.155 0.032 158);
+    color:var(--cream);
+    font:400 15px Geist,system-ui;
+  }
+  input[type=email]::placeholder{color:oklch(0.62 0.03 150)}
+  input[type=email]:focus{
+    outline:none;
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px oklch(0.82 0.06 85 / .16);
+  }
+  button{
+    padding:15px 22px;border:0;border-radius:9px;
+    background:var(--cream);color:var(--ink);
+    font:600 15px Geist,system-ui;cursor:pointer;
+    transition:background .15s ease;
+  }
+  button:hover{background:oklch(1 0.012 85)}
+  .note{
+    margin:0;
+    font:500 9px "IBM Plex Mono",monospace;letter-spacing:.14em;
+    color:oklch(0.66 0.035 145);text-transform:uppercase;
+  }
+  .done{
+    display:none;
+    max-width:390px;
+    padding:22px 24px;border-radius:12px;
+    background:oklch(0.955 0.018 85);color:var(--ink);
+  }
+  .done h2{margin:0 0 6px;font:600 26px/1.15 "Cormorant Garamond",serif}
+  .done p{margin:0;font:400 14px/1.55 Geist,system-ui;color:oklch(0.42 0.02 35)}
+  body.sent form{display:none}
+  body.sent .done{display:block}
+
+  footer{
+    padding:22px 24px 30px;text-align:center;
+    font:500 9px "IBM Plex Mono",monospace;letter-spacing:.16em;
+    color:oklch(0.58 0.03 145);text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <div class="table" aria-hidden="true"></div>
+
+  <span class="mark">POKERPERF</span>
+
+  <h1>Level up<br>your poker</h1>
+
+  <p class="lede">Coming soon. One email when we launch.</p>
+
+  <form id="notify" action="https://formspree.io/f/mrpglpjb" method="POST">
+    <div class="row">
+      <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+      <button type="submit">Notify me</button>
+    </div>
+    <p class="note">No spam. Unsubscribe anytime.</p>
+  </form>
+
+  <div class="done">
+    <h2>You're on the list.</h2>
+    <p>We'll email you the day PokerPerf opens.</p>
+  </div>
+</main>
+
+<footer>PokerPerf · 2026</footer>
+
+<script>
+  document.getElementById('notify').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target;
+    fetch(f.action, {
+      method: 'POST',
+      body: new FormData(f),
+      headers: { Accept: 'application/json' }
+    }).finally(function () {
+      document.body.classList.add('sent');
+    });
+  });
+</script>
+
+</body>
+</html>
