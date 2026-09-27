@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Conditions d'utilisation — PokerPerf</title>
   <meta name="description" content="Conditions d'utilisation de l'application PokerPerf : service, compte, abonnement, renouvellement, résiliation et responsabilités." />
+  <link rel="alternate" hreflang="fr" href="https://pokerperf.com/terms.html" />
+  <link rel="alternate" hreflang="en" href="https://pokerperf.com/terms.en.html" />
   <style>
     :root {
       --bg: #ffffff;
@@ -69,12 +71,25 @@
     .back { display: inline-block; margin-bottom: 18px; font-size: 0.9rem; color: var(--muted); text-decoration: none; }
     .back:hover { color: var(--accent); }
     .back::before { content: "← "; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; gap: 12px; flex-wrap: wrap; }
+    .lang { font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px; }
+    .lang a, .lang .current { padding: 4px 10px; border-radius: 999px; text-decoration: none; line-height: 1; }
+    .lang a { color: var(--muted); border: 1px solid transparent; }
+    .lang a:hover { color: var(--accent); border-color: var(--line); }
+    .lang .current { color: var(--fg); background: var(--card); border: 1px solid var(--line); font-weight: 600; }
+    .lang-note { color: var(--muted); font-size: 0.85rem; font-style: italic; margin: 14px 0 0; }
   </style>
 </head>
 <body>
   <div class="wrap">
 
-    <a class="back" href="/">PokerPerf</a>
+    <div class="topbar">
+      <a class="back" href="/">PokerPerf</a>
+      <nav class="lang" aria-label="Langue">
+        <span class="current" aria-current="true">Français</span>
+        <a href="/terms.en.html" hreflang="en">English</a>
+      </nav>
+    </div>
 
     <header class="doc">
       <h1>Conditions d'utilisation</h1>
@@ -153,6 +168,7 @@
 
     <h2>11. Droit applicable</h2>
     <p>Les présentes conditions sont régies par le <strong>droit français</strong>. À défaut de résolution amiable, tout litige relève des tribunaux compétents, sous réserve des règles protectrices applicables aux consommateurs.</p>
+    <p class="lang-note">En cas de divergence entre la version française et toute traduction, <strong>la version française fait foi</strong>.</p>
 
     <h2>12. Contact et éditeur</h2>
     <p><strong>Éditeur&nbsp;:</strong><br />

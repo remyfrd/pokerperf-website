@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Politique de confidentialité — PokerPerf</title>
   <meta name="description" content="Politique de confidentialité de l'application PokerPerf : données traitées, finalités, sous-traitants, conservation et vos droits." />
+  <link rel="alternate" hreflang="fr" href="https://pokerperf.com/privacy.html" />
+  <link rel="alternate" hreflang="en" href="https://pokerperf.com/privacy.en.html" />
   <style>
     :root {
       --bg: #ffffff;
@@ -80,6 +82,13 @@
     .back { display: inline-block; margin-bottom: 18px; font-size: 0.9rem; color: var(--muted); text-decoration: none; }
     .back:hover { color: var(--accent); }
     .back::before { content: "← "; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; gap: 12px; flex-wrap: wrap; }
+    .lang { font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px; }
+    .lang a, .lang .current { padding: 4px 10px; border-radius: 999px; text-decoration: none; line-height: 1; }
+    .lang a { color: var(--muted); border: 1px solid transparent; }
+    .lang a:hover { color: var(--accent); border-color: var(--line); }
+    .lang .current { color: var(--fg); background: var(--card); border: 1px solid var(--line); font-weight: 600; }
+    .lang-note { color: var(--muted); font-size: 0.85rem; font-style: italic; margin: 14px 0 0; }
     .subprocessors td:first-child { font-weight: 600; }
     .placeholder { color: var(--muted); font-style: italic; }
   </style>
@@ -87,7 +96,13 @@
 <body>
   <div class="wrap">
 
-    <a class="back" href="/">PokerPerf</a>
+    <div class="topbar">
+      <a class="back" href="/">PokerPerf</a>
+      <nav class="lang" aria-label="Langue">
+        <span class="current" aria-current="true">Français</span>
+        <a href="/privacy.en.html" hreflang="en">English</a>
+      </nav>
+    </div>
 
     <header class="doc">
       <h1>Politique de confidentialité</h1>
@@ -277,6 +292,8 @@
     SIRET&nbsp;: 537&nbsp;397&nbsp;218&nbsp;00026<br />
     Email&nbsp;: <a href="mailto:contact@pokerperf.com">contact@pokerperf.com</a></p>
     <p class="muted"><strong>Hébergeur du site&nbsp;:</strong> GitHub,&nbsp;Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis (GitHub&nbsp;Pages).</p>
+
+    <p class="lang-note">En cas de divergence entre la version française et toute traduction, <strong>la version française fait foi</strong>.</p>
 
     <footer class="doc">
       <p><strong>PokerPerf</strong> — Rémy Ferrand, entrepreneur individuel · SIRET 537&nbsp;397&nbsp;218&nbsp;00026 · Neyron, France</p>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — PokerPerf</title>
+  <meta name="description" content="Privacy policy of the PokerPerf app: data processed, purposes, sub-processors, retention and your rights." />
+  <link rel="alternate" hreflang="fr" href="https://pokerperf.com/privacy.html" />
+  <link rel="alternate" hreflang="en" href="https://pokerperf.com/privacy.en.html" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1b1f24;
+      --muted: #5b6470;
+      --line: #e4e7ec;
+      --card: #f7f8fa;
+      --accent: #6b4e2e;
+      --phone: #2f6f4f;
+      --server: #8a5a1c;
+      --maxw: 780px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14171b;
+        --fg: #e9ecf1;
+        --muted: #a3adba;
+        --line: #2a2f36;
+        --card: #1c2026;
+        --accent: #c8a875;
+        --phone: #7bd3a3;
+        --server: #e0b070;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      font-size: 17px;
+    }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 40px 22px 80px; }
+    header.doc { border-bottom: 1px solid var(--line); padding-bottom: 22px; margin-bottom: 8px; }
+    h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.01em; }
+    h2 { font-size: 1.25rem; margin: 42px 0 12px; padding-top: 6px; letter-spacing: -0.01em; }
+    h3 { font-size: 1.02rem; margin: 24px 0 8px; }
+    p, li { color: var(--fg); }
+    a { color: var(--accent); }
+    .muted { color: var(--muted); }
+    .updated { color: var(--muted); font-size: 0.92rem; margin: 0; }
+    .lead { font-size: 1.05rem; }
+    .summary {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin: 26px 0;
+    }
+    .summary ul { margin: 8px 0 0; padding-left: 20px; }
+    .summary li { margin: 6px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.95rem; }
+    .table-scroll { overflow-x: auto; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .tag { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+    .tag-phone { color: var(--phone); border: 1px solid var(--phone); }
+    .tag-server { color: var(--server); border: 1px solid var(--server); }
+    ul.clean { padding-left: 20px; }
+    ul.clean li { margin: 8px 0; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin: 18px 0;
+    }
+    .card h3 { margin-top: 0; }
+    code { background: var(--card); border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; font-size: 0.9em; }
+    footer.doc { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.92rem; }
+    .subprocessors td:first-child { font-weight: 600; }
+    .placeholder { color: var(--muted); font-style: italic; }
+    .back { display: inline-block; margin-bottom: 18px; font-size: 0.9rem; color: var(--muted); text-decoration: none; }
+    .back:hover { color: var(--accent); }
+    .back::before { content: "← "; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; gap: 12px; flex-wrap: wrap; }
+    .lang { font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px; }
+    .lang a, .lang .current { padding: 4px 10px; border-radius: 999px; text-decoration: none; line-height: 1; }
+    .lang a { color: var(--muted); border: 1px solid transparent; }
+    .lang a:hover { color: var(--accent); border-color: var(--line); }
+    .lang .current { color: var(--fg); background: var(--card); border: 1px solid var(--line); font-weight: 600; }
+    .lang-note { color: var(--muted); font-size: 0.9rem; font-style: italic; margin: 14px 0 24px; padding: 12px 16px; background: var(--card); border-left: 3px solid var(--accent); border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <a class="back" href="/">PokerPerf</a>
+      <nav class="lang" aria-label="Language">
+        <a href="/privacy.html" hreflang="fr">Français</a>
+        <span class="current" aria-current="true">English</span>
+      </nav>
+    </div>
+
+    <header class="doc">
+      <h1>Privacy Policy</h1>
+      <p class="updated"><strong>PokerPerf</strong> app · Last updated: 24 September 2026</p>
+    </header>
+
+    <p class="lang-note">This English version is a courtesy translation. In the event of any discrepancy, <strong>the French version prevails</strong> and is the sole legally binding text.</p>
+
+    <p class="lead">This policy describes the data processed by the <strong>PokerPerf</strong> mobile app (poker training), why it is processed, where it is stored, and the rights you have. It is written to reflect the actual behaviour of the app.</p>
+
+    <p>The data controller is <strong>Rémy Ferrand</strong>, sole trader (the "we"). For any question about your data: <a href="mailto:contact@pokerperf.com">contact@pokerperf.com</a>.</p>
+
+    <div class="summary">
+      <strong>The essentials</strong>
+      <ul>
+        <li>You can use the app with an <strong>account</strong> (email, password, optional first name).</li>
+        <li>Some of your data stays <strong>only on your phone</strong>; the rest is stored on <strong>our servers (hosted in the European Union)</strong>.</li>
+        <li>We do <strong>not sell</strong> your data and do <strong>not run targeted advertising</strong>.</li>
+        <li>The app handles <strong>no banking data</strong>: payments are processed by Apple, Google and RevenueCat.</li>
+        <li>You can <strong>delete your account</strong> and all associated data directly from within the app.</li>
+      </ul>
+    </div>
+
+    <h2>1. The account</h2>
+    <p>The app works with an account, needed to save your progression and manage the subscription. When creating the account, we process:</p>
+    <ul class="clean">
+      <li><strong>Email address</strong> — login identifier and account verification.</li>
+      <li><strong>Password</strong> — transmitted to create the account, then kept on the server <strong>only in encrypted (hashed) form</strong>; we never store your password in clear text.</li>
+      <li><strong>First name</strong> (optional) — to personalise the welcome.</li>
+    </ul>
+    <p><strong>Email verification</strong>: after signup we send a <strong>6-digit code</strong> to your address to confirm it belongs to you. This code is sent via our email provider (see §7) and is stored on the server only in encrypted, temporary form.</p>
+
+    <h2>2. Data we process, why, and where it goes</h2>
+    <p>The "Where" column indicates whether the data stays
+      <span class="tag tag-phone">On your phone</span> or is sent
+      <span class="tag tag-server">To our servers</span> (both can apply: some data is created offline on the device then synced).</p>
+
+    <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Data</th><th>Why</th><th>Where</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Email, password (hashed), first name</td>
+          <td>Create and secure the account, log you in</td>
+          <td><span class="tag tag-server">Servers</span></td>
+        </tr>
+        <tr>
+          <td>Email verification code (OTP)</td>
+          <td>Confirm the address belongs to you</td>
+          <td><span class="tag tag-server">Servers</span></td>
+        </tr>
+        <tr>
+          <td>Play history: exercises played, chosen action, score, level (Elo rating), calibration</td>
+          <td>Measure your progression, adapt difficulty, display your statistics</td>
+          <td><span class="tag tag-phone">Phone</span> <span class="tag tag-server">Servers</span></td>
+        </tr>
+        <tr>
+          <td>Preferences: language, game format (cash/MTT), display and accessibility settings, training pace</td>
+          <td>Adapt the app to your choices</td>
+          <td><span class="tag tag-phone">Phone</span> <span class="tag tag-server">Servers</span></td>
+        </tr>
+        <tr>
+          <td>Exercise reports: reason and free-form comment you write</td>
+          <td>Correct and improve content</td>
+          <td><span class="tag tag-phone">Phone</span> <span class="tag tag-server">Servers</span></td>
+        </tr>
+        <tr>
+          <td>Device time zone</td>
+          <td>Correctly compute your daily statistics</td>
+          <td><span class="tag tag-server">Servers</span></td>
+        </tr>
+        <tr>
+          <td>Subscription status (trial / free / premium)</td>
+          <td>Unlock premium features</td>
+          <td><span class="tag tag-server">Servers</span> · Apple/Google/RevenueCat</td>
+        </tr>
+        <tr>
+          <td>Anonymous usage statistics</td>
+          <td>Measure audience and improve the app (see §6)</td>
+          <td>PostHog (EU)</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p class="muted"><strong>Legal basis (GDPR)</strong>: account, play, preferences and subscription data are processed for <strong>performance of the service you request</strong> (contract). Anonymous audience measurement relies on our <strong>legitimate interest</strong> in improving the app (see §6).</p>
+
+    <h2>3. What stays only on your phone</h2>
+    <p>To work offline and avoid making you log in repeatedly, the app stores locally, in the system's secure storage (iOS Keychain / Android Keystore) and in a local database:</p>
+    <ul class="clean">
+      <li>your <strong>session token</strong> (keeps you logged in);</li>
+      <li>a copy of your <strong>first name</strong> and your <strong>display/accessibility settings</strong>;</li>
+      <li>a <strong>daily exercise counter</strong> (for the free tier cap);</li>
+      <li>the <strong>downloaded exercise catalogue</strong> (game content, no personal data);</li>
+      <li>an <strong>outbound queue</strong> of your attempts and reports created offline, pending sync to the server.</li>
+    </ul>
+    <p>These local data disappear when you <strong>log out</strong>, <strong>delete your account</strong>, or <strong>uninstall</strong> the app.</p>
+
+    <h2>4. Payments and subscriptions</h2>
+    <p>The premium subscription is managed by the app stores: <strong>App&nbsp;Store (Apple)</strong> and <strong>Google&nbsp;Play</strong>, via the <strong>RevenueCat</strong> service. Specifically:</p>
+    <ul class="clean">
+      <li>The app <strong>does not collect or store any credit card data</strong>: the payment happens entirely inside your phone's operating system.</li>
+      <li>To attach your subscription to your account, an <strong>internal account identifier</strong> (a number, without email or name) is transmitted to RevenueCat.</li>
+      <li><strong>Cancellation</strong> is done from the subscription settings of your phone (Apple or Google). Deleting your PokerPerf account <strong>does not automatically cancel</strong> the subscription: remember to cancel it via your store.</li>
+    </ul>
+
+    <h2>5. Notifications</h2>
+    <p>If you allow them, the app schedules <strong>local notifications</strong> (for example a trial-ending reminder). They are generated <strong>directly on your phone</strong>: we do <strong>not use server push notifications</strong> and no "notification token" is sent to our servers.</p>
+
+    <h2>6. Audience measurement</h2>
+    <p>We use <strong>PostHog</strong> (hosted in the European Union) to <strong>anonymously</strong> measure app usage (app opens, home progression, exercises completed, subscription steps). These statistics:</p>
+    <ul class="clean">
+      <li>contain <strong>no data allowing you to be identified</strong> (no email, no first name, no account identifier);</li>
+      <li>rely on an anonymous identifier <strong>regenerated at each launch</strong> of the app (no persistent device tracking);</li>
+      <li>are <strong>aggregated</strong> and serve only to improve the app; they are neither sold nor used for advertising.</li>
+    </ul>
+    <p>As this is <strong>audience measurement</strong> strictly necessary to improve the service and devoid of any identifying data, it does not require your prior consent; this notice serves that purpose.</p>
+
+    <h2>7. Third-party services (sub-processors)</h2>
+    <p>To deliver the service, we rely on the following providers, which process data on our behalf:</p>
+    <div class="table-scroll">
+    <table class="subprocessors">
+      <thead>
+        <tr><th>Provider</th><th>Role</th><th>Data concerned</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Clever&nbsp;Cloud <span class="muted">(EU, France)</span></td>
+          <td>Server and database hosting</td>
+          <td>All account and play data</td>
+        </tr>
+        <tr>
+          <td>Brevo <span class="muted">(EU, France)</span></td>
+          <td>Sending emails (verification codes)</td>
+          <td>Email address</td>
+        </tr>
+        <tr>
+          <td>RevenueCat</td>
+          <td>Subscription management</td>
+          <td>Internal account identifier, purchase status</td>
+        </tr>
+        <tr>
+          <td>Apple &nbsp;/ &nbsp;Google</td>
+          <td>App distribution and payment</td>
+          <td>Payment processing (by them)</td>
+        </tr>
+        <tr>
+          <td>PostHog <span class="muted">(EU)</span></td>
+          <td>Anonymous audience measurement</td>
+          <td>Anonymous usage statistics</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="muted">Our hosting and audience measurement are located in the European Union. Apple and Google may, as part of payment processing and distribution, process certain data according to their own privacy policies.</p>
+
+    <h2>8. Retention period</h2>
+    <ul class="clean">
+      <li><strong>Account and play data (server)</strong>: kept <strong>as long as your account exists</strong>. There is no scheduled automatic deletion.</li>
+      <li><strong>Account deletion</strong>: when you delete your account, your server data (account, play history, reports) is <strong>erased permanently and immediately</strong>, with no anonymised copy kept.</li>
+      <li><strong>Local data (phone)</strong>: kept until logout, account deletion or app uninstall.</li>
+      <li><strong>Anonymous statistics</strong>: kept in aggregated form, with no link to your identity.</li>
+    </ul>
+
+    <h2>9. Your rights</h2>
+    <p>In accordance with the GDPR, you have the rights of <strong>access</strong>, <strong>rectification</strong>, <strong>erasure</strong>, <strong>restriction</strong>, <strong>objection</strong> and <strong>portability</strong> of your data.</p>
+    <div class="card">
+      <h3>Delete your account and your data</h3>
+      <p>You can delete your account yourself from within the app: <strong>Settings → Delete account</strong>. This action erases your local data on the phone and triggers the permanent erasure of your data on our servers.</p>
+    </div>
+    <p>To exercise your other rights or for any question, write to us at <a href="mailto:contact@pokerperf.com">contact@pokerperf.com</a>. You may also lodge a complaint with the <strong>CNIL</strong>, the French data protection authority (<a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>).</p>
+
+    <h2>10. Minors</h2>
+    <p>PokerPerf is a poker training app <strong>reserved for adults (18 years and older)</strong>. It is not aimed at minors and we do not knowingly collect data about them.</p>
+
+    <h2>11. The pokerperf.com website</h2>
+    <p>On the <strong>pokerperf.com</strong> website, if you enter your email address in the "get notified at launch" form, it is processed for the sole purpose of sending you a notification when the app launches. The form is handled by the <strong>Formspree</strong> provider, which receives and forwards your request to us. You may at any time request the removal of your address by writing to <a href="mailto:contact@pokerperf.com">contact@pokerperf.com</a>.</p>
+    <p>The website is hosted by <strong>GitHub&nbsp;Pages</strong> (GitHub,&nbsp;Inc.), which may log technical connection data (such as your IP address) in its server logs, in accordance with its own policy.</p>
+
+    <h2>12. Changes</h2>
+    <p>We may update this policy to reflect changes to the app or to regulations. The date of the last update appears at the top of the page; significant changes will be flagged to you inside the app.</p>
+
+    <h2>13. Contact and publisher</h2>
+    <p><strong>Data controller and publisher:</strong><br />
+    Rémy Ferrand — sole trader<br />
+    66 route de Genève, 01700 Neyron, France<br />
+    SIRET: 537&nbsp;397&nbsp;218&nbsp;00026<br />
+    Email: <a href="mailto:contact@pokerperf.com">contact@pokerperf.com</a></p>
+    <p class="muted"><strong>Website host:</strong> GitHub,&nbsp;Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States (GitHub&nbsp;Pages).</p>
+
+    <footer class="doc">
+      <p><strong>PokerPerf</strong> — Rémy Ferrand, sole trader · SIRET 537&nbsp;397&nbsp;218&nbsp;00026 · Neyron, France</p>
+    </footer>
+
+  </div>
+</body>
+</html>
