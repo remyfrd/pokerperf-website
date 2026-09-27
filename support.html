@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Assistance — PokerPerf</title>
+  <meta name="description" content="Page d'assistance de l'application PokerPerf. Contactez-nous par email pour toute question ou demande d'aide." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1b1f24;
+      --muted: #5b6470;
+      --line: #e4e7ec;
+      --card: #f7f8fa;
+      --accent: #6b4e2e;
+      --maxw: 780px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14171b;
+        --fg: #e9ecf1;
+        --muted: #a3adba;
+        --line: #2a2f36;
+        --card: #1c2026;
+        --accent: #c8a875;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      font-size: 17px;
+    }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 40px 22px 80px; }
+    header.doc { border-bottom: 1px solid var(--line); padding-bottom: 22px; margin-bottom: 8px; }
+    h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.01em; }
+    h2 { font-size: 1.25rem; margin: 42px 0 12px; padding-top: 6px; letter-spacing: -0.01em; }
+    p { color: var(--fg); }
+    a { color: var(--accent); }
+    .muted { color: var(--muted); }
+    .updated { color: var(--muted); font-size: 0.92rem; margin: 0; }
+    .lead { font-size: 1.05rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin: 26px 0;
+    }
+    .contact-email {
+      display: inline-block;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    footer.doc { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.92rem; }
+    .back { display: inline-block; margin-bottom: 18px; font-size: 0.9rem; color: var(--muted); text-decoration: none; }
+    .back:hover { color: var(--accent); }
+    .back::before { content: "← "; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <a class="back" href="/">PokerPerf</a>
+
+    <header class="doc">
+      <h1>Assistance</h1>
+      <p class="updated">Application <strong>PokerPerf</strong></p>
+    </header>
+
+    <p class="lead">Une question, un souci technique, une suggestion sur l'application <strong>PokerPerf</strong>&nbsp;? Nous vous répondons personnellement.</p>
+
+    <div class="card">
+      <p style="margin:0 0 4px;"><strong>Contactez-nous par email</strong></p>
+      <a class="contact-email" href="mailto:contact@pokerperf.com">contact@pokerperf.com</a>
+      <p class="muted" style="margin:10px 0 0;font-size:0.92rem;">Réponse sous 48&nbsp;heures ouvrées.</p>
+    </div>
+
+    <h2>Ce que vous pouvez nous demander</h2>
+    <p>Aide sur l'utilisation de l'application, problèmes de connexion ou de compte, questions sur l'abonnement premium, signalement d'un bug ou d'un contenu incorrect, demandes liées à vos données personnelles (accès, suppression), ou tout autre retour.</p>
+
+    <h2>Ressources utiles</h2>
+    <p><a href="/privacy.html">Politique de confidentialité</a> · <a href="/terms.html">Conditions d'utilisation</a></p>
+
+    <footer class="doc">
+      <p><strong>PokerPerf</strong> — Rémy Ferrand, entrepreneur individuel · SIRET 537&nbsp;397&nbsp;218&nbsp;00026 · Neyron, France</p>
+    </footer>
+
+  </div>
+</body>
+</html>
