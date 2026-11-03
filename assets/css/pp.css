@@ -149,7 +149,18 @@ details p{margin:10px 0 2px;color:var(--muted);}
 .nav .dropdown .menu a:hover{background:oklch(0.82 0.06 85 / .1);color:var(--gold);}
 .nav .lang-switch{color:var(--muted);border:1px solid var(--gold-hair);border-radius:999px;padding:5px 11px;font:500 .78rem/1 "IBM Plex Mono",monospace;letter-spacing:.06em;}
 .nav .lang-switch:hover{color:var(--gold);border-color:var(--gold-soft);}
-@media(min-width:820px){.nav .links{display:flex;} .nav .nav-cta{margin-left:0;}}
+.nav .nav-toggle{display:none;background:none;border:1px solid var(--gold-hair);color:var(--cream);border-radius:9px;padding:5px 11px;font-size:1.15rem;line-height:1;cursor:pointer;}
+@media(min-width:820px){.nav .links{display:flex;} .nav .nav-cta{margin-left:0;} .nav .nav-toggle{display:none;}}
+@media(max-width:819px){
+  .nav .nav-toggle{display:inline-flex;margin-left:auto;}
+  .nav .links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:6px;
+    background:oklch(0.16 0.035 158);border-bottom:1px solid var(--gold-hair);padding:14px 20px 18px;}
+  .nav .links.open{display:flex;}
+  .nav .dropdown{width:100%;}
+  .nav .dropdown .menu{position:static;display:flex;min-width:0;border:0;background:transparent;box-shadow:none;padding:4px 0 0 12px;}
+  .nav .drop-trigger{color:var(--gold);cursor:default;}
+  .nav .lang-switch{margin-left:10px;}
+}
 .site-footer{border-top:1px solid var(--gold-hair);padding:30px 0;margin-top:40px;color:var(--muted);font-size:.86rem;}
 .site-footer .container{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;}
 .site-footer a{color:var(--muted);border:0;} .site-footer a:hover{color:var(--gold);}
@@ -169,3 +180,15 @@ details p{margin:10px 0 2px;color:var(--muted);}
 .po-decision{margin-top:10px;font-weight:700;font-size:1.05rem;}
 .po-decision.ok{color:oklch(0.82 0.13 150);} .po-decision.no{color:oklch(0.72 0.17 25);}
 .po-decision span{font-weight:500;color:var(--muted);font-size:.85rem;}
+
+/* --- classement des mains (liste de rangs + mini-cartes) --- */
+.rank-list{display:flex;flex-direction:column;gap:12px;margin:18px 0;}
+.rank-item{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:16px 18px;border:1px solid var(--gold-hair);border-radius:12px;background:var(--panel);}
+.rank-num{width:34px;height:34px;border-radius:999px;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:800;font-family:"IBM Plex Mono",monospace;}
+.rank-item h3{margin:0;font:600 1.25rem/1.1 "Cormorant Garamond",serif;color:var(--cream);}
+.rank-item .freq{color:var(--muted);font-size:.78rem;font-family:"IBM Plex Mono",monospace;}
+.rank-item p{margin:7px 0 0;color:var(--muted);font-size:.92rem;max-width:60ch;}
+.hc-row{display:flex;gap:4px;margin:9px 0 2px;flex-wrap:wrap;}
+.hc{width:30px;height:42px;border-radius:5px;background:var(--card-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;box-shadow:0 1px 3px oklch(0.1 0.02 158 / .4);}
+.hc .r{font-size:.85rem;line-height:1;} .hc .s{font-size:.72rem;line-height:1;}
+.hc.red{color:var(--card-red);} .hc.black{color:var(--card-black);}

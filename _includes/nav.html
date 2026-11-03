@@ -2,7 +2,8 @@
 <nav class="nav">
   <div class="container">
     <a class="logo" href="{{ t.home_url }}"><img src="/assets/img/icon-512.png" alt="">PokerPerf</a>
-    <div class="links">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span aria-hidden="true">☰</span></button>
+    <div class="links" id="nav-links">
       <a href="{{ t.home_url }}#piliers">{{ t.nav_train }}</a>
       <a href="{{ t.home_url }}#methode">{{ t.nav_method }}</a>
       <a href="{{ t.home_url }}#faq">{{ t.nav_faq }}</a>
@@ -11,6 +12,7 @@
         <div class="menu" role="menu">
           <a role="menuitem" href="{{ t.calc_url }}">{{ t.nav_calc_equity }}</a>
           <a role="menuitem" href="{{ t.potodds_url }}">{{ t.nav_calc_potodds }}</a>
+          <a role="menuitem" href="{{ t.rankings_url }}">{{ t.nav_calc_rankings }}</a>
         </div>
       </div>
     </div>
@@ -20,3 +22,7 @@
     <a class="btn nav-cta" href="{{ t.play_url }}">{{ t.nav_download }}</a>
   </div>
 </nav>
+<script>
+(function(){var t=document.querySelector('.nav-toggle'),l=document.getElementById('nav-links');
+if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o);});}})();
+</script>
