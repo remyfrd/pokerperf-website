@@ -66,6 +66,7 @@ section{padding:56px 0;}
 .cmp th:first-child,.cmp td:first-child{color:var(--cream);}
 .cmp .yes{color:oklch(0.82 0.13 150);font-weight:700;} .cmp .no{color:var(--muted);} .cmp .pp{color:var(--gold);font-weight:700;}
 .cmp thead th{text-align:center;} .cmp td{text-align:center;} .cmp td:first-child,.cmp th:first-child{text-align:left;}
+.cmp tbody th{text-align:left;color:var(--cream);font:inherit;font-weight:600;text-transform:none;letter-spacing:normal;}
 
 /* author */
 .author{background:var(--panel);border:1px solid var(--gold-hair);border-radius:16px;padding:30px 34px;max-width:820px;margin:0 auto;}

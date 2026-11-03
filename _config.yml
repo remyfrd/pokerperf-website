@@ -5,6 +5,9 @@ url: "https://pokerperf.com"
 lang: fr
 encoding: utf-8
 
+plugins:
+  - jekyll-sitemap
+
 # GitHub Pages sert ce repo via Jekyll.
 # Les pages SANS front matter (index.html, privacy.html, terms.html, support.html…)
 # sont copiées VERBATIM — elles ne sont pas affectées par cette config.

@@ -33,7 +33,7 @@ x_default: "https://pokerperf.com/"
     </div>
 
     <div class="phone">
-      <img class="shot" src="/assets/img/spot_en.png" alt="PokerPerf app preview: a spot to decide (Call, Fold or 'I don't know')" loading="lazy">
+      <img class="shot" src="/assets/img/spot_en.png" alt="PokerPerf app preview: a spot to decide (Call, Fold or 'I don't know')" width="1116" height="2484" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -69,14 +69,14 @@ x_default: "https://pokerperf.com/"
     <h2>Not just another range viewer</h2>
     <div class="cmp" style="margin-top:16px;">
       <table>
-        <thead><tr><th></th><th class="pp">PokerPerf</th><th>Memorizing ranges</th><th>Raw solver</th></tr></thead>
+        <thead><tr><th scope="col"><span class="sr-only">Criterion</span></th><th class="pp" scope="col">PokerPerf</th><th scope="col">Memorizing ranges</th><th scope="col">Raw solver</th></tr></thead>
         <tbody>
-          <tr><td>Real spots to decide</td><td class="yes">✓</td><td class="no">✗</td><td class="no">~</td></tr>
-          <tr><td>Explains the "why"</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
-          <tr><td>Spaced repetition (reflex)</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
-          <tr><td>Accessibility (WCAG)</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
-          <tr><td>Real money</td><td class="yes">Never</td><td class="no">—</td><td class="no">—</td></tr>
-          <tr><td>To get started</td><td class="pp">Free</td><td>Varies</td><td>Paid</td></tr>
+          <tr><th scope="row">Real spots to decide</th><td class="yes">✓</td><td class="no">✗</td><td class="no">~</td></tr>
+          <tr><th scope="row">Explains the "why"</th><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+          <tr><th scope="row">Spaced repetition (reflex)</th><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+          <tr><th scope="row">Accessibility (WCAG)</th><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+          <tr><th scope="row">Real money</th><td class="yes">Never</td><td class="no">—</td><td class="no">—</td></tr>
+          <tr><th scope="row">To get started</th><td class="pp">Free</td><td>Varies</td><td>Paid</td></tr>
         </tbody>
       </table>
     </div>
@@ -126,6 +126,9 @@ x_default: "https://pokerperf.com/"
   </div>
 </section>
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PokerPerf","operatingSystem":"Android","applicationCategory":"GameApplication","url":"https://pokerperf.com/en/","downloadUrl":"https://play.google.com/store/apps/details?id=com.pokerperf.app","description":"Poker decision trainer: make the right calls (equity, outs, ranges) until they're reflex, 10 minutes a day.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://pokerperf.com/#org"}}
+</script>
 <script>
   var f = document.getElementById('notify');
   if (f) f.addEventListener('submit', function (e) {

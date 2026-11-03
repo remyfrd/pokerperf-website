@@ -33,7 +33,7 @@ x_default: "https://pokerperf.com/"
     </div>
 
     <div class="phone">
-      <img class="shot" src="/assets/img/spot_fr.png" alt="Aperçu de l'app PokerPerf : un spot à trancher (Suivre, Passer ou « je ne sais pas »)" loading="lazy">
+      <img class="shot" src="/assets/img/spot_fr.png" alt="Aperçu de l'app PokerPerf : un spot à trancher (Suivre, Passer ou « je ne sais pas »)" width="1116" height="2484" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -69,14 +69,14 @@ x_default: "https://pokerperf.com/"
     <h2>Pas un énième visualiseur de ranges</h2>
     <div class="cmp" style="margin-top:16px;">
       <table>
-        <thead><tr><th></th><th class="pp">PokerPerf</th><th>Mémoriser des ranges</th><th>Solveur brut</th></tr></thead>
+        <thead><tr><th scope="col"><span class="sr-only">Critère</span></th><th class="pp" scope="col">PokerPerf</th><th scope="col">Mémoriser des ranges</th><th scope="col">Solveur brut</th></tr></thead>
         <tbody>
-          <tr><td>Vrais spots à trancher</td><td class="yes">✓</td><td class="no">✗</td><td class="no">~</td></tr>
-          <tr><td>Explication du « pourquoi »</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
-          <tr><td>Répétition espacée (réflexe)</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
-          <tr><td>Accessibilité (RGAA)</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
-          <tr><td>Argent réel</td><td class="yes">Jamais</td><td class="no">—</td><td class="no">—</td></tr>
-          <tr><td>Pour commencer</td><td class="pp">Gratuit</td><td>Variable</td><td>Payant</td></tr>
+          <tr><th scope="row">Vrais spots à trancher</th><td class="yes">✓</td><td class="no">✗</td><td class="no">~</td></tr>
+          <tr><th scope="row">Explication du « pourquoi »</th><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+          <tr><th scope="row">Répétition espacée (réflexe)</th><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+          <tr><th scope="row">Accessibilité (RGAA)</th><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+          <tr><th scope="row">Argent réel</th><td class="yes">Jamais</td><td class="no">—</td><td class="no">—</td></tr>
+          <tr><th scope="row">Pour commencer</th><td class="pp">Gratuit</td><td>Variable</td><td>Payant</td></tr>
         </tbody>
       </table>
     </div>
@@ -126,6 +126,9 @@ x_default: "https://pokerperf.com/"
   </div>
 </section>
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PokerPerf","operatingSystem":"Android","applicationCategory":"GameApplication","url":"https://pokerperf.com/","downloadUrl":"https://play.google.com/store/apps/details?id=com.pokerperf.app","description":"App d'entraînement au poker : prends les bonnes décisions (équité, outs, ranges) jusqu'au réflexe, 10 min/jour.","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"publisher":{"@id":"https://pokerperf.com/#org"}}
+</script>
 <script>
   var f = document.getElementById('notify');
   if (f) f.addEventListener('submit', function (e) {

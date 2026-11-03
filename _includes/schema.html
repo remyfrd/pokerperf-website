@@ -1,0 +1,23 @@
+{%- comment -%} Données structurées sitewide : Organization + WebSite. {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pokerperf.com/#org",
+      "name": "PokerPerf",
+      "url": "https://pokerperf.com/",
+      "logo": "https://pokerperf.com/assets/img/icon-512.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pokerperf.com/#website",
+      "name": "PokerPerf",
+      "url": "https://pokerperf.com/",
+      "publisher": { "@id": "https://pokerperf.com/#org" },
+      "inLanguage": ["fr", "en"]
+    }
+  ]
+}
+</script>
