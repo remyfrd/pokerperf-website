@@ -1,0 +1,52 @@
+---
+layout: default
+lang: en
+title: "Pot Odds Calculator — should I call? (free)"
+description: "Calculate your pot odds and the required equity to call: enter the pot and the bet, get the call-or-fold verdict (with EV). Compare to your equity or your outs. Free, no sign-up."
+permalink: /en/pot-odds-calculator/
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/cote-du-pot/" }
+  - { lang: "en", href: "https://pokerperf.com/en/pot-odds-calculator/" }
+x_default: "https://pokerperf.com/en/pot-odds-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Pot Odds Calculator</h1>
+  <p class="lead">Enter the <strong>pot</strong> and the <strong>bet to call</strong>: you get your <strong>pot odds</strong> and the <strong>required equity</strong> for a call to be profitable. Add your equity (or your outs) and the calculator decides: <strong>call or fold</strong>, with the EV. Free, no sign-up.</p>
+
+  <div id="pot-odds" data-lang="en"></div>
+
+  <h2>What are pot odds?</h2>
+  <p><strong>Pot odds</strong> compare what you can win to what the call costs. They translate into a <strong>required equity</strong>: the minimum share of the time you must win the hand for a call to be profitable. The rule: <strong>you call when your equity beats the required equity</strong>.</p>
+
+  <h2>How to calculate them</h2>
+  <p>Required equity = bet to call ÷ (pot + bet + bet). Example: a $100 pot, a $50 bet → 50&nbsp;/&nbsp;(100&nbsp;+&nbsp;50&nbsp;+&nbsp;50)&nbsp;=&nbsp;<strong>25%</strong>. You just need your actual equity to beat that threshold.</p>
+
+  <div class="tip">
+    <p style="margin:0"><strong>From outs to decision.</strong> Not sure of your equity? Count your outs and use the <strong>rule of 4 and 2</strong> (×4 on the flop, ×2 for a single card). A flush draw = 9 outs ≈ 36% on the flop: above 25%, you call. The calculator does it for you via the "my outs" option.</p>
+  </div>
+
+  <div class="appcta">
+    <h2>Decide fast, at the table</h2>
+    <p>Here you compute at your own pace; in play you must decide in seconds. <strong>PokerPerf</strong> trains that reflex — pot odds, equity and outs — until it's automatic, 10 min a day.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Discover PokerPerf</a>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <details><summary>How do I calculate pot odds?</summary><p>Divide the bet to call by the final pot (pot + the bet + your call): the result is the minimum equity required for a call to be profitable.</p></details>
+  <details><summary>What equity do I need to call a flush draw?</summary><p>A flush draw is worth about 36% on the flop (9 outs, rule of 4). You call whenever the required equity is below that.</p></details>
+  <details><summary>Pot odds vs equity — what's the difference?</summary><p>Equity is your chance of winning the hand; pot odds set the threshold to beat. You call when your equity beats your pot odds.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/poker-odds-calculator/">Equity calculator</a> · <a href="/en/">the PokerPerf app</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How do I calculate pot odds?","acceptedAnswer":{"@type":"Answer","text":"Divide the bet to call by the final pot (pot + the bet + your call): the result is the minimum equity required for a call to be profitable."}},
+    {"@type":"Question","name":"What equity do I need to call a flush draw?","acceptedAnswer":{"@type":"Answer","text":"A flush draw is worth about 36% on the flop (9 outs, rule of 4). You call whenever the required equity is below that."}},
+    {"@type":"Question","name":"Pot odds vs equity, what is the difference?","acceptedAnswer":{"@type":"Answer","text":"Equity is your chance of winning the hand; pot odds set the threshold to beat. You call when your equity beats your pot odds."}}
+  ]
+}
+</script>
+<script src="/assets/js/pot-odds.js" defer></script>

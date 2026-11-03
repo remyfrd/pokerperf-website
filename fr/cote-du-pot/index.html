@@ -1,0 +1,52 @@
+---
+layout: default
+lang: fr
+title: "Calculateur de cote du pot (pot odds) — dois-je payer ? (gratuit)"
+description: "Calcule ta cote du pot et l'équité requise pour suivre : entre le pot et la mise, obtiens le verdict payer ou coucher (avec l'EV). Compare à ton équité ou à tes outs. Gratuit, sans inscription."
+permalink: /fr/cote-du-pot/
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/cote-du-pot/" }
+  - { lang: "en", href: "https://pokerperf.com/en/pot-odds-calculator/" }
+x_default: "https://pokerperf.com/en/pot-odds-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculateur de cote du pot</h1>
+  <p class="lead">Entre le <strong>pot</strong> et la <strong>mise à suivre</strong> : tu obtiens ta <strong>cote du pot</strong> et l'<strong>équité requise</strong> pour que payer soit rentable. Donne ton équité (ou tes outs) et le calculateur tranche&nbsp;: <strong>payer ou coucher</strong>, avec l'EV. Gratuit, sans inscription.</p>
+
+  <div id="pot-odds" data-lang="fr"></div>
+
+  <h2>Qu'est-ce que la cote du pot&nbsp;?</h2>
+  <p>La <strong>cote du pot</strong> (pot odds) compare ce que tu peux gagner à ce que coûte le call. Elle se traduit en une <strong>équité requise</strong>&nbsp;: le pourcentage minimum de fois où tu dois gagner le coup pour que suivre soit rentable. La règle&nbsp;: <strong>tu paies si ton équité dépasse l'équité requise</strong>.</p>
+
+  <h2>Comment la calculer&nbsp;?</h2>
+  <p>Équité requise = mise à suivre ÷ (pot + mise + mise). Exemple&nbsp;: pot de 100&nbsp;€, mise de 50&nbsp;€ → 50&nbsp;/&nbsp;(100&nbsp;+&nbsp;50&nbsp;+&nbsp;50)&nbsp;=&nbsp;<strong>25&nbsp;%</strong>. Il te suffit alors de battre ce seuil avec ton équité réelle.</p>
+
+  <div class="tip">
+    <p style="margin:0"><strong>De tes outs à la décision.</strong> Pas sûr de ton équité&nbsp;? Compte tes outs et utilise la <strong>règle du 4 et 2</strong> (×4 au flop, ×2 pour une seule carte). Un tirage couleur = 9 outs ≈ 36&nbsp;% au flop&nbsp;: au-dessus de 25&nbsp;%, tu paies. Le calculateur le fait pour toi via l'option « mes outs ».</p>
+  </div>
+
+  <div class="appcta">
+    <h2>Décider vite, à la table</h2>
+    <p>Ici tu calcules tranquillement&nbsp;; en jeu, il faut trancher en quelques secondes. <strong>PokerPerf</strong> entraîne ce réflexe — cote du pot, équité et outs — jusqu'à l'automatisme, 10&nbsp;min/jour.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Découvrir PokerPerf</a>
+  </div>
+
+  <h2>Questions fréquentes</h2>
+  <details><summary>Comment calculer la cote du pot&nbsp;?</summary><p>Divise la mise à suivre par le pot final (pot + la mise + ton call). Le résultat est l'équité minimale requise pour que suivre soit rentable.</p></details>
+  <details><summary>Quelle équité pour payer un tirage couleur&nbsp;?</summary><p>Un tirage couleur vaut ≈ 36&nbsp;% au flop (9 outs, règle du 4). Tu paies dès que l'équité requise par la cote du pot est inférieure à ce chiffre.</p></details>
+  <details><summary>Cote du pot ou équité, quelle différence&nbsp;?</summary><p>L'équité, ce sont tes chances de gagner le coup&nbsp;; la cote du pot fixe le seuil à dépasser. Tu paies quand la première dépasse la seconde.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/calculateur-equite/">Calculateur d'équité</a> · <a href="/">l'app PokerPerf</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Comment calculer la cote du pot ?","acceptedAnswer":{"@type":"Answer","text":"Divise la mise à suivre par le pot final (pot + la mise + ton call) : le résultat est l'équité minimale requise pour que suivre soit rentable."}},
+    {"@type":"Question","name":"Quelle équité pour payer un tirage couleur ?","acceptedAnswer":{"@type":"Answer","text":"Un tirage couleur vaut environ 36 % au flop (9 outs, règle du 4). Tu paies dès que l'équité requise est inférieure à ce chiffre."}},
+    {"@type":"Question","name":"Cote du pot ou équité, quelle différence ?","acceptedAnswer":{"@type":"Answer","text":"L'équité correspond à tes chances de gagner le coup ; la cote du pot fixe le seuil à dépasser. Tu paies quand ton équité dépasse la cote du pot."}}
+  ]
+}
+</script>
+<script src="/assets/js/pot-odds.js" defer></script>
