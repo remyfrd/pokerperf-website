@@ -1,0 +1,12 @@
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.fr -%}
+{%- assign sfx = "" -%}{%- if page.lang == "en" -%}{%- assign sfx = ".en" -%}{%- endif -%}
+<footer class="site-footer">
+  <div class="container">
+    <span>PokerPerf · 2026</span>
+    <span class="sep">·</span><a href="/privacy{{ sfx }}.html">{{ t.footer_privacy }}</a>
+    <span class="sep">·</span><a href="/terms{{ sfx }}.html">{{ t.footer_terms }}</a>
+    <span class="sep">·</span><a href="/support{{ sfx }}.html">{{ t.footer_support }}</a>
+    <span class="sep">·</span><a href="{{ t.calc_url }}">{{ t.footer_calc }}</a>
+    <span style="margin-left:auto;">{{ t.footer_made }}</span>
+  </div>
+</footer>

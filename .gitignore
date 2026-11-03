@@ -1,7 +1,10 @@
+.DS_Store
+.Gemfile.hold
+.bundle
 .idea
-_site
 .jekyll-cache
 .jekyll-metadata
-.bundle
-vendor
 Gemfile.lock
+_site
+node_modules
+vendor

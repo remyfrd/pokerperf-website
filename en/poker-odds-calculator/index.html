@@ -1,0 +1,75 @@
+---
+layout: default
+lang: en
+title: "Poker Odds & Equity Calculator — pot odds & outs (free)"
+description: "Free poker odds & equity calculator (Texas Hold'em): your hand against one or more hands, at every street. Count your outs, compare to the pot odds. Instant, no sign-up."
+permalink: /en/poker-odds-calculator/
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-equite/" }
+  - { lang: "en", href: "https://pokerperf.com/en/poker-odds-calculator/" }
+x_default: "https://pokerperf.com/en/poker-odds-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Poker Odds &amp; Equity Calculator</h1>
+  <p class="lead">Pick your hand, your opponents' hands (or a "random hand") and the board: you get your <strong>equity</strong> — your expected share of the pot — and your odds at every street. Perfect for comparing your equity to the <strong>pot odds</strong> and knowing whether a call is profitable. Texas Hold'em, free, no sign-up.</p>
+
+  <div id="equity-calculator" data-lang="en"></div>
+
+  <h2>What is equity in poker?</h2>
+  <p>Your <strong>equity</strong> is the percentage of the pot you'd win <em>on average</em> if the hand went to showdown, given the known cards. 50% is a coin flip; 80% means you're a big favorite. It's the basis of almost every decision: whether to call, bet or fold depends on your equity versus what the hand costs you.</p>
+
+  <h2>Equity vs pot odds: should I call?</h2>
+  <p>Your <strong>pot odds</strong> tell you the minimum equity that justifies a call. The rule: <strong>you call when your equity beats your pot odds</strong>.</p>
+  <div class="tip">
+    <p style="margin:0"><strong>Example.</strong> There's $100 in the pot and your opponent bets $50. You can win $150 by paying $50, so your pot odds = 50&nbsp;/&nbsp;(150&nbsp;+&nbsp;50)&nbsp;=&nbsp;<strong>25%</strong>. With a flush draw (≈&nbsp;35% equity), you're above the threshold: <strong>calling is profitable</strong>.</p>
+  </div>
+
+  <h2>Counting outs: the rule of 4 and 2</h2>
+  <p>An <strong>out</strong> is a card that improves your hand. To estimate your chance of hitting without a calculator: multiply your outs by <strong>4</strong> after the flop (two cards to come), or by <strong>2</strong> for a single card. It's an approximation; the calculator above gives the exact figure.</p>
+  <table>
+    <thead><tr><th>Draw</th><th>Outs</th><th>Flop → river (×4)</th><th>1 card (×2)</th></tr></thead>
+    <tbody>
+      <tr><td>Flush draw</td><td>9</td><td>≈ 35%</td><td>≈ 19%</td></tr>
+      <tr><td>Open-ended straight</td><td>8</td><td>≈ 32%</td><td>≈ 17%</td></tr>
+      <tr><td>Two overcards</td><td>6</td><td>≈ 24%</td><td>≈ 13%</td></tr>
+      <tr><td>Gutshot straight</td><td>4</td><td>≈ 17%</td><td>≈ 9%</td></tr>
+      <tr><td>Flush + open-ended</td><td>15</td><td>≈ 54%</td><td>≈ 33%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="appcta">
+    <h2>From theory to reflex</h2>
+    <p>At the table you don't have a calculator in hand: you need to read your equity, outs and pot odds <strong>in seconds</strong>. That's exactly what <strong>PokerPerf</strong> trains — short drills that turn the math into reflex, 10 minutes a day.</p>
+    <a class="btn" href="/">Discover PokerPerf</a>
+    <!-- TODO: replace / add App Store + Google Play badges when the app is live -->
+    <p class="stores">Poker training app · iOS &amp; Android</p>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <details><summary>How do I calculate my equity in poker?</summary>
+    <p>Enter the hands and the board in the calculator above: it enumerates the cards to come and returns your exact equity from the flop onward. In your head, use the rule of 4 and 2 on your outs for a good approximation.</p></details>
+  <details><summary>What's the difference between equity and pot odds?</summary>
+    <p>Equity is your chance of winning the hand. Pot odds are the equity threshold a call must clear to be profitable. You call when your equity beats your pot odds.</p></details>
+  <details><summary>Is this equity calculator accurate?</summary>
+    <p>Yes: from the flop it enumerates every card to come (exact calculation). Pre-flop, where combinations are too many, it uses a very precise Monte-Carlo simulation (±0.4%), shown below the result.</p></details>
+  <details><summary>How many outs for a flush draw?</summary>
+    <p>Nine outs (13 cards of the suit minus the 4 already visible), about a 35% chance to complete by the river from the flop.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">See also: <a href="/">PokerPerf, the training app</a>. More tools (pot odds, ICM) coming soon.</p>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How do I calculate my equity in poker?","acceptedAnswer":{"@type":"Answer","text":"Enter the hands and the board in the equity calculator: it enumerates the cards to come and returns your exact equity from the flop onward. In your head, use the rule of 4 and 2 on your outs for a good approximation."}},
+    {"@type":"Question","name":"What is the difference between equity and pot odds?","acceptedAnswer":{"@type":"Answer","text":"Equity is your chance of winning the hand. Pot odds are the equity threshold a call must clear to be profitable: you call when your equity beats your pot odds."}},
+    {"@type":"Question","name":"Is this equity calculator accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes: from the flop it enumerates every card to come (exact). Pre-flop it uses a very precise Monte-Carlo simulation (±0.4%), shown below the result."}},
+    {"@type":"Question","name":"How many outs for a flush draw?","acceptedAnswer":{"@type":"Answer","text":"Nine outs, about a 35% chance to complete by the river from the flop."}}
+  ]
+}
+</script>
+
+<script src="/assets/js/equity-calculator.js" defer></script>

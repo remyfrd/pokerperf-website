@@ -1,0 +1,16 @@
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.fr -%}
+<nav class="nav">
+  <div class="container">
+    <a class="logo" href="{{ t.home_url }}"><img src="/assets/img/icon-512.png" alt="">PokerPerf</a>
+    <div class="links">
+      <a href="{{ t.home_url }}#piliers">{{ t.nav_train }}</a>
+      <a href="{{ t.home_url }}#methode">{{ t.nav_method }}</a>
+      <a href="{{ t.home_url }}#faq">{{ t.nav_faq }}</a>
+      <a href="{{ t.calc_url }}">{{ t.nav_calc }}</a>
+    </div>
+    {%- for alt in page.alternates %}{%- unless alt.lang == page.lang %}
+    <a class="lang-switch" href="{{ alt.href | remove: 'https://pokerperf.com' }}" hreflang="{{ alt.lang }}" aria-label="{{ alt.lang | upcase }}">{{ alt.lang | upcase }}</a>
+    {%- endunless %}{%- endfor %}
+    <a class="btn nav-cta" href="{{ t.play_url }}">{{ t.nav_download }}</a>
+  </div>
+</nav>

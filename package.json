@@ -1,0 +1,19 @@
+{
+  "name": "pokerperf-tools",
+  "private": true,
+  "type": "module",
+  "description": "Moteur d'équité + outils JS pour les pages-outils PokerPerf (buildés vers /assets).",
+  "scripts": {
+    "test": "vitest run",
+    "oracle": "tsx src/equity/oracle.ts",
+    "typecheck": "tsc --noEmit",
+    "build:calc": "esbuild src/ui/calculator.ts --bundle --format=iife --minify --target=es2019 --outfile=assets/js/equity-calculator.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "esbuild": "^0.24.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}

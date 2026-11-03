@@ -17,3 +17,9 @@ exclude:
   - vendor
   - .bundle
   - brief-*.md
+  # Chaîne JS (moteur d'équité) — buildée vers /assets, pas servie telle quelle.
+  - src
+  - node_modules
+  - package.json
+  - package-lock.json
+  - tsconfig.json
