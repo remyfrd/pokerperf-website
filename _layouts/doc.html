@@ -1,0 +1,61 @@
+{%- comment -%}
+  Layout pour pages "document" (mentions, guides courts) — repris du design de support.html.
+  Front matter : title, description, lang, alternates (hreflang), lang_switch_href (URL autre langue).
+  Le contenu de la page = le corps du document.
+{%- endcomment -%}
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+{% include head.html %}
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1b1f24; --muted:#5b6470; --line:#e4e7ec;
+    --card:#f7f8fa; --accent:#6b4e2e; --maxw:780px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#14171b; --fg:#e9ecf1; --muted:#a3adba; --line:#2a2f36; --card:#1c2026; --accent:#c8a875; }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.65;font-size:17px;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:40px 22px 80px;}
+  header.doc{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:8px;}
+  h1{font-size:1.9rem;line-height:1.2;margin:0 0 6px;letter-spacing:-0.01em;}
+  h2{font-size:1.25rem;margin:42px 0 12px;padding-top:6px;letter-spacing:-0.01em;}
+  p{color:var(--fg);} a{color:var(--accent);} .muted{color:var(--muted);}
+  .updated{color:var(--muted);font-size:0.92rem;margin:0;}
+  .lead{font-size:1.05rem;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:26px 0;}
+  footer.doc{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:0.92rem;}
+  .back{display:inline-block;margin-bottom:18px;font-size:0.9rem;color:var(--muted);text-decoration:none;}
+  .back:hover{color:var(--accent);} .back::before{content:"← ";}
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;gap:12px;flex-wrap:wrap;}
+  .lang{font-size:0.85rem;display:inline-flex;align-items:center;gap:4px;}
+  .lang a,.lang .current{padding:4px 10px;border-radius:999px;text-decoration:none;line-height:1;}
+  .lang a{color:var(--muted);border:1px solid transparent;}
+  .lang a:hover{color:var(--accent);border-color:var(--line);}
+  .lang .current{color:var(--fg);background:var(--card);border:1px solid var(--line);font-weight:600;}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="/">{{ site.data.i18n[page.lang].back_home }}</a>
+      {%- if page.lang_switch_href %}
+      <nav class="lang" aria-label="{{ site.data.i18n[page.lang].lang_label }}">
+        <span class="current" aria-current="true">{{ site.data.i18n[page.lang].lang_current }}</span>
+        <a href="{{ page.lang_switch_href }}">{{ site.data.i18n[page.lang].lang_other }}</a>
+      </nav>
+      {%- endif %}
+    </div>
+
+    {{ content }}
+
+    <footer class="doc">
+      <p>{{ site.data.site.legal_entity }}</p>
+    </footer>
+  </div>
+</body>
+</html>

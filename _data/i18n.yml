@@ -1,0 +1,14 @@
+# Chaînes d'interface mutualisées (seed — à enrichir au fil des pages).
+# Usage dans un template : {{ site.data.i18n[page.lang].back_home }}
+fr:
+  back_home: "PokerPerf"
+  lang_label: "Langue"
+  lang_current: "Français"
+  lang_other: "English"
+  cta_app: "Télécharger l'app"
+en:
+  back_home: "PokerPerf"
+  lang_label: "Language"
+  lang_current: "English"
+  lang_other: "Français"
+  cta_app: "Get the app"

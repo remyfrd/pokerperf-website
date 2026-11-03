@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+{% include head.html %}
+{%- if page.extra_css %}
+<style>{{ page.extra_css }}</style>
+{%- endif %}
+</head>
+<body>
+{{ content }}
+</body>
+</html>

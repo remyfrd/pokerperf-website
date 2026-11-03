@@ -1,0 +1,28 @@
+{%- comment -%}
+  <head> mutualisée pour les NOUVELLES pages (layouts default/doc).
+  Front matter attendu par page :
+    title, description, lang (fr|en)
+    alternates: [{lang: fr, href: "https://pokerperf.com/fr/..."}, {lang: en, href: "..."}]
+    x_default: "https://pokerperf.com/..."   (optionnel, sinon = version EN)
+    og_image: "https://pokerperf.com/assets/..."   (optionnel)
+{%- endcomment -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title | default: site.title }}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+{%- for alt in page.alternates %}
+<link rel="alternate" hreflang="{{ alt.lang }}" href="{{ alt.href }}">
+{%- endfor %}
+{%- if page.x_default %}
+<link rel="alternate" hreflang="x-default" href="{{ page.x_default }}">
+{%- endif %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:description" content="{{ page.description | default: site.description }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+{%- if page.og_image %}
+<meta property="og:image" content="{{ page.og_image }}">
+{%- endif %}
+<meta name="twitter:card" content="summary_large_image">
+{% include analytics.html %}

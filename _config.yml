@@ -1,0 +1,19 @@
+# PokerPerf — site vitrine + pages-outils SEO (GitHub Pages / Jekyll)
+title: PokerPerf
+description: "PokerPerf — entraîne tes décisions au poker."
+url: "https://pokerperf.com"
+lang: fr
+encoding: utf-8
+
+# GitHub Pages sert ce repo via Jekyll.
+# Les pages SANS front matter (index.html, privacy.html, terms.html, support.html…)
+# sont copiées VERBATIM — elles ne sont pas affectées par cette config.
+# Les nouvelles pages (calculateur, pages SEO) utiliseront les layouts _layouts/.
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - brief-*.md
