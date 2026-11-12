@@ -1,0 +1,60 @@
+---
+layout: default
+lang: en
+title: "Methodology: how our poker numbers are checked"
+description: "How the PokerPerf equity calculator computes and verifies its numbers: exact enumeration, Monte-Carlo precision, three independent cross-checks and stated limits."
+permalink: /en/methodology/
+last_modified_at: 2026-11-12
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/methodologie/" }
+  - { lang: "en", href: "https://pokerperf.com/en/methodology/" }
+x_default: "https://pokerperf.com/en/methodology/"
+---
+<div class="wrap prose">
+  <p class="brand">PokerPerf</p>
+  <h1>Methodology: how our numbers are checked</h1>
+  <p class="lead">A poker calculator is only as good as its numbers. Here is, in plain words, <strong>how our tools compute</strong>, <strong>how we check</strong> they're right, and <strong>what they can't do</strong>.</p>
+
+  <h2>1. How equity is calculated</h2>
+  <p>The <a href="/en/poker-odds-calculator/">equity calculator</a> runs on an engine written for PokerPerf. For every way the remaining cards can fall, it builds each player's <strong>best 5-card hand out of 7</strong>, finds the winner (ties included) and counts.</p>
+  <ul>
+    <li><strong>From the flop: exact.</strong> The engine goes through <em>every</em> card to come — 990 turn + river combinations heads-up on the flop, 44 on the turn. The result has no margin of error.</li>
+    <li><strong>Pre-flop: simulation (Monte-Carlo).</strong> There are more than 1.7 million possible boards, so the calculator deals <strong>30,000 at random</strong>. The margin is about <strong>±0.6 point</strong> (95% confidence interval): "53.1%" reads "between 52.5 and 53.7%".</li>
+    <li><strong>"Random hand"</strong>: always simulated, since the opponent's hand changes with every deal.</li>
+  </ul>
+  <p>Under every result, the calculator shows which mode was used (exact or simulation) and how many cases were examined.</p>
+
+  <h2>2. Three independent checks</h2>
+  <p>An engine that checks itself proves nothing. So we test it against three references that don't share its code:</p>
+  <table>
+    <thead><tr><th scope="col">Check</th><th scope="col">What is verified</th></tr></thead>
+    <tbody>
+      <tr><td><strong>The app's engine</strong></td><td>A set of reference spots, computed by the Python engine used on the PokerPerf app side, is recomputed; both engines must agree.</td></tr>
+      <tr><td><strong>Published equities</strong></td><td>Benchmark matchups every player knows (PokerStove, Equilab): AA vs KK ≈ 82%, AK suited vs QQ ≈ 46%, 22 vs AK ≈ 53%, AA vs a random hand ≈ 85%, 72 offsuit vs a random hand ≈ 35%…</td></tr>
+      <tr><td><strong>A second evaluator</strong></td><td>A hand evaluator written separately, with a different method, must return the same category on <strong>20,000 random 7-card hands</strong> and the same winner on <strong>20,000 showdowns</strong> (kicker tie-breaks included).</td></tr>
+    </tbody>
+  </table>
+  <p>These checks are part of a suite of <strong>21 automated tests</strong> run on every change to the engine, before anything goes live.</p>
+
+  <h2>3. Hand probabilities</h2>
+  <p>The probabilities on our <a href="/en/poker-hand-rankings/">hand rankings</a> page (chance of ending with a flush, a full house…) are <strong>Texas Hold'em</strong> probabilities: your best 7-card hand by the river. We recomputed them with our engine over <strong>4 million simulated hands</strong>, and they match the published reference values (e.g. one pair 43.8%, flush 3.0%, four of a kind 0.17%).</p>
+
+  <h2>4. The other tools</h2>
+  <ul>
+    <li><strong><a href="/en/pot-odds-calculator/">Pot odds</a></strong>: an exact formula — bet to call ÷ (pot + bet + your call). No approximation.</li>
+    <li><strong>Rule of 4 and 2</strong>: a mental-math <em>approximation</em>, presented as such, with the gap to the exact value. The ×4 assumes you will see both cards (opponent all-in).</li>
+    <li><strong><a href="/en/semi-bluff-ev-calculator/">Semi-bluff EV</a></strong>: a deliberately simplified model — one betting round, no raise, equity realised when called. It gives a ballpark to decide, not a to-the-cent value.</li>
+  </ul>
+
+  <h2>5. What our tools don't do</h2>
+  <ul>
+    <li><strong>They don't decide for you.</strong> Equity tells you your chances, not what your opponent will do; pot odds give the threshold, not the implied odds.</li>
+    <li><strong>No range input</strong> yet: the calculator compares specific hands (or a random hand), not a range of hands.</li>
+    <li><strong>No promise of winnings.</strong> Understanding the numbers helps you decide better; it guarantees no result.</li>
+  </ul>
+
+  <h2>Found a mistake?</h2>
+  <p>If a number looks wrong, tell us via the <a href="/support.en.html">Support</a> page: we check it, fix it, and the page's update date changes accordingly.</p>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Updated November 12, 2026 · See also: <a href="/en/poker-odds-calculator/">Equity calculator</a> · <a href="/en/poker-hand-rankings/">Hand rankings</a> · <a href="/en/guides/">Guides</a>.</p>
+</div>

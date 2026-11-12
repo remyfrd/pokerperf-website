@@ -4,6 +4,8 @@ lang: en
 title: "Poker Equity Calculator — win odds for any hand (free)"
 description: "Free poker equity calculator for Texas Hold'em: your hand against one or more hands at every street, exact from the flop. See your odds of winning, count your outs. Instant, no sign-up."
 permalink: /en/poker-odds-calculator/
+webapp: "Poker Equity Calculator"
+last_modified_at: 2026-11-12
 alternates:
   - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-equite/" }
   - { lang: "en", href: "https://pokerperf.com/en/poker-odds-calculator/" }
@@ -20,7 +22,7 @@ x_default: "https://pokerperf.com/en/poker-odds-calculator/"
   <p>Your <strong>equity</strong> is the percentage of the pot you'd win <em>on average</em> if the hand went to showdown, given the known cards. 50% is a coin flip; 80% means you're a big favorite. It's the basis of almost every decision: whether to call, bet or fold depends on your equity versus what the hand costs you.</p>
 
   <h2>How to calculate equity in poker</h2>
-  <p>Equity is a simple count: <strong>out of all the ways the remaining cards can fall, how often does your hand win?</strong> On the flop, the calculator deals out every possible turn and river (about a thousand combinations against a known hand) and counts your wins and ties — that's an exact result. Preflop there are far too many boards, so it simulates tens of thousands of random ones instead (±0.4%).</p>
+  <p>Equity is a simple count: <strong>out of all the ways the remaining cards can fall, how often does your hand win?</strong> On the flop, the calculator deals out every possible turn and river (about a thousand combinations against a known hand) and counts your wins and ties — that's an exact result. Preflop there are far too many boards, so it simulates tens of thousands of random ones instead (±0.6 pt).</p>
   <p>At the table, you estimate it in your head: count your <strong>outs</strong> (cards that improve you) and apply the rule of 4 and 2 below. A few equities worth knowing by heart:</p>
   <table>
     <thead><tr><th>Matchup (preflop)</th><th>Equity</th></tr></thead>
@@ -65,7 +67,7 @@ x_default: "https://pokerperf.com/en/poker-odds-calculator/"
   <details><summary>What's the difference between equity and pot odds?</summary>
     <p>Equity is your chance of winning the hand. Pot odds are the equity threshold a call must clear to be profitable. You call when your equity beats your pot odds.</p></details>
   <details><summary>Is this equity calculator accurate?</summary>
-    <p>Yes: from the flop it enumerates every card to come (exact calculation). Pre-flop, where combinations are too many, it uses a very precise Monte-Carlo simulation (±0.4%), shown below the result.</p></details>
+    <p>Yes: from the flop it enumerates every card to come (exact calculation). Pre-flop, where combinations are too many, it uses a very precise Monte-Carlo simulation (±0.6 pt), shown below the result. Details in our <a href="/en/methodology/">methodology</a>.</p></details>
   <details><summary>How many outs for a flush draw?</summary>
     <p>Nine outs (13 cards of the suit minus the 4 already visible), about a 35% chance to complete by the river from the flop.</p></details>
 
@@ -79,7 +81,7 @@ x_default: "https://pokerperf.com/en/poker-odds-calculator/"
   "mainEntity": [
     {"@type":"Question","name":"How do I calculate my equity in poker?","acceptedAnswer":{"@type":"Answer","text":"Enter the hands and the board in the equity calculator: it enumerates the cards to come and returns your exact equity from the flop onward. In your head, use the rule of 4 and 2 on your outs for a good approximation."}},
     {"@type":"Question","name":"What is the difference between equity and pot odds?","acceptedAnswer":{"@type":"Answer","text":"Equity is your chance of winning the hand. Pot odds are the equity threshold a call must clear to be profitable: you call when your equity beats your pot odds."}},
-    {"@type":"Question","name":"Is this equity calculator accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes: from the flop it enumerates every card to come (exact). Pre-flop it uses a very precise Monte-Carlo simulation (±0.4%), shown below the result."}},
+    {"@type":"Question","name":"Is this equity calculator accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes: from the flop it enumerates every card to come (exact). Pre-flop it uses a very precise Monte-Carlo simulation (±0.6 pt), shown below the result."}},
     {"@type":"Question","name":"How many outs for a flush draw?","acceptedAnswer":{"@type":"Answer","text":"Nine outs, about a 35% chance to complete by the river from the flop."}}
   ]
 }

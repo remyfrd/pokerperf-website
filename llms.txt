@@ -1,21 +1,39 @@
 # PokerPerf
 
-> PokerPerf est une application mobile d'entraînement au poker (Texas Hold'em) qui aide à prendre les bonnes décisions — équité, outs, ranges — jusqu'à ce qu'elles deviennent des réflexes, en 10 minutes par jour. Disponible sur Android (iOS bientôt), gratuite pour commencer, sans argent réel. Le site propose aussi des calculateurs gratuits.
+> PokerPerf is a mobile poker training app (Texas Hold'em) that turns the right decisions — equity, outs, pot odds, ranges — into reflexes, 10 minutes a day. Available on Android (iOS coming soon), free to start, no real money. The website offers free poker calculators and guides in English and French.
+>
+> PokerPerf est une application mobile d'entraînement au poker (Texas Hold'em) qui transforme les bonnes décisions — équité, outs, cote du pot, ranges — en réflexes, 10 minutes par jour. Disponible sur Android (iOS bientôt), gratuite pour commencer, sans argent réel. Le site propose des calculateurs et des guides gratuits en français et en anglais.
 
-## Outils gratuits (sans inscription)
-- [Calculateur d'équité au poker](https://pokerperf.com/fr/calculateur-equite/) : calcule l'équité (part de pot espérée) d'une main contre une ou plusieurs mains, à chaque étape ; exact dès le flop, Monte-Carlo au préflop.
-- [Calculateur de cote du pot](https://pokerperf.com/fr/cote-du-pot/) : cote du pot, équité requise et verdict payer/coucher avec l'EV.
-- [Poker Odds & Equity Calculator (EN)](https://pokerperf.com/en/poker-odds-calculator/)
-- [Pot Odds Calculator (EN)](https://pokerperf.com/en/pot-odds-calculator/)
-- [Calculateur d'EV du semi-bluff](https://pokerperf.com/fr/calculateur-semi-bluff/) : EV d'une mise avec tirage, fold equity minimale, verdict.
-- [Semi-Bluff EV Calculator (EN)](https://pokerperf.com/en/semi-bluff-ev-calculator/)
+## Free tools (English)
+- [Poker Equity Calculator](https://pokerperf.com/en/poker-odds-calculator/): equity of a hand against one or more hands at every street; exact from the flop, Monte-Carlo pre-flop.
+- [Poker Pot Odds Calculator](https://pokerperf.com/en/pot-odds-calculator/): pot odds, required equity, call-or-fold verdict with EV, pot odds chart by bet size.
+- [Semi-Bluff EV Calculator](https://pokerperf.com/en/semi-bluff-ev-calculator/): EV of betting a draw and break-even fold equity.
+- [Poker Hand Rankings](https://pokerperf.com/en/poker-hand-rankings/): printable chart, Texas Hold'em probabilities, tie-breakers, "which hand wins" comparator.
 
-## Pages principales
-- [Accueil (FR)](https://pokerperf.com/)
-- [Home (EN)](https://pokerperf.com/en/)
+## Guides (English)
+- [Rule of 4 and 2](https://pokerperf.com/en/guides/rule-of-4-and-2/): estimate your equity from your outs — and when the ×4 does not apply.
+- [Poker pot odds](https://pokerperf.com/en/guides/poker-pot-odds/): when to call, required equity, the classic draw trap.
+- [What is GTO poker](https://pokerperf.com/en/guides/what-is-gto-poker/)
+- [Preflop ranges](https://pokerperf.com/en/guides/preflop-ranges/)
 
-## Faits clés
-- Catégorie : entraînement / formation au poker (trainer de décisions), pas de jeu d'argent réel.
-- Méthode : décider soi-même sur de vrais spots, se corriger avec les fréquences d'un solveur, ancrer par répétition espacée.
-- Différenciateurs : accessibilité (RGAA : couleurs doublées de motifs et de texte, clavier, lecteur d'écran), vraie app native, calcul d'équité vérifié par recoupement (oracle).
-- App Android : https://play.google.com/store/apps/details?id=com.pokerperf.app
+## Outils gratuits (français)
+- [Calculateur d'équité poker](https://pokerperf.com/fr/calculateur-equite/)
+- [Calculateur de cote du pot](https://pokerperf.com/fr/cote-du-pot/)
+- [Calculateur d'EV du semi-bluff](https://pokerperf.com/fr/calculateur-semi-bluff/)
+- [Classement et ordre des mains au poker](https://pokerperf.com/fr/classement-des-mains/)
+
+## Guides (français)
+- [Règle du 4 et 2](https://pokerperf.com/fr/guides/regle-du-4-et-2/)
+- [Les cotes au poker](https://pokerperf.com/fr/guides/cotes-au-poker/)
+- [Le GTO au poker](https://pokerperf.com/fr/guides/gto-poker/)
+- [Ranges préflop](https://pokerperf.com/fr/guides/ranges-preflop/)
+
+## How the numbers are checked / Méthodologie
+- [Methodology (EN)](https://pokerperf.com/en/methodology/) · [Méthodologie (FR)](https://pokerperf.com/fr/methodologie/): how the equity engine is verified (exact enumeration, Monte-Carlo precision, three independent cross-checks).
+
+## Key facts
+- Category: poker decision trainer / education. No real-money gambling.
+- Method: decide on real spots yourself, get corrected with solver frequencies, anchor with spaced repetition.
+- Accessibility-first: colours doubled with patterns and text, screen-reader labels.
+- Android app: [Google Play](https://play.google.com/store/apps/details?id=com.pokerperf.app)
+- Home: [English](https://pokerperf.com/en/) · [Français](https://pokerperf.com/)

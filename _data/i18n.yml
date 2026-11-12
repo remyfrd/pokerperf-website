@@ -30,6 +30,12 @@ fr:
   art_cta_p: "PokerPerf t'entraîne à décider vite et juste — équité, outs, ranges — 10 minutes par jour."
   guides_title: "Guides poker"
   guides_intro: "Nos guides pour mieux décider au poker : cotes, outs, ranges, GTO — expliqués simplement."
+  og_alt: "PokerPerf — entraîne tes décisions au poker"
+  months: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+  published: "Publié le"
+  updated: "mis à jour le"
+  method_url: "/fr/methodologie/"
+  footer_method: "Méthodologie"
 en:
   nav_train: "Training"
   nav_method: "Method"
@@ -61,3 +67,9 @@ en:
   art_cta_p: "PokerPerf trains you to decide fast and well — equity, outs, ranges — 10 minutes a day."
   guides_title: "Poker guides"
   guides_intro: "Our guides to make better poker decisions: pot odds, outs, ranges, GTO — explained simply."
+  og_alt: "PokerPerf — train your poker decisions"
+  months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  published: "Published"
+  updated: "updated"
+  method_url: "/en/methodology/"
+  footer_method: "Methodology"

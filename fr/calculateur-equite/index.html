@@ -4,6 +4,8 @@ lang: fr
 title: "Calculateur d'équité poker & calculatrice de probabilités"
 description: "Calculateur d'équité et de probabilités au poker (Texas Hold'em) : ta main contre une ou plusieurs mains, à chaque étape. Compte tes outs, compare à la cote du pot. Gratuit, instantané, sans inscription."
 permalink: /fr/calculateur-equite/
+webapp: "Calculateur d'équité poker"
+last_modified_at: 2026-11-12
 alternates:
   - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-equite/" }
   - { lang: "en", href: "https://pokerperf.com/en/poker-odds-calculator/" }
@@ -55,7 +57,7 @@ x_default: "https://pokerperf.com/en/poker-odds-calculator/"
   <details><summary>Quelle est la différence entre équité et cote du pot&nbsp;?</summary>
     <p>L'équité, ce sont tes chances de gagner le coup. La cote du pot est le seuil d'équité à atteindre pour qu'un call soit rentable. Tu paies quand ton équité dépasse ta cote du pot.</p></details>
   <details><summary>Ce calculateur d'équité est-il exact&nbsp;?</summary>
-    <p>Oui&nbsp;: dès le flop, il énumère toutes les cartes à venir (calcul exact). Avant le flop, où les combinaisons sont trop nombreuses, il utilise une simulation Monte-Carlo très précise (±&nbsp;0,4&nbsp;%), indiquée sous le résultat.</p></details>
+    <p>Oui&nbsp;: dès le flop, il énumère toutes les cartes à venir (calcul exact). Avant le flop, où les combinaisons sont trop nombreuses, il utilise une simulation Monte-Carlo très précise (±&nbsp;0,6&nbsp;point), indiquée sous le résultat. Détails dans notre <a href="/fr/methodologie/">méthodologie</a>.</p></details>
   <details><summary>Combien d'outs pour un tirage couleur&nbsp;?</summary>
     <p>Neuf outs (13 cartes de la couleur moins les 4 déjà visibles), soit environ 35&nbsp;% de chances de compléter d'ici la river depuis le flop.</p></details>
 
@@ -69,7 +71,7 @@ x_default: "https://pokerperf.com/en/poker-odds-calculator/"
   "mainEntity": [
     {"@type":"Question","name":"Comment calculer son équité au poker ?","acceptedAnswer":{"@type":"Answer","text":"Saisis les mains et le board dans le calculateur d'équité : il énumère les cartes à venir et renvoie l'équité exacte dès le flop. De tête, utilise la règle du 4 et 2 sur tes outs pour une bonne approximation."}},
     {"@type":"Question","name":"Quelle est la différence entre équité et cote du pot ?","acceptedAnswer":{"@type":"Answer","text":"L'équité correspond à tes chances de gagner le coup. La cote du pot est le seuil d'équité à atteindre pour qu'un call soit rentable : tu paies quand ton équité dépasse ta cote du pot."}},
-    {"@type":"Question","name":"Ce calculateur d'équité est-il exact ?","acceptedAnswer":{"@type":"Answer","text":"Oui : dès le flop il énumère toutes les cartes à venir (calcul exact). Avant le flop, il utilise une simulation Monte-Carlo très précise (±0,4 %), indiquée sous le résultat."}},
+    {"@type":"Question","name":"Ce calculateur d'équité est-il exact ?","acceptedAnswer":{"@type":"Answer","text":"Oui : dès le flop il énumère toutes les cartes à venir (calcul exact). Avant le flop, il utilise une simulation Monte-Carlo très précise (±0,6 point), indiquée sous le résultat."}},
     {"@type":"Question","name":"Combien d'outs pour un tirage couleur ?","acceptedAnswer":{"@type":"Answer","text":"Neuf outs, soit environ 35 % de chances de compléter d'ici la river depuis le flop."}}
   ]
 }

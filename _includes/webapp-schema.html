@@ -1,0 +1,21 @@
+{%- if page.webapp -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": {{ page.webapp | jsonify }},
+  "url": "{{ page.url | absolute_url }}",
+  "description": {{ page.description | jsonify }},
+  "inLanguage": "{{ page.lang }}",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires JavaScript",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "{% if page.lang == 'en' %}USD{% else %}EUR{% endif %}" },
+  "accessibilityFeature": ["ARIA"],
+  "accessibilityHazard": "none",
+  "publisher": { "@id": "https://pokerperf.com/#org" }
+  {%- if page.last_modified_at %}, "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}"{% endif %}
+}
+</script>
+{%- endif -%}

@@ -1,0 +1,60 @@
+---
+layout: default
+lang: fr
+title: "Méthodologie : comment nos calculs de poker sont vérifiés"
+description: "Comment le calculateur d'équité PokerPerf calcule et vérifie ses chiffres : énumération exacte, précision du Monte-Carlo, trois contrôles indépendants et limites assumées."
+permalink: /fr/methodologie/
+last_modified_at: 2026-11-12
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/methodologie/" }
+  - { lang: "en", href: "https://pokerperf.com/en/methodology/" }
+x_default: "https://pokerperf.com/en/methodology/"
+---
+<div class="wrap prose">
+  <p class="brand">PokerPerf</p>
+  <h1>Méthodologie&nbsp;: comment nos chiffres sont vérifiés</h1>
+  <p class="lead">Un calculateur de poker ne vaut que par la justesse de ses chiffres. Voici, sans jargon, <strong>comment nos outils calculent</strong>, <strong>comment on vérifie</strong> qu'ils ne se trompent pas, et <strong>ce qu'ils ne savent pas faire</strong>.</p>
+
+  <h2>1. Comment l'équité est calculée</h2>
+  <p>Le <a href="/fr/calculateur-equite/">calculateur d'équité</a> repose sur un moteur écrit pour PokerPerf. Pour chaque façon dont les cartes restantes peuvent tomber, il compose la <strong>meilleure main de 5 cartes parmi 7</strong> de chaque joueur, désigne le gagnant (égalités comprises) et fait le compte.</p>
+  <ul>
+    <li><strong>Dès le flop&nbsp;: calcul exact.</strong> Le moteur passe en revue <em>toutes</em> les cartes à venir — 990 combinaisons turn + river en tête-à-tête au flop, 44 au turn. Le résultat n'a aucune marge d'erreur.</li>
+    <li><strong>Avant le flop&nbsp;: simulation (Monte-Carlo).</strong> Il y a alors plus de 1,7 million de boards possibles&nbsp;; le calculateur en tire <strong>30&nbsp;000 au hasard</strong>. La marge est d'environ <strong>±&nbsp;0,6&nbsp;point</strong> (intervalle de confiance à 95&nbsp;%)&nbsp;: un « 53,1&nbsp;% » se lit « entre 52,5 et 53,7&nbsp;% ».</li>
+    <li><strong>Main « aléatoire »</strong>&nbsp;: toujours en simulation, puisque la main adverse change à chaque tirage.</li>
+  </ul>
+  <p>Sous chaque résultat, le calculateur indique le mode utilisé (exact ou simulation) et le nombre de cas examinés.</p>
+
+  <h2>2. Trois contrôles indépendants</h2>
+  <p>Un moteur qui se vérifie lui-même ne prouve rien. On le confronte donc à trois références qui ne partagent pas son code&nbsp;:</p>
+  <table>
+    <thead><tr><th scope="col">Contrôle</th><th scope="col">Ce qui est vérifié</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Le moteur de l'app</strong></td><td>Une série de spots de référence, calculés par le moteur Python utilisé côté application PokerPerf, est recalculée&nbsp;; les deux moteurs doivent tomber d'accord.</td></tr>
+      <tr><td><strong>Les équités publiées</strong></td><td>Des confrontations de référence connues de tous les joueurs (PokerStove, Equilab)&nbsp;: AA contre KK ≈ 82&nbsp;%, AK assortis contre QQ ≈ 46&nbsp;%, 22 contre AK ≈ 53&nbsp;%, AA contre une main au hasard ≈ 85&nbsp;%, 72 dépareillé contre une main au hasard ≈ 35&nbsp;%…</td></tr>
+      <tr><td><strong>Un second évaluateur</strong></td><td>Un évaluateur de mains écrit séparément, avec une autre méthode, doit donner la même catégorie sur <strong>20&nbsp;000 mains</strong> de 7 cartes tirées au hasard, et le même gagnant sur <strong>20&nbsp;000 confrontations</strong> (départages par kicker compris).</td></tr>
+    </tbody>
+  </table>
+  <p>Ces vérifications font partie d'une batterie de <strong>21 tests automatiques</strong> relancés à chaque modification du moteur, avant toute mise en ligne.</p>
+
+  <h2>3. Les probabilités des mains</h2>
+  <p>Les probabilités du <a href="/fr/classement-des-mains/">classement des mains</a> (chance de finir avec une couleur, un full…) sont celles du <strong>Texas Hold'em</strong>&nbsp;: la meilleure main sur 7 cartes à la river. On les a recalculées avec notre moteur sur <strong>4 millions de mains</strong> simulées, et elles concordent avec les valeurs de référence publiées (par exemple paire 43,8&nbsp;%, couleur 3,0&nbsp;%, carré 0,17&nbsp;%).</p>
+
+  <h2>4. Les autres outils</h2>
+  <ul>
+    <li><strong><a href="/fr/cote-du-pot/">Cote du pot</a></strong>&nbsp;: une formule exacte — mise à payer ÷ (pot + mise + ton call). Aucune approximation.</li>
+    <li><strong>Règle du 4 et 2</strong>&nbsp;: une <em>approximation</em> de calcul mental, présentée comme telle, avec l'écart à la valeur exacte. Le ×4 suppose que tu verras les deux cartes (adversaire à tapis).</li>
+    <li><strong><a href="/fr/calculateur-semi-bluff/">EV du semi-bluff</a></strong>&nbsp;: un modèle volontairement simplifié — un seul tour de mise, pas de relance, équité réalisée si l'adversaire paie. Il donne un ordre de grandeur pour décider, pas une valeur au centime.</li>
+  </ul>
+
+  <h2>5. Ce que nos outils ne font pas</h2>
+  <ul>
+    <li><strong>Ils ne prennent pas de décision à ta place.</strong> L'équité dit tes chances, pas ce que l'adversaire va faire&nbsp;; la cote du pot dit le seuil, pas les cotes implicites.</li>
+    <li><strong>Pas de ranges en entrée</strong> pour l'instant&nbsp;: le calculateur compare des mains précises (ou une main au hasard), pas une fourchette de mains.</li>
+    <li><strong>Pas de promesse de gains.</strong> Mieux comprendre les chiffres aide à mieux décider&nbsp;; ça ne garantit aucun résultat.</li>
+  </ul>
+
+  <h2>Une erreur&nbsp;?</h2>
+  <p>Si un chiffre te paraît faux, écris-nous via la page <a href="/support.html">Support</a>&nbsp;: on vérifie, on corrige, et la date de mise à jour de la page change en conséquence.</p>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Mise à jour le 12 novembre 2026 · Voir aussi&nbsp;: <a href="/fr/calculateur-equite/">Calculateur d'équité</a> · <a href="/fr/classement-des-mains/">Classement des mains</a> · <a href="/fr/guides/">Guides</a>.</p>
+</div>

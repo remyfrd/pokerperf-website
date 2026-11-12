@@ -7,7 +7,7 @@ layout: default
     <a href="{{ t.home_url }}">{{ t.crumb_home }}</a> › <a href="{{ t.guides_url }}">{{ t.crumb_guides }}</a> › <span>{{ page.headline | default: page.title }}</span>
   </nav>
   <h1>{{ page.headline | default: page.title }}</h1>
-  <p class="art-meta">{% if page.date %}{{ page.date | date: "%d/%m/%Y" }} · {% endif %}{{ t.author }}</p>
+  <p class="art-meta">{% if page.date %}{{ t.published }} <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{% include date.html d=page.date %}</time>{% if page.last_modified_at and page.last_modified_at != page.date %}, {{ t.updated }} <time datetime="{{ page.last_modified_at | date: '%Y-%m-%d' }}">{% include date.html d=page.last_modified_at %}</time>{% endif %} · {% endif %}{{ t.author }} · <a href="{{ t.method_url }}">{{ t.footer_method }}</a></p>
 
   {%- if page.illus %}
   <figure class="guide-hero">

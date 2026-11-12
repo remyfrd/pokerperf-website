@@ -1,0 +1,3 @@
+{%- assign _t = site.data.i18n[page.lang] | default: site.data.i18n.fr -%}
+{%- assign _m = include.d | date: "%-m" | minus: 1 -%}
+{%- if page.lang == "en" -%}{{ _t.months[_m] }} {{ include.d | date: "%-d, %Y" }}{%- else -%}{{ include.d | date: "%-d" }} {{ _t.months[_m] }} {{ include.d | date: "%Y" }}{%- endif -%}
