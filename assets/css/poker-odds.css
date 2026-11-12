@@ -1,0 +1,10 @@
+/* Pages probabilités + maths du poker : tableaux chiffrés larges. */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0;}
+.table-scroll table{margin:0;min-width:520px;}
+.table-scroll:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+table.num td{font-variant-numeric:tabular-nums;white-space:nowrap;}
+table.num td:first-child{white-space:normal;}
+.table-note{color:var(--muted);font-size:.88rem;margin-top:-4px;}
+.table-scroll.toc table{min-width:0;}
+.table-scroll.toc th,.table-scroll.toc td{white-space:normal;}
+@media(max-width:480px){.table-scroll.toc td:first-child,.table-scroll.toc thead th:first-child{display:none;}}

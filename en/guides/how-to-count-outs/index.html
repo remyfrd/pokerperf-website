@@ -1,0 +1,109 @@
+---
+layout: article
+lang: en
+title: "How to Count Outs in Poker: Outs Chart, Clean Outs & %"
+headline: "How to count outs in poker: the chart and the traps"
+description: "Poker outs explained: how many per draw (flush 9, open-ender 8, gutshot 4…), clean vs dirty outs, combo draws, and the exact conversion to percentages."
+permalink: /en/guides/how-to-count-outs/
+date: 2026-11-12
+last_modified_at: 2026-11-12
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/compter-ses-outs/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/how-to-count-outs/" }
+x_default: "https://pokerperf.com/en/guides/how-to-count-outs/"
+---
+<p class="lead">Your <strong>outs</strong> are the cards that put you ahead. Counting them right is the foundation of every decision with a draw: one out too many and you make losing calls, one out missed and you fold profitable hands.</p>
+
+<h2>What is an out?</h2>
+<p>An <strong>out</strong> is a card still in the deck that, if it comes, gives you <strong>the best hand</strong>. Not "a better hand" — a <em>winning</em> one. That's the whole point: a card that completes your draw but gives your opponent an even better hand is not an out.</p>
+<p>To count, start from the cards you can't see: 52 minus your 2 hole cards and the 3 flop cards leaves <strong>47 unknown cards</strong> on the flop, <strong>46</strong> on the turn. Your opponents' cards are among them, but since you don't know what they are, you treat them as unknown — that's the convention behind every odds calculation.</p>
+
+<h2>Poker outs chart by draw</h2>
+<p>The most common draws, with the <strong>exact</strong> probability of hitting. Read both columns carefully: they answer different questions.</p>
+<div class="odds-scroll" role="region" aria-label="Poker outs chart by draw" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Draw</th><th scope="col">Outs</th><th scope="col">1 card (flop → turn)</th><th scope="col">2 cards (flop → river)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Flush draw + open-ended straight draw</th><td>15</td><td>31.9%</td><td>54.1%</td></tr>
+    <tr><th scope="row">Flush draw + gutshot</th><td>12</td><td>25.5%</td><td>45.0%</td></tr>
+    <tr><th scope="row">Flush draw</th><td>9</td><td>19.1%</td><td>35.0%</td></tr>
+    <tr><th scope="row">Open-ended straight draw (or double gutter)</th><td>8</td><td>17.0%</td><td>31.5%</td></tr>
+    <tr><th scope="row">Two overcards (to pair up)</th><td>6</td><td>12.8%</td><td>24.1%</td></tr>
+    <tr><th scope="row">Gutshot straight draw</th><td>4</td><td>8.5%</td><td>16.5%</td></tr>
+    <tr><th scope="row">Two pair → full house</th><td>4</td><td>8.5%</td><td>16.5%</td></tr>
+    <tr><th scope="row">One overcard</th><td>3</td><td>6.4%</td><td>12.5%</td></tr>
+    <tr><th scope="row">Pocket pair → set</th><td>2</td><td>4.3%</td><td>8.4%</td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Set → full house or quads</strong> is a special case, because the number of outs changes between streets. With a set (say 7-7 on K-7-2), on the flop you have <strong>7 outs</strong> for the turn (three kings, three deuces, the last seven): 14.9%. If the turn is a blank, there's one more board card to pair: <strong>10 outs</strong> for the river, 21.7%.</p>
+
+<div class="tip"><strong>One card or two?</strong> The "2 cards" column only applies when you're <em>sure</em> to see both the turn and the river — typically when your opponent is all-in. Facing a bet with more betting to come, your call only buys <strong>one</strong> card: the "1 card" column is the one to compare with the price.</div>
+
+<h2>Clean outs vs dirty outs</h2>
+<p>The chart assumes every out gives you the winning hand. In real hands, some outs are <strong>dirty</strong>: they complete your draw… and improve your opponent too. The spots to recognize:</p>
+
+<h3>The card that pairs the board</h3>
+<p>You hold A♥5♥ on K♠7♥2♥ and your opponent has a set of sevens. All nine hearts look good, but the <strong>K♥</strong> pairs the board and gives him a full house (7-7-7-K-K). You're down to <strong>8 clean outs</strong>. And even after a heart on the turn, the set still has outs to fill up on the river.</p>
+
+<h3>The card that gives them a flush</h3>
+<p>You hold J♣T♦ on Q♥9♥3♠: an open-ender, 8 outs (the eights and kings). If your opponent is on a flush draw, the <strong>8♥</strong> and <strong>K♥</strong> make your straight but give him a flush. Against him you only have <strong>6 clean outs</strong>.</p>
+
+<h3>Overcards that give them two pair</h3>
+<p>You hold A♠K♦ on J♣7♥2♠ against K♣J♦. You think you have 6 outs (three aces, three kings). But a king gives him <strong>two pair</strong>: your kings are dead. Only the <strong>3 aces</strong> are left. Overcards are the most overrated outs: against a pair with a good kicker, rarely count them in full.</p>
+
+<h3>Dominated draws and drawing dead</h3>
+<p>Your 7♥6♥ is on a flush draw on K♥9♥2♣ and your opponent holds A♥Q♥: every heart that gives you a flush gives him a higher one. Your "9 flush outs" are worth <strong>zero</strong>. Worse, against a full house that's already made, your flush draw can't win at all: you're <strong>drawing dead</strong>.</p>
+
+<p>Since you can't see your opponent's cards, the practical rule is to <strong>discount</strong>: remove the clearly dirty outs, and count as half the ones that only win part of the time (an overcard when your opponent may have a pair, for instance). That's exactly what the PokerPerf app drills in its outs exercises: spotting dead outs first, then half outs.</p>
+
+<h2>Combo draws: don't double count</h2>
+<p>With a flush draw <em>and</em> an open-ended straight draw, you don't have 9 + 8 = 17 outs. Two of the 8 straight cards are also of your suit and are already counted in the 9. The right total: <strong>9 + 8 − 2 = 15 outs</strong>.</p>
+<p>Same logic for a flush draw plus a gutshot: 9 + 4 − 1 = <strong>12 outs</strong>. And for a flush draw plus two overcards, 9 + 6 = 15 on paper — but the 6 overcard outs are often dirty (see above), so count 12 or fewer.</p>
+
+<h2>From outs to percentages</h2>
+<p>Once you've counted your outs, translate them into your chance of hitting. The exact formulas:</p>
+<ul>
+  <li><strong>One card on the flop</strong> (the turn): outs ÷ 47.</li>
+  <li><strong>One card on the turn</strong> (the river): outs ÷ 46.</li>
+  <li><strong>Two cards, flop to river</strong>: 1 − [chance of missing both], i.e. <span class="formula" style="display:inline-block;padding:2px 8px;">1 − C(47 − outs, 2) ÷ C(47, 2)</span>, where C(47, 2) = 1,081 possible two-card runouts.</li>
+</ul>
+<p>Example with a flush draw (9 outs): on the turn, 9 ÷ 47 = <strong>19.1%</strong>. From flop to river, C(38, 2) = 703 of the 1,081 runouts contain no heart: 1 − 703 ÷ 1,081 = <strong>35.0%</strong>.</p>
+
+<h3>The shortcut: the rule of 4 and 2</h3>
+<p>At the table, multiply your outs by <strong>2</strong> for one card and by <strong>4</strong> for two cards. Compared with the exact values:</p>
+<div class="odds-scroll" role="region" aria-label="Rule of 4 and 2 compared with exact values" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Outs</th><th scope="col">1 card exact (÷ 47)</th><th scope="col">× 2</th><th scope="col">2 cards exact</th><th scope="col">× 4</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">4</th><td>8.5%</td><td class="approx">8%</td><td>16.5%</td><td class="approx">16%</td></tr>
+    <tr><th scope="row">6</th><td>12.8%</td><td class="approx">12%</td><td>24.1%</td><td class="approx">24%</td></tr>
+    <tr><th scope="row">8</th><td>17.0%</td><td class="approx">16%</td><td>31.5%</td><td class="approx">32%</td></tr>
+    <tr><th scope="row">9</th><td>19.1%</td><td class="approx">18%</td><td>35.0%</td><td class="approx">36%</td></tr>
+    <tr><th scope="row">12</th><td>25.5%</td><td class="approx">24%</td><td>45.0%</td><td class="approx">48%</td></tr>
+    <tr><th scope="row">15</th><td>31.9%</td><td class="approx">30%</td><td>54.1%</td><td class="approx">60%</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Up to 8–9 outs the approximation is excellent. Beyond that, ×4 clearly overestimates (60% claimed vs 54% real with 15 outs). The details are in our <a href="/en/guides/rule-of-4-and-2/">rule of 4 and 2</a> guide, and every value from 1 to 20 outs is on the <a href="/en/guides/poker-odds-cheat-sheet/">printable poker odds cheat sheet</a>.</p>
+
+<h2>From outs to a decision</h2>
+<p>Your chance of hitting only matters once you compare it with the price of the call: that's <a href="/en/guides/poker-pot-odds/">pot odds</a>. If they fall short, the remaining question is how much you'll win <em>after</em> you hit: <a href="/en/guides/implied-odds/">implied odds</a>. To check a specific spot against real opponent hands, use the <a href="/en/poker-odds-calculator/">poker odds calculator</a>.</p>
+
+<h2>Frequently asked questions</h2>
+<details><summary>How many outs does a flush draw have?</summary><p>Nine: each suit has 13 cards, you see 4 of them (2 in hand, 2 on the board), so 9 are left. That's 19.1% to hit on the turn and 35.0% from flop to river if you see both cards.</p></details>
+<details><summary>What is a dirty out?</summary><p>An out that completes your draw but also gives your opponent a better hand: a flush card that gives them a full house, a straight card that gives them a flush, an overcard that gives them two pair. Remove them from your count, or count them as half when in doubt.</p></details>
+<details><summary>How many outs with a flush draw and a straight draw?</summary><p>Fifteen with an open-ender (9 + 8 − 2, because two straight cards are already counted in the flush) and twelve with a gutshot (9 + 4 − 1).</p></details>
+<details><summary>How do you convert outs to a percentage?</summary><p>For one card: outs ÷ 47 on the flop, outs ÷ 46 on the turn. For two cards: 1 − C(47 − outs, 2) ÷ C(47, 2). In your head, the rule of 4 and 2 is a good approximation up to about 9 outs.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/guides/poker-odds-cheat-sheet/">Poker odds cheat sheet</a> · <a href="/en/guides/implied-odds/">Implied odds</a> · <a href="/en/guides/rule-of-4-and-2/">Rule of 4 and 2</a> · <a href="/en/poker-odds-calculator/">Poker odds calculator</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How many outs does a flush draw have?","acceptedAnswer":{"@type":"Answer","text":"Nine: each suit has 13 cards, you see 4 of them (2 in hand, 2 on the board), so 9 are left. That's 19.1% to hit on the turn and 35.0% from flop to river if you see both cards."}},
+  {"@type":"Question","name":"What is a dirty out?","acceptedAnswer":{"@type":"Answer","text":"An out that completes your draw but also gives your opponent a better hand: a flush card that gives them a full house, a straight card that gives them a flush, an overcard that gives them two pair. Remove them from your count, or count them as half when in doubt."}},
+  {"@type":"Question","name":"How many outs with a flush draw and a straight draw?","acceptedAnswer":{"@type":"Answer","text":"Fifteen with an open-ender (9 + 8 − 2, because two straight cards are already counted in the flush) and twelve with a gutshot (9 + 4 − 1)."}},
+  {"@type":"Question","name":"How do you convert outs to a percentage?","acceptedAnswer":{"@type":"Answer","text":"For one card: outs ÷ 47 on the flop, outs ÷ 46 on the turn. For two cards: 1 − C(47 − outs, 2) ÷ C(47, 2). In your head, the rule of 4 and 2 is a good approximation up to about 9 outs."}}
+]}
+</script>

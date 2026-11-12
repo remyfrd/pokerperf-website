@@ -1,0 +1,87 @@
+---
+layout: article
+lang: fr
+title: "Cotes implicites au poker : formule et exemple chiffré"
+headline: "Les cotes implicites : quand payer sans avoir la cote"
+description: "Cotes implicites au poker : la formule pour savoir combien gagner en plus quand tu touches, un exemple calculé, les cotes inverses et le set mining."
+permalink: /fr/guides/cotes-implicites/
+date: 2026-11-12
+last_modified_at: 2026-11-12
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/cotes-implicites/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/implied-odds/" }
+x_default: "https://pokerperf.com/en/guides/implied-odds/"
+---
+<p class="lead">Ton tirage n'a pas la cote, et pourtant les bons joueurs paient parfois. Ce n'est pas de l'intuition&nbsp;: c'est un calcul. Les <strong>cotes implicites</strong> te disent combien tu dois gagner <em>en plus</em>, quand tu touches, pour que le call devienne rentable.</p>
+
+<h2>Pourquoi payer sans la cote directe&nbsp;?</h2>
+<p>La <a href="/fr/guides/cotes-au-poker/">cote du pot</a> ne regarde que l'argent déjà au milieu. C'est souvent là que tombe <a href="/fr/guides/cotes-au-poker/">le piège classique</a>&nbsp;: face à une mise, avec encore des enchères derrière, ton call ne t'achète qu'<strong>une</strong> carte. Un tirage couleur n'a alors qu'environ 19&nbsp;% de chances de toucher, alors qu'une mise d'une demi-pot exige 25&nbsp;%. En cote directe, tu te couches.</p>
+<p>Mais quand la couleur tombe, le coup n'est pas fini&nbsp;: il reste une rue d'enchères, et ton adversaire peut encore te payer une mise. Cet argent <em>futur</em>, que tu ne gagnes que quand tu touches, c'est ta cote implicite. La question devient&nbsp;: combien faut-il en gagner pour combler l'écart&nbsp;?</p>
+
+<h2>La formule des cotes implicites</h2>
+<p>Appelons&nbsp;:</p>
+<ul>
+  <li><strong>P</strong>&nbsp;: le pot au moment de payer, mise adverse comprise&nbsp;;</li>
+  <li><strong>C</strong>&nbsp;: ce que tu dois payer&nbsp;;</li>
+  <li><strong>e</strong>&nbsp;: tes chances de toucher sur la prochaine carte&nbsp;;</li>
+  <li><strong>X</strong>&nbsp;: ce que tu gagnes <em>en plus</em> aux enchères suivantes quand tu touches.</li>
+</ul>
+<p>Quand tu touches (probabilité e), tu gagnes P + X. Quand tu rates, tu te couches et tu perds C. Le call est à l'équilibre quand les deux s'annulent&nbsp;:</p>
+<p class="formula">e × (P + X) = (1 − e) × C<br>⇔ e × (P + C + X) = C<br>⇔ X = C ÷ e − (P + C)</p>
+<p>Si X est négatif, la cote directe suffit déjà&nbsp;: tu paies sans rien attendre de plus. S'il est positif, c'est le montant minimum que tu dois récupérer <strong>en moyenne</strong> quand ton tirage rentre.</p>
+
+<h2>Exemple chiffré&nbsp;: un tirage couleur au turn</h2>
+<p>Au turn, le pot vaut <strong>100</strong>. Ton adversaire mise <strong>50</strong>. Tu as un tirage couleur&nbsp;: 9 outs sur 46 cartes inconnues, une seule carte à venir.</p>
+<ul>
+  <li>P = 100 + 50 = <strong>150</strong>, C = <strong>50</strong>.</li>
+  <li>Équité requise en cote directe&nbsp;: 50 ÷ (150 + 50) = <strong>25&nbsp;%</strong>.</li>
+  <li>Tes chances de toucher&nbsp;: e = 9 ÷ 46 = <strong>19,6&nbsp;%</strong>. Insuffisant en cote directe.</li>
+  <li>Cote implicite nécessaire&nbsp;: X = 50 ÷ (9/46) − 200 = 255,6 − 200 = <strong>55,6</strong>.</li>
+</ul>
+<p>Autrement dit, quand la couleur tombe, tu dois gagner en moyenne <strong>environ 56 de plus</strong> à la river — l'équivalent d'une mise d'à peu près 28&nbsp;% du pot de 200, payée par l'adversaire. Vérification&nbsp;: 19,6&nbsp;% × (150 + 55,6) ≈ 40,2 gagnés en moyenne, contre 80,4&nbsp;% × 50 ≈ 40,2 perdus. Le call est pile à l'équilibre.</p>
+<p>Si tu juges que l'adversaire paiera <em>au moins</em> ça en moyenne quand tu touches, le call devient rentable. S'il se couche dès que la troisième carte de la couleur apparaît, X vaut zéro et tu dois te coucher.</p>
+
+<div class="tip"><strong>Pourquoi au turn&nbsp;?</strong> Au flop, le même calcul (9 ÷ 47 = 19,1&nbsp;%) donne X ≈ 61. Mais quand tu rates au flop, le coup continue&nbsp;: tu feras face à une nouvelle mise au turn. Le calcul exact devient un arbre de décisions. Au turn, rater = se coucher, et la formule est juste. Et le 35&nbsp;% «&nbsp;flop → river&nbsp;» ne s'applique que si tu es sûr de voir les deux cartes, c'est-à-dire si l'adversaire est à tapis — mais alors il n'y a plus de cotes implicites du tout.</div>
+
+<h2>Quand les cotes implicites sont réelles</h2>
+<p>Le calcul dit combien il te faut. Le jugement, c'est de savoir si cet argent existe vraiment. Elles sont bonnes quand&nbsp;:</p>
+<ul>
+  <li><strong>Les tapis sont profonds</strong>&nbsp;: il reste assez d'argent derrière pour qu'X soit possible. Si l'adversaire n'a plus que 30 devant lui, ton X ne peut pas dépasser 30.</li>
+  <li><strong>Ton tirage est caché</strong>&nbsp;: une quinte ventrale qui rentre sur un board neutre passe mieux qu'une quatrième carte de la même couleur, que tout le monde voit.</li>
+  <li><strong>L'adversaire a une main qu'il ne lâche pas</strong>&nbsp;: top paire, double paire, brelan. C'est lui qui te paiera.</li>
+  <li><strong>Tu touches la meilleure main</strong>&nbsp;: une couleur max, une quinte par le haut.</li>
+</ul>
+
+<h2>Les cotes implicites inverses</h2>
+<p>Le revers&nbsp;: parfois, toucher te coûte de l'argent. Ce sont les <strong>cotes implicites inverses</strong> (<em>reverse implied odds</em>)&nbsp;: quand tu complètes ta main mais restes derrière, c'est toi qui paies aux rues suivantes.</p>
+<ul>
+  <li><strong>La petite couleur</strong>&nbsp;: 7♥6♥ contre une couleur plus haute. Tu touches, tu mises, tu te fais relancer.</li>
+  <li><strong>La quinte par le bas</strong>&nbsp;: tu complètes le bas de la suite alors que l'adversaire a le haut.</li>
+  <li><strong>La surcarte dominée</strong>&nbsp;: tu touches ton as, mais l'adversaire a un as avec un meilleur kicker.</li>
+  <li><strong>Les outs sales</strong>&nbsp;: la carte qui te donne ta couleur appaire le board et lui donne un full. Voir <a href="/fr/guides/compter-ses-outs/">compter ses outs</a>.</li>
+</ul>
+<p>Avec ces mains, X est plus petit que prévu, voire négatif&nbsp;: il faut une cote directe <em>meilleure</em> pour payer.</p>
+
+<h2>Le set mining et la règle des 15 à 20 fois</h2>
+<p>Le cas d'école des cotes implicites&nbsp;: payer préflop avec une petite paire pour toucher un brelan au flop. La probabilité de flopper un brelan ou mieux&nbsp;:</p>
+<p class="formula">1 − C(48, 3) ÷ C(50, 3) = 1 − 17 296 ÷ 19 600 ≈ 11,8&nbsp;%</p>
+<p>Soit environ une fois sur 8,5, ou une cote de <strong>7,5 contre 1</strong>. En ignorant ce qu'il y a déjà dans le pot, la formule donne X = C ÷ 0,118 − C ≈ <strong>7,5 × C</strong>&nbsp;: quand tu touches, tu dois gagner en moyenne 7,5 fois le montant de ton call pour être à l'équilibre.</p>
+<p>La règle souvent citée — <strong>ne set-miner que si les tapis effectifs font 15 à 20 fois le call</strong> — est une marge de sécurité par-dessus ce minimum. Quand tu touches ton brelan, tu ne récupères pas tout le tapis à chaque fois&nbsp;: l'adversaire se couche, ou ton brelan perd contre un brelan supérieur ou un tirage qui rentre. Si tu ne récupères en moyenne qu'environ la moitié du tapis effectif, il te faut un tapis de l'ordre de 2 × 7,5 = <strong>15 fois le call</strong>. D'où la fourchette. C'est un repère, pas une loi&nbsp;: contre un joueur qui ne paie jamais, même 30 fois ne suffit pas.</p>
+
+<h2>Questions fréquentes</h2>
+<details><summary>Qu'est-ce que les cotes implicites au poker&nbsp;?</summary><p>C'est l'argent que tu espères gagner aux enchères suivantes quand ton tirage rentre. Elles permettent de payer un tirage qui n'a pas la cote directe, à condition que l'adversaire puisse et veuille te payer quand tu touches.</p></details>
+<details><summary>Quelle est la formule des cotes implicites&nbsp;?</summary><p>X = C ÷ e − (P + C), où C est le call, e tes chances de toucher sur la prochaine carte et P le pot mise adverse comprise. X est ce que tu dois gagner en plus, en moyenne, quand tu touches. Exemple&nbsp;: pot 100, mise 50, tirage couleur au turn (9/46)&nbsp;: X ≈ 55,6.</p></details>
+<details><summary>D'où vient la règle des 15 à 20 fois pour le set mining&nbsp;?</summary><p>Une petite paire floppe un brelan ou mieux 11,8&nbsp;% du temps, soit une cote de 7,5 contre 1&nbsp;: il faut gagner au moins 7,5 fois le call quand tu touches. Comme tu ne récupères pas tout le tapis à chaque fois, on demande des tapis de 15 à 20 fois le call. C'est une règle empirique, pas un calcul exact.</p></details>
+<details><summary>Que sont les cotes implicites inverses&nbsp;?</summary><p>C'est l'argent que tu perds quand tu complètes ta main mais restes battu&nbsp;: petite couleur contre plus haute, quinte par le bas, as avec un kicker dominé. Elles réduisent la valeur d'un tirage.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/guides/cotes-au-poker/">Cote du pot</a> · <a href="/fr/guides/compter-ses-outs/">Compter ses outs</a> · <a href="/fr/guides/aide-memoire-cotes/">Aide-mémoire des cotes</a> · <a href="/fr/cote-du-pot/">Calculateur de cote du pot</a> · <a href="/fr/calculateur-semi-bluff/">Calculateur de semi-bluff</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Qu'est-ce que les cotes implicites au poker ?","acceptedAnswer":{"@type":"Answer","text":"C'est l'argent que tu espères gagner aux enchères suivantes quand ton tirage rentre. Elles permettent de payer un tirage qui n'a pas la cote directe, à condition que l'adversaire puisse et veuille te payer quand tu touches."}},
+  {"@type":"Question","name":"Quelle est la formule des cotes implicites ?","acceptedAnswer":{"@type":"Answer","text":"X = C ÷ e − (P + C), où C est le call, e tes chances de toucher sur la prochaine carte et P le pot mise adverse comprise. X est ce que tu dois gagner en plus, en moyenne, quand tu touches. Exemple : pot 100, mise 50, tirage couleur au turn (9/46) : X ≈ 55,6."}},
+  {"@type":"Question","name":"D'où vient la règle des 15 à 20 fois pour le set mining ?","acceptedAnswer":{"@type":"Answer","text":"Une petite paire floppe un brelan ou mieux 11,8 % du temps, soit une cote de 7,5 contre 1 : il faut gagner au moins 7,5 fois le call quand tu touches. Comme tu ne récupères pas tout le tapis à chaque fois, on demande des tapis de 15 à 20 fois le call. C'est une règle empirique, pas un calcul exact."}},
+  {"@type":"Question","name":"Que sont les cotes implicites inverses ?","acceptedAnswer":{"@type":"Answer","text":"C'est l'argent que tu perds quand tu complètes ta main mais restes battu : petite couleur contre plus haute, quinte par le bas, as avec un kicker dominé. Elles réduisent la valeur d'un tirage."}}
+]}
+</script>

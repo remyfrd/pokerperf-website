@@ -1,0 +1,184 @@
+---
+layout: article
+lang: en
+title: "Texas Hold'em odds: exact poker probabilities (tables)"
+headline: "Texas Hold'em odds: the exact poker probabilities"
+description: "Odds of being dealt pocket aces, flopping a set or hitting your flush draw: every key Texas Hold'em probability, computed exactly and explained."
+permalink: /en/guides/texas-holdem-odds/
+date: 2026-11-12
+last_modified_at: 2026-11-12
+stylesheets: ["/assets/css/poker-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/probabilites-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/texas-holdem-odds/" }
+x_default: "https://pokerperf.com/en/guides/texas-holdem-odds/"
+---
+<p class="lead">You're dealt a pocket pair <strong>5.88%</strong> of the time (1 in 17), pocket aces <strong>0.45%</strong> of the time (1 in 221), and you flop a set with a pocket pair <strong>11.8%</strong> of the time. Here are all the Texas Hold'em odds that matter, from the deal to the river — and how to actually use them to make better decisions.</p>
+
+<p>Every number on this page is <strong>computed</strong>, not copied from another chart: either with exact combinatorics (counting every possible combination) or by enumerating every possible board. No simulation, no hidden rounding. See our <a href="/en/methodology/">methodology</a> for details.</p>
+
+<h2>Reading odds: percent, "1 in N" and "N to 1"</h2>
+<p>The same chance can be written three ways. Take a pocket pair:</p>
+<ul>
+  <li><strong>as a percentage</strong>: 5.88%;</li>
+  <li><strong>as "1 in N"</strong>: 1 hand in 17 (100 ÷ 5.88);</li>
+  <li><strong>as odds against</strong>: 16 to 1 — 16 hands without a pair for every 1 with.</li>
+</ul>
+<p>"1 in N" is easiest to picture for rare events; "N to 1" is what you compare with <a href="/en/guides/poker-pot-odds/">pot odds</a>. Don't mix them up: odds against are always N − 1.</p>
+
+<h2>Preflop odds: your two hole cards</h2>
+<p>There are <strong>1,326</strong> possible starting hands (every two-card combination from a 52-card deck). Each probability below is the number of matching combos ÷ 1,326.</p>
+<div class="table-scroll" role="region" aria-label="Preflop odds" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Starting hand</th><th scope="col">Combos</th><th scope="col">Probability</th><th scope="col">1 in…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Any pocket pair</th><td>78</td><td>5.88%</td><td>17</td></tr>
+    <tr><th scope="row">A specific pair (e.g. pocket aces)</th><td>6</td><td>0.45%</td><td>221</td></tr>
+    <tr><th scope="row">AA or KK</th><td>12</td><td>0.90%</td><td>110.5</td></tr>
+    <tr><th scope="row">QQ, KK or AA</th><td>18</td><td>1.36%</td><td>74</td></tr>
+    <tr><th scope="row">AK (suited or offsuit)</th><td>16</td><td>1.21%</td><td>83</td></tr>
+    <tr><th scope="row">AK suited</th><td>4</td><td>0.30%</td><td>331.5</td></tr>
+    <tr><th scope="row">At least one ace</th><td>198</td><td>14.9%</td><td>6.7</td></tr>
+    <tr><th scope="row">Any suited hand</th><td>312</td><td>23.5%</td><td>4.25</td></tr>
+    <tr><th scope="row">Suited connectors (54s to AKs)</th><td>40</td><td>3.02%</td><td>33</td></tr>
+  </tbody>
+</table>
+</div>
+<p>The pocket pair math, step by step: there are 13 ranks, and for each one 6 ways to pick two of the four cards (C(4,2) = 6). 13 × 6 = 78 pairs, and 78 ÷ 1,326 = <strong>5.88%</strong>. A specific pair like aces is only 6 combos: 6 ÷ 1,326, or once every 221 hands.</p>
+
+<h3>You have KK: what are the odds someone has AA?</h3>
+<p>It's the classic fear with kings. It's almost never justified:</p>
+<div class="table-scroll" role="region" aria-label="Odds an opponent holds AA when you hold KK" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Opponents</th><th scope="col">At least one has AA</th><th scope="col">1 in…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">1 (heads-up)</th><td>0.49%</td><td>204</td></tr>
+    <tr><th scope="row">5 (6-max table)</th><td>2.4%</td><td>41</td></tr>
+    <tr><th scope="row">8 (full ring)</th><td>3.9%</td><td>26</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">These are odds before any action. When a tight player four-bets, their possible holdings narrow and AA becomes far more likely — that's where reading <a href="/en/guides/preflop-ranges/">ranges</a> comes in.</p>
+
+<h2>Flop odds</h2>
+<p>Once you know your two cards, 50 cards remain and there are <strong>19,600</strong> possible flops. We counted, for each type of hand, how many of those flops produce each result.</p>
+<div class="table-scroll" role="region" aria-label="Flop odds" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">You hold…</th><th scope="col">On the flop you make…</th><th scope="col">Probability</th><th scope="col">1 in…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">A pocket pair</th><td>A set or better</td><td>11.8%</td><td>8.5</td></tr>
+    <tr><th scope="row">A pocket pair</th><td>of which quads</td><td>0.24%</td><td>408</td></tr>
+    <tr><th scope="row">Two unpaired cards (e.g. AK)</th><td>At least a pair with one of your cards</td><td>32.4%</td><td>3.1</td></tr>
+    <tr><th scope="row">Two unpaired cards</th><td>Two pair using both cards</td><td>2.02%</td><td>49.5</td></tr>
+    <tr><th scope="row">Two unpaired cards</th><td>Trips using one of your cards</td><td>1.35%</td><td>74</td></tr>
+    <tr><th scope="row">Two suited cards</th><td>A made flush</td><td>0.84%</td><td>119</td></tr>
+    <tr><th scope="row">Two suited cards</th><td>A flush draw (2 of your suit)</td><td>10.9%</td><td>9.1</td></tr>
+    <tr><th scope="row">Two suited cards</th><td>A backdoor flush draw (1 of your suit)</td><td>41.6%</td><td>2.4</td></tr>
+    <tr><th scope="row">Connectors (e.g. 8-7)</th><td>A made straight</td><td>1.31%</td><td>77</td></tr>
+    <tr><th scope="row">Connectors (e.g. 8-7)</th><td>An 8-out straight draw (open-ended or double gutshot)</td><td>9.7%</td><td>10.3</td></tr>
+    <tr><th scope="row">Connectors (e.g. 8-7)</th><td>A gutshot (4 outs)</td><td>16.8%</td><td>6</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">"With one of your cards": a pair that only appears on the board doesn't count, since everyone shares it. "Set or better" includes full houses (0.73%) and quads.</p>
+<p>Two numbers worth remembering: with a small pocket pair you flop a set only <strong>about 1 time in 8.5</strong>. And with two unpaired cards you miss the flop completely (no pair with your cards) <strong>two times out of three</strong> (67.6%). That's why you shouldn't fall in love with a hand that hasn't connected.</p>
+
+<h2>Hitting your draw on the turn and river</h2>
+<p>After the flop there are <strong>47 unseen cards</strong> (52 minus your 2 and the 3 on the flop); after the turn, 46. For a given number of <a href="/en/guides/how-to-count-outs/">outs</a>, here are your exact odds next to the <a href="/en/guides/rule-of-4-and-2/">rule of 4 and 2</a> estimate:</p>
+<div class="table-scroll" role="region" aria-label="Odds of hitting a draw by number of outs" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Draw</th><th scope="col">Outs</th><th scope="col">Flop → turn (1 card)</th><th scope="col">Turn → river (1 card)</th><th scope="col">Rule of 2</th><th scope="col">Flop → river (2 cards)</th><th scope="col">Rule of 4</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Pocket pair → set</th><td>2</td><td>4.3%</td><td>4.3%</td><td>4%</td><td>8.4%</td><td>8%</td></tr>
+    <tr><th scope="row">Gutshot straight draw</th><td>4</td><td>8.5%</td><td>8.7%</td><td>8%</td><td>16.5%</td><td>16%</td></tr>
+    <tr><th scope="row">Two overcards</th><td>6</td><td>12.8%</td><td>13.0%</td><td>12%</td><td>24.1%</td><td>24%</td></tr>
+    <tr><th scope="row">Open-ended straight draw</th><td>8</td><td>17.0%</td><td>17.4%</td><td>16%</td><td>31.5%</td><td>32%</td></tr>
+    <tr><th scope="row">Flush draw</th><td>9</td><td>19.1%</td><td>19.6%</td><td>18%</td><td>35.0%</td><td>36%</td></tr>
+    <tr><th scope="row">Flush draw + gutshot</th><td>12</td><td>25.5%</td><td>26.1%</td><td>24%</td><td>45.0%</td><td>48%</td></tr>
+    <tr><th scope="row">Flush draw + open-ender</th><td>15</td><td>31.9%</td><td>32.6%</td><td>30%</td><td>54.1%</td><td>60%</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">Exact math: one card = outs ÷ 47 (or ÷ 46 on the turn); two cards = 1 − (chance of missing both). The "two overcards" outs assume a pair is enough to win, which isn't always true.</p>
+<p>What the table shows:</p>
+<ul>
+  <li>The rule of 2 is <strong>slightly conservative</strong> (about one point low).</li>
+  <li>The rule of 4 is accurate up to 8–9 outs, then <strong>overestimates</strong>: 48% vs. 45% real with 12 outs, 60% vs. 54% with 15.</li>
+  <li>The two-card column only applies if you're <strong>guaranteed to see both the turn and the river</strong> — in practice, when your opponent is all-in. Otherwise your call only buys one card: use the one-card column.</li>
+</ul>
+<p>A special case, the <strong>backdoor flush draw</strong> (one card of your suit on the flop): you need your suit on the turn <em>and</em> the river, so 10/47 × 9/46 = <strong>4.2%</strong> (1 in 24).</p>
+
+<h2>Final hand frequencies (7 cards)</h2>
+<p>If you go all the way to the river, your best five-card hand is picked from seven (your 2 hole cards plus the 5 on the board). Across all 133,784,560 seven-card combinations, this is the exact breakdown:</p>
+<div class="table-scroll" role="region" aria-label="Final hand frequencies with 7 cards" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Final hand</th><th scope="col">Probability</th><th scope="col">1 in…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Royal flush</th><td>0.0032%</td><td>30,940</td></tr>
+    <tr><th scope="row">Straight flush (not royal)</th><td>0.0279%</td><td>3,591</td></tr>
+    <tr><th scope="row">Four of a kind</th><td>0.168%</td><td>595</td></tr>
+    <tr><th scope="row">Full house</th><td>2.60%</td><td>38.5</td></tr>
+    <tr><th scope="row">Flush</th><td>3.03%</td><td>33</td></tr>
+    <tr><th scope="row">Straight</th><td>4.62%</td><td>21.6</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>4.83%</td><td>20.7</td></tr>
+    <tr><th scope="row">Two pair</th><td>23.5%</td><td>4.3</td></tr>
+    <tr><th scope="row">One pair</th><td>43.8%</td><td>2.3</td></tr>
+    <tr><th scope="row">High card</th><td>17.4%</td><td>5.7</td></tr>
+  </tbody>
+</table>
+</div>
+<p>The surprise: with seven cards you end up with a pair (43.8%) far more often than with nothing at all (17.4%). These frequencies describe the hand you <em>finish</em> with, not its strength — the order never changes, see the <a href="/en/poker-hand-rankings/">poker hand rankings</a>.</p>
+
+<h2>Classic preflop all-in matchups</h2>
+<p>All-in before the flop, who wins? These equities come from a <strong>full enumeration</strong> of all 1,712,304 possible boards for each matchup (ties count as half a pot).</p>
+<div class="table-scroll" role="region" aria-label="Equities of classic preflop matchups" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Matchup</th><th scope="col">Type</th><th scope="col">Favorite</th><th scope="col">Underdog</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">A♠A♥ vs K♦K♣</th><td>Pair vs lower pair</td><td>81.3%</td><td>18.7%</td></tr>
+    <tr><th scope="row">T♠T♥ vs 8♦8♣</th><td>Pair vs lower pair</td><td>80.9%</td><td>19.1%</td></tr>
+    <tr><th scope="row">A♠A♥ vs 7♦6♦</th><td>Pair vs suited connectors</td><td>77.0%</td><td>23.0%</td></tr>
+    <tr><th scope="row">A♠K♥ vs A♦Q♣</th><td>Dominated hand (kicker)</td><td>74.0%</td><td>26.0%</td></tr>
+    <tr><th scope="row">A♠K♥ vs Q♦J♣</th><td>Two overcards vs two undercards</td><td>64.3%</td><td>35.7%</td></tr>
+    <tr><th scope="row">A♠K♥ vs 8♦7♦</th><td>Overcards vs suited connectors</td><td>58.1%</td><td>41.9%</td></tr>
+    <tr><th scope="row">Q♠Q♥ vs A♦K♣</th><td>Pair vs two overcards</td><td>57.2%</td><td>42.8%</td></tr>
+    <tr><th scope="row">2♠2♥ vs A♦K♣</th><td>Small pair vs two overcards</td><td>53.0%</td><td>47.0%</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">Exact suits shown: with other suits the numbers shift slightly, because each hand's flush chances change.</p>
+<p>Three takeaways:</p>
+<ul>
+  <li><strong>Pair vs. lower pair ≈ 80/20</strong>: the underdog needs to hit a set.</li>
+  <li><strong>Pair vs. two overcards ≈ coin flip</strong>: QQ vs. AK is 57/43, and even 22 is only a 53% favorite. That's the classic "coin flip."</li>
+  <li><strong>Being dominated is expensive</strong>: AQ vs. AK wins only 26%, barely more than 7♦6♦ against AA (23%). Your kicker matters.</li>
+</ul>
+<p>To test other matchups or hands against several opponents, use the <a href="/en/poker-odds-calculator/">poker odds calculator</a>.</p>
+
+<h2>How to use this at the table</h2>
+<p>A probability is only useful if it changes your decision. Three concrete uses:</p>
+<ol>
+  <li><strong>Calling with a draw</strong>: count your outs, turn them into a percentage (rule of 2 for one card, rule of 4 only if your opponent is all-in), then compare with your <a href="/en/pot-odds-calculator/">pot odds</a>. Call when your equity beats the required equity.</li>
+  <li><strong>Playing small pairs</strong>: you flop a set only about 1 time in 8.5. Calling a raise to "set mine" only makes sense when stacks are deep enough to win big when you hit — that's <a href="/en/guides/implied-odds/">implied odds</a>.</li>
+  <li><strong>Keeping perspective</strong>: a pair against two overcards is close to a coin flip. Losing one isn't a mistake, it's variance. Judge the decision, not the result.</li>
+</ol>
+<p>For a specific hand on a specific board, the most reliable tool is the <a href="/en/poker-odds-calculator/">poker odds calculator</a>. And to turn these numbers into reflexes, PokerPerf has you practice them on real game spots, 10 minutes a day.</p>
+
+<h2>FAQ</h2>
+<details><summary>What are the odds of being dealt pocket aces?</summary><p>6 combos out of 1,326, so 0.45%, or 1 hand in 221 (220 to 1 against). The odds of being dealt any pocket pair are 5.88%, or 1 in 17.</p></details>
+<details><summary>What are the odds of flopping a set?</summary><p>With a pocket pair, 11.8% — about 1 time in 8.5. That figure includes the rare full houses and quads. If you miss, you have 2 outs left: 4.3% on the turn, then 4.3% on the river.</p></details>
+<details><summary>What are the odds of hitting a flush draw?</summary><p>With 9 outs, 19.1% on the turn and 19.6% from turn to river. If you see both cards (opponent all-in), 35.0% from flop to river.</p></details>
+<details><summary>Is the rule of 4 and 2 accurate?</summary><p>It's an approximation. It holds up to about 9 outs; beyond that the rule of 4 overestimates — 60% vs. 54.1% real with 15 outs. And ×4 only applies when you're sure to see both the turn and the river.</p></details>
+<details><summary>What is the most common final hand in Texas Hold'em?</summary><p>One pair: 43.8% of seven-card hands. Then two pair (23.5%) and high card (17.4%).</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/guides/poker-math/">Poker math</a> · <a href="/en/guides/poker-odds-cheat-sheet/">Poker odds cheat sheet</a> · <a href="/en/guides/poker-starting-hands/">Starting hands</a> · <a href="/en/poker-odds-calculator/">Poker odds calculator</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What are the odds of being dealt pocket aces?","acceptedAnswer":{"@type":"Answer","text":"6 combos out of 1,326, so 0.45%, or 1 hand in 221 (220 to 1 against). The odds of being dealt any pocket pair are 5.88%, or 1 in 17."}},
+  {"@type":"Question","name":"What are the odds of flopping a set?","acceptedAnswer":{"@type":"Answer","text":"With a pocket pair, 11.8%, about 1 time in 8.5. That figure includes the rare full houses and quads. If you miss, you have 2 outs left: 4.3% on the turn, then 4.3% on the river."}},
+  {"@type":"Question","name":"What are the odds of hitting a flush draw?","acceptedAnswer":{"@type":"Answer","text":"With 9 outs, 19.1% on the turn and 19.6% from turn to river. If you see both cards (opponent all-in), 35.0% from flop to river."}},
+  {"@type":"Question","name":"Is the rule of 4 and 2 accurate?","acceptedAnswer":{"@type":"Answer","text":"It's an approximation. It holds up to about 9 outs; beyond that the rule of 4 overestimates: 60% vs. 54.1% real with 15 outs. And x4 only applies when you're sure to see both the turn and the river."}},
+  {"@type":"Question","name":"What is the most common final hand in Texas Hold'em?","acceptedAnswer":{"@type":"Answer","text":"One pair: 43.8% of seven-card hands. Then two pair (23.5%) and high card (17.4%)."}}
+]}
+</script>

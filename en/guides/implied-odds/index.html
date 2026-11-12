@@ -1,0 +1,87 @@
+---
+layout: article
+lang: en
+title: "Implied Odds in Poker: Formula and Worked Example"
+headline: "Implied odds: when to call without the price"
+description: "Implied odds in poker: the formula for how much more you must win when you hit, a fully worked example, reverse implied odds, and the set mining rule."
+permalink: /en/guides/implied-odds/
+date: 2026-11-12
+last_modified_at: 2026-11-12
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/cotes-implicites/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/implied-odds/" }
+x_default: "https://pokerperf.com/en/guides/implied-odds/"
+---
+<p class="lead">Your draw doesn't have the price, yet good players sometimes call anyway. That's not a gut feeling — it's math. <strong>Implied odds</strong> tell you how much <em>more</em> you need to win when you hit to make the call profitable.</p>
+
+<h2>Why call without direct pot odds?</h2>
+<p><a href="/en/guides/poker-pot-odds/">Pot odds</a> only look at the money already in the middle. That's where <a href="/en/guides/poker-pot-odds/">the classic trap</a> lives: facing a bet with more betting to come, your call only buys <strong>one</strong> card. A flush draw then hits only about 19% of the time, while a half-pot bet requires 25%. On direct odds, you fold.</p>
+<p>But when the flush comes in, the hand isn't over: there's another betting round, and your opponent may still pay off a bet. That <em>future</em> money, which you only win when you hit, is your implied odds. The question becomes: how much of it do you need to close the gap?</p>
+
+<h2>The implied odds formula</h2>
+<p>Let:</p>
+<ul>
+  <li><strong>P</strong> = the pot when you call, including your opponent's bet;</li>
+  <li><strong>C</strong> = the amount you have to call;</li>
+  <li><strong>e</strong> = your chance of hitting on the next card;</li>
+  <li><strong>X</strong> = what you win <em>on top</em> on later streets when you hit.</li>
+</ul>
+<p>When you hit (probability e), you win P + X. When you miss, you fold and lose C. The call breaks even when the two cancel out:</p>
+<p class="formula">e × (P + X) = (1 − e) × C<br>⇔ e × (P + C + X) = C<br>⇔ X = C ÷ e − (P + C)</p>
+<p>If X is negative, direct pot odds are already enough: call without expecting anything more. If it's positive, it's the minimum you need to collect <strong>on average</strong> when your draw comes in.</p>
+
+<h2>Worked example: a flush draw on the turn</h2>
+<p>On the turn, the pot is <strong>$100</strong>. Your opponent bets <strong>$50</strong>. You have a flush draw: 9 outs out of 46 unseen cards, one card to come.</p>
+<ul>
+  <li>P = 100 + 50 = <strong>$150</strong>, C = <strong>$50</strong>.</li>
+  <li>Required equity on direct odds: 50 ÷ (150 + 50) = <strong>25%</strong>.</li>
+  <li>Your chance of hitting: e = 9 ÷ 46 = <strong>19.6%</strong>. Not enough on direct odds.</li>
+  <li>Implied odds needed: X = 50 ÷ (9/46) − 200 = 255.6 − 200 = <strong>$55.60</strong>.</li>
+</ul>
+<p>In other words, when the flush comes, you need to win on average <strong>about $56 more</strong> on the river — roughly a bet of 28% of the $200 pot that your opponent calls. Check: 19.6% × (150 + 55.6) ≈ $40.20 won on average, versus 80.4% × 50 ≈ $40.20 lost. The call breaks exactly even.</p>
+<p>If you believe your opponent will pay <em>at least</em> that much on average when you hit, the call is profitable. If they shut down the moment the third suited card appears, X is zero and you should fold.</p>
+
+<div class="tip"><strong>Why the turn?</strong> On the flop, the same math (9 ÷ 47 = 19.1%) gives X ≈ $61. But when you miss on the flop, the hand goes on: you'll face another bet on the turn, and the exact answer becomes a decision tree. On the turn, missing means folding, so the formula is exact. And the 35% "flop to river" figure only applies when you're sure to see both cards — that is, when your opponent is all-in, in which case there are no implied odds at all.</div>
+
+<h2>When implied odds are real</h2>
+<p>The formula tells you how much you need. Judgment is knowing whether that money actually exists. Implied odds are good when:</p>
+<ul>
+  <li><strong>Stacks are deep</strong>: there's enough money behind for X to be possible. If your opponent only has $30 left, your X can't exceed $30.</li>
+  <li><strong>Your draw is disguised</strong>: a gutshot that fills on a harmless-looking card gets paid more often than a fourth card of the same suit that everyone can see.</li>
+  <li><strong>Your opponent holds a hand they won't let go of</strong>: top pair, two pair, a set. They're the ones who pay you.</li>
+  <li><strong>You hit the best hand</strong>: the nut flush, the top end of the straight.</li>
+</ul>
+
+<h2>Reverse implied odds</h2>
+<p>The flip side: sometimes hitting costs you money. That's <strong>reverse implied odds</strong>: you complete your hand but you're still behind, so you're the one paying on later streets.</p>
+<ul>
+  <li><strong>The low flush</strong>: 7♥6♥ against a higher flush. You hit, you bet, you get raised.</li>
+  <li><strong>The idiot end of the straight</strong>: you fill the bottom of the straight while your opponent has the top.</li>
+  <li><strong>The dominated overcard</strong>: you pair your ace, but your opponent has an ace with a better kicker.</li>
+  <li><strong>Dirty outs</strong>: the card that makes your flush pairs the board and gives them a full house. See <a href="/en/guides/how-to-count-outs/">how to count outs</a>.</li>
+</ul>
+<p>With these hands, X is smaller than you think, or even negative: you need <em>better</em> direct odds to call.</p>
+
+<h2>Set mining and the 15–20× rule</h2>
+<p>The textbook implied-odds spot: calling preflop with a small pocket pair to flop a set. The probability of flopping a set or better:</p>
+<p class="formula">1 − C(48, 3) ÷ C(50, 3) = 1 − 17,296 ÷ 19,600 ≈ 11.8%</p>
+<p>That's about one time in 8.5, or odds of <strong>7.5 to 1</strong> against. Ignoring what's already in the pot, the formula gives X = C ÷ 0.118 − C ≈ <strong>7.5 × C</strong>: when you hit, you need to win on average 7.5 times your call just to break even.</p>
+<p>The commonly cited rule — <strong>only set mine when effective stacks are 15 to 20 times the call</strong> — is a safety margin on top of that minimum. When you flop a set, you don't win the whole stack every time: your opponent folds, or your set loses to a bigger set or a draw that gets there. If on average you only collect about half the effective stack, you need a stack of roughly 2 × 7.5 = <strong>15 times the call</strong>. Hence the range. It's a guideline, not a law: against a player who never pays off, even 30× isn't enough.</p>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What are implied odds in poker?</summary><p>Implied odds are the money you expect to win on later betting rounds when your draw comes in. They let you call a draw that lacks direct pot odds, as long as your opponent can and will pay you off when you hit.</p></details>
+<details><summary>What is the implied odds formula?</summary><p>X = C ÷ e − (P + C), where C is the call, e your chance of hitting on the next card and P the pot including your opponent's bet. X is how much more you need to win, on average, when you hit. Example: $100 pot, $50 bet, flush draw on the turn (9/46): X ≈ $55.60.</p></details>
+<details><summary>Where does the 15–20× set mining rule come from?</summary><p>A small pocket pair flops a set or better 11.8% of the time, odds of 7.5 to 1: you need to win at least 7.5 times the call when you hit. Since you don't win the whole stack every time, players ask for stacks of 15 to 20 times the call. It's a rule of thumb, not an exact calculation.</p></details>
+<details><summary>What are reverse implied odds?</summary><p>The money you lose when you complete your hand but are still beaten: a low flush against a higher one, the bottom end of a straight, an ace with a dominated kicker. They reduce the value of a draw.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/guides/poker-pot-odds/">Pot odds</a> · <a href="/en/guides/how-to-count-outs/">How to count outs</a> · <a href="/en/guides/poker-odds-cheat-sheet/">Poker odds cheat sheet</a> · <a href="/en/pot-odds-calculator/">Pot odds calculator</a> · <a href="/en/semi-bluff-ev-calculator/">Semi-bluff EV calculator</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What are implied odds in poker?","acceptedAnswer":{"@type":"Answer","text":"Implied odds are the money you expect to win on later betting rounds when your draw comes in. They let you call a draw that lacks direct pot odds, as long as your opponent can and will pay you off when you hit."}},
+  {"@type":"Question","name":"What is the implied odds formula?","acceptedAnswer":{"@type":"Answer","text":"X = C ÷ e − (P + C), where C is the call, e your chance of hitting on the next card and P the pot including your opponent's bet. X is how much more you need to win, on average, when you hit. Example: $100 pot, $50 bet, flush draw on the turn (9/46): X ≈ $55.60."}},
+  {"@type":"Question","name":"Where does the 15–20× set mining rule come from?","acceptedAnswer":{"@type":"Answer","text":"A small pocket pair flops a set or better 11.8% of the time, odds of 7.5 to 1: you need to win at least 7.5 times the call when you hit. Since you don't win the whole stack every time, players ask for stacks of 15 to 20 times the call. It's a rule of thumb, not an exact calculation."}},
+  {"@type":"Question","name":"What are reverse implied odds?","acceptedAnswer":{"@type":"Answer","text":"The money you lose when you complete your hand but are still beaten: a low flush against a higher one, the bottom end of a straight, an ace with a dominated kicker. They reduce the value of a draw."}}
+]}
+</script>

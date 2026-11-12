@@ -1,0 +1,110 @@
+---
+layout: article
+lang: fr
+title: "Maths du poker : les bases dans le bon ordre"
+headline: "Les maths du poker, expliquées dans le bon ordre"
+description: "Équité, outs, cote du pot, cotes implicites, espérance, fold equity : les mathématiques du poker expliquées simplement, étape par étape, avec exemples."
+permalink: /fr/guides/maths-du-poker/
+date: 2026-11-12
+last_modified_at: 2026-11-12
+stylesheets: ["/assets/css/poker-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/maths-du-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/poker-math/" }
+x_default: "https://pokerperf.com/en/guides/poker-math/"
+---
+<p class="lead">Les maths du poker tiennent en une question&nbsp;: <strong>est-ce que cette décision rapporte sur le long terme&nbsp;?</strong> Pour y répondre, il suffit d'une poignée de notions qui s'enchaînent — équité, outs, cote du pot, espérance. Pas besoin d'être bon en maths&nbsp;: des additions, des multiplications et quelques repères à connaître par cœur.</p>
+
+<p>Cette page les présente <strong>dans l'ordre où il faut les apprendre</strong>, chacune en quelques lignes, avec un lien vers le guide ou l'outil qui la détaille.</p>
+
+<h2>La carte des notions</h2>
+<div class="table-scroll toc" role="region" aria-label="Les notions de maths du poker et la question à laquelle chacune répond" tabindex="0">
+<table>
+  <thead><tr><th scope="col">Étape</th><th scope="col">Notion</th><th scope="col">La question à laquelle elle répond</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><th scope="row"><a href="#equite">Équité</a></th><td>Quelle part du pot me revient en moyenne&nbsp;?</td></tr>
+    <tr><td>2</td><th scope="row"><a href="#outs">Outs</a></th><td>Quelles cartes m'aident&nbsp;?</td></tr>
+    <tr><td>3</td><th scope="row"><a href="#regle-4-2">Règle du 4 et 2</a></th><td>Combien de chances de toucher, de tête&nbsp;?</td></tr>
+    <tr><td>4</td><th scope="row"><a href="#cote-du-pot">Cote du pot</a></th><td>De combien de chances ai-je besoin pour payer&nbsp;?</td></tr>
+    <tr><td>5</td><th scope="row"><a href="#cotes-implicites">Cotes implicites</a></th><td>Et si je gagne plus quand je touche&nbsp;?</td></tr>
+    <tr><td>6</td><th scope="row"><a href="#esperance">Espérance (EV)</a></th><td>Combien rapporte cette décision en moyenne&nbsp;?</td></tr>
+    <tr><td>7</td><th scope="row"><a href="#fold-equity">Fold equity et semi-bluff</a></th><td>Combien rapporte le fait de faire coucher l'adversaire&nbsp;?</td></tr>
+    <tr><td>8</td><th scope="row"><a href="#probabilites">Probabilités</a></th><td>À quoi m'attendre, de la donne à la river&nbsp;?</td></tr>
+    <tr><td>9</td><th scope="row"><a href="#classement">Classement des mains</a></th><td>Qu'est-ce qui bat quoi&nbsp;?</td></tr>
+    <tr><td>10</td><th scope="row"><a href="#mains-de-depart">Mains de départ</a></th><td>Avec quoi entrer dans le coup&nbsp;?</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="equite">1. L'équité&nbsp;: ta part du pot</h2>
+<p>L'<strong>équité</strong>, c'est le pourcentage du pot qui te revient en moyenne si le coup allait jusqu'au bout, sans plus aucune mise. Avec 35&nbsp;% d'équité dans un pot de 200, ta part «&nbsp;moyenne&nbsp;» vaut 70.</p>
+<p>Toutes les autres notions servent à <strong>estimer</strong> ton équité ou à la <strong>comparer</strong> au prix du coup. Pour la valeur exacte d'une main contre une autre, utilise le <a href="/fr/calculateur-equite/">calculateur d'équité</a>.</p>
+
+<h2 id="outs">2. Les outs&nbsp;: les cartes qui t'aident</h2>
+<p>Un <strong>out</strong> est une carte encore dans le paquet qui transforme ta main en main gagnante. Un tirage couleur au flop a 9 outs (13 cartes de la couleur moins les 4 visibles)&nbsp;; un tirage quinte bilatéral en a 8.</p>
+<p>Le piège&nbsp;: ne compte que les outs <strong>propres</strong>, ceux qui te donnent la meilleure main — pas ceux qui complètent ton tirage tout en donnant mieux à l'adversaire. Méthode complète dans <a href="/fr/guides/compter-ses-outs/">compter ses outs</a>.</p>
+
+<h2 id="regle-4-2">3. La règle du 4 et 2&nbsp;: des outs aux pourcentages</h2>
+<p>Pour passer des outs à des chances, multiplie&nbsp;:</p>
+<ul>
+  <li><strong>× 2</strong> quand une seule carte reste à venir — ou quand ton call ne t'achète qu'une carte (cas le plus fréquent)&nbsp;;</li>
+  <li><strong>× 4</strong> seulement si tu es <strong>sûr de voir le turn et la river</strong>, c'est-à-dire quand l'adversaire est à tapis.</li>
+</ul>
+<p>9 outs → environ 18&nbsp;% pour une carte (exact&nbsp;: 19,1&nbsp;%), environ 36&nbsp;% pour deux (exact&nbsp;: 35,0&nbsp;%). Au-delà de 9 outs, le ×4 surestime. Détails et limites dans la <a href="/fr/guides/regle-du-4-et-2/">règle du 4 et 2</a>.</p>
+
+<h2 id="cote-du-pot">4. La cote du pot&nbsp;: le prix du call</h2>
+<p>La <strong>cote du pot</strong> te dit le minimum d'équité nécessaire pour qu'un call soit rentable&nbsp;:</p>
+<p><strong>Équité requise = mise à suivre ÷ pot final (ta mise comprise)</strong></p>
+<p>Pot de 100, l'adversaire mise 50&nbsp;: tu paies 50 pour un pot final de 200 → <strong>25&nbsp;%</strong>. Règle de décision&nbsp;: <strong>tu paies si ton équité dépasse l'équité requise</strong>. Mais compare des choses comparables&nbsp;: si l'adversaire n'est pas à tapis, ton call n'achète qu'une carte → tirage couleur ≈&nbsp;19&nbsp;%, en dessous des 25&nbsp;% → en cote directe, tu te couches.</p>
+<p>À lire&nbsp;: le guide des <a href="/fr/guides/cotes-au-poker/">cotes au poker</a>, et pour t'entraîner, le <a href="/fr/cote-du-pot/">calculateur de cote du pot</a>.</p>
+
+<h2 id="cotes-implicites">5. Les cotes implicites&nbsp;: l'argent d'après</h2>
+<p>La cote du pot ne compte que l'argent déjà au milieu. Les <strong>cotes implicites</strong> ajoutent ce que tu peux raisonnablement gagner <em>après</em> avoir touché. Elles peuvent justifier un call un peu trop cher en cote directe — à condition que l'adversaire ait encore des jetons et qu'il te paie quand tu touches. Tapis courts ou tirage trop visible&nbsp;: oublie-les. Tout est dans le guide des <a href="/fr/guides/cotes-implicites/">cotes implicites</a>.</p>
+
+<h2 id="esperance">6. L'espérance (EV)&nbsp;: ce que rapporte une décision</h2>
+<p>L'<strong>espérance</strong> (<em>expected value</em>, EV) résume tout en un nombre&nbsp;: le gain moyen d'une décision si tu la répétais des milliers de fois.</p>
+<p><strong>EV = (chance de gagner × gain) − (chance de perdre × perte)</strong></p>
+<p>Exemple&nbsp;: l'adversaire est à tapis, tu dois payer 50 pour gagner 150, avec un tirage couleur au flop (35&nbsp;% sur deux cartes). EV du call = 0,35&nbsp;×&nbsp;150 − 0,65&nbsp;×&nbsp;50 = 52,5 − 32,5 = <strong>+20</strong>. Tu perdras ce coup près de deux fois sur trois, mais le call rapporte en moyenne&nbsp;: c'est une bonne décision, quel que soit le résultat.</p>
+<p>La cote du pot est en fait un raccourci de ce calcul&nbsp;: l'EV d'un call est nulle exactement quand ton équité égale l'équité requise.</p>
+
+<h2 id="fold-equity">7. Fold equity et semi-bluff</h2>
+<p>Quand c'est toi qui mises, tu peux gagner de deux façons&nbsp;: l'adversaire <strong>se couche</strong> (c'est ta <em>fold equity</em>), ou il paie et tu as la meilleure main à la fin.</p>
+<p>Pour un bluff pur, le seuil se calcule comme une cote du pot à l'envers&nbsp;: <strong>il faut qu'il se couche au moins mise ÷ (pot + mise)</strong> du temps. Miser 50 dans 100 → il doit se coucher plus d'1 fois sur 3 (33&nbsp;%).</p>
+<p>Le <strong>semi-bluff</strong>, c'est miser avec un tirage&nbsp;: même payé, tu gardes des chances de toucher, donc il te faut <em>moins</em> de fold equity qu'un bluff pur. Fais le calcul sur ton propre spot avec le <a href="/fr/calculateur-semi-bluff/">calculateur de semi-bluff</a>.</p>
+
+<h2 id="probabilites">8. Les probabilités de référence</h2>
+<p>Quelques chiffres à connaître parce qu'ils reviennent sans cesse&nbsp;:</p>
+<ul>
+  <li>paire servie&nbsp;: <strong>5,88&nbsp;%</strong> (1 donne sur 17)&nbsp;;</li>
+  <li>brelan au flop avec une paire&nbsp;: <strong>11,8&nbsp;%</strong> (environ 1 fois sur 8,5)&nbsp;;</li>
+  <li>au moins une paire au flop avec deux cartes différentes&nbsp;: <strong>32,4&nbsp;%</strong>&nbsp;;</li>
+  <li>tirage couleur au flop avec deux cartes assorties&nbsp;: <strong>10,9&nbsp;%</strong>.</li>
+</ul>
+<p>Tous les tableaux exacts, préflop, flop, turn, river et duels classiques, sont dans le guide des <a href="/fr/guides/probabilites-poker/">probabilités au poker</a>. Pour les garder sous la main&nbsp;: l'<a href="/fr/guides/aide-memoire-cotes/">aide-mémoire des cotes</a>.</p>
+
+<h2 id="classement">9. Le classement des mains</h2>
+<p>Avant de calculer quoi que ce soit, il faut savoir sans hésiter qu'une couleur bat une quinte et qu'un full bat une couleur. Les mains les plus rares sont les plus fortes. Révise-le avec le <a href="/fr/classement-des-mains/">classement des mains</a>, qui donne aussi la fréquence de chaque main.</p>
+
+<h2 id="mains-de-depart">10. Les mains de départ</h2>
+<p>Tout commence avant le flop. Une main de départ vaut par son équité contre les mains adverses probables, mais aussi par sa <strong>jouabilité</strong>&nbsp;: une main assortie et connectée touche plus de tirages qu'une main dépareillée. Les bases sont dans <a href="/fr/guides/mains-de-depart/">les mains de départ</a>, puis la façon de les organiser selon ta position dans les <a href="/fr/guides/ranges-preflop/">ranges préflop</a>.</p>
+
+<h2>Et après&nbsp;?</h2>
+<p>Ces notions mènent naturellement à la théorie des jeux&nbsp;: le <a href="/fr/guides/gto-poker/">GTO</a> combine équité, cotes et fréquences de bluff pour construire une stratégie difficile à exploiter. Et si tu veux savoir comment nous calculons nos chiffres, tout est sur la page <a href="/fr/methodologie/">méthodologie</a>.</p>
+<p>Comprendre ces maths prend une soirée. Les appliquer en quelques secondes à la table demande de la répétition&nbsp;: c'est ce que PokerPerf te fait travailler, 10 minutes par jour.</p>
+
+<h2>Questions fréquentes</h2>
+<details><summary>Faut-il être bon en maths pour jouer au poker&nbsp;?</summary><p>Non. Les maths utiles au poker se résument à des multiplications et des divisions simples, plus quelques repères à connaître par cœur (outs, cote du pot, probabilités clés). Le plus difficile n'est pas le calcul, c'est de le faire vite et juste à la table.</p></details>
+<details><summary>Par quoi commencer pour apprendre les maths du poker&nbsp;?</summary><p>Par l'équité et les outs, puis la règle du 4 et 2 pour estimer tes chances, et enfin la cote du pot pour savoir si un call est rentable. Ces trois notions couvrent la majorité des décisions avec un tirage.</p></details>
+<details><summary>Qu'est-ce que l'espérance (EV) au poker&nbsp;?</summary><p>C'est le gain moyen d'une décision si tu la répétais un grand nombre de fois&nbsp;: chance de gagner × gain, moins chance de perdre × perte. Une décision à EV positive est bonne même quand elle perd sur un coup donné.</p></details>
+<details><summary>Quand utiliser la règle du 4 plutôt que la règle du 2&nbsp;?</summary><p>Seulement quand tu es sûr de voir le turn et la river, c'est-à-dire quand l'adversaire est à tapis. Sinon, ton call ne t'achète qu'une carte&nbsp;: utilise la règle du 2.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/guides/probabilites-poker/">Probabilités au poker</a> · <a href="/fr/guides/cotes-au-poker/">Cotes au poker</a> · <a href="/fr/calculateur-equite/">Calculateur d'équité</a> · <a href="/fr/cote-du-pot/">Calculateur de cote du pot</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Faut-il être bon en maths pour jouer au poker ?","acceptedAnswer":{"@type":"Answer","text":"Non. Les maths utiles au poker se résument à des multiplications et des divisions simples, plus quelques repères à connaître par cœur (outs, cote du pot, probabilités clés). Le plus difficile n'est pas le calcul, c'est de le faire vite et juste à la table."}},
+  {"@type":"Question","name":"Par quoi commencer pour apprendre les maths du poker ?","acceptedAnswer":{"@type":"Answer","text":"Par l'équité et les outs, puis la règle du 4 et 2 pour estimer tes chances, et enfin la cote du pot pour savoir si un call est rentable. Ces trois notions couvrent la majorité des décisions avec un tirage."}},
+  {"@type":"Question","name":"Qu'est-ce que l'espérance (EV) au poker ?","acceptedAnswer":{"@type":"Answer","text":"C'est le gain moyen d'une décision si tu la répétais un grand nombre de fois : chance de gagner × gain, moins chance de perdre × perte. Une décision à EV positive est bonne même quand elle perd sur un coup donné."}},
+  {"@type":"Question","name":"Quand utiliser la règle du 4 plutôt que la règle du 2 ?","acceptedAnswer":{"@type":"Answer","text":"Seulement quand tu es sûr de voir le turn et la river, c'est-à-dire quand l'adversaire est à tapis. Sinon, ton call ne t'achète qu'une carte : utilise la règle du 2."}}
+]}
+</script>

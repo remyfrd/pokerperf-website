@@ -1,0 +1,110 @@
+---
+layout: article
+lang: en
+title: "Poker math for beginners: the core concepts in order"
+headline: "Poker math, explained in the right order"
+description: "Equity, outs, pot odds, implied odds, EV and fold equity: poker math for beginners, explained simply and step by step, with worked examples."
+permalink: /en/guides/poker-math/
+date: 2026-11-12
+last_modified_at: 2026-11-12
+stylesheets: ["/assets/css/poker-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/maths-du-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/poker-math/" }
+x_default: "https://pokerperf.com/en/guides/poker-math/"
+---
+<p class="lead">Poker math boils down to one question: <strong>does this decision make money in the long run?</strong> Answering it takes a handful of ideas that build on each other — equity, outs, pot odds, expected value. You don't need to be good at math: just multiplication, division and a few numbers to know by heart.</p>
+
+<p>This page walks through them <strong>in the order you should learn them</strong>, each in a few lines, with a link to the guide or tool that goes deeper.</p>
+
+<h2>The map</h2>
+<div class="table-scroll toc" role="region" aria-label="Poker math concepts and the question each one answers" tabindex="0">
+<table>
+  <thead><tr><th scope="col">Step</th><th scope="col">Concept</th><th scope="col">The question it answers</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><th scope="row"><a href="#equity">Equity</a></th><td>How much of the pot is mine on average?</td></tr>
+    <tr><td>2</td><th scope="row"><a href="#outs">Outs</a></th><td>Which cards help me?</td></tr>
+    <tr><td>3</td><th scope="row"><a href="#rule-4-2">Rule of 4 and 2</a></th><td>What are my odds of hitting, in my head?</td></tr>
+    <tr><td>4</td><th scope="row"><a href="#pot-odds">Pot odds</a></th><td>How much equity do I need to call?</td></tr>
+    <tr><td>5</td><th scope="row"><a href="#implied-odds">Implied odds</a></th><td>What if I win more when I hit?</td></tr>
+    <tr><td>6</td><th scope="row"><a href="#ev">Expected value (EV)</a></th><td>What does this decision earn on average?</td></tr>
+    <tr><td>7</td><th scope="row"><a href="#fold-equity">Fold equity and semi-bluffs</a></th><td>What is making them fold worth?</td></tr>
+    <tr><td>8</td><th scope="row"><a href="#probabilities">Probabilities</a></th><td>What should I expect from deal to river?</td></tr>
+    <tr><td>9</td><th scope="row"><a href="#rankings">Hand rankings</a></th><td>What beats what?</td></tr>
+    <tr><td>10</td><th scope="row"><a href="#starting-hands">Starting hands</a></th><td>Which hands should I play?</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="equity">1. Equity: your share of the pot</h2>
+<p><strong>Equity</strong> is the percentage of the pot that's yours on average if the hand ran to showdown with no more betting. With 35% equity in a 200 pot, your "average" share is worth 70.</p>
+<p>Every other concept on this page is about <strong>estimating</strong> your equity or <strong>comparing</strong> it with the price you're being asked to pay. For the exact number in a given spot, use the <a href="/en/poker-odds-calculator/">poker odds calculator</a>.</p>
+
+<h2 id="outs">2. Outs: the cards that help you</h2>
+<p>An <strong>out</strong> is a card still in the deck that turns your hand into the winning hand. A flush draw on the flop has 9 outs (13 cards of the suit minus the 4 you can see); an open-ended straight draw has 8.</p>
+<p>The catch: only count <strong>clean</strong> outs — cards that give you the best hand, not cards that complete your draw while giving your opponent something better. The full method is in <a href="/en/guides/how-to-count-outs/">how to count outs</a>.</p>
+
+<h2 id="rule-4-2">3. The rule of 4 and 2: from outs to percentages</h2>
+<p>To turn outs into odds, multiply:</p>
+<ul>
+  <li><strong>× 2</strong> when only one card is left to come — or when your call only buys you one card (the most common case);</li>
+  <li><strong>× 4</strong> only when you're <strong>guaranteed to see both the turn and the river</strong>, i.e. when your opponent is all-in.</li>
+</ul>
+<p>9 outs → about 18% for one card (exact: 19.1%), about 36% for two (exact: 35.0%). Above 9 outs, ×4 overestimates. Details and limits in the <a href="/en/guides/rule-of-4-and-2/">rule of 4 and 2</a>.</p>
+
+<h2 id="pot-odds">4. Pot odds: the price of a call</h2>
+<p><strong>Pot odds</strong> tell you the minimum equity a call needs to be profitable:</p>
+<p><strong>Required equity = amount to call ÷ final pot (including your call)</strong></p>
+<p>Pot of 100, opponent bets 50: you pay 50 into a final pot of 200 → <strong>25%</strong>. Decision rule: <strong>call when your equity beats the required equity</strong>. But compare like with like: if your opponent isn't all-in, your call only buys one card → flush draw ≈ 19%, below 25% → on direct odds, you fold.</p>
+<p>Read the <a href="/en/guides/poker-pot-odds/">pot odds guide</a>, then drill it with the <a href="/en/pot-odds-calculator/">pot odds calculator</a>.</p>
+
+<h2 id="implied-odds">5. Implied odds: the money that comes later</h2>
+<p>Pot odds only count the money already in the middle. <strong>Implied odds</strong> add what you can realistically win <em>after</em> you hit. They can justify a call that's slightly too expensive on direct odds — as long as your opponent still has chips and will pay you off when you get there. Short stacks or an obvious draw: forget them. It's all in the <a href="/en/guides/implied-odds/">implied odds guide</a>.</p>
+
+<h2 id="ev">6. Expected value (EV): what a decision earns</h2>
+<p><strong>Expected value</strong> (EV) sums everything up in one number: the average result of a decision if you repeated it thousands of times.</p>
+<p><strong>EV = (chance of winning × amount won) − (chance of losing × amount lost)</strong></p>
+<p>Example: your opponent is all-in, you must call 50 to win 150, holding a flush draw on the flop (35% over two cards). EV of calling = 0.35 × 150 − 0.65 × 50 = 52.5 − 32.5 = <strong>+20</strong>. You'll lose this hand almost two times out of three, yet the call earns money on average: it's a good decision, whatever the result.</p>
+<p>Pot odds are really a shortcut for this calculation: a call's EV is exactly zero when your equity equals the required equity.</p>
+
+<h2 id="fold-equity">7. Fold equity and semi-bluffs</h2>
+<p>When you're the one betting, you can win two ways: your opponent <strong>folds</strong> (that's your <em>fold equity</em>), or they call and you have the best hand at the end.</p>
+<p>For a pure bluff, the threshold works like pot odds in reverse: <strong>they need to fold at least bet ÷ (pot + bet)</strong> of the time. Bet 50 into 100 → they must fold more than 1 time in 3 (33%).</p>
+<p>A <strong>semi-bluff</strong> is a bet with a draw: even when called you can still hit, so you need <em>less</em> fold equity than a pure bluff. Run the numbers on your own spot with the <a href="/en/semi-bluff-ev-calculator/">semi-bluff EV calculator</a>.</p>
+
+<h2 id="probabilities">8. The reference probabilities</h2>
+<p>A few numbers worth knowing because they come up constantly:</p>
+<ul>
+  <li>being dealt a pocket pair: <strong>5.88%</strong> (1 in 17);</li>
+  <li>flopping a set with a pocket pair: <strong>11.8%</strong> (about 1 in 8.5);</li>
+  <li>flopping at least a pair with two unpaired cards: <strong>32.4%</strong>;</li>
+  <li>flopping a flush draw with two suited cards: <strong>10.9%</strong>.</li>
+</ul>
+<p>All the exact tables — preflop, flop, turn, river and classic matchups — are in our <a href="/en/guides/texas-holdem-odds/">Texas Hold'em odds</a> guide. To keep them handy: the <a href="/en/guides/poker-odds-cheat-sheet/">poker odds cheat sheet</a>.</p>
+
+<h2 id="rankings">9. Hand rankings</h2>
+<p>Before you calculate anything, you need to know instantly that a flush beats a straight and a full house beats a flush. The rarer the hand, the stronger it is. Brush up with the <a href="/en/poker-hand-rankings/">poker hand rankings</a>, which also give how often each hand comes up.</p>
+
+<h2 id="starting-hands">10. Starting hands</h2>
+<p>It all starts before the flop. A starting hand is worth its equity against the hands your opponents are likely to hold, but also its <strong>playability</strong>: suited, connected hands make more draws than disconnected offsuit ones. Start with <a href="/en/guides/poker-starting-hands/">poker starting hands</a>, then see how to organize them by position in <a href="/en/guides/preflop-ranges/">preflop ranges</a>.</p>
+
+<h2>What's next?</h2>
+<p>These ideas lead naturally to game theory: <a href="/en/guides/what-is-gto-poker/">GTO poker</a> combines equity, odds and bluffing frequencies into a strategy that's hard to exploit. And if you want to know how we compute our numbers, it's all on our <a href="/en/methodology/">methodology</a> page.</p>
+<p>Understanding this math takes an evening. Applying it in a few seconds at the table takes repetition: that's what PokerPerf has you practice, 10 minutes a day.</p>
+
+<h2>FAQ</h2>
+<details><summary>Do you need to be good at math to play poker?</summary><p>No. The math that matters in poker comes down to simple multiplication and division, plus a few benchmarks to know by heart (outs, pot odds, key probabilities). The hard part isn't the arithmetic — it's doing it quickly and correctly at the table.</p></details>
+<details><summary>Where should a beginner start with poker math?</summary><p>With equity and outs, then the rule of 4 and 2 to estimate your odds, and finally pot odds to know whether a call is profitable. Those three ideas cover most decisions with a draw.</p></details>
+<details><summary>What is EV in poker?</summary><p>Expected value is the average result of a decision if you repeated it many times: chance of winning × amount won, minus chance of losing × amount lost. A positive-EV decision is a good one even when it loses a particular hand.</p></details>
+<details><summary>When should I use the rule of 4 instead of the rule of 2?</summary><p>Only when you're guaranteed to see both the turn and the river, meaning your opponent is all-in. Otherwise your call only buys one card: use the rule of 2.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/guides/texas-holdem-odds/">Texas Hold'em odds</a> · <a href="/en/guides/poker-pot-odds/">Pot odds guide</a> · <a href="/en/poker-odds-calculator/">Poker odds calculator</a> · <a href="/en/pot-odds-calculator/">Pot odds calculator</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Do you need to be good at math to play poker?","acceptedAnswer":{"@type":"Answer","text":"No. The math that matters in poker comes down to simple multiplication and division, plus a few benchmarks to know by heart (outs, pot odds, key probabilities). The hard part isn't the arithmetic, it's doing it quickly and correctly at the table."}},
+  {"@type":"Question","name":"Where should a beginner start with poker math?","acceptedAnswer":{"@type":"Answer","text":"With equity and outs, then the rule of 4 and 2 to estimate your odds, and finally pot odds to know whether a call is profitable. Those three ideas cover most decisions with a draw."}},
+  {"@type":"Question","name":"What is EV in poker?","acceptedAnswer":{"@type":"Answer","text":"Expected value is the average result of a decision if you repeated it many times: chance of winning × amount won, minus chance of losing × amount lost. A positive-EV decision is a good one even when it loses a particular hand."}},
+  {"@type":"Question","name":"When should I use the rule of 4 instead of the rule of 2?","acceptedAnswer":{"@type":"Answer","text":"Only when you're guaranteed to see both the turn and the river, meaning your opponent is all-in. Otherwise your call only buys one card: use the rule of 2."}}
+]}
+</script>

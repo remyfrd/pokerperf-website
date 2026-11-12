@@ -1,0 +1,184 @@
+---
+layout: article
+lang: fr
+title: "Probabilités au poker (Texas Hold'em) : tableaux exacts"
+headline: "Probabilités au poker : les chiffres exacts du Texas Hold'em"
+description: "Probabilité d'avoir une paire, de toucher un brelan au flop, de compléter un tirage : toutes les probabilités du Texas Hold'em, calculées et expliquées."
+permalink: /fr/guides/probabilites-poker/
+date: 2026-11-12
+last_modified_at: 2026-11-12
+stylesheets: ["/assets/css/poker-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/probabilites-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/texas-holdem-odds/" }
+x_default: "https://pokerperf.com/en/guides/texas-holdem-odds/"
+---
+<p class="lead">Tu as <strong>5,88&nbsp;%</strong> de chances de recevoir une paire servie (1 fois sur 17), <strong>0,45&nbsp;%</strong> de recevoir une paire d'As (1 fois sur 221) et <strong>11,8&nbsp;%</strong> de toucher un brelan au flop avec une paire. Voici toutes les probabilités utiles du Texas Hold'em, de la donne à la river — et surtout comment t'en servir pour mieux décider.</p>
+
+<p>Tous les chiffres de cette page sont <strong>calculés</strong>, pas recopiés&nbsp;: par combinatoire exacte (on compte toutes les combinaisons possibles) ou par énumération complète de tous les boards. Pas de simulation, pas d'arrondi caché. Le détail est sur notre page <a href="/fr/methodologie/">méthodologie</a>.</p>
+
+<h2>Lire une probabilité : %, «&nbsp;1 sur N&nbsp;» et cote</h2>
+<p>Une même chance s'écrit de trois façons. Prends la paire servie&nbsp;:</p>
+<ul>
+  <li><strong>en pourcentage</strong>&nbsp;: 5,88&nbsp;%&nbsp;;</li>
+  <li><strong>en «&nbsp;1 sur N&nbsp;»</strong>&nbsp;: 1 donne sur 17 (100 ÷ 5,88)&nbsp;;</li>
+  <li><strong>en cote</strong>&nbsp;: 16 contre 1 — 16 donnes sans paire pour 1 avec.</li>
+</ul>
+<p>Le «&nbsp;1 sur N&nbsp;» parle mieux pour les événements rares, la cote sert à comparer avec la <a href="/fr/guides/cotes-au-poker/">cote du pot</a>. Attention à ne pas confondre «&nbsp;1 sur 17&nbsp;» et «&nbsp;17 contre 1&nbsp;»&nbsp;: la cote vaut toujours N&nbsp;−&nbsp;1.</p>
+
+<h2>Probabilités préflop : tes deux cartes</h2>
+<p>Il existe <strong>1&nbsp;326</strong> mains de départ possibles (toutes les paires de cartes d'un paquet de 52). Chaque probabilité ci-dessous = nombre de combinaisons qui conviennent ÷ 1&nbsp;326.</p>
+<div class="table-scroll" role="region" aria-label="Probabilités préflop" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Main reçue</th><th scope="col">Combinaisons</th><th scope="col">Probabilité</th><th scope="col">1 fois sur…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Une paire (n'importe laquelle)</th><td>78</td><td>5,88&nbsp;%</td><td>17</td></tr>
+    <tr><th scope="row">Une paire précise (ex.&nbsp;AA)</th><td>6</td><td>0,45&nbsp;%</td><td>221</td></tr>
+    <tr><th scope="row">AA ou KK</th><td>12</td><td>0,90&nbsp;%</td><td>110,5</td></tr>
+    <tr><th scope="row">QQ, KK ou AA</th><td>18</td><td>1,36&nbsp;%</td><td>74</td></tr>
+    <tr><th scope="row">AK (assorti ou non)</th><td>16</td><td>1,21&nbsp;%</td><td>83</td></tr>
+    <tr><th scope="row">AK assorti</th><td>4</td><td>0,30&nbsp;%</td><td>331,5</td></tr>
+    <tr><th scope="row">Au moins un As</th><td>198</td><td>14,9&nbsp;%</td><td>6,7</td></tr>
+    <tr><th scope="row">Deux cartes assorties</th><td>312</td><td>23,5&nbsp;%</td><td>4,25</td></tr>
+    <tr><th scope="row">Connecteurs assortis (54s à AKs)</th><td>40</td><td>3,02&nbsp;%</td><td>33</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Le calcul de la paire, pas à pas&nbsp;: il y a 13 hauteurs, et pour chacune 6 façons d'associer deux des quatre cartes (C(4,2)&nbsp;=&nbsp;6). 13&nbsp;×&nbsp;6&nbsp;=&nbsp;78 paires, et 78&nbsp;÷&nbsp;1&nbsp;326&nbsp;=&nbsp;<strong>5,88&nbsp;%</strong>. Une paire précise, c'est 6 combinaisons seulement&nbsp;: 6&nbsp;÷&nbsp;1&nbsp;326, soit une fois toutes les 221 donnes.</p>
+
+<h3>Tu as KK : quelle chance qu'un adversaire ait AA&nbsp;?</h3>
+<p>C'est la peur classique avec les Rois. Elle est presque toujours infondée&nbsp;:</p>
+<div class="table-scroll" role="region" aria-label="Probabilité qu'un adversaire ait AA quand tu as KK" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Adversaires</th><th scope="col">Au moins un a AA</th><th scope="col">1 fois sur…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">1 (tête-à-tête)</th><td>0,49&nbsp;%</td><td>204</td></tr>
+    <tr><th scope="row">5 (table à 6)</th><td>2,4&nbsp;%</td><td>41</td></tr>
+    <tr><th scope="row">8 (table à 9)</th><td>3,9&nbsp;%</td><td>26</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">Probabilité avant toute action. Si un joueur serré sur-relance trois fois, ses mains possibles se resserrent et AA devient bien plus probable — c'est là qu'intervient la lecture de <a href="/fr/guides/ranges-preflop/">ranges</a>.</p>
+
+<h2>Probabilités au flop</h2>
+<p>Une fois tes deux cartes connues, il reste 50 cartes et <strong>19&nbsp;600</strong> flops possibles. On a compté, pour chaque type de main, combien de ces flops donnent tel résultat.</p>
+<div class="table-scroll" role="region" aria-label="Probabilités au flop" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Tu as…</th><th scope="col">Au flop, tu touches…</th><th scope="col">Probabilité</th><th scope="col">1 fois sur…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Une paire servie</th><td>Brelan ou mieux</td><td>11,8&nbsp;%</td><td>8,5</td></tr>
+    <tr><th scope="row">Une paire servie</th><td>dont carré</td><td>0,24&nbsp;%</td><td>408</td></tr>
+    <tr><th scope="row">Deux cartes différentes (ex.&nbsp;AK)</th><td>Au moins une paire avec une de tes cartes</td><td>32,4&nbsp;%</td><td>3,1</td></tr>
+    <tr><th scope="row">Deux cartes différentes</th><td>Double paire avec tes deux cartes</td><td>2,02&nbsp;%</td><td>49,5</td></tr>
+    <tr><th scope="row">Deux cartes différentes</th><td>Brelan avec une de tes cartes</td><td>1,35&nbsp;%</td><td>74</td></tr>
+    <tr><th scope="row">Deux cartes assorties</th><td>Couleur faite</td><td>0,84&nbsp;%</td><td>119</td></tr>
+    <tr><th scope="row">Deux cartes assorties</th><td>Tirage couleur (2 cartes de ta couleur)</td><td>10,9&nbsp;%</td><td>9,1</td></tr>
+    <tr><th scope="row">Deux cartes assorties</th><td>Tirage couleur «&nbsp;backdoor&nbsp;» (1 seule carte)</td><td>41,6&nbsp;%</td><td>2,4</td></tr>
+    <tr><th scope="row">Connecteurs (ex.&nbsp;8-7)</th><td>Quinte faite</td><td>1,31&nbsp;%</td><td>77</td></tr>
+    <tr><th scope="row">Connecteurs (ex.&nbsp;8-7)</th><td>Tirage quinte à 8 outs (bilatéral ou double ventrale)</td><td>9,7&nbsp;%</td><td>10,3</td></tr>
+    <tr><th scope="row">Connecteurs (ex.&nbsp;8-7)</th><td>Tirage quinte par le ventre (4 outs)</td><td>16,8&nbsp;%</td><td>6</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">«&nbsp;Avec une de tes cartes&nbsp;»&nbsp;: une paire qui n'apparaît que sur le board ne compte pas, puisque tout le monde la partage. Le brelan avec une paire servie inclut le full (0,73&nbsp;%) et le carré.</p>
+<p>Deux chiffres à retenir&nbsp;: avec une petite paire, tu ne touches ton brelan qu'<strong>environ une fois sur 8,5</strong> au flop. Et avec deux cartes non appariées, tu rates complètement le flop (aucune paire avec tes cartes) <strong>deux fois sur trois</strong> (67,6&nbsp;%). Ce sont ces chiffres qui justifient de ne pas s'accrocher à une main qui n'a rien touché.</p>
+
+<h2>Compléter un tirage au turn et à la river</h2>
+<p>Après le flop, il reste <strong>47 cartes inconnues</strong> (52 moins tes 2 cartes et les 3 du flop)&nbsp;; après le turn, 46. Avec un nombre d'<a href="/fr/guides/compter-ses-outs/">outs</a> donné, voici tes chances exactes, à côté de l'estimation de la <a href="/fr/guides/regle-du-4-et-2/">règle du 4 et 2</a>&nbsp;:</p>
+<div class="table-scroll" role="region" aria-label="Probabilité de compléter un tirage selon le nombre d'outs" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Tirage</th><th scope="col">Outs</th><th scope="col">Flop → turn (1 carte)</th><th scope="col">Turn → river (1 carte)</th><th scope="col">Règle du 2</th><th scope="col">Flop → river (2 cartes)</th><th scope="col">Règle du 4</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Paire servie → brelan</th><td>2</td><td>4,3&nbsp;%</td><td>4,3&nbsp;%</td><td>4&nbsp;%</td><td>8,4&nbsp;%</td><td>8&nbsp;%</td></tr>
+    <tr><th scope="row">Quinte par le ventre</th><td>4</td><td>8,5&nbsp;%</td><td>8,7&nbsp;%</td><td>8&nbsp;%</td><td>16,5&nbsp;%</td><td>16&nbsp;%</td></tr>
+    <tr><th scope="row">Deux surcartes</th><td>6</td><td>12,8&nbsp;%</td><td>13,0&nbsp;%</td><td>12&nbsp;%</td><td>24,1&nbsp;%</td><td>24&nbsp;%</td></tr>
+    <tr><th scope="row">Quinte bilatérale</th><td>8</td><td>17,0&nbsp;%</td><td>17,4&nbsp;%</td><td>16&nbsp;%</td><td>31,5&nbsp;%</td><td>32&nbsp;%</td></tr>
+    <tr><th scope="row">Tirage couleur</th><td>9</td><td>19,1&nbsp;%</td><td>19,6&nbsp;%</td><td>18&nbsp;%</td><td>35,0&nbsp;%</td><td>36&nbsp;%</td></tr>
+    <tr><th scope="row">Couleur + ventrale</th><td>12</td><td>25,5&nbsp;%</td><td>26,1&nbsp;%</td><td>24&nbsp;%</td><td>45,0&nbsp;%</td><td>48&nbsp;%</td></tr>
+    <tr><th scope="row">Couleur + bilatérale</th><td>15</td><td>31,9&nbsp;%</td><td>32,6&nbsp;%</td><td>30&nbsp;%</td><td>54,1&nbsp;%</td><td>60&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">Calcul exact&nbsp;: 1 carte = outs ÷ 47 (ou ÷ 46 au turn)&nbsp;; 2 cartes = 1 − (chance de rater les deux). Les outs de «&nbsp;deux surcartes&nbsp;» supposent qu'une paire suffit pour gagner, ce qui n'est pas toujours vrai.</p>
+<p>Ce que montre le tableau&nbsp;:</p>
+<ul>
+  <li>La règle du 2 est <strong>légèrement prudente</strong> (elle sous-estime d'un point environ).</li>
+  <li>La règle du 4 est fidèle jusqu'à 8-9 outs, puis <strong>surestime</strong>&nbsp;: 48&nbsp;% annoncés pour 45&nbsp;% réels avec 12 outs, 60&nbsp;% pour 54&nbsp;% avec 15 outs.</li>
+  <li>La colonne «&nbsp;2 cartes&nbsp;» ne vaut que si tu es <strong>sûr de voir le turn et la river</strong> — en pratique quand l'adversaire est à tapis. Sinon, ton call ne t'achète qu'une carte&nbsp;: regarde la colonne «&nbsp;1 carte&nbsp;».</li>
+</ul>
+<p>Cas particulier, le <strong>tirage couleur backdoor</strong> (une seule carte de ta couleur au flop)&nbsp;: il te faut la couleur au turn <em>et</em> à la river, soit 10/47&nbsp;×&nbsp;9/46&nbsp;=&nbsp;<strong>4,2&nbsp;%</strong> (1 fois sur 24).</p>
+
+<h2>Fréquence des mains finales (7 cartes)</h2>
+<p>Si tu vas jusqu'à la river, ta meilleure main de 5 cartes est choisie parmi 7 (tes 2 cartes + les 5 du board). Sur les 133&nbsp;784&nbsp;560 combinaisons de 7 cartes, voici la répartition exacte&nbsp;:</p>
+<div class="table-scroll" role="region" aria-label="Fréquence des mains finales sur 7 cartes" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Main finale</th><th scope="col">Probabilité</th><th scope="col">1 fois sur…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Quinte flush royale</th><td>0,0032&nbsp;%</td><td>30&nbsp;940</td></tr>
+    <tr><th scope="row">Quinte flush (hors royale)</th><td>0,0279&nbsp;%</td><td>3&nbsp;591</td></tr>
+    <tr><th scope="row">Carré</th><td>0,168&nbsp;%</td><td>595</td></tr>
+    <tr><th scope="row">Full</th><td>2,60&nbsp;%</td><td>38,5</td></tr>
+    <tr><th scope="row">Couleur</th><td>3,03&nbsp;%</td><td>33</td></tr>
+    <tr><th scope="row">Quinte</th><td>4,62&nbsp;%</td><td>21,6</td></tr>
+    <tr><th scope="row">Brelan</th><td>4,83&nbsp;%</td><td>20,7</td></tr>
+    <tr><th scope="row">Double paire</th><td>23,5&nbsp;%</td><td>4,3</td></tr>
+    <tr><th scope="row">Paire</th><td>43,8&nbsp;%</td><td>2,3</td></tr>
+    <tr><th scope="row">Carte haute</th><td>17,4&nbsp;%</td><td>5,7</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Surprise&nbsp;: avec 7 cartes, on finit plus souvent avec une paire (43,8&nbsp;%) qu'avec rien du tout (17,4&nbsp;%). Ces fréquences concernent la main qu'on <em>finit</em> par avoir, pas son rang&nbsp;: l'ordre de force reste celui du <a href="/fr/classement-des-mains/">classement des mains</a>.</p>
+
+<h2>Les duels préflop classiques</h2>
+<p>À tapis avant le flop, qui gagne&nbsp;? Ces équités viennent d'une <strong>énumération complète</strong> des 1&nbsp;712&nbsp;304 boards possibles pour chaque duel (les égalités comptent pour moitié).</p>
+<div class="table-scroll" role="region" aria-label="Équités des duels préflop classiques" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Duel</th><th scope="col">Type</th><th scope="col">Favori</th><th scope="col">Outsider</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">A♠A♥ vs K♦K♣</th><td>Paire contre paire inférieure</td><td>81,3&nbsp;%</td><td>18,7&nbsp;%</td></tr>
+    <tr><th scope="row">T♠T♥ vs 8♦8♣</th><td>Paire contre paire inférieure</td><td>80,9&nbsp;%</td><td>19,1&nbsp;%</td></tr>
+    <tr><th scope="row">A♠A♥ vs 7♦6♦</th><td>Paire contre connecteurs assortis</td><td>77,0&nbsp;%</td><td>23,0&nbsp;%</td></tr>
+    <tr><th scope="row">A♠K♥ vs A♦Q♣</th><td>Main dominée (kicker)</td><td>74,0&nbsp;%</td><td>26,0&nbsp;%</td></tr>
+    <tr><th scope="row">A♠K♥ vs Q♦J♣</th><td>Deux surcartes contre deux sous-cartes</td><td>64,3&nbsp;%</td><td>35,7&nbsp;%</td></tr>
+    <tr><th scope="row">A♠K♥ vs 8♦7♦</th><td>Surcartes contre connecteurs assortis</td><td>58,1&nbsp;%</td><td>41,9&nbsp;%</td></tr>
+    <tr><th scope="row">Q♠Q♥ vs A♦K♣</th><td>Paire contre deux surcartes</td><td>57,2&nbsp;%</td><td>42,8&nbsp;%</td></tr>
+    <tr><th scope="row">2♠2♥ vs A♦K♣</th><td>Petite paire contre deux surcartes</td><td>53,0&nbsp;%</td><td>47,0&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">Couleurs exactes indiquées&nbsp;: avec d'autres couleurs, les chiffres varient légèrement, car les chances de couleur de chaque main changent.</p>
+<p>Trois enseignements&nbsp;:</p>
+<ul>
+  <li><strong>Paire contre paire inférieure ≈ 80/20</strong>&nbsp;: l'outsider a besoin de son brelan.</li>
+  <li><strong>Paire contre deux surcartes ≈ pile ou face</strong>&nbsp;: QQ contre AK, c'est 57/43, et même 22 n'est favori qu'à 53&nbsp;%. C'est ce qu'on appelle un «&nbsp;coin flip&nbsp;».</li>
+  <li><strong>Être dominé coûte cher</strong>&nbsp;: AQ contre AK ne gagne que 26&nbsp;%, à peine plus que 7♦6♦ contre AA (23&nbsp;%). Le kicker compte.</li>
+</ul>
+<p>Pour tester d'autres duels ou des mains contre plusieurs adversaires, utilise le <a href="/fr/calculateur-equite/">calculateur d'équité</a>.</p>
+
+<h2>Comment t'en servir à la table</h2>
+<p>Connaître une probabilité ne sert à rien si elle ne change pas ta décision. Trois usages concrets&nbsp;:</p>
+<ol>
+  <li><strong>Payer un tirage</strong>&nbsp;: compte tes outs, convertis-les en chances (règle du 2 pour une carte, du 4 seulement si l'adversaire est à tapis), puis compare à la <a href="/fr/cote-du-pot/">cote du pot</a>. Tu paies si ton équité dépasse l'équité requise.</li>
+  <li><strong>Jouer une petite paire</strong>&nbsp;: tu ne touches ton brelan qu'environ une fois sur 8,5 au flop. Payer une relance pour «&nbsp;toucher le set&nbsp;» n'a de sens que si les tapis sont assez profonds pour gagner gros quand ça rentre — ce sont les <a href="/fr/guides/cotes-implicites/">cotes implicites</a>.</li>
+  <li><strong>Relativiser</strong>&nbsp;: une paire contre deux surcartes, c'est quasiment pile ou face. Perdre un tel coup n'est pas une erreur, c'est la variance. Juge la décision, pas le résultat.</li>
+</ol>
+<p>Pour une main précise, sur un board précis, le plus fiable reste le <a href="/fr/calculateur-equite/">calculateur d'équité</a>. Et pour transformer ces chiffres en réflexes, PokerPerf te les fait pratiquer 10 minutes par jour sur des situations de jeu.</p>
+
+<h2>Questions fréquentes</h2>
+<details><summary>Quelle est la probabilité d'avoir une paire au poker&nbsp;?</summary><p>En Texas Hold'em, la probabilité de recevoir une paire servie est de 5,88&nbsp;%, soit 1 donne sur 17 (78 combinaisons sur 1&nbsp;326). Pour une paire précise comme AA, c'est 0,45&nbsp;%, soit 1 donne sur 221.</p></details>
+<details><summary>Quelle chance de toucher un brelan au flop avec une paire&nbsp;?</summary><p>11,8&nbsp;%, soit environ 1 fois sur 8,5. Ce chiffre inclut les rares fulls et carrés. Si tu rates au flop, il te reste 2 outs&nbsp;: 4,3&nbsp;% au turn, puis 4,3&nbsp;% à la river.</p></details>
+<details><summary>Quelle est la probabilité de compléter un tirage couleur&nbsp;?</summary><p>Avec 9 outs, 19,1&nbsp;% au turn et 19,6&nbsp;% du turn à la river. Si tu vois les deux cartes (adversaire à tapis), 35,0&nbsp;% du flop à la river.</p></details>
+<details><summary>La règle du 4 et 2 est-elle exacte&nbsp;?</summary><p>Non, c'est une approximation. Elle est fidèle jusqu'à environ 9 outs, puis la règle du 4 surestime&nbsp;: 60&nbsp;% annoncés pour 54,1&nbsp;% réels avec 15 outs. Et le ×4 ne vaut que si tu es sûr de voir le turn et la river.</p></details>
+<details><summary>Quelle main finale sort le plus souvent en Texas Hold'em&nbsp;?</summary><p>La paire&nbsp;: 43,8&nbsp;% des mains finales sur 7 cartes. Viennent ensuite la double paire (23,5&nbsp;%) et la carte haute (17,4&nbsp;%).</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/guides/maths-du-poker/">Maths du poker</a> · <a href="/fr/guides/aide-memoire-cotes/">Aide-mémoire des cotes</a> · <a href="/fr/guides/mains-de-depart/">Mains de départ</a> · <a href="/fr/calculateur-equite/">Calculateur d'équité</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Quelle est la probabilité d'avoir une paire au poker ?","acceptedAnswer":{"@type":"Answer","text":"En Texas Hold'em, la probabilité de recevoir une paire servie est de 5,88 %, soit 1 donne sur 17 (78 combinaisons sur 1 326). Pour une paire précise comme AA, c'est 0,45 %, soit 1 donne sur 221."}},
+  {"@type":"Question","name":"Quelle chance de toucher un brelan au flop avec une paire ?","acceptedAnswer":{"@type":"Answer","text":"11,8 %, soit environ 1 fois sur 8,5. Ce chiffre inclut les rares fulls et carrés. Si tu rates au flop, il te reste 2 outs : 4,3 % au turn, puis 4,3 % à la river."}},
+  {"@type":"Question","name":"Quelle est la probabilité de compléter un tirage couleur ?","acceptedAnswer":{"@type":"Answer","text":"Avec 9 outs, 19,1 % au turn et 19,6 % du turn à la river. Si tu vois les deux cartes (adversaire à tapis), 35,0 % du flop à la river."}},
+  {"@type":"Question","name":"La règle du 4 et 2 est-elle exacte ?","acceptedAnswer":{"@type":"Answer","text":"Non, c'est une approximation. Elle est fidèle jusqu'à environ 9 outs, puis la règle du 4 surestime : 60 % annoncés pour 54,1 % réels avec 15 outs. Et le ×4 ne vaut que si tu es sûr de voir le turn et la river."}},
+  {"@type":"Question","name":"Quelle main finale sort le plus souvent en Texas Hold'em ?","acceptedAnswer":{"@type":"Answer","text":"La paire : 43,8 % des mains finales sur 7 cartes. Viennent ensuite la double paire (23,5 %) et la carte haute (17,4 %)."}}
+]}
+</script>

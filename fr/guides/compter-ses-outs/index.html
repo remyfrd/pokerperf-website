@@ -1,0 +1,109 @@
+---
+layout: article
+lang: fr
+title: "Compter ses outs au poker : tableau, outs propres et %"
+headline: "Compter ses outs au poker : le tableau et les pièges"
+description: "Outs au poker : combien par tirage (couleur 9, quinte 8, ventrale 4…), outs propres ou sales, tirages combinés, et conversion exacte en pourcentage."
+permalink: /fr/guides/compter-ses-outs/
+date: 2026-11-12
+last_modified_at: 2026-11-12
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/compter-ses-outs/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/how-to-count-outs/" }
+x_default: "https://pokerperf.com/en/guides/how-to-count-outs/"
+---
+<p class="lead">Tes <strong>outs</strong>, ce sont les cartes qui te font passer devant. Les compter juste, c'est la base de toute décision sur un tirage&nbsp;: un out de trop et tu paies des calls perdants, un out oublié et tu jettes des mains rentables.</p>
+
+<h2>Qu'est-ce qu'un out&nbsp;?</h2>
+<p>Un <strong>out</strong> est une carte encore dans le paquet qui, si elle tombe, te donne <strong>la meilleure main</strong>. Pas «&nbsp;une main qui s'améliore&nbsp;» — une main qui <em>gagne</em>. C'est toute la nuance&nbsp;: une carte qui complète ton tirage mais donne une main encore meilleure à ton adversaire n'est pas un out.</p>
+<p>Pour compter, tu pars des cartes que tu ne vois pas&nbsp;: 52 moins tes 2 cartes et les 3 du flop, soit <strong>47 cartes inconnues</strong> au flop, <strong>46</strong> au turn. Les cartes de tes adversaires en font partie, mais comme tu ne les connais pas, on les compte comme inconnues — c'est la convention de tous les calculs de cotes.</p>
+
+<h2>Le tableau des outs par tirage</h2>
+<p>Les tirages les plus fréquents, avec la probabilité <strong>exacte</strong> de toucher. Lis bien les deux colonnes&nbsp;: elles ne répondent pas à la même question.</p>
+<div class="odds-scroll" role="region" aria-label="Tableau des outs par tirage" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Tirage</th><th scope="col">Outs</th><th scope="col">1 carte (flop → turn)</th><th scope="col">2 cartes (flop → river)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Couleur + quinte bilatérale</th><td>15</td><td>31,9&nbsp;%</td><td>54,1&nbsp;%</td></tr>
+    <tr><th scope="row">Couleur + quinte ventrale</th><td>12</td><td>25,5&nbsp;%</td><td>45,0&nbsp;%</td></tr>
+    <tr><th scope="row">Tirage couleur</th><td>9</td><td>19,1&nbsp;%</td><td>35,0&nbsp;%</td></tr>
+    <tr><th scope="row">Quinte bilatérale (ou double ventrale)</th><td>8</td><td>17,0&nbsp;%</td><td>31,5&nbsp;%</td></tr>
+    <tr><th scope="row">Deux surcartes (pour une paire)</th><td>6</td><td>12,8&nbsp;%</td><td>24,1&nbsp;%</td></tr>
+    <tr><th scope="row">Quinte ventrale</th><td>4</td><td>8,5&nbsp;%</td><td>16,5&nbsp;%</td></tr>
+    <tr><th scope="row">Double paire → full</th><td>4</td><td>8,5&nbsp;%</td><td>16,5&nbsp;%</td></tr>
+    <tr><th scope="row">Une surcarte</th><td>3</td><td>6,4&nbsp;%</td><td>12,5&nbsp;%</td></tr>
+    <tr><th scope="row">Paire servie → brelan</th><td>2</td><td>4,3&nbsp;%</td><td>8,4&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Brelan → full ou carré</strong>&nbsp;: cas à part, car le nombre d'outs change entre les rues. Avec un brelan (par exemple 7-7 sur K-7-2), au flop tu as <strong>7 outs</strong> pour le turn (3 rois, 3 deux, le dernier 7), soit 14,9&nbsp;%. Si le turn est une carte neutre, il y a une carte de plus à appairer au board&nbsp;: <strong>10 outs</strong> pour la river, soit 21,7&nbsp;%.</p>
+
+<div class="tip"><strong>Une carte ou deux&nbsp;?</strong> La colonne «&nbsp;2 cartes&nbsp;» ne vaut que si tu es <em>sûr</em> de voir le turn et la river — typiquement quand l'adversaire est à tapis. Face à une mise avec encore des enchères à venir, ton call ne t'achète qu'<strong>une</strong> carte&nbsp;: c'est la colonne «&nbsp;1 carte&nbsp;» qu'il faut comparer au prix.</div>
+
+<h2>Outs propres, outs sales</h2>
+<p>Le tableau suppose que chaque out te donne la main gagnante. Dans la vraie vie, certains outs sont <strong>sales</strong>&nbsp;: ils complètent ton tirage… et la main de l'adversaire avec. Les cas à reconnaître&nbsp;:</p>
+
+<h3>La carte qui appaire le board</h3>
+<p>Tu as A♥5♥ sur K♠7♥2♥, ton adversaire a un brelan de 7. Tes 9 cœurs semblent tous bons, mais le <strong>K♥</strong> appaire le roi du board et lui donne un full (7-7-7-K-K). Il ne te reste que <strong>8 outs propres</strong>. Et même après un cœur au turn, le brelan garde des outs pour le full à la river.</p>
+
+<h3>La carte qui donne une couleur à l'autre</h3>
+<p>Tu as V♣10♦ sur D♥9♥3♠&nbsp;: quinte bilatérale, 8 outs (les 8 et les rois). Si l'adversaire tire couleur, le <strong>8♥</strong> et le <strong>K♥</strong> te donnent ta quinte mais lui donnent une couleur. Contre lui, tu n'as plus que <strong>6 outs propres</strong>.</p>
+
+<h3>Les surcartes qui lui donnent deux paires</h3>
+<p>Tu as A♠K♦ sur V♣7♥2♠ contre K♣V♦. Tu crois avoir 6 outs (3 as, 3 rois). Mais un roi lui donne <strong>deux paires</strong>&nbsp;: tes rois sont morts. Il ne te reste que les <strong>3 as</strong>. Les surcartes sont les outs les plus surestimés&nbsp;: contre une paire avec un bon kicker, compte-les rarement à plein.</p>
+
+<h3>Le tirage dominé et le tirage mort</h3>
+<p>Ton 7♥6♥ tire couleur sur K♥9♥2♣, l'adversaire a A♥D♥&nbsp;: chaque cœur qui te donne la couleur lui donne une couleur plus haute. Tes «&nbsp;9 outs&nbsp;» couleur valent <strong>zéro</strong>. Pire encore, face à un full déjà fait, ton tirage couleur ne peut plus gagner&nbsp;: tu <strong>tires mort</strong> (<em>drawing dead</em>).</p>
+
+<p>Comme tu ne vois pas les cartes adverses, la règle pratique est de <strong>décompter</strong>&nbsp;: retire les outs clairement sales, et compte pour moitié ceux qui ne gagnent qu'une partie du temps (une surcarte face à une paire possible, par exemple). C'est exactement ce que l'app PokerPerf fait travailler dans ses exercices d'outs&nbsp;: repérer les outs morts, puis les demi-outs.</p>
+
+<h2>Tirages combinés&nbsp;: ne compte pas deux fois</h2>
+<p>Avec un tirage couleur <em>et</em> un tirage quinte bilatérale, tu n'as pas 9 + 8 = 17 outs. Deux des 8 cartes de quinte sont aussi de ta couleur et sont déjà comptées dans les 9. Le bon total&nbsp;: <strong>9 + 8 − 2 = 15 outs</strong>.</p>
+<p>Même logique pour couleur + ventrale&nbsp;: 9 + 4 − 1 = <strong>12 outs</strong>. Et pour couleur + deux surcartes, 9 + 6 = 15 sur le papier — mais les 6 surcartes sont souvent sales (voir plus haut), donc compte plutôt 12 ou moins.</p>
+
+<h2>Des outs au pourcentage</h2>
+<p>Une fois tes outs comptés, il reste à les traduire en chances de toucher. Les formules exactes&nbsp;:</p>
+<ul>
+  <li><strong>Une carte au flop</strong> (le turn)&nbsp;: outs ÷ 47.</li>
+  <li><strong>Une carte au turn</strong> (la river)&nbsp;: outs ÷ 46.</li>
+  <li><strong>Deux cartes du flop à la river</strong>&nbsp;: 1 − [probabilité de rater les deux], soit <span class="formula" style="display:inline-block;padding:2px 8px;">1 − C(47 − outs, 2) ÷ C(47, 2)</span>, où C(47, 2) = 1 081 paires de cartes possibles.</li>
+</ul>
+<p>Exemple avec un tirage couleur (9 outs)&nbsp;: au turn, 9 ÷ 47 = <strong>19,1&nbsp;%</strong>. Du flop à la river, il y a C(38, 2) = 703 paires de cartes sans cœur sur 1 081&nbsp;: 1 − 703 ÷ 1 081 = <strong>35,0&nbsp;%</strong>.</p>
+
+<h3>Le raccourci&nbsp;: la règle du 4 et 2</h3>
+<p>À la table, multiplie tes outs par <strong>2</strong> pour une carte, par <strong>4</strong> pour deux cartes. Comparé aux valeurs exactes&nbsp;:</p>
+<div class="odds-scroll" role="region" aria-label="Règle du 4 et 2 comparée aux valeurs exactes" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Outs</th><th scope="col">1 carte exact (÷ 47)</th><th scope="col">× 2</th><th scope="col">2 cartes exact</th><th scope="col">× 4</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">4</th><td>8,5&nbsp;%</td><td class="approx">8&nbsp;%</td><td>16,5&nbsp;%</td><td class="approx">16&nbsp;%</td></tr>
+    <tr><th scope="row">6</th><td>12,8&nbsp;%</td><td class="approx">12&nbsp;%</td><td>24,1&nbsp;%</td><td class="approx">24&nbsp;%</td></tr>
+    <tr><th scope="row">8</th><td>17,0&nbsp;%</td><td class="approx">16&nbsp;%</td><td>31,5&nbsp;%</td><td class="approx">32&nbsp;%</td></tr>
+    <tr><th scope="row">9</th><td>19,1&nbsp;%</td><td class="approx">18&nbsp;%</td><td>35,0&nbsp;%</td><td class="approx">36&nbsp;%</td></tr>
+    <tr><th scope="row">12</th><td>25,5&nbsp;%</td><td class="approx">24&nbsp;%</td><td>45,0&nbsp;%</td><td class="approx">48&nbsp;%</td></tr>
+    <tr><th scope="row">15</th><td>31,9&nbsp;%</td><td class="approx">30&nbsp;%</td><td>54,1&nbsp;%</td><td class="approx">60&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Jusqu'à 8-9 outs, l'approximation est excellente. Au-delà, le ×&nbsp;4 surestime nettement (60&nbsp;% annoncés pour 54&nbsp;% réels avec 15 outs). Le détail est dans notre guide de la <a href="/fr/guides/regle-du-4-et-2/">règle du 4 et 2</a>, et toutes les valeurs de 1 à 20 outs sont dans l'<a href="/fr/guides/aide-memoire-cotes/">aide-mémoire des cotes à imprimer</a>.</p>
+
+<h2>Des outs à la décision</h2>
+<p>Tes chances de toucher ne servent qu'une fois comparées au prix du call&nbsp;: c'est la <a href="/fr/guides/cotes-au-poker/">cote du pot</a>. Si elle ne suffit pas, reste la question de ce que tu gagneras <em>après</em> avoir touché&nbsp;: les <a href="/fr/guides/cotes-implicites/">cotes implicites</a>. Pour vérifier une situation précise, mains adverses comprises, passe par le <a href="/fr/calculateur-equite/">calculateur d'équité</a>.</p>
+
+<h2>Questions fréquentes</h2>
+<details><summary>Combien d'outs pour un tirage couleur&nbsp;?</summary><p>Neuf&nbsp;: il y a 13 cartes de chaque couleur, tu en vois 4 (2 en main, 2 au board), il en reste 9. Soit 19,1&nbsp;% de toucher au turn et 35,0&nbsp;% du flop à la river si tu vois les deux cartes.</p></details>
+<details><summary>Qu'est-ce qu'un out sale&nbsp;?</summary><p>Un out qui complète ton tirage mais donne aussi une meilleure main à l'adversaire&nbsp;: une carte de ta couleur qui lui donne un full, une carte de quinte qui lui donne une couleur, une surcarte qui lui donne deux paires. On les retire du compte, ou on les compte pour moitié en cas de doute.</p></details>
+<details><summary>Combien d'outs avec un tirage couleur et quinte&nbsp;?</summary><p>Quinze avec un tirage bilatéral (9 + 8 − 2, car deux cartes de quinte sont déjà comptées dans la couleur) et douze avec une ventrale (9 + 4 − 1).</p></details>
+<details><summary>Comment convertir ses outs en pourcentage&nbsp;?</summary><p>Pour une carte&nbsp;: outs ÷ 47 au flop, outs ÷ 46 au turn. Pour deux cartes&nbsp;: 1 − C(47 − outs, 2) ÷ C(47, 2). De tête, la règle du 4 et 2 donne une bonne approximation jusqu'à environ 9 outs.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/guides/aide-memoire-cotes/">Aide-mémoire des cotes</a> · <a href="/fr/guides/cotes-implicites/">Cotes implicites</a> · <a href="/fr/guides/regle-du-4-et-2/">Règle du 4 et 2</a> · <a href="/fr/calculateur-equite/">Calculateur d'équité</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Combien d'outs pour un tirage couleur ?","acceptedAnswer":{"@type":"Answer","text":"Neuf : il y a 13 cartes de chaque couleur, tu en vois 4 (2 en main, 2 au board), il en reste 9. Soit 19,1 % de toucher au turn et 35,0 % du flop à la river si tu vois les deux cartes."}},
+  {"@type":"Question","name":"Qu'est-ce qu'un out sale ?","acceptedAnswer":{"@type":"Answer","text":"Un out qui complète ton tirage mais donne aussi une meilleure main à l'adversaire : une carte de ta couleur qui lui donne un full, une carte de quinte qui lui donne une couleur, une surcarte qui lui donne deux paires. On les retire du compte, ou on les compte pour moitié en cas de doute."}},
+  {"@type":"Question","name":"Combien d'outs avec un tirage couleur et quinte ?","acceptedAnswer":{"@type":"Answer","text":"Quinze avec un tirage bilatéral (9 + 8 − 2, car deux cartes de quinte sont déjà comptées dans la couleur) et douze avec une ventrale (9 + 4 − 1)."}},
+  {"@type":"Question","name":"Comment convertir ses outs en pourcentage ?","acceptedAnswer":{"@type":"Answer","text":"Pour une carte : outs ÷ 47 au flop, outs ÷ 46 au turn. Pour deux cartes : 1 − C(47 − outs, 2) ÷ C(47, 2). De tête, la règle du 4 et 2 donne une bonne approximation jusqu'à environ 9 outs."}}
+]}
+</script>

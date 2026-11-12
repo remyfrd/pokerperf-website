@@ -1,0 +1,61 @@
+/* ===========================================================================
+   Guide « mains de départ » — grilles 13×13 accessibles.
+   Le niveau n'est jamais codé par la couleur seule : chiffre / symbole visible
+   dans chaque case + texte masqué pour les lecteurs d'écran + légende.
+   =========================================================================== */
+
+/* Conteneur : la grille défile DANS son cadre, jamais la page (360 px). */
+.sh-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;
+  border:1px solid var(--gold-hair);border-radius:12px;background:var(--felt-deep);}
+.sh-scroll:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.sh-hint{display:none;margin:0 0 4px;font:500 .72rem/1.3 "IBM Plex Mono","Plex Mono Fallback",monospace;
+  color:var(--muted);letter-spacing:.04em;}
+@media (max-width:640px){ .sh-hint{display:block;} }
+
+.sh-grid{border-collapse:separate;border-spacing:2px;width:100%;margin:0;table-layout:fixed;
+  font-family:"IBM Plex Mono","Plex Mono Fallback",monospace;}
+.sh-grid caption{caption-side:top;text-align:left;padding:10px 10px 6px;color:var(--muted);
+  font:400 .8rem/1.45 Geist,"Geist Fallback",system-ui,sans-serif;}
+.sh-grid th{padding:2px 0;border:0;text-align:center;font-size:.7rem;letter-spacing:0;color:var(--gold);}
+.sh-grid thead th:first-child,.sh-grid tbody th{width:18px;}
+.sh-grid td{position:relative;padding:4px 1px 3px;border:0;border-radius:4px;text-align:center;
+  line-height:1.15;vertical-align:middle;font-weight:400;}
+.sh-grid td b{display:block;font-weight:700;letter-spacing:-.02em;}
+.sh-grid td i{font-style:normal;}
+
+/* --- Grille d'équité : défile sur mobile (13 colonnes de 44 px). --- */
+.sh-grid.eq{min-width:600px;}
+.sh-grid.eq td b{font-size:.74rem;}
+.sh-grid.eq td .v{display:block;font-size:.66rem;}
+.sh-grid.eq td i{position:absolute;top:1px;right:3px;font-size:.55rem;opacity:.85;}
+/* 5 niveaux = une seule teinte or, du plein au vide (+ chiffre visible). */
+.sh-grid .t1{background:oklch(0.82 0.06 85);color:var(--ink);}
+.sh-grid .t2{background:oklch(0.68 0.06 85);color:var(--ink);}
+.sh-grid .t3{background:oklch(0.45 0.05 85);color:var(--cream);}
+.sh-grid .t4{background:oklch(0.31 0.035 85);color:var(--cream);}
+.sh-grid .t5{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1px var(--gold-hair);}
+
+/* --- Grilles de range : compactes, tiennent dans 320 px. --- */
+.sh-grid.rg{min-width:300px;}
+.sh-grid.rg td{padding:3px 0 2px;}
+.sh-grid.rg td b{font-size:.6rem;letter-spacing:-.04em;}
+.sh-grid.rg td i{display:block;font-size:.6rem;line-height:1;}
+.sh-grid .on{background:oklch(0.82 0.06 85);color:var(--ink);}
+.sh-grid .mix{background:oklch(0.5 0.05 85);color:var(--cream);}
+.sh-grid .off{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1px var(--gold-hair);}
+@media (min-width:641px){
+  .sh-grid.rg td b{font-size:.72rem;}
+  .sh-grid.rg td i{font-size:.66rem;}
+}
+
+/* Légende : pastille + texte, jamais la couleur seule. */
+.sh-legend{display:flex;flex-wrap:wrap;gap:6px 14px;list-style:none;padding:0 !important;margin:8px 0 18px;
+  font-size:.82rem;color:var(--muted);}
+.sh-legend li{display:flex;align-items:center;gap:7px;margin:0 !important;color:var(--muted) !important;}
+.sh-legend .sw{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:20px;padding:0 4px;
+  border-radius:4px;font:700 .7rem/1 "IBM Plex Mono","Plex Mono Fallback",monospace;}
+.sh-src{font-size:.82rem;color:var(--muted);margin-top:4px;}
+
+/* Petit tableau des combinaisons. */
+.sh-combos td,.sh-combos th{text-align:right;} .sh-combos th:first-child,.sh-combos td:first-child{text-align:left;}
+.sh-combos tbody th{text-transform:none;font-family:inherit;font-size:.92rem;letter-spacing:0;color:var(--cream);font-weight:600;}

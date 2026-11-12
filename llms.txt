@@ -15,6 +15,12 @@
 - [Poker pot odds](https://pokerperf.com/en/guides/poker-pot-odds/): when to call, required equity, the classic draw trap.
 - [What is GTO poker](https://pokerperf.com/en/guides/what-is-gto-poker/)
 - [Preflop ranges](https://pokerperf.com/en/guides/preflop-ranges/)
+- [Poker math (hub)](https://pokerperf.com/en/guides/poker-math/): every core concept in learning order, with links.
+- [Texas Hold'em odds](https://pokerperf.com/en/guides/texas-holdem-odds/): exact preflop, flop and draw probabilities, classic matchups.
+- [Poker starting hands chart](https://pokerperf.com/en/guides/poker-starting-hands/): all 169 hands with equity vs a random hand, a button opening range, a 10bb push/fold range.
+- [How to count outs](https://pokerperf.com/en/guides/how-to-count-outs/): clean vs dirty outs, exact % per card.
+- [Implied odds](https://pokerperf.com/en/guides/implied-odds/): formula, worked example, set mining, reverse implied odds.
+- [Poker odds cheat sheet](https://pokerperf.com/en/guides/poker-odds-cheat-sheet/): printable outs/pot-odds/matchups chart.
 
 ## Outils gratuits (français)
 - [Calculateur d'équité poker](https://pokerperf.com/fr/calculateur-equite/)
@@ -27,6 +33,12 @@
 - [Les cotes au poker](https://pokerperf.com/fr/guides/cotes-au-poker/)
 - [Le GTO au poker](https://pokerperf.com/fr/guides/gto-poker/)
 - [Ranges préflop](https://pokerperf.com/fr/guides/ranges-preflop/)
+- [Maths du poker](https://pokerperf.com/fr/guides/maths-du-poker/)
+- [Probabilités au Hold'em](https://pokerperf.com/fr/guides/probabilites-poker/)
+- [Tableau des mains de départ](https://pokerperf.com/fr/guides/mains-de-depart/)
+- [Compter ses outs](https://pokerperf.com/fr/guides/compter-ses-outs/)
+- [Cotes implicites](https://pokerperf.com/fr/guides/cotes-implicites/)
+- [Aide-mémoire des cotes](https://pokerperf.com/fr/guides/aide-memoire-cotes/)
 
 ## How the numbers are checked / Méthodologie
 - [Methodology (EN)](https://pokerperf.com/en/methodology/) · [Méthodologie (FR)](https://pokerperf.com/fr/methodologie/): how the equity engine is verified (exact enumeration, Monte-Carlo precision, three independent cross-checks).
