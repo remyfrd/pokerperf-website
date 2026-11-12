@@ -1,0 +1,59 @@
+---
+layout: article
+lang: en
+title: "The Rule of 4 and 2 in poker: counting outs (guide)"
+headline: "The rule of 4 and 2: estimate your chance to hit"
+description: "The poker rule of 4 and 2 explained simply: count your outs, estimate your equity in your head, and know whether a call is profitable. Examples and table."
+permalink: /en/guides/rule-of-4-and-2/
+date: 2026-11-03
+illus: rule42
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/regle-du-4-et-2/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/rule-of-4-and-2/" }
+x_default: "https://pokerperf.com/en/guides/rule-of-4-and-2/"
+---
+<p class="lead">At the table you don't have a calculator. The <strong>rule of 4 and 2</strong> gives you, in one second, your chance of completing your draw — enough to decide whether to call without getting it wrong.</p>
+
+<h2>The rule of 4 and 2, in one line</h2>
+<p>Count your <strong>outs</strong> (the cards that improve your hand), then:</p>
+<ul>
+  <li><strong>× 4</strong> on the flop, when <strong>two cards</strong> are still to come (turn + river);</li>
+  <li><strong>× 2</strong> when only <strong>one</strong> is left (turn to river).</li>
+</ul>
+<p>The result is your approximate <strong>equity</strong>, as a percentage. Nine outs on the flop? 9&nbsp;×&nbsp;4&nbsp;=&nbsp;<strong>36%</strong> to hit.</p>
+
+<h2>Counting your outs</h2>
+<p>An <strong>out</strong> is a card still in the deck that turns your hand into a winner. The most common draws:</p>
+<table>
+  <thead><tr><th scope="col">Draw</th><th scope="col">Outs</th><th scope="col">Flop → river (×4)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Flush draw</th><td>9</td><td>≈ 36%</td></tr>
+    <tr><th scope="row">Open-ended straight</th><td>8</td><td>≈ 32%</td></tr>
+    <tr><th scope="row">Two overcards</th><td>6</td><td>≈ 24%</td></tr>
+    <tr><th scope="row">Gutshot straight</th><td>4</td><td>≈ 16%</td></tr>
+  </tbody>
+</table>
+<p>Tip: only count "clean" outs — the ones that give you <em>the best</em> hand, not one that stays behind.</p>
+
+<h2>Why it works (and its limits)</h2>
+<p>It's an <strong>approximation</strong>, very reliable up to 8 outs. Beyond that, ×4 slightly overestimates: with 12+ outs, shave off a few points. For the <strong>exact</strong> value, use our <a href="/en/poker-odds-calculator/">equity calculator</a>.</p>
+
+<blockquote>Example. You have a flush draw on the flop (9 outs). Rule of 4: ≈ 36% equity. Your opponent bets and your <a href="/en/pot-odds-calculator/">pot odds</a> require 25%. 36%&nbsp;&gt;&nbsp;25% → <strong>you call</strong>.</blockquote>
+
+<h2>From equity to decision</h2>
+<p>Knowing your equity isn't enough: you compare it to what the hand costs. That's what <strong>pot odds</strong> are for. The golden rule: <strong>call when your equity beats the required equity</strong>. Practise with our <a href="/en/pot-odds-calculator/">pot odds calculator</a>.</p>
+
+<h2>Frequently asked questions</h2>
+<details><summary>Why 4 and 2?</summary><p>Each out is worth about 2% per card to come. Two cards → ×4; one card → ×2. It's a mental-math shortcut, not an exact formula.</p></details>
+<details><summary>How many outs for a flush draw?</summary><p>Nine (13 cards of the suit minus the 4 already visible), about 36% on the flop.</p></details>
+<details><summary>Is the rule of 4 and 2 accurate?</summary><p>Very reliable up to 8 outs; beyond that it slightly overestimates. The exact figure comes from an equity calculator.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/poker-odds-calculator/">Equity calculator</a> · <a href="/en/pot-odds-calculator/">Pot odds</a> · <a href="/en/poker-hand-rankings/">Hand rankings</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Why 4 and 2?","acceptedAnswer":{"@type":"Answer","text":"Each out is worth about 2% per card to come: two cards give ×4, one card ×2. It's a mental-math shortcut, not an exact formula."}},
+  {"@type":"Question","name":"How many outs for a flush draw?","acceptedAnswer":{"@type":"Answer","text":"Nine outs, about 36% to hit by the river from the flop."}},
+  {"@type":"Question","name":"Is the rule of 4 and 2 accurate?","acceptedAnswer":{"@type":"Answer","text":"Very reliable up to 8 outs; beyond that it slightly overestimates. The exact figure comes from an equity calculator."}}
+]}
+</script>

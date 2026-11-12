@@ -192,3 +192,23 @@ details p{margin:10px 0 2px;color:var(--muted);}
 .hc{width:30px;height:42px;border-radius:5px;background:var(--card-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;box-shadow:0 1px 3px oklch(0.1 0.02 158 / .4);}
 .hc .r{font-size:.85rem;line-height:1;} .hc .s{font-size:.72rem;line-height:1;}
 .hc.red{color:var(--card-red);} .hc.black{color:var(--card-black);}
+
+/* --- guides / articles --- */
+.prose{max-width:720px;}
+.prose .lead{font-size:1.12rem;color:var(--muted);margin:0 0 22px;}
+.prose h2{margin-top:40px;}
+.prose h3{font:600 1.2rem/1.2 "Cormorant Garamond",serif;color:var(--cream);margin:26px 0 8px;}
+.prose p,.prose li{color:var(--cream);}
+.prose ul,.prose ol{padding-left:22px;}
+.prose li{margin:5px 0;}
+.prose blockquote{border-left:3px solid var(--gold);margin:18px 0;padding:8px 16px;color:var(--muted);background:var(--panel);border-radius:0 10px 10px 0;}
+.crumbs{font-size:.82rem;color:var(--muted);margin-bottom:12px;}
+.crumbs a{color:var(--muted);border:0;} .crumbs a:hover{color:var(--gold);}
+.art-meta{color:var(--muted);font-size:.82rem;font-family:"IBM Plex Mono",monospace;margin:0 0 20px;}
+.guide-list{display:flex;flex-direction:column;gap:14px;margin:20px 0;}
+.guide-card{display:block;border:1px solid var(--gold-hair);border-radius:14px;padding:20px 22px;background:var(--panel);text-decoration:none;}
+.guide-card:hover{border-color:var(--gold-soft);}
+.guide-card h2{margin:0 0 6px;font-size:1.3rem;}
+.guide-card p{margin:0;color:var(--muted);font-size:.95rem;}
+.guide-hero{margin:6px 0 26px;border:1px solid var(--gold-hair);border-radius:14px;background:linear-gradient(var(--panel),var(--felt-deep));padding:20px 22px;}
+.guide-hero svg{display:block;width:100%;height:auto;}

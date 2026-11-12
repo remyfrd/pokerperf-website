@@ -1,0 +1,7 @@
+<svg viewBox="0 0 600 170" role="img" aria-label="{% if page.lang == 'en' %}The 13x13 grid of 169 starting hands (range matrix){% else %}La grille 13x13 des 169 mains de départ (matrice des ranges){% endif %}" preserveAspectRatio="xMidYMid meet">
+  {%- for r in (0..12) -%}{%- for c in (0..12) -%}
+  {%- assign fill = "oklch(0.82 0.06 85 / .10)" -%}
+  {%- if r == c -%}{%- assign fill = "oklch(0.86 0.06 88 / .62)" -%}{%- elsif c > r -%}{%- assign fill = "oklch(0.86 0.06 88 / .30)" -%}{%- endif -%}
+  <rect x="{{ c | times: 12 | plus: 222 }}" y="{{ r | times: 12 | plus: 7 }}" width="10" height="10" rx="2" fill="{{ fill }}"/>
+  {%- endfor -%}{%- endfor -%}
+</svg>

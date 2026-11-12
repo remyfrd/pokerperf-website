@@ -1,0 +1,21 @@
+<svg viewBox="0 0 600 170" role="img" aria-label="{% if page.lang == 'en' %}GTO: balancing value and bluffs{% else %}GTO : équilibrer value et bluffs{% endif %}" preserveAspectRatio="xMidYMid meet">
+  <style>
+    .beam{stroke:oklch(0.86 0.06 88);stroke-width:4;fill:none;stroke-linecap:round}
+    .pan{fill:oklch(0.82 0.06 85 / .14);stroke:oklch(0.86 0.06 88);stroke-width:2}
+    .plbl{fill:oklch(0.9 0.05 90);font:600 15px "IBM Plex Mono",monospace;letter-spacing:.1em}
+    .eq{fill:oklch(0.8 0.05 95);font:500 15px "Cormorant Garamond",serif;font-style:italic}
+  </style>
+  <!-- fléau -->
+  <line class="beam" x1="160" y1="56" x2="440" y2="56"/>
+  <line class="beam" x1="300" y1="56" x2="300" y2="30"/>
+  <circle cx="300" cy="26" r="6" fill="oklch(0.86 0.06 88)"/>
+  <!-- pied -->
+  <path class="beam" d="M280 128 L300 60 L320 128"/>
+  <line class="beam" x1="262" y1="128" x2="338" y2="128"/>
+  <!-- plateaux -->
+  <line class="beam" x1="160" y1="56" x2="160" y2="84"/><ellipse class="pan" cx="160" cy="88" rx="52" ry="12"/>
+  <line class="beam" x1="440" y1="56" x2="440" y2="84"/><ellipse class="pan" cx="440" cy="88" rx="52" ry="12"/>
+  <text class="plbl" x="160" y="120" text-anchor="middle">VALUE</text>
+  <text class="plbl" x="440" y="120" text-anchor="middle">BLUFF</text>
+  <text class="eq" x="300" y="152" text-anchor="middle">{% if page.lang == 'en' %}balance = unexploitable{% else %}équilibre = inexploitable{% endif %}</text>
+</svg>

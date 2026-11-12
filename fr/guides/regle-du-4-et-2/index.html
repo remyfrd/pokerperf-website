@@ -1,0 +1,59 @@
+---
+layout: article
+lang: fr
+title: "Règle du 4 et 2 au poker : calculer ses outs (guide)"
+headline: "La règle du 4 et 2 : calcule tes chances de toucher"
+description: "La règle du 4 et 2 au poker expliquée simplement : compte tes outs, estime ton équité de tête, et sais si payer est rentable. Exemples et tableau."
+permalink: /fr/guides/regle-du-4-et-2/
+date: 2026-11-03
+illus: rule42
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/regle-du-4-et-2/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/rule-of-4-and-2/" }
+x_default: "https://pokerperf.com/en/guides/rule-of-4-and-2/"
+---
+<p class="lead">À la table, tu n'as pas de calculatrice. La <strong>règle du 4 et 2</strong> te donne, en une seconde, tes chances de compléter ton tirage — de quoi décider de payer ou non sans te tromper.</p>
+
+<h2>La règle du 4 et 2, en une phrase</h2>
+<p>Compte tes <strong>outs</strong> (les cartes qui améliorent ta main), puis&nbsp;:</p>
+<ul>
+  <li><strong>× 4</strong> après le flop, quand il reste <strong>deux cartes</strong> à venir (turn + river)&nbsp;;</li>
+  <li><strong>× 2</strong> quand il n'en reste qu'<strong>une</strong> (du turn à la river).</li>
+</ul>
+<p>Le résultat est ton <strong>équité</strong> approximative, en pourcentage. Neuf outs au flop&nbsp;? 9&nbsp;×&nbsp;4&nbsp;=&nbsp;<strong>36&nbsp;%</strong> de chances de toucher.</p>
+
+<h2>Compter ses outs</h2>
+<p>Un <strong>out</strong> est une carte encore dans le paquet qui transforme ta main en main gagnante. Les tirages les plus fréquents&nbsp;:</p>
+<table>
+  <thead><tr><th scope="col">Tirage</th><th scope="col">Outs</th><th scope="col">Flop → river (×4)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Tirage couleur</th><td>9</td><td>≈ 36&nbsp;%</td></tr>
+    <tr><th scope="row">Quinte bilatérale</th><td>8</td><td>≈ 32&nbsp;%</td></tr>
+    <tr><th scope="row">Deux surcartes</th><td>6</td><td>≈ 24&nbsp;%</td></tr>
+    <tr><th scope="row">Quinte par le ventre</th><td>4</td><td>≈ 16&nbsp;%</td></tr>
+  </tbody>
+</table>
+<p>Astuce&nbsp;: ne compte que les outs «&nbsp;propres&nbsp;» — ceux qui te donnent <em>la meilleure</em> main, pas une main qui reste battue.</p>
+
+<h2>Pourquoi ça marche (et ses limites)</h2>
+<p>C'est une <strong>approximation</strong>, très fiable jusqu'à 8 outs. Au-delà, le ×4 surévalue un peu&nbsp;: avec 12 outs ou plus, retire quelques points. Pour la valeur <strong>exacte</strong>, utilise notre <a href="/fr/calculateur-equite/">calculateur d'équité</a>.</p>
+
+<blockquote>Exemple. Tu as un tirage couleur au flop (9 outs). Règle du 4&nbsp;: ≈ 36&nbsp;% d'équité. L'adversaire mise, ta <a href="/fr/cote-du-pot/">cote du pot</a> exige 25&nbsp;%. 36&nbsp;%&nbsp;&gt;&nbsp;25&nbsp;% → <strong>tu paies</strong>.</blockquote>
+
+<h2>De l'équité à la décision</h2>
+<p>Connaître ton équité ne suffit pas&nbsp;: il faut la comparer à ce que coûte le coup. C'est le rôle de la <strong>cote du pot</strong>. La règle d'or&nbsp;: <strong>tu paies quand ton équité dépasse l'équité requise</strong>. Entraîne-toi avec notre <a href="/fr/cote-du-pot/">calculateur de cote du pot</a>.</p>
+
+<h2>Questions fréquentes</h2>
+<details><summary>Pourquoi 4 et 2&nbsp;?</summary><p>Chaque out vaut ≈ 2&nbsp;% par carte à venir. Deux cartes → ×4&nbsp;; une carte → ×2. C'est une astuce de calcul mental, pas une formule exacte.</p></details>
+<details><summary>Combien d'outs pour un tirage couleur&nbsp;?</summary><p>Neuf (13 cartes de la couleur moins les 4 déjà visibles), soit ≈ 36&nbsp;% au flop.</p></details>
+<details><summary>La règle du 4 et 2 est-elle précise&nbsp;?</summary><p>Très fiable jusqu'à 8 outs. Au-delà, elle surévalue légèrement&nbsp;; le calcul exact se fait avec un calculateur d'équité.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/calculateur-equite/">Calculateur d'équité</a> · <a href="/fr/cote-du-pot/">Cote du pot</a> · <a href="/fr/classement-des-mains/">Classement des mains</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Pourquoi 4 et 2 ?","acceptedAnswer":{"@type":"Answer","text":"Chaque out vaut environ 2 % par carte à venir : deux cartes donnent ×4, une carte ×2. C'est une astuce de calcul mental, pas une formule exacte."}},
+  {"@type":"Question","name":"Combien d'outs pour un tirage couleur ?","acceptedAnswer":{"@type":"Answer","text":"Neuf outs, soit environ 36 % de chances de toucher d'ici la river depuis le flop."}},
+  {"@type":"Question","name":"La règle du 4 et 2 est-elle précise ?","acceptedAnswer":{"@type":"Answer","text":"Très fiable jusqu'à 8 outs ; au-delà elle surévalue légèrement. Le calcul exact se fait avec un calculateur d'équité."}}
+]}
+</script>

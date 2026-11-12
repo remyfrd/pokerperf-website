@@ -1,0 +1,13 @@
+<svg viewBox="0 0 600 170" role="img" aria-label="{% if page.lang == 'en' %}Pot odds: ratio and required equity{% else %}Cote du pot : ratio et équité requise{% endif %}" preserveAspectRatio="xMidYMid meet">
+  <style>
+    .ratio{fill:oklch(0.86 0.06 88);font:700 56px "Cormorant Garamond",serif}
+    .lbl{fill:oklch(0.8 0.05 95);font:500 14px "IBM Plex Mono",monospace;letter-spacing:.06em}
+    .pct{fill:#17202a;font:700 18px "IBM Plex Mono",monospace}
+  </style>
+  <text class="ratio" x="150" y="100" text-anchor="middle">3 : 1</text>
+  <text class="lbl" x="150" y="134" text-anchor="middle">{% if page.lang == 'en' %}pot odds{% else %}cote du pot{% endif %}</text>
+  <rect x="320" y="60" width="260" height="34" rx="17" fill="oklch(0.82 0.06 85 / .14)"/>
+  <rect x="320" y="60" width="65" height="34" rx="17" fill="oklch(0.86 0.06 88)"/>
+  <text class="pct" x="352" y="83" text-anchor="middle">25%</text>
+  <text class="lbl" x="450" y="128" text-anchor="middle">{% if page.lang == 'en' %}required equity{% else %}équité requise{% endif %}</text>
+</svg>

@@ -1,0 +1,14 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.headline | default: page.title | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "inLanguage": "{{ page.lang }}",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ page.url | absolute_url }}" },
+  {% if page.date %}"datePublished": "{{ page.date | date_to_xmlschema }}", "dateModified": "{{ page.date | date_to_xmlschema }}",{% endif %}
+  "image": "{{ '/assets/img/og-cover.png' | absolute_url }}",
+  "author": { "@id": "https://pokerperf.com/#org" },
+  "publisher": { "@id": "https://pokerperf.com/#org" }
+}
+</script>

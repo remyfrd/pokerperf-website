@@ -15,6 +15,7 @@
           <a role="menuitem" href="{{ t.rankings_url }}">{{ t.nav_calc_rankings }}</a>
         </div>
       </div>
+      <a href="{{ t.guides_url }}">{{ t.nav_guides }}</a>
     </div>
     {%- for alt in page.alternates %}{%- unless alt.lang == page.lang %}
     <a class="lang-switch" href="{{ alt.href | remove: 'https://pokerperf.com' }}" hreflang="{{ alt.lang }}" aria-label="{{ alt.lang | upcase }}">{{ alt.lang | upcase }}</a>

@@ -1,0 +1,24 @@
+---
+layout: default
+lang: en
+title: "Poker guides — make better decisions (pot odds, outs, ranges, GTO)"
+description: "PokerPerf guides to improve at poker: pot odds, outs, preflop ranges, GTO — explained simply, with free tools to practise."
+permalink: /en/guides/
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/" }
+x_default: "https://pokerperf.com/en/guides/"
+---
+{%- assign t = site.data.i18n[page.lang] -%}
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>{{ t.guides_title }}</h1>
+  <p class="lead">{{ t.guides_intro }}</p>
+  {%- assign arts = site.pages | where_exp: "p", "p.layout == 'article'" | where: "lang", page.lang | sort: "date" | reverse -%}
+  <div class="guide-list">
+    {%- for a in arts %}
+    <a class="guide-card" href="{{ a.url }}"><h2>{{ a.headline | default: a.title }}</h2><p>{{ a.description }}</p></a>
+    {%- endfor %}
+    {%- if arts.size == 0 %}<p class="calc">More guides coming soon.</p>{%- endif %}
+  </div>
+</div>

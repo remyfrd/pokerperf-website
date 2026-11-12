@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.fr -%}
+<article class="wrap prose">
+  <nav class="crumbs" aria-label="{{ t.crumb_guides }}">
+    <a href="{{ t.home_url }}">{{ t.crumb_home }}</a> › <a href="{{ t.guides_url }}">{{ t.crumb_guides }}</a> › <span>{{ page.headline | default: page.title }}</span>
+  </nav>
+  <h1>{{ page.headline | default: page.title }}</h1>
+  <p class="art-meta">{% if page.date %}{{ page.date | date: "%d/%m/%Y" }} · {% endif %}{{ t.author }}</p>
+
+  {%- if page.illus %}
+  <figure class="guide-hero">
+    {%- case page.illus -%}
+    {%- when "rule42" %}{% include illus-rule42.html %}
+    {%- when "potodds" %}{% include illus-potodds.html %}
+    {%- when "gto" %}{% include illus-gto.html %}
+    {%- when "ranges" %}{% include illus-ranges.html %}
+    {%- endcase -%}
+  </figure>
+  {%- endif %}
+
+  {{ content }}
+
+  <div class="appcta" style="margin-top:44px;">
+    <h2>{{ t.art_cta_h }}</h2>
+    <p>{{ t.art_cta_p }}</p>
+    <a class="btn" href="{{ t.play_url }}">{{ t.nav_download }}</a>
+  </div>
+</article>
+{% include article-schema.html %}
