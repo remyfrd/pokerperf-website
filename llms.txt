@@ -21,6 +21,7 @@
 - [How to count outs](https://pokerperf.com/en/guides/how-to-count-outs/): clean vs dirty outs, exact % per card.
 - [Implied odds](https://pokerperf.com/en/guides/implied-odds/): formula, worked example, set mining, reverse implied odds.
 - [Poker odds cheat sheet](https://pokerperf.com/en/guides/poker-odds-cheat-sheet/): printable outs/pot-odds/matchups chart.
+- [Push/fold charts](https://pokerperf.com/en/guides/push-fold-chart/): heads-up Nash shove/call ranges at 10, 12, 15 and 20bb (chip-EV, no antes).
 
 ## Outils gratuits (français)
 - [Calculateur d'équité poker](https://pokerperf.com/fr/calculateur-equite/)
@@ -39,6 +40,7 @@
 - [Compter ses outs](https://pokerperf.com/fr/guides/compter-ses-outs/)
 - [Cotes implicites](https://pokerperf.com/fr/guides/cotes-implicites/)
 - [Aide-mémoire des cotes](https://pokerperf.com/fr/guides/aide-memoire-cotes/)
+- [Tableaux push/fold](https://pokerperf.com/fr/guides/push-fold/)
 
 ## How the numbers are checked / Méthodologie
 - [Methodology (EN)](https://pokerperf.com/en/methodology/) · [Méthodologie (FR)](https://pokerperf.com/fr/methodologie/): how the equity engine is verified (exact enumeration, Monte-Carlo precision, three independent cross-checks).
