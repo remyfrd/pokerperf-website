@@ -1,8 +1,8 @@
 ---
 layout: default
 lang: en
-title: "Poker Odds & Equity Calculator — pot odds & outs (free)"
-description: "Free poker odds & equity calculator (Texas Hold'em): your hand against one or more hands, at every street. Count your outs, compare to the pot odds. Instant, no sign-up."
+title: "Poker Equity Calculator — win odds for any hand (free)"
+description: "Free poker equity calculator for Texas Hold'em: your hand against one or more hands at every street, exact from the flop. See your odds of winning, count your outs. Instant, no sign-up."
 permalink: /en/poker-odds-calculator/
 alternates:
   - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-equite/" }
@@ -11,16 +11,29 @@ x_default: "https://pokerperf.com/en/poker-odds-calculator/"
 ---
 <div class="wrap">
   <p class="brand">PokerPerf</p>
-  <h1>Poker Odds &amp; Equity Calculator</h1>
-  <p class="lead">Pick your hand, your opponents' hands (or a "random hand") and the board: you get your <strong>equity</strong> — your expected share of the pot — and your odds at every street. Perfect for comparing your equity to the <strong>pot odds</strong> and knowing whether a call is profitable. Texas Hold'em, free, no sign-up.</p>
+  <h1>Poker Equity Calculator</h1>
+  <p class="lead">Pick your hand, your opponents' hands (or a "random hand") and the board: you get your <strong>equity</strong> — your expected share of the pot — and your odds at every street. Then check whether a call is profitable with our <a href="/en/pot-odds-calculator/">pot odds calculator</a>. Texas Hold'em, free, no sign-up.</p>
 
   <div id="equity-calculator" data-lang="en"></div>
 
   <h2>What is equity in poker?</h2>
   <p>Your <strong>equity</strong> is the percentage of the pot you'd win <em>on average</em> if the hand went to showdown, given the known cards. 50% is a coin flip; 80% means you're a big favorite. It's the basis of almost every decision: whether to call, bet or fold depends on your equity versus what the hand costs you.</p>
 
+  <h2>How to calculate equity in poker</h2>
+  <p>Equity is a simple count: <strong>out of all the ways the remaining cards can fall, how often does your hand win?</strong> On the flop, the calculator deals out every possible turn and river (about a thousand combinations against a known hand) and counts your wins and ties — that's an exact result. Preflop there are far too many boards, so it simulates tens of thousands of random ones instead (±0.4%).</p>
+  <p>At the table, you estimate it in your head: count your <strong>outs</strong> (cards that improve you) and apply the rule of 4 and 2 below. A few equities worth knowing by heart:</p>
+  <table>
+    <thead><tr><th>Matchup (preflop)</th><th>Equity</th></tr></thead>
+    <tbody>
+      <tr><td>Pair vs two lower cards (e.g. 99 vs 87s)</td><td>≈ 81% / 19%</td></tr>
+      <tr><td>Pair vs two overcards (e.g. 22 vs AKo)</td><td>≈ 53% / 47%</td></tr>
+      <tr><td>Higher pair vs lower pair (e.g. KK vs QQ)</td><td>≈ 81% / 19%</td></tr>
+      <tr><td>Dominated hand (e.g. AK vs AQ)</td><td>≈ 74% / 26%</td></tr>
+    </tbody>
+  </table>
+
   <h2>Equity vs pot odds: should I call?</h2>
-  <p>Your <strong>pot odds</strong> tell you the minimum equity that justifies a call. The rule: <strong>you call when your equity beats your pot odds</strong>.</p>
+  <p>Your <strong>pot odds</strong> tell you the minimum equity that justifies a call (our <a href="/en/pot-odds-calculator/">pot odds calculator</a> works it out for any bet size). The rule: <strong>you call when your equity beats your pot odds</strong>.</p>
   <div class="tip">
     <p style="margin:0"><strong>Example.</strong> There's $100 in the pot and your opponent bets $50. You can win $150 by paying $50, so your pot odds = 50&nbsp;/&nbsp;(150&nbsp;+&nbsp;50)&nbsp;=&nbsp;<strong>25%</strong>. With a flush draw (≈&nbsp;35% equity), you're above the threshold: <strong>calling is profitable</strong>.</p>
   </div>

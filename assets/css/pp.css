@@ -223,3 +223,5 @@ details p{margin:10px 0 2px;color:var(--muted);}
   body { background: #fff !important; color: #000 !important; }
   .chart-fig img { border: 0; }
 }
+
+.rank-item{scroll-margin-top:90px;}

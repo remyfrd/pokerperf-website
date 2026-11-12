@@ -1,8 +1,8 @@
 ---
 layout: default
 lang: en
-title: "Poker Hand Rankings Chart (printable) + Which Hand Wins?"
-description: "Poker hand rankings from best to worst: printable chart and cheat sheet, examples, probabilities and a free 'which hand wins' comparator."
+title: "Poker Hand Rankings Chart: what beats what (printable)"
+description: "Poker hands ranked from best to worst: printable chart, hand strength explained, tie-breakers and a free 'which hand wins' comparator. Texas Hold'em and all variants."
 og_image: "/assets/img/poker-hand-rankings-chart.png"
 permalink: /en/poker-hand-rankings/
 alternates:
@@ -13,55 +13,55 @@ x_default: "https://pokerperf.com/en/poker-hand-rankings/"
 <div class="wrap">
   <p class="brand">PokerPerf</p>
   <h1>Poker Hand Rankings</h1>
-  <p class="lead">The 10 Texas Hold'em hands, from <strong>strongest to weakest</strong>, with an example, a description and the odds of hitting it. Finally settle <strong>what beats what</strong>.</p>
+  <p class="lead">All 10 poker hands ranked — the same order in Texas Hold'em, Omaha and every standard variant — from <strong>strongest to weakest</strong>, with an example, a description and the odds of hitting it. Finally settle <strong>what beats what</strong>.</p>
 
   <div class="rank-list">
-    <div class="rank-item"><span class="rank-num">1</span><div><h3>Royal flush <span class="freq">· 0.000154%</span></h3>
+    <div class="rank-item" id="royal-flush"><span class="rank-num">1</span><div><h3>Royal flush <span class="freq">· 0.000154%</span></h3>
       <div class="hc-row" aria-label="Example: Ace, King, Queen, Jack, Ten of spades">
         <span class="hc black" aria-hidden="true"><span class="r">A</span><span class="s">♠</span></span><span class="hc black" aria-hidden="true"><span class="r">K</span><span class="s">♠</span></span><span class="hc black" aria-hidden="true"><span class="r">Q</span><span class="s">♠</span></span><span class="hc black" aria-hidden="true"><span class="r">J</span><span class="s">♠</span></span><span class="hc black" aria-hidden="true"><span class="r">10</span><span class="s">♠</span></span>
       </div><p>A-K-Q-J-10, all of the same suit. The unbeatable hand.</p></div></div>
 
-    <div class="rank-item"><span class="rank-num">2</span><div><h3>Straight flush <span class="freq">· 0.00139%</span></h3>
+    <div class="rank-item" id="straight-flush"><span class="rank-num">2</span><div><h3>Straight flush <span class="freq">· 0.00139%</span></h3>
       <div class="hc-row" aria-label="Example: 9, 8, 7, 6, 5 of hearts">
         <span class="hc red" aria-hidden="true"><span class="r">9</span><span class="s">♥</span></span><span class="hc red" aria-hidden="true"><span class="r">8</span><span class="s">♥</span></span><span class="hc red" aria-hidden="true"><span class="r">7</span><span class="s">♥</span></span><span class="hc red" aria-hidden="true"><span class="r">6</span><span class="s">♥</span></span><span class="hc red" aria-hidden="true"><span class="r">5</span><span class="s">♥</span></span>
       </div><p>Five cards in a row, all of the same suit.</p></div></div>
 
-    <div class="rank-item"><span class="rank-num">3</span><div><h3>Four of a kind <span class="freq">· 0.024%</span></h3>
+    <div class="rank-item" id="four-of-a-kind"><span class="rank-num">3</span><div><h3>Four of a kind <span class="freq">· 0.024%</span></h3>
       <div class="hc-row" aria-label="Example: Queen of clubs, spades, hearts, diamonds, and 7 of diamonds">
         <span class="hc black" aria-hidden="true"><span class="r">Q</span><span class="s">♣</span></span><span class="hc black" aria-hidden="true"><span class="r">Q</span><span class="s">♠</span></span><span class="hc red" aria-hidden="true"><span class="r">Q</span><span class="s">♥</span></span><span class="hc red" aria-hidden="true"><span class="r">Q</span><span class="s">♦</span></span><span class="hc red" aria-hidden="true"><span class="r">7</span><span class="s">♦</span></span>
       </div><p>Four cards of the same rank.</p></div></div>
 
-    <div class="rank-item"><span class="rank-num">4</span><div><h3>Full house <span class="freq">· 0.14%</span></h3>
+    <div class="rank-item" id="full-house"><span class="rank-num">4</span><div><h3>Full house <span class="freq">· 0.14%</span></h3>
       <div class="hc-row" aria-label="Example: King of hearts, diamonds, spades, and 3 of clubs, diamonds">
         <span class="hc red" aria-hidden="true"><span class="r">K</span><span class="s">♥</span></span><span class="hc red" aria-hidden="true"><span class="r">K</span><span class="s">♦</span></span><span class="hc black" aria-hidden="true"><span class="r">K</span><span class="s">♠</span></span><span class="hc black" aria-hidden="true"><span class="r">3</span><span class="s">♣</span></span><span class="hc red" aria-hidden="true"><span class="r">3</span><span class="s">♦</span></span>
       </div><p>Three of a kind plus a pair.</p></div></div>
 
-    <div class="rank-item"><span class="rank-num">5</span><div><h3>Flush <span class="freq">· 0.20%</span></h3>
+    <div class="rank-item" id="flush"><span class="rank-num">5</span><div><h3>Flush <span class="freq">· 0.20%</span></h3>
       <div class="hc-row" aria-label="Example: Ace, Jack, 8, 5, 2 of diamonds">
         <span class="hc red" aria-hidden="true"><span class="r">A</span><span class="s">♦</span></span><span class="hc red" aria-hidden="true"><span class="r">J</span><span class="s">♦</span></span><span class="hc red" aria-hidden="true"><span class="r">8</span><span class="s">♦</span></span><span class="hc red" aria-hidden="true"><span class="r">5</span><span class="s">♦</span></span><span class="hc red" aria-hidden="true"><span class="r">2</span><span class="s">♦</span></span>
       </div><p>Five cards of the same suit, not in sequence.</p></div></div>
 
-    <div class="rank-item"><span class="rank-num">6</span><div><h3>Straight <span class="freq">· 0.39%</span></h3>
+    <div class="rank-item" id="straight"><span class="rank-num">6</span><div><h3>Straight <span class="freq">· 0.39%</span></h3>
       <div class="hc-row" aria-label="Example: 10, 9, 8, 7, 6 of mixed suits">
         <span class="hc black" aria-hidden="true"><span class="r">10</span><span class="s">♣</span></span><span class="hc red" aria-hidden="true"><span class="r">9</span><span class="s">♦</span></span><span class="hc red" aria-hidden="true"><span class="r">8</span><span class="s">♥</span></span><span class="hc black" aria-hidden="true"><span class="r">7</span><span class="s">♠</span></span><span class="hc red" aria-hidden="true"><span class="r">6</span><span class="s">♦</span></span>
       </div><p>Five cards in a row, suits mixed.</p></div></div>
 
-    <div class="rank-item"><span class="rank-num">7</span><div><h3>Three of a kind <span class="freq">· 2.1%</span></h3>
+    <div class="rank-item" id="three-of-a-kind"><span class="rank-num">7</span><div><h3>Three of a kind <span class="freq">· 2.1%</span></h3>
       <div class="hc-row" aria-label="Example: 8 of spades, hearts, diamonds, King of clubs, 4 of spades">
         <span class="hc black" aria-hidden="true"><span class="r">8</span><span class="s">♠</span></span><span class="hc red" aria-hidden="true"><span class="r">8</span><span class="s">♥</span></span><span class="hc red" aria-hidden="true"><span class="r">8</span><span class="s">♦</span></span><span class="hc black" aria-hidden="true"><span class="r">K</span><span class="s">♣</span></span><span class="hc black" aria-hidden="true"><span class="r">4</span><span class="s">♠</span></span>
       </div><p>Three cards of the same rank.</p></div></div>
 
-    <div class="rank-item"><span class="rank-num">8</span><div><h3>Two pair <span class="freq">· 4.75%</span></h3>
+    <div class="rank-item" id="two-pair"><span class="rank-num">8</span><div><h3>Two pair <span class="freq">· 4.75%</span></h3>
       <div class="hc-row" aria-label="Example: Jack of diamonds, spades, 4 of hearts, clubs, 9 of diamonds">
         <span class="hc red" aria-hidden="true"><span class="r">J</span><span class="s">♦</span></span><span class="hc black" aria-hidden="true"><span class="r">J</span><span class="s">♠</span></span><span class="hc red" aria-hidden="true"><span class="r">4</span><span class="s">♥</span></span><span class="hc black" aria-hidden="true"><span class="r">4</span><span class="s">♣</span></span><span class="hc red" aria-hidden="true"><span class="r">9</span><span class="s">♦</span></span>
       </div><p>Two different pairs.</p></div></div>
 
-    <div class="rank-item"><span class="rank-num">9</span><div><h3>One pair <span class="freq">· 42.3%</span></h3>
+    <div class="rank-item" id="one-pair"><span class="rank-num">9</span><div><h3>One pair <span class="freq">· 42.3%</span></h3>
       <div class="hc-row" aria-label="Example: 10 of hearts, clubs, Ace of diamonds, 7 of spades, 2 of clubs">
         <span class="hc red" aria-hidden="true"><span class="r">10</span><span class="s">♥</span></span><span class="hc black" aria-hidden="true"><span class="r">10</span><span class="s">♣</span></span><span class="hc red" aria-hidden="true"><span class="r">A</span><span class="s">♦</span></span><span class="hc black" aria-hidden="true"><span class="r">7</span><span class="s">♠</span></span><span class="hc black" aria-hidden="true"><span class="r">2</span><span class="s">♣</span></span>
       </div><p>Two cards of the same rank.</p></div></div>
 
-    <div class="rank-item"><span class="rank-num">10</span><div><h3>High card <span class="freq">· 50.1%</span></h3>
+    <div class="rank-item" id="high-card"><span class="rank-num">10</span><div><h3>High card <span class="freq">· 50.1%</span></h3>
       <div class="hc-row" aria-label="Example: Ace of clubs, Queen of diamonds, 9 of spades, 6 of hearts, 3 of diamonds">
         <span class="hc black" aria-hidden="true"><span class="r">A</span><span class="s">♣</span></span><span class="hc red" aria-hidden="true"><span class="r">Q</span><span class="s">♦</span></span><span class="hc black" aria-hidden="true"><span class="r">9</span><span class="s">♠</span></span><span class="hc red" aria-hidden="true"><span class="r">6</span><span class="s">♥</span></span><span class="hc red" aria-hidden="true"><span class="r">3</span><span class="s">♦</span></span>
       </div><p>No combination: your highest card decides.</p></div></div>
@@ -78,7 +78,24 @@ x_default: "https://pokerperf.com/en/poker-hand-rankings/"
   <p>Unsure at showdown? Pick both hands and the 5 board cards: the hand comparator tells you <strong>which hand wins</strong> and names each combination. Each player uses their 2 cards and the board to make the best 5-card hand.</p>
   <div id="equity-calculator" data-lang="en" data-mode="showdown" class="no-print"></div>
 
-  <h2>How to read the rankings</h2>
+  <h2>Poker hand strength: how strong is your hand?</h2>
+  <p>The ranking tells you which category beats which — but <strong>hand strength</strong> at the table is relative. A pair of aces is the 9th of 10 categories, yet preflop it's the best possible starting hand. A flush is excellent, unless the board shows four cards of the same suit. Always ask two questions: <strong>what do I have</strong>, and <strong>what can my opponent have</strong> that beats it?</p>
+  <ul>
+    <li><strong>Pair or worse</strong>: ~92% of 5-card hands — the everyday showdown.</li>
+    <li><strong>Two pair to straight</strong>: solid made hands, but vulnerable on draw-heavy boards.</li>
+    <li><strong>Flush and above</strong>: rare (under 0.4%) — you're usually way ahead.</li>
+  </ul>
+
+  <h2>Tie-breakers: same hand, who wins?</h2>
+  <ul>
+    <li><strong>Two pair vs two pair</strong>: compare the higher pair, then the lower pair, then the 5th card (kicker). K-K-4-4 beats Q-Q-J-J.</li>
+    <li><strong>Straight vs straight</strong>: the higher top card wins. A-2-3-4-5 (the "wheel") is the lowest straight.</li>
+    <li><strong>Flush vs flush</strong>: compare the highest card, then the next, and so on. Suits never break ties.</li>
+    <li><strong>Full house vs full house</strong>: the three-of-a-kind decides first.</li>
+    <li><strong>Exactly the same 5 cards</strong>: the pot is split.</li>
+  </ul>
+
+  <h2>How to read Texas Hold'em hand rankings</h2>
   <p>The <strong>rarer</strong> a hand, the <strong>stronger</strong> it is. When two players share the same category, the higher cards (then the kickers) break the tie. The probabilities above are for your best 5-card hand.</p>
 
   <div class="appcta">

@@ -1,8 +1,8 @@
 ---
 layout: default
 lang: en
-title: "Pot Odds Calculator — should I call? (free)"
-description: "Calculate your pot odds and the required equity to call: enter the pot and the bet, get the call-or-fold verdict (with EV). Compare to your equity or your outs. Free, no sign-up."
+title: "Poker Pot Odds Calculator — call or fold? (free)"
+description: "Free poker pot odds calculator: enter the pot and the bet, get your pot odds, the equity needed to call and a call-or-fold verdict with EV. Includes a pot odds chart for common bet sizes."
 permalink: /en/pot-odds-calculator/
 alternates:
   - { lang: "fr", href: "https://pokerperf.com/fr/cote-du-pot/" }
@@ -11,7 +11,7 @@ x_default: "https://pokerperf.com/en/pot-odds-calculator/"
 ---
 <div class="wrap">
   <p class="brand">PokerPerf</p>
-  <h1>Pot Odds Calculator</h1>
+  <h1>Poker Pot Odds Calculator</h1>
   <p class="lead">Enter the <strong>pot</strong> and the <strong>bet to call</strong>: you get your <strong>pot odds</strong> and the <strong>required equity</strong> for a call to be profitable. Add your equity (or your outs) and the calculator decides: <strong>call or fold</strong>, with the EV. Free, no sign-up.</p>
 
   <div id="pot-odds" data-lang="en"></div>
@@ -21,6 +21,21 @@ x_default: "https://pokerperf.com/en/pot-odds-calculator/"
 
   <h2>How to calculate them</h2>
   <p>Required equity = bet to call ÷ (pot + bet + bet). Example: a $100 pot, a $50 bet → 50&nbsp;/&nbsp;(100&nbsp;+&nbsp;50&nbsp;+&nbsp;50)&nbsp;=&nbsp;<strong>25%</strong>. You just need your actual equity to beat that threshold.</p>
+
+  <h2>Pot odds chart: common bet sizes</h2>
+  <p>You'll face the same bet sizes again and again. Learn these thresholds and you never need to divide at the table:</p>
+  <table>
+    <thead><tr><th>Bet faced</th><th>Pot odds</th><th>Equity needed to call</th></tr></thead>
+    <tbody>
+      <tr><td>¼ pot</td><td>5 : 1</td><td>16.7%</td></tr>
+      <tr><td>⅓ pot</td><td>4 : 1</td><td>20%</td></tr>
+      <tr><td>½ pot</td><td>3 : 1</td><td>25%</td></tr>
+      <tr><td>⅔ pot</td><td>2.5 : 1</td><td>28.6%</td></tr>
+      <tr><td>¾ pot</td><td>2.33 : 1</td><td>30%</td></tr>
+      <tr><td>Pot</td><td>2 : 1</td><td>33.3%</td></tr>
+      <tr><td>2× pot (overbet)</td><td>1.5 : 1</td><td>40%</td></tr>
+    </tbody>
+  </table>
 
   <div class="tip">
     <p style="margin:0"><strong>From outs to decision.</strong> Not sure of your equity? Count your outs and use the <strong>rule of 4 and 2</strong> (×4 on the flop, ×2 for a single card). A flush draw = 9 outs ≈ 36% on the flop: above 25%, you call. The calculator does it for you via the "my outs" option.</p>
@@ -37,7 +52,7 @@ x_default: "https://pokerperf.com/en/pot-odds-calculator/"
   <details><summary>What equity do I need to call a flush draw?</summary><p>A flush draw is worth about 36% on the flop (9 outs, rule of 4). You call whenever the required equity is below that.</p></details>
   <details><summary>Pot odds vs equity — what's the difference?</summary><p>Equity is your chance of winning the hand; pot odds set the threshold to beat. You call when your equity beats your pot odds.</p></details>
 
-  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/poker-odds-calculator/">Equity calculator</a> · <a href="/en/">the PokerPerf app</a>.</p>
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/poker-odds-calculator/">Poker equity calculator</a> · <a href="/en/semi-bluff-ev-calculator/">Semi-bluff EV calculator</a> · <a href="/en/guides/poker-pot-odds/">Pot odds guide</a> · <a href="/en/">the PokerPerf app</a>.</p>
 </div>
 
 <script type="application/ld+json">
