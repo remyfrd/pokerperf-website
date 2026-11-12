@@ -35,8 +35,9 @@ x_default: "https://pokerperf.com/en/poker-odds-calculator/"
   <h2>Equity vs pot odds: should I call?</h2>
   <p>Your <strong>pot odds</strong> tell you the minimum equity that justifies a call (our <a href="/en/pot-odds-calculator/">pot odds calculator</a> works it out for any bet size). The rule: <strong>you call when your equity beats your pot odds</strong>.</p>
   <div class="tip">
-    <p style="margin:0"><strong>Example.</strong> There's $100 in the pot and your opponent bets $50. You can win $150 by paying $50, so your pot odds = 50&nbsp;/&nbsp;(150&nbsp;+&nbsp;50)&nbsp;=&nbsp;<strong>25%</strong>. With a flush draw (≈&nbsp;35% equity), you're above the threshold: <strong>calling is profitable</strong>.</p>
+    <p style="margin:0"><strong>Example.</strong> There's $100 in the pot and your opponent bets $50. You can win $150 by paying $50, so your pot odds = 50&nbsp;/&nbsp;(150&nbsp;+&nbsp;50)&nbsp;=&nbsp;<strong>25%</strong>. If he's <strong>all-in</strong>, your flush draw sees the turn and the river (≈&nbsp;35% equity): you're above the threshold, <strong>calling is profitable</strong>.</p>
   </div>
+  <div class="tip"><p style="margin:0"><strong>The classic trap.</strong> If your opponent is <em>not</em> all-in, your call only buys the turn: one card, ≈&nbsp;19% (rule of 2). 19%&nbsp;&lt;&nbsp;25% → on direct odds, <strong>you fold</strong>. Only <em>implied odds</em> (what you'll win on later streets when you hit) can justify that call.</p></div>
 
   <h2>Counting outs: the rule of 4 and 2</h2>
   <p>An <strong>out</strong> is a card that improves your hand. To estimate your chance of hitting without a calculator: multiply your outs by <strong>4</strong> after the flop (two cards to come), or by <strong>2</strong> for a single card. It's an approximation; the calculator above gives the exact figure.</p>
@@ -54,9 +55,8 @@ x_default: "https://pokerperf.com/en/poker-odds-calculator/"
   <div class="appcta">
     <h2>From theory to reflex</h2>
     <p>At the table you don't have a calculator in hand: you need to read your equity, outs and pot odds <strong>in seconds</strong>. That's exactly what <strong>PokerPerf</strong> trains — short drills that turn the math into reflex, 10 minutes a day.</p>
-    <a class="btn" href="/">Discover PokerPerf</a>
-    <!-- TODO: replace / add App Store + Google Play badges when the app is live -->
-    <p class="stores">Poker training app · iOS &amp; Android</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Try PokerPerf on Android</a>
+    <p class="stores">Available on Android · iOS coming soon</p>
   </div>
 
   <h2>Frequently asked questions</h2>

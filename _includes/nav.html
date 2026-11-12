@@ -1,7 +1,7 @@
 {%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.fr -%}
 <nav class="nav">
   <div class="container">
-    <a class="logo" href="{{ t.home_url }}"><img src="/assets/img/icon-512.png" alt="">PokerPerf</a>
+    <a class="logo" href="{{ t.home_url }}" aria-label="PokerPerf"><img src="/assets/img/icon-512.png" alt="" width="28" height="28"><span>PokerPerf</span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span aria-hidden="true">☰</span></button>
     <div class="links" id="nav-links">
       <a href="{{ t.home_url }}#piliers">{{ t.nav_train }}</a>
