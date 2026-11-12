@@ -212,3 +212,14 @@ details p{margin:10px 0 2px;color:var(--muted);}
 .guide-card p{margin:0;color:var(--muted);font-size:.95rem;}
 .guide-hero{margin:6px 0 26px;border:1px solid var(--gold-hair);border-radius:14px;background:linear-gradient(var(--panel),var(--felt-deep));padding:20px 22px;}
 .guide-hero svg{display:block;width:100%;height:auto;}
+
+/* Tableau imprimable (pages classement) */
+.chart-fig { margin: 18px 0 10px; }
+.chart-fig img { width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line, rgba(255,255,255,.12)); display: block; }
+.chart-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn.ghost { background: transparent; color: inherit; border: 1px solid currentColor; }
+@media print {
+  .nav, footer, .appcta, .no-print, details, script { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .chart-fig img { border: 0; }
+}

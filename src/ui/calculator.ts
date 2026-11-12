@@ -3,6 +3,7 @@
 // l'élément hôte (`data-lang="fr|en"`, défaut fr). Un seul bundle pour FR + EN.
 import { Card, RANKS, SUIT_SYMBOL, makeCard, formatCard, suitOf } from "../equity/cards";
 import { computeEquity, Hand } from "../equity/equity";
+import { evaluate7, categoryOf } from "../equity/evaluator";
 
 type Lang = "fr" | "en";
 interface Strings {
@@ -23,6 +24,13 @@ interface Strings {
   errComplete: string;
   errBoard: string;
   randomName: string;
+  catNames: string[];
+  royal: string;
+  player: (i: number) => string;
+  whoWins: string;
+  wins: (who: string) => string;
+  tieAll: string;
+  needRiver: string;
   cardAria: (rank: string, suitLabel: string) => string;
   sub: (win: string, tie: string) => string;
   modeExact: (n: number) => string;
@@ -48,6 +56,13 @@ const STRINGS: Record<Lang, Strings> = {
     errComplete: "Complète les 2 cartes de chaque joueur (ou coche « aléatoire »).",
     errBoard: "Le board doit avoir 0, 3, 4 ou 5 cartes.",
     randomName: "Aléatoire",
+    catNames: ["Carte haute", "Paire", "Double paire", "Brelan", "Quinte", "Couleur", "Full", "Carré", "Quinte flush"],
+    royal: "Quinte flush royale",
+    player: (i) => `Joueur ${i}`,
+    whoWins: "Quelle main gagne ?",
+    wins: (w) => `${w} gagne`,
+    tieAll: "Égalité : le pot est partagé",
+    needRiver: "Choisis les 2 mains et les 5 cartes du board.",
     cardAria: (rank, sl) => `${rank} de ${sl}`,
     sub: (w, t) => `victoire ${w} % · partage ${t} %`,
     modeExact: (n) => `calcul exact (${n} runouts)`,
@@ -71,6 +86,13 @@ const STRINGS: Record<Lang, Strings> = {
     errComplete: 'Fill both cards for each player (or check "random").',
     errBoard: "The board must have 0, 3, 4 or 5 cards.",
     randomName: "Random",
+    catNames: ["High card", "Pair", "Two pair", "Three of a kind", "Straight", "Flush", "Full house", "Four of a kind", "Straight flush"],
+    royal: "Royal flush",
+    player: (i) => `Player ${i}`,
+    whoWins: "Which hand wins?",
+    wins: (w) => `${w} wins`,
+    tieAll: "Tie: the pot is split",
+    needRiver: "Pick both hands and all 5 board cards.",
     cardAria: (rank, sl) => `${rank} of ${sl}`,
     sub: (w, t) => `win ${w}% · split ${t}%`,
     modeExact: (n) => `exact calculation (${n} runouts)`,
@@ -83,8 +105,14 @@ interface PlayerState { cards: [Slot, Slot]; random: boolean; }
 
 const isRed = (suit: number) => suit === 1 || suit === 2; // cœur / carreau
 
-export function mountCalculator(root: HTMLElement, lang: Lang = "fr") {
+export function mountCalculator(root: HTMLElement, lang: Lang = "fr", mode: "equity" | "showdown" = "equity") {
   const s = STRINGS[lang] ?? STRINGS.fr;
+  const showdown = mode === "showdown";
+  const handName = (hole: Card[], b: Card[]): string => {
+    const score = evaluate7([...hole, ...b]);
+    const cat = categoryOf(score);
+    return cat === 8 && Math.floor(score / 16 ** 4) % 16 === 14 ? s.royal : s.catNames[cat];
+  };
   let players: PlayerState[] = [
     { cards: [null, null], random: false },
     { cards: [null, null], random: false },
@@ -178,7 +206,7 @@ export function mountCalculator(root: HTMLElement, lang: Lang = "fr") {
     playersWrap.innerHTML = "";
     players.forEach((p, pi) => {
       const row = el("div", "player");
-      row.appendChild(el("span", "pname", pi === 0 ? s.you : s.opponent(pi)));
+      row.appendChild(el("span", "pname", showdown ? s.player(pi + 1) : pi === 0 ? s.you : s.opponent(pi)));
       const slots = el("div", "slots");
       [0, 1].forEach((i) => {
         const face = cardFace(p.random ? null : p.cards[i], active?.kind === "player" && active.p === pi && active.i === i ? "active" : "");
@@ -187,7 +215,7 @@ export function mountCalculator(root: HTMLElement, lang: Lang = "fr") {
         slots.appendChild(face);
       });
       row.appendChild(slots);
-      if (pi > 0) {
+      if (pi > 0 && !showdown) {
         const rnd = el("label", "rnd");
         const cb = el("input") as HTMLInputElement;
         cb.type = "checkbox"; cb.checked = p.random;
@@ -220,7 +248,7 @@ export function mountCalculator(root: HTMLElement, lang: Lang = "fr") {
     const add = el("button", "ctl", s.addOpp) as HTMLButtonElement;
     add.type = "button"; add.disabled = players.length >= 6;
     add.addEventListener("click", () => { if (players.length < 6) { players.push({ cards: [null, null], random: false }); renderAll(); } });
-    const calc = el("button", "ctl primary", s.calc) as HTMLButtonElement;
+    const calc = el("button", "ctl primary", showdown ? s.whoWins : s.calc) as HTMLButtonElement;
     calc.type = "button"; calc.addEventListener("click", run);
     const reset = el("button", "ctl", s.reset) as HTMLButtonElement;
     reset.type = "button";
@@ -228,10 +256,33 @@ export function mountCalculator(root: HTMLElement, lang: Lang = "fr") {
       players = [{ cards: [null, null], random: false }, { cards: [null, null], random: false }];
       board = [null, null, null, null, null]; active = null; resultsWrap.innerHTML = ""; renderAll();
     });
-    controls.append(add, calc, reset);
+    if (showdown) controls.append(calc, reset); else controls.append(add, calc, reset);
+  }
+
+  function runShowdown() {
+    const holes = players.map((p) => p.cards);
+    const b = board.filter((c): c is Card => c != null);
+    if (holes.some((h) => h[0] == null || h[1] == null) || b.length !== 5) {
+      resultsWrap.innerHTML = `<p class="err"></p>`; resultsWrap.querySelector(".err")!.textContent = s.needRiver; return;
+    }
+    const scores = holes.map((h) => evaluate7([h[0] as Card, h[1] as Card, ...b]));
+    const best = Math.max(...scores);
+    const winners = scores.map((x, i) => (x === best ? i : -1)).filter((i) => i >= 0);
+    resultsWrap.innerHTML = "";
+    holes.forEach((h, i) => {
+      const rowEl = el("div", "resrow");
+      const head = el("div", "rhead");
+      head.append(el("span", "rname", (winners.includes(i) ? "⭐ " : "") + s.player(i + 1)),
+        el("span", "rhand", (h as Card[]).map(formatCard).join(" ")),
+        el("strong", "req", handName(h as Card[], b)));
+      rowEl.appendChild(head); resultsWrap.appendChild(rowEl);
+    });
+    const verdict = el("p", "po-decision ok", winners.length > 1 ? s.tieAll : s.wins(s.player(winners[0] + 1)));
+    resultsWrap.appendChild(verdict);
   }
 
   function run() {
+    if (showdown) return runShowdown();
     const hands: Hand[] = [];
     for (const p of players) {
       if (p.random) hands.push({ cards: [], random: true });
@@ -245,19 +296,19 @@ export function mountCalculator(root: HTMLElement, lang: Lang = "fr") {
     resultsWrap.innerHTML = `<p class="calc"></p>`; resultsWrap.querySelector(".calc")!.textContent = s.calcInProgress;
     setTimeout(() => {
       try {
-        renderResults(computeEquity(hands, b, { mcSamples: 30000 }), hands);
+        renderResults(computeEquity(hands, b, { mcSamples: 30000 }), hands, b);
       } catch (e) {
         resultsWrap.innerHTML = `<p class="err"></p>`; resultsWrap.querySelector(".err")!.textContent = (e as Error).message;
       }
     }, 30);
   }
 
-  function renderResults(r: ReturnType<typeof computeEquity>, hands: Hand[]) {
+  function renderResults(r: ReturnType<typeof computeEquity>, hands: Hand[], b: Card[]) {
     resultsWrap.innerHTML = "";
     const order = r.results.map((_, i) => i).sort((a, b) => r.results[b].equity - r.results[a].equity);
     order.forEach((i, rank) => {
       const label = hands[i].random ? s.randomName : (i === 0 ? s.you : s.opponent(i));
-      const hand = hands[i].random ? "? ?" : hands[i].cards.map(formatCard).join(" ");
+      const hand = hands[i].random ? "? ?" : hands[i].cards.map(formatCard).join(" ") + (b.length === 5 ? " · " + handName(hands[i].cards, b) : "");
       const res = r.results[i];
       const rowEl = el("div", "resrow");
       rowEl.innerHTML =
@@ -282,5 +333,5 @@ export function mountCalculator(root: HTMLElement, lang: Lang = "fr") {
 const target = typeof document !== "undefined" && document.getElementById("equity-calculator");
 if (target) {
   const lang = ((target as HTMLElement).dataset.lang === "en" ? "en" : "fr") as Lang;
-  mountCalculator(target as HTMLElement, lang);
+  mountCalculator(target as HTMLElement, lang, (target as HTMLElement).dataset.mode === "showdown" ? "showdown" : "equity");
 }

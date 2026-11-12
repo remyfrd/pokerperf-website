@@ -1,8 +1,9 @@
 ---
 layout: default
 lang: fr
-title: "Classement des mains au poker — de la plus forte à la plus faible"
-description: "Le classement complet des mains au poker (Texas Hold'em), de la quinte flush royale à la carte haute : exemples, descriptions et probabilités. Sais enfin quelle main bat quoi."
+title: "Classement des mains au poker : tableau à imprimer + quelle main gagne"
+description: "Le classement des mains au poker de la plus forte à la plus faible : tableau à imprimer, exemples, probabilités et comparateur « quelle main gagne ». Gratuit."
+og_image: "/assets/img/classement-mains-poker.png"
 permalink: /fr/classement-des-mains/
 alternates:
   - { lang: "fr", href: "https://pokerperf.com/fr/classement-des-mains/" }
@@ -66,6 +67,17 @@ x_default: "https://pokerperf.com/en/poker-hand-rankings/"
       </div><p>Aucune combinaison : c'est ta carte la plus haute qui compte.</p></div></div>
   </div>
 
+  <h2>Le tableau à imprimer</h2>
+  <p>Tout le classement sur une seule image&nbsp;: garde-la sur ton téléphone ou imprime-la pour l'avoir à côté de toi pendant tes premières parties.</p>
+  <figure class="chart-fig">
+    <img src="/assets/img/classement-mains-poker.png" width="1200" height="1000" loading="lazy" alt="Tableau du classement des mains au poker, de la quinte flush royale à la carte haute, avec un exemple de 5 cartes pour chaque main">
+  </figure>
+  <p class="chart-actions no-print"><a class="btn" href="/assets/img/classement-mains-poker.png" download>Télécharger l'image</a> <button type="button" class="btn ghost" onclick="window.print()">Imprimer / PDF</button></p>
+
+  <h2>Quelle main gagne&nbsp;?</h2>
+  <p>Un doute à l'abattage&nbsp;? Choisis les deux mains et les 5 cartes du board&nbsp;: le comparateur te dit <strong>quelle main gagne</strong> et le nom de chaque combinaison. Chaque joueur utilise ses 2 cartes et celles du board pour faire la meilleure main de 5 cartes.</p>
+  <div id="equity-calculator" data-lang="fr" data-mode="showdown" class="no-print"></div>
+
   <h2>Comment lire le classement&nbsp;?</h2>
   <p>Plus une main est <strong>rare</strong>, plus elle est <strong>forte</strong>. En cas d'égalité de catégorie, on départage par la valeur des cartes (puis les « kickers »). Les probabilités ci-dessus correspondent à la meilleure main de 5 cartes.</p>
 
@@ -94,3 +106,4 @@ x_default: "https://pokerperf.com/en/poker-hand-rankings/"
   ]
 }
 </script>
+<script src="/assets/js/equity-calculator.js" defer></script>

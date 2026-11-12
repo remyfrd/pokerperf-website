@@ -1,8 +1,9 @@
 ---
 layout: default
 lang: en
-title: "Poker Hand Rankings — strongest to weakest (what beats what)"
-description: "The complete poker hand rankings (Texas Hold'em), from the royal flush to high card: examples, descriptions and probabilities. Finally know what beats what."
+title: "Poker Hand Rankings Chart (printable) + Which Hand Wins?"
+description: "Poker hand rankings from best to worst: printable chart and cheat sheet, examples, probabilities and a free 'which hand wins' comparator."
+og_image: "/assets/img/poker-hand-rankings-chart.png"
 permalink: /en/poker-hand-rankings/
 alternates:
   - { lang: "fr", href: "https://pokerperf.com/fr/classement-des-mains/" }
@@ -66,6 +67,17 @@ x_default: "https://pokerperf.com/en/poker-hand-rankings/"
       </div><p>No combination: your highest card decides.</p></div></div>
   </div>
 
+  <h2>Printable poker hand rankings chart</h2>
+  <p>The whole ranking on one image: keep this cheat sheet on your phone or print it and keep it next to you during your first games.</p>
+  <figure class="chart-fig">
+    <img src="/assets/img/poker-hand-rankings-chart.png" width="1200" height="1000" loading="lazy" alt="Poker hand rankings chart, from royal flush to high card, with a 5-card example for each hand">
+  </figure>
+  <p class="chart-actions no-print"><a class="btn" href="/assets/img/poker-hand-rankings-chart.png" download>Download the chart</a> <button type="button" class="btn ghost" onclick="window.print()">Print / PDF</button></p>
+
+  <h2>Which hand wins?</h2>
+  <p>Unsure at showdown? Pick both hands and the 5 board cards: the hand comparator tells you <strong>which hand wins</strong> and names each combination. Each player uses their 2 cards and the board to make the best 5-card hand.</p>
+  <div id="equity-calculator" data-lang="en" data-mode="showdown" class="no-print"></div>
+
   <h2>How to read the rankings</h2>
   <p>The <strong>rarer</strong> a hand, the <strong>stronger</strong> it is. When two players share the same category, the higher cards (then the kickers) break the tie. The probabilities above are for your best 5-card hand.</p>
 
@@ -94,3 +106,4 @@ x_default: "https://pokerperf.com/en/poker-hand-rankings/"
   ]
 }
 </script>
+<script src="/assets/js/equity-calculator.js" defer></script>

@@ -1,0 +1,54 @@
+---
+layout: default
+lang: en
+title: "Semi-Bluff EV Calculator (fold equity) — free"
+description: "Calculate the EV of a poker semi-bluff: pot, bet, fold equity and your draw's equity. Get the break-even fold equity and know if betting is profitable. Free."
+permalink: /en/semi-bluff-ev-calculator/
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-semi-bluff/" }
+  - { lang: "en", href: "https://pokerperf.com/en/semi-bluff-ev-calculator/" }
+x_default: "https://pokerperf.com/en/semi-bluff-ev-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Semi-Bluff EV Calculator</h1>
+  <p class="lead">Holding a draw and unsure whether to bet? Enter the <strong>pot</strong>, your <strong>bet</strong>, the <strong>chance he folds</strong> and your <strong>equity</strong> (or outs): you get your <strong>semi-bluff EV</strong>, the <strong>break-even fold equity</strong> and a clear verdict. Free, no sign-up.</p>
+
+  <div id="semi-bluff" data-lang="en"></div>
+
+  <h2>What is a semi-bluff?</h2>
+  <p>A <strong>semi-bluff</strong> is a bet with a hand that isn't made yet but can improve — typically a flush or straight draw. You have <strong>two ways to win</strong>: your opponent folds right away, or he calls and you hit your draw.</p>
+
+  <h2>How the EV is calculated</h2>
+  <p>We add up both scenarios, weighted by their probability:</p>
+  <ul>
+    <li><strong>He folds</strong> (fold equity): you win the pot.</li>
+    <li><strong>He calls</strong>: the pot grows by both bets and you win it with your equity. Your average result = equity × (pot + 2 × bet) − bet.</li>
+  </ul>
+  <div class="tip"><p style="margin:0"><strong>Example.</strong> Pot 100, you bet 50 with a flush draw (≈ 35% equity). He folds 30% of the time. When called, your EV = 0.35 × 200 − 50 = +20. Total EV = 0.3 × 100 + 0.7 × 20 = <strong>+44</strong>, better than checking (≈ +35).</p></div>
+
+  <h2>Break-even fold equity</h2>
+  <p>It's how often your opponent must fold for the semi-bluff not to lose money. If your draw is already profitable when called, it's <strong>0%</strong>: you can bet even against someone who never folds. The less equity you have, the more fold equity you need — which is why you semi-bluff mostly with <a href="/en/guides/rule-of-4-and-2/">big draws</a>.</p>
+
+  <div class="appcta">
+    <h2>Feel the right moment to attack</h2>
+    <p>At the table there's no calculator: you need to <strong>feel in a second</strong> whether your draw is worth a bet. <strong>PokerPerf</strong> trains that reflex — equity, outs, pot odds — 10 minutes a day.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Discover PokerPerf</a>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <details><summary>When should you semi-bluff?</summary><p>When your draw has enough equity and your opponent can fold. The more outs you have, the less fold equity you need.</p></details>
+  <details><summary>What is fold equity?</summary><p>The part of your EV that comes from your opponent folding. It depends on how often he folds and on the pot size.</p></details>
+  <details><summary>Is the calculation exact?</summary><p>It's a simplified model (one betting round, no raise). It gives a reliable ballpark to decide, not a to-the-cent truth.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/poker-odds-calculator/">Equity calculator</a> · <a href="/en/pot-odds-calculator/">Pot odds</a> · <a href="/en/guides/rule-of-4-and-2/">Rule of 4 and 2</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"When should you semi-bluff?","acceptedAnswer":{"@type":"Answer","text":"When your draw has enough equity and your opponent can fold. The more outs you have, the less fold equity you need."}},
+  {"@type":"Question","name":"What is fold equity?","acceptedAnswer":{"@type":"Answer","text":"The part of your EV that comes from your opponent folding; it depends on how often he folds and on the pot size."}},
+  {"@type":"Question","name":"Is the calculation exact?","acceptedAnswer":{"@type":"Answer","text":"It's a simplified model (one betting round, no raise) that gives a reliable ballpark to decide."}}
+]}
+</script>
+<script src="/assets/js/semi-bluff.js" defer></script>

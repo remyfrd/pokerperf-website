@@ -7,6 +7,8 @@
 - [Calculateur de cote du pot](https://pokerperf.com/fr/cote-du-pot/) : cote du pot, équité requise et verdict payer/coucher avec l'EV.
 - [Poker Odds & Equity Calculator (EN)](https://pokerperf.com/en/poker-odds-calculator/)
 - [Pot Odds Calculator (EN)](https://pokerperf.com/en/pot-odds-calculator/)
+- [Calculateur d'EV du semi-bluff](https://pokerperf.com/fr/calculateur-semi-bluff/) : EV d'une mise avec tirage, fold equity minimale, verdict.
+- [Semi-Bluff EV Calculator (EN)](https://pokerperf.com/en/semi-bluff-ev-calculator/)
 
 ## Pages principales
 - [Accueil (FR)](https://pokerperf.com/)

@@ -1,0 +1,54 @@
+---
+layout: default
+lang: fr
+title: "Calculateur d'EV du semi-bluff au poker (fold equity)"
+description: "Calcule l'EV d'un semi-bluff au poker : pot, mise, fold equity et équité de ton tirage. Obtiens la fold equity minimale et sache si miser est rentable. Gratuit."
+permalink: /fr/calculateur-semi-bluff/
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-semi-bluff/" }
+  - { lang: "en", href: "https://pokerperf.com/en/semi-bluff-ev-calculator/" }
+x_default: "https://pokerperf.com/en/semi-bluff-ev-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculateur d'EV du semi-bluff</h1>
+  <p class="lead">Tu as un tirage et tu hésites à miser&nbsp;? Entre le <strong>pot</strong>, ta <strong>mise</strong>, la <strong>chance qu'il se couche</strong> et ton <strong>équité</strong> (ou tes outs)&nbsp;: tu obtiens l'<strong>EV de ton semi-bluff</strong>, la <strong>fold equity minimale</strong> et un verdict clair. Gratuit, sans inscription.</p>
+
+  <div id="semi-bluff" data-lang="fr"></div>
+
+  <h2>Qu'est-ce qu'un semi-bluff&nbsp;?</h2>
+  <p>Un <strong>semi-bluff</strong>, c'est miser avec une main qui n'est pas encore faite mais qui peut s'améliorer — typiquement un tirage couleur ou quinte. Tu as <strong>deux façons de gagner</strong>&nbsp;: l'adversaire se couche tout de suite, ou il paie et tu touches ton tirage.</p>
+
+  <h2>Comment est calculée l'EV&nbsp;?</h2>
+  <p>On additionne les deux scénarios, pondérés par leur probabilité&nbsp;:</p>
+  <ul>
+    <li><strong>Il se couche</strong> (fold equity)&nbsp;: tu gagnes le pot.</li>
+    <li><strong>Il paie</strong>&nbsp;: le pot grossit de ta mise et de la sienne, et tu le gagnes avec ton équité. Ton gain moyen = équité × (pot + 2 × mise) − mise.</li>
+  </ul>
+  <div class="tip"><p style="margin:0"><strong>Exemple.</strong> Pot 100, tu mises 50 avec un tirage couleur (≈ 35&nbsp;% d'équité). Il se couche 30&nbsp;% du temps. S'il paie, ton EV = 0,35 × 200 − 50 = +20. EV totale = 0,3 × 100 + 0,7 × 20 = <strong>+44</strong>, mieux que checker (≈ +35).</p></div>
+
+  <h2>La fold equity minimale</h2>
+  <p>C'est le pourcentage de fois où l'adversaire doit se coucher pour que ton semi-bluff ne perde pas d'argent. Si ton tirage est déjà rentable quand il paie, il vaut <strong>0&nbsp;%</strong>&nbsp;: tu peux miser même face à quelqu'un qui ne se couche jamais. Plus ton équité baisse, plus il te faut de fold equity — c'est pour ça qu'on semi-bluffe plutôt avec les <a href="/fr/guides/regle-du-4-et-2/">gros tirages</a>.</p>
+
+  <div class="appcta">
+    <h2>Sentir le bon moment pour attaquer</h2>
+    <p>À la table, pas de calculatrice&nbsp;: il faut <strong>sentir en une seconde</strong> si ton tirage vaut une mise. <strong>PokerPerf</strong> entraîne ce réflexe — équité, outs, cote — 10&nbsp;min/jour.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Découvrir PokerPerf</a>
+  </div>
+
+  <h2>Questions fréquentes</h2>
+  <details><summary>Quand faut-il semi-bluffer&nbsp;?</summary><p>Quand ton tirage a assez d'équité et que l'adversaire peut se coucher. Plus tu as d'outs, moins tu as besoin de fold equity.</p></details>
+  <details><summary>Qu'est-ce que la fold equity&nbsp;?</summary><p>La part de l'EV qui vient du fait que l'adversaire se couche. Elle dépend de la probabilité qu'il abandonne et de la taille du pot.</p></details>
+  <details><summary>Le calcul est-il exact&nbsp;?</summary><p>C'est un modèle simplifié (un seul tour de mise, pas de relance). Il donne un ordre de grandeur fiable pour décider, pas une vérité au centime.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/calculateur-equite/">Calculateur d'équité</a> · <a href="/fr/cote-du-pot/">Cote du pot</a> · <a href="/fr/guides/regle-du-4-et-2/">Règle du 4 et 2</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Quand faut-il semi-bluffer ?","acceptedAnswer":{"@type":"Answer","text":"Quand ton tirage a assez d'équité et que l'adversaire peut se coucher. Plus tu as d'outs, moins tu as besoin de fold equity."}},
+  {"@type":"Question","name":"Qu'est-ce que la fold equity ?","acceptedAnswer":{"@type":"Answer","text":"La part de l'EV qui vient du fait que l'adversaire se couche ; elle dépend de la probabilité qu'il abandonne et de la taille du pot."}},
+  {"@type":"Question","name":"Le calcul est-il exact ?","acceptedAnswer":{"@type":"Answer","text":"C'est un modèle simplifié (un seul tour de mise, pas de relance) qui donne un ordre de grandeur fiable pour décider."}}
+]}
+</script>
+<script src="/assets/js/semi-bluff.js" defer></script>
