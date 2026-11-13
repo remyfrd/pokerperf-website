@@ -8,6 +8,7 @@
 - [Poker Equity Calculator](https://pokerperf.com/en/poker-odds-calculator/): equity of a hand against one or more hands at every street; exact from the flop, Monte-Carlo pre-flop.
 - [Poker Pot Odds Calculator](https://pokerperf.com/en/pot-odds-calculator/): pot odds, required equity, call-or-fold verdict with EV, pot odds chart by bet size.
 - [Semi-Bluff EV Calculator](https://pokerperf.com/en/semi-bluff-ev-calculator/): EV of betting a draw and break-even fold equity.
+- [Poker Range Calculator](https://pokerperf.com/en/poker-range-calculator/): top X% → hands, combos and standard notation, with card removal (blockers).
 - [Poker Hand Rankings](https://pokerperf.com/en/poker-hand-rankings/): printable chart, Texas Hold'em probabilities, tie-breakers, "which hand wins" comparator.
 
 ## Guides (English)
@@ -21,12 +22,15 @@
 - [How to count outs](https://pokerperf.com/en/guides/how-to-count-outs/): clean vs dirty outs, exact % per card.
 - [Implied odds](https://pokerperf.com/en/guides/implied-odds/): formula, worked example, set mining, reverse implied odds.
 - [Poker odds cheat sheet](https://pokerperf.com/en/guides/poker-odds-cheat-sheet/): printable outs/pot-odds/matchups chart.
+- [How to study poker](https://pokerperf.com/en/guides/how-to-study-poker/): evidence-based study method (retrieval practice, spacing, interleaving, deliberate practice), weekly plan, sources.
+- [Poker blockers](https://pokerperf.com/en/guides/poker-blockers/): card removal explained with exact combo counts.
 - [Push/fold charts](https://pokerperf.com/en/guides/push-fold-chart/): heads-up Nash shove/call ranges at 10, 12, 15 and 20bb (chip-EV, no antes).
 
 ## Outils gratuits (français)
 - [Calculateur d'équité poker](https://pokerperf.com/fr/calculateur-equite/)
 - [Calculateur de cote du pot](https://pokerperf.com/fr/cote-du-pot/)
 - [Calculateur d'EV du semi-bluff](https://pokerperf.com/fr/calculateur-semi-bluff/)
+- [Calculateur de range en %](https://pokerperf.com/fr/calculateur-range/)
 - [Classement et ordre des mains au poker](https://pokerperf.com/fr/classement-des-mains/)
 
 ## Guides (français)
@@ -41,6 +45,8 @@
 - [Cotes implicites](https://pokerperf.com/fr/guides/cotes-implicites/)
 - [Aide-mémoire des cotes](https://pokerperf.com/fr/guides/aide-memoire-cotes/)
 - [Tableaux push/fold](https://pokerperf.com/fr/guides/push-fold/)
+- [Comment étudier le poker](https://pokerperf.com/fr/guides/comment-etudier-le-poker/)
+- [Les bloqueurs au poker](https://pokerperf.com/fr/guides/bloqueurs-poker/)
 
 ## How the numbers are checked / Méthodologie
 - [Methodology (EN)](https://pokerperf.com/en/methodology/) · [Méthodologie (FR)](https://pokerperf.com/fr/methodologie/): how the equity engine is verified (exact enumeration, Monte-Carlo precision, three independent cross-checks).

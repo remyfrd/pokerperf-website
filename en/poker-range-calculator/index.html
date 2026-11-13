@@ -1,0 +1,80 @@
+---
+layout: default
+lang: en
+title: "Poker Range Calculator: % to Hands & Combos — free"
+description: "Poker range percentage calculator: pick a top X% and see the hands, the number of combos and the notation (TT+, AQs+). Card removal included. Free, no sign-up."
+permalink: /en/poker-range-calculator/
+webapp: "Poker Range Calculator"
+last_modified_at: 2026-11-13
+stylesheets: ["/assets/css/starting-hands.css", "/assets/css/range-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-range/" }
+  - { lang: "en", href: "https://pokerperf.com/en/poker-range-calculator/" }
+x_default: "https://pokerperf.com/en/poker-range-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Poker Range Calculator: % to Hands &amp; Combos</h1>
+  <p class="lead">Facing a "4% 3-bet"? Set the slider to <strong>4%</strong> and you instantly see <strong>which hands</strong> that is, <strong>how many combos</strong>, and the range in standard notation (<code>88+, AQs+</code>). Click cells to build your own range, and remove the cards you hold to count <strong>blockers</strong>. Free, no sign-up.</p>
+
+  <div id="range-calculator" data-lang="en" data-pct="4"></div>
+  <noscript><p class="tip">The calculator needs JavaScript. Quick reference without it: a pair = 6 combos, a suited hand = 4, an offsuit hand = 12, out of 1,326 in total.</p></noscript>
+
+  <h2>What does an X% range mean?</h2>
+  <p>Preflop there are <strong>1,326 two-card combinations</strong>. A 10% range is therefore about <strong>133 combos</strong>, not "17 hands out of 169": hands don't all carry the same weight.</p>
+  <table>
+    <thead><tr><th scope="col">Hand type</th><th scope="col">Combos per hand</th><th scope="col">Number of hands</th><th scope="col">Total</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Pair (e.g. JJ)</th><td>6</td><td>13</td><td>78</td></tr>
+      <tr><th scope="row">Suited (e.g. AKs)</th><td>4</td><td>78</td><td>312</td></tr>
+      <tr><th scope="row">Offsuit (e.g. AKo)</th><td>12</td><td>78</td><td>936</td></tr>
+    </tbody>
+  </table>
+  <p>Direct consequence: AKo alone (12 combos) weighs as much as two pocket pairs. That's why you think in combos as soon as you talk percentages.</p>
+
+  <h2>Worked example: what is a 4% 3-bet range?</h2>
+  <p>You often hear "a 4% 3-bet is AA, KK, QQ, JJ, AK". Let's count: 4 pairs × 6 = 24 combos, plus AK = 4 suited + 12 offsuit = 16. Total: <strong>40 combos, or 3.0%</strong>. A true 4% is 53 combos, so there's room for <strong>13 more combos</strong>.</p>
+  <div class="tip"><p style="margin:0"><strong>What the tool shows at 4%.</strong> Ranked by equity, the top 4% is <code>88+, AQs+</code>: AA down to 88, plus AKs and AQs — <strong>50 combos (3.8%)</strong>. It adds TT, 99, 88 and AQs… but <strong>not AKo</strong>, which only comes in around 5.4%. A real 3-bet range of similar size looks more like <code>TT+, AQs+, AKo</code>: <strong>also 50 combos</strong>, chosen differently. Try both: click "JJ+, AK", then add TT and AQs by hand.</p></div>
+  <p>Takeaway: a percentage tells you <strong>how many</strong> hands, not <strong>which ones</strong>. Two players who both 3-bet 4% can have very different ranges.</p>
+
+  <h2>Blockers: your cards remove combos</h2>
+  <p>The cards in your hand can't be in your opponent's. Pick them under "Remove your hand's blockers" and the grid recounts every hand. Example holding <strong>A♠ K♦</strong>:</p>
+  <ul>
+    <li><strong>AA</strong>: only 3 aces left → 3 combos instead of 6.</li>
+    <li><strong>KK</strong>: only 3 kings left → 3 combos instead of 6.</li>
+    <li><strong>AK</strong>: 3 aces × 3 kings = <strong>9 combos instead of 16</strong> (2 suited, 7 offsuit).</li>
+    <li><strong>QQ, JJ</strong>: unchanged, 6 combos each.</li>
+  </ul>
+  <p>Result: the AA-JJ + AK range drops from 40 to <strong>27 combos</strong>, out of 1,225 hands still possible. Your opponent's premium hands become much rarer — which is exactly why holding an ace matters when you raise. For more on these numbers, see <a href="/en/guides/poker-math/">poker math</a>.</p>
+
+  <h2>How the tool ranks hands (and its limits)</h2>
+  <p>"Top X%" follows the same convention as PokerStove or Equilab: the 169 hands are ordered by their <strong>preflop all-in equity against one random hand</strong>. AA comes first (≈ 85%), 32o comes last (≈ 32%). The values come from our own engine (200,000 samples per hand, about ±0.25 points; see <a href="/en/methodology/">our methodology</a>). Other tools may swap a few very close hands.</p>
+  <p>Threshold rule: hands are added in order while the total <strong>stays at or below X%</strong>. The hand that would cross the line isn't included — hence 3.8% shown for a 4% slider.</p>
+  <p>Keep in mind: <strong>equity vs a random hand ≠ playability</strong>. This ranking favours pairs and offsuit aces and underrates suited connectors (87s, 98s), which win little all-in but make straights and flushes. The "UTG / CO / BTN" presets use the ballpark widths from our <a href="/en/guides/preflop-ranges/">preflop ranges guide</a>, but real opening ranges contain more connectors. For each hand's real value, see the <a href="/en/guides/poker-starting-hands/">starting hands chart</a>.</p>
+
+  <div class="appcta">
+    <h2>See the combos without counting</h2>
+    <p>At the table there's no grid in front of you. <strong>PokerPerf</strong> trains you to read a range and its combos at a glance — 10 minutes a day, no miracle promises.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Discover PokerPerf</a>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <details><summary>How many poker hand combos are there?</summary><p>1,326 two-card combinations, grouped into 169 hands: a pair has 6 combos, a suited hand 4, an offsuit hand 12.</p></details>
+  <details><summary>Which hands are in a 4% range?</summary><p>4% ≈ 53 combos. Ranked by equity, the tool gives 88+, AQs+ (50 combos). AA-JJ + AK is only 40 combos, or 3%.</p></details>
+  <details><summary>Why does 88 rank above AKo?</summary><p>Because the ranking uses all-in equity against a random hand, where a medium pair wins slightly more often than AKo. In real play AK often plays better: it's a limit of the ranking, not a rule of strategy.</p></details>
+  <details><summary>How do my cards change my opponent's combos?</summary><p>Each card you hold removes every combo that uses it. Holding A♠ K♦, AA goes from 6 to 3 combos, KK from 6 to 3, and AK from 16 to 9.</p></details>
+  <details><summary>Are the UTG, CO and BTN presets GTO ranges?</summary><p>No. They are approximate widths (≈ 15, 27 and 45%) filled by equity. A real opening range picks its hands differently, especially suited connectors.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/guides/preflop-ranges/">Preflop ranges</a> · <a href="/en/guides/poker-starting-hands/">Starting hands</a> · <a href="/en/poker-odds-calculator/">Equity calculator</a> · <a href="/en/guides/poker-math/">Poker math</a> · <a href="/en/methodology/">Methodology</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How many poker hand combos are there?","acceptedAnswer":{"@type":"Answer","text":"1,326 two-card combinations, grouped into 169 hands: a pair has 6 combos, a suited hand 4, an offsuit hand 12."}},
+  {"@type":"Question","name":"Which hands are in a 4% range?","acceptedAnswer":{"@type":"Answer","text":"4% ≈ 53 combos. Ranked by equity, the tool gives 88+, AQs+ (50 combos). AA-JJ + AK is only 40 combos, or 3%."}},
+  {"@type":"Question","name":"Why does 88 rank above AKo?","acceptedAnswer":{"@type":"Answer","text":"Because the ranking uses all-in equity against a random hand, where a medium pair wins slightly more often than AKo. In real play AK often plays better: it's a limit of the ranking, not a rule of strategy."}},
+  {"@type":"Question","name":"How do my cards change my opponent's combos?","acceptedAnswer":{"@type":"Answer","text":"Each card you hold removes every combo that uses it. Holding A♠ K♦, AA goes from 6 to 3 combos, KK from 6 to 3, and AK from 16 to 9."}},
+  {"@type":"Question","name":"Are the UTG, CO and BTN presets GTO ranges?","acceptedAnswer":{"@type":"Answer","text":"No. They are approximate widths (≈ 15, 27 and 45%) filled by equity. A real opening range picks its hands differently, especially suited connectors."}}
+]}
+</script>
+<script src="/assets/js/range-calculator.js" defer></script>

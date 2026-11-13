@@ -1,0 +1,147 @@
+---
+layout: article
+lang: fr
+title: "Bloqueurs au poker : l'effet de carte expliqué (blockers)"
+headline: "Les bloqueurs au poker : ce que tes cartes retirent à l'adversaire"
+description: "Bloqueurs (blockers) au poker : comment tes cartes retirent des combos à l'adversaire. Calculs exacts, bluff, call, 4-bet A5s et leurs limites."
+permalink: /fr/guides/bloqueurs-poker/
+date: 2026-11-13
+last_modified_at: 2026-11-13
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/bloqueurs-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/poker-blockers/" }
+x_default: "https://pokerperf.com/en/guides/poker-blockers/"
+---
+<p class="lead">Un <strong>bloqueur</strong> (en anglais <em>blocker</em>), c'est une carte que tu as en main et que ton adversaire ne peut donc <strong>pas</strong> avoir. Résultat&nbsp;: certaines mains de sa range deviennent plus rares. Bien utilisé, cet <strong>effet de carte</strong> t'aide à choisir <em>quelles</em> mains bluffer ou payer quand deux options se valent.</p>
+
+<p>Sur un forum de théorie, un joueur demandait récemment pourquoi un solveur préfère checker <strong>K♦&nbsp;Q♥</strong> mais pas <strong>K♣&nbsp;Q♠</strong> au turn sur <strong>K♠&nbsp;9♠&nbsp;3♣&nbsp;6♣</strong>. Même paire, même kicker… et pourtant pas la même décision. La réponse tient en un mot&nbsp;: bloqueurs. On y revient en détail plus bas, une fois les bases posées.</p>
+
+<p><em>Notation&nbsp;: chaque carte s'écrit avec sa hauteur et le symbole de sa couleur (A♠ = as de pique, K♥ = roi de cœur, Q♦ = dame de carreau, J♣ = valet de trèfle). Tous les chiffres de ce guide sont calculés par énumération exacte des combinaisons.</em></p>
+
+<h2>Les combos&nbsp;: la base de tout</h2>
+<p>Pour comprendre les bloqueurs, il faut raisonner en <strong>combos</strong>, c'est-à-dire en paires de cartes précises. Un paquet de 52 cartes donne <strong>1&nbsp;326</strong> mains de départ possibles. Chaque «&nbsp;main&nbsp;» au sens courant regroupe plusieurs combos&nbsp;:</p>
+<ul>
+  <li>une <strong>paire</strong> (AA, 77…)&nbsp;: <strong>6 combos</strong> (on choisit 2 couleurs parmi 4)&nbsp;;</li>
+  <li>une main <strong>assortie</strong> (AKs, 76s…)&nbsp;: <strong>4 combos</strong> (une par couleur)&nbsp;;</li>
+  <li>une main <strong>dépareillée</strong> (AKo…)&nbsp;: <strong>12 combos</strong>.</li>
+</ul>
+<p>AK, toutes couleurs confondues, vaut donc 4&nbsp;+&nbsp;12 = <strong>16 combos</strong>. Si tu veux revoir ces bases, notre guide des <a href="/fr/guides/mains-de-depart/">mains de départ</a> les détaille.</p>
+<p>Le point clé&nbsp;: dès que <strong>tu</strong> tiens une carte, elle disparaît du paquet de ton adversaire. Avec un as en main, il ne reste que 3 as pour lui. Ses AA passent de 6 à <strong>3</strong> combos (on ne choisit plus 2 as parmi 4, mais parmi 3), et ses AK de 16 à <strong>12</strong>.</p>
+
+<div class="odds-scroll" role="region" aria-label="Combos adverses selon ta main" tabindex="0">
+<table class="num">
+  <caption>Combos restants pour l'adversaire selon les cartes que tu tiens</caption>
+  <thead><tr><th scope="col">Ta main</th><th scope="col">AA</th><th scope="col">KK</th><th scope="col">QQ</th><th scope="col">AK</th><th scope="col">AQ</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Aucune carte connue</th><td>6</td><td>6</td><td>6</td><td>16</td><td>16</td></tr>
+    <tr><th scope="row">Un as (ex.&nbsp;A♦&nbsp;5♦)</th><td>3</td><td>6</td><td>6</td><td>12</td><td>12</td></tr>
+    <tr><th scope="row">Un roi (ex.&nbsp;K♦&nbsp;5♦)</th><td>6</td><td>3</td><td>6</td><td>12</td><td>16</td></tr>
+    <tr><th scope="row">A♦&nbsp;K♣</th><td>3</td><td>3</td><td>6</td><td>9</td><td>12</td></tr>
+    <tr><th scope="row">A♦&nbsp;A♣</th><td>1</td><td>6</td><td>6</td><td>8</td><td>8</td></tr>
+    <tr><th scope="row">7♦&nbsp;6♦</th><td>6</td><td>6</td><td>6</td><td>16</td><td>16</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Deux règles à retenir&nbsp;: une carte de la même hauteur <strong>divise par deux</strong> les paires correspondantes (6 → 3), et retire <strong>un quart</strong> des combos non appariés qui la contiennent (16 → 12). Une petite main comme 7♦&nbsp;6♦ ne bloque rien de tout ça.</p>
+
+<h2>Usage n°&nbsp;1&nbsp;: bluffer avec le bon bloqueur</h2>
+<p>Quand tu bluffes, tu veux que l'adversaire se couche. Les mains qui ne se coucheront jamais, ce sont ses très fortes mains. Un bon bluff, c'est donc souvent une main qui <strong>retire ses meilleures mains</strong> de sa range.</p>
+<p>Exemple sur un flop <strong>monocolore</strong>&nbsp;: Q♠&nbsp;8♠&nbsp;4♠. Combien de couleurs (deux piques en main) ton adversaire peut-il avoir&nbsp;?</p>
+<div class="odds-scroll" role="region" aria-label="Couleurs adverses sur Q♠ 8♠ 4♠" tabindex="0">
+<table class="num">
+  <caption>Combos de couleur adverses sur Q♠&nbsp;8♠&nbsp;4♠</caption>
+  <thead><tr><th scope="col">Ta main</th><th scope="col">Couleurs possibles</th><th scope="col">Dont couleur max (avec A♠)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">A♦&nbsp;J♦ (aucun pique)</th><td>45</td><td>9</td></tr>
+    <tr><th scope="row">A♠&nbsp;J♦</th><td>36</td><td>0</td></tr>
+    <tr><th scope="row">K♠&nbsp;J♦</th><td>36</td><td>8</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Avec <strong>A♠</strong> en main, deux choses changent&nbsp;: ses couleurs passent de 45 à <strong>36</strong> combos (un cinquième en moins), et surtout il ne peut plus avoir la <strong>couleur max</strong>. Sa meilleure couleur possible devient une couleur au roi. Quand tu mets la pression, tu sais qu'aucune main imbattable ne t'attend — et toi, tu gardes la possibilité de toucher la couleur max si un quatrième pique tombe.</p>
+<p>Même logique à la river&nbsp;: si la seule main qui ne se couche jamais est la quinte max ou la couleur max, tenir la carte qui la compose rend ton bluff un peu plus crédible et un peu moins risqué. Tu ne «&nbsp;sais&nbsp;» pas qu'il ne l'a pas — tu sais qu'il l'a <em>moins souvent</em>.</p>
+
+<h2>Usage n°&nbsp;2&nbsp;: payer (ou pas) un gros pari</h2>
+<p>Pour payer, la logique s'inverse. Tu veux que ton adversaire ait <strong>beaucoup de bluffs</strong> et <strong>peu de mains de valeur</strong>. Les bonnes cartes pour payer sont celles qui bloquent ses mains de valeur et <strong>ne bloquent pas</strong> ses bluffs.</p>
+<p>Exemple&nbsp;: le board final est <strong>K♥&nbsp;9♥&nbsp;5♣&nbsp;2♠&nbsp;2♦</strong>. Le tirage couleur cœur a raté. Ton adversaire mise gros, et ses bluffs naturels sont justement ces tirages cœur ratés. Tu as top paire avec une dame en kicker. Compare deux versions de ta main&nbsp;:</p>
+<div class="odds-scroll" role="region" aria-label="Tirages cœur ratés selon ta main" tabindex="0">
+<table class="num">
+  <caption>Bluffs (tirages cœur ratés) et AK de l'adversaire sur K♥&nbsp;9♥&nbsp;5♣&nbsp;2♠&nbsp;2♦</caption>
+  <thead><tr><th scope="col">Ta main</th><th scope="col">Tirages cœur ratés (sans paire)</th><th scope="col">AK adverses</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">K♣&nbsp;Q♦</th><td>36</td><td>8</td></tr>
+    <tr><th scope="row">K♣&nbsp;Q♥</th><td>28</td><td>8</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Avec <strong>Q♥</strong>, tu retires toi-même 8 de ses 36 bluffs possibles (plus d'un sur cinq), sans toucher à ses mains de valeur&nbsp;: ses AK restent à 8 combos dans les deux cas (ton K♣ et le K♥ du board en ont déjà retiré la moitié). Sa range contient donc proportionnellement <em>plus</em> de valeur quand tu tiens le cœur. À main égale, <strong>K♣&nbsp;Q♦ est un meilleur call que K♣&nbsp;Q♥</strong>.</p>
+<p>Ton roi joue aussi un rôle&nbsp;: avec une paire de dames (Q♣&nbsp;Q♦) à la place, il garderait <strong>12</strong> combos d'AK au lieu de 8. Tenir le roi, c'est bloquer une partie de ses mains qui te battent.</p>
+
+<h2>Usage n°&nbsp;3&nbsp;: le 4-bet bluff avec A5s</h2>
+<p>C'est l'usage le plus connu. Face à un 3-bet, pourquoi tant de joueurs choisissent-ils <strong>A5s</strong> pour leurs 4-bets en bluff plutôt que 76s&nbsp;? Parce que l'as retire des combos aux mains qui ne se coucheront pas.</p>
+<p>Prenons une range de continuation «&nbsp;solide&nbsp;» face au 4-bet&nbsp;: <strong>AA, KK, QQ, JJ et AK</strong>. Sans carte connue, ça fait 4&nbsp;×&nbsp;6&nbsp;+&nbsp;16 = <strong>40 combos</strong>.</p>
+<div class="odds-scroll" role="region" aria-label="Range AA-JJ et AK selon ta main" tabindex="0">
+<table class="num">
+  <caption>Combos de la range adverse selon ta main</caption>
+  <thead><tr><th scope="col">Ta main</th><th scope="col">AA–JJ + AK</th><th scope="col">AA, KK, AK seulement</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">7♦&nbsp;6♦</th><td>40</td><td>28</td></tr>
+    <tr><th scope="row">A♦&nbsp;5♦</th><td>33</td><td>21</td></tr>
+    <tr><th scope="row">K♦&nbsp;5♦</th><td>33</td><td>21</td></tr>
+    <tr><th scope="row">A♦&nbsp;Q♣</th><td>30</td><td>21</td></tr>
+    <tr><th scope="row">A♦&nbsp;K♣</th><td>27</td><td>15</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Avec A5s, sa range forte passe de 40 à <strong>33</strong> combos (17,5&nbsp;% de moins), et sa range la plus serrée (AA, KK, AK) de 28 à <strong>21</strong>, soit un quart en moins. Avec AK en main, les 40 combos tombent à <strong>27</strong>&nbsp;: c'est le chiffre qu'on voit souvent cité, et il est exact (AA&nbsp;3 + KK&nbsp;3 + QQ&nbsp;6 + JJ&nbsp;6 + AK&nbsp;9).</p>
+<p>Pourquoi A5s plutôt que A9o, qui bloque autant&nbsp;? Parce que l'effet de carte n'est qu'une partie de l'histoire. Quand ton 4-bet est payé, A5s garde du jeu&nbsp;: tirages couleur, quinte par le bas (A-2-3-4-5). L'as fait le travail de bloqueur, le reste de la main fait le travail de jouabilité. Pour situer ces mains dans une stratégie complète, vois notre guide des <a href="/fr/guides/ranges-preflop/">ranges préflop</a>.</p>
+
+<h2>Le cas K♦&nbsp;Q♥ contre K♣&nbsp;Q♠ sur K♠&nbsp;9♠&nbsp;3♣&nbsp;6♣</h2>
+<p>Revenons à la question de départ. Le turn K♠&nbsp;9♠&nbsp;3♣&nbsp;6♣ porte <strong>deux tirages couleur</strong>&nbsp;: pique et trèfle. Les deux versions de ta main ont la même force (top paire, kicker dame), mais elles ne retirent pas les mêmes cartes à l'adversaire&nbsp;:</p>
+<div class="odds-scroll" role="region" aria-label="Tirages couleur adverses sur K♠ 9♠ 3♣ 6♣" tabindex="0">
+<table class="num">
+  <caption>Tirages couleur adverses (deux cartes de la couleur) sur K♠&nbsp;9♠&nbsp;3♣&nbsp;6♣</caption>
+  <thead><tr><th scope="col">Ta main</th><th scope="col">Tirages pique</th><th scope="col">Tirages trèfle</th><th scope="col">Total</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">K♦&nbsp;Q♥</th><td>55</td><td>55</td><td>110</td></tr>
+    <tr><th scope="row">K♣&nbsp;Q♠</th><td>45</td><td>45</td><td>90</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Avec <strong>K♣&nbsp;Q♠</strong>, tu tiens un trèfle et un pique&nbsp;: tu retires <strong>20 combos</strong> de tirages couleur à ton adversaire (110 → 90). Avec <strong>K♦&nbsp;Q♥</strong>, tu n'en retires aucun.</p>
+<p>Or les tirages couleur sont précisément les mains qui <strong>misent quand on leur checke</strong>&nbsp;: elles ont de l'équité, elles veulent prendre le pot tout de suite ou se donner une chance de gagner à la river. L'intuition est donc la suivante&nbsp;:</p>
+<ul>
+  <li><strong>Avec K♦&nbsp;Q♥</strong>, l'adversaire a tous ses tirages. Checker l'invite à miser avec eux, et ta top paire peut payer contre une range pleine de mains qui ne t'ont pas encore battu.</li>
+  <li><strong>Avec K♣&nbsp;Q♠</strong>, il a moins de tirages, donc moins de mains qui attaqueront ton check. Sa range est proportionnellement plus composée de mains faites (un 9, un roi moins bon…) qui peuvent payer une mise. Miser devient relativement plus intéressant.</li>
+</ul>
+<p>Attention&nbsp;: on parle d'<em>intuition</em>. Les fréquences exactes d'un solveur dépendent des ranges, des tailles de mise et de l'action précédente, et on ne les invente pas ici. Ce qu'on peut affirmer, c'est le mécanisme&nbsp;: 20 combos de tirages en plus ou en moins suffisent à faire pencher une main «&nbsp;limite&nbsp;» d'un côté ou de l'autre. Pour mesurer l'équité réelle de ces tirages, compte-les avec notre guide <a href="/fr/guides/compter-ses-outs/">compter ses outs</a>.</p>
+
+<h2>Les limites des bloqueurs</h2>
+<p>Les bloqueurs sont à la mode, et c'est justement là que beaucoup de joueurs se trompent. Quatre garde-fous&nbsp;:</p>
+<ul>
+  <li><strong>C'est un critère de départage, pas une raison en soi.</strong> Les bloqueurs servent à choisir <em>entre</em> deux mains qui jouent à peu près pareil. «&nbsp;J'ai l'as de pique, donc je bluffe&nbsp;» n'est pas un plan&nbsp;: d'abord l'histoire de la main, la taille de mise et la range adverse, ensuite l'effet de carte.</li>
+  <li><strong>Une carte change peu de combos.</strong> Ton adversaire a encore 1&nbsp;225 combos possibles après avoir retiré tes deux cartes. Dans nos exemples, une carte bien placée retire entre 3 et 20 combos ciblés&nbsp;: utile à la marge, pas magique.</li>
+  <li><strong>La composition de sa range compte bien plus.</strong> Bloquer la couleur max ne sert à rien si ton adversaire n'a jamais de couleur dans cette ligne, ou si tous ses autres combos battent ta main. Pense d'abord à ce qu'il a réellement — notre <a href="/fr/calculateur-range/">calculateur de range</a> aide à le visualiser.</li>
+  <li><strong>À petite limite, ne te perds pas en niveaux.</strong> Face à un joueur qui paie avec n'importe quelle paire, ton beau bluff avec A♠ reste un bluff qui se fait payer. Contre les adversaires peu attentifs, la force de ta main et la taille de tes mises pèsent beaucoup plus que tes bloqueurs.</li>
+</ul>
+<p>Pour relier tout ça aux cotes et à l'équité, notre guide des <a href="/fr/guides/maths-du-poker/">maths du poker</a> fait le tour des calculs utiles, et le <a href="/fr/calculateur-equite/">calculateur d'équité</a> te donne la valeur exacte de ta main face à une autre.</p>
+
+<h2>Questions fréquentes</h2>
+<details><summary>Qu'est-ce qu'un bloqueur au poker&nbsp;?</summary><p>C'est une carte de ta main qui rend certaines mains adverses impossibles ou plus rares. Avec un as, ton adversaire n'a plus que 3 combos d'AA au lieu de 6 et 12 combos d'AK au lieu de 16.</p></details>
+<details><summary>Combien de combos retire une carte&nbsp;?</summary><p>Une carte de même hauteur divise par deux les paires correspondantes (6 → 3) et retire un quart des combos non appariés qui la contiennent (16 → 12). Avec AK en main, la range AA–JJ + AK passe de 40 à 27 combos.</p></details>
+<details><summary>Pourquoi A5s est-il un bon 4-bet bluff&nbsp;?</summary><p>L'as retire des combos aux mains qui ne se couchent pas&nbsp;: AA, KK et AK passent de 28 à 21 combos, soit un quart de moins. Et si le 4-bet est payé, A5s garde des tirages couleur et quinte.</p></details>
+<details><summary>Quelle carte tenir pour payer à la river&nbsp;?</summary><p>Une carte qui bloque ses mains de valeur sans bloquer ses bluffs. Si ses bluffs sont des tirages cœur ratés, tenir un cœur les rend plus rares&nbsp;: sur K♥&nbsp;9♥&nbsp;5♣&nbsp;2♠&nbsp;2♦, la Q♥ retire 8 de ses 36 tirages cœur ratés, ce qui rend le call moins bon.</p></details>
+<details><summary>Faut-il bluffer dès qu'on a un bon bloqueur&nbsp;?</summary><p>Non. Le bloqueur départage deux options proches&nbsp;; il ne remplace ni la lecture de la range adverse, ni la taille de mise, ni le profil de l'adversaire. À petite limite, contre des joueurs qui paient beaucoup, il pèse peu.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/guides/mains-de-depart/">Mains de départ</a> · <a href="/fr/guides/ranges-preflop/">Ranges préflop</a> · <a href="/fr/guides/compter-ses-outs/">Compter ses outs</a> · <a href="/fr/guides/maths-du-poker/">Maths du poker</a> · <a href="/fr/calculateur-range/">Calculateur de range</a> · <a href="/fr/calculateur-equite/">Calculateur d'équité</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Qu'est-ce qu'un bloqueur au poker ?","acceptedAnswer":{"@type":"Answer","text":"C'est une carte de ta main qui rend certaines mains adverses impossibles ou plus rares. Avec un as, ton adversaire n'a plus que 3 combos d'AA au lieu de 6 et 12 combos d'AK au lieu de 16."}},
+  {"@type":"Question","name":"Combien de combos retire une carte ?","acceptedAnswer":{"@type":"Answer","text":"Une carte de même hauteur divise par deux les paires correspondantes (6 → 3) et retire un quart des combos non appariés qui la contiennent (16 → 12). Avec AK en main, la range AA–JJ + AK passe de 40 à 27 combos."}},
+  {"@type":"Question","name":"Pourquoi A5s est-il un bon 4-bet bluff ?","acceptedAnswer":{"@type":"Answer","text":"L'as retire des combos aux mains qui ne se couchent pas : AA, KK et AK passent de 28 à 21 combos, soit un quart de moins. Et si le 4-bet est payé, A5s garde des tirages couleur et quinte."}},
+  {"@type":"Question","name":"Quelle carte tenir pour payer à la river ?","acceptedAnswer":{"@type":"Answer","text":"Une carte qui bloque ses mains de valeur sans bloquer ses bluffs. Si ses bluffs sont des tirages cœur ratés, tenir un cœur les rend plus rares : sur K♥ 9♥ 5♣ 2♠ 2♦, la Q♥ retire 8 de ses 36 tirages cœur ratés, ce qui rend le call moins bon."}},
+  {"@type":"Question","name":"Faut-il bluffer dès qu'on a un bon bloqueur ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le bloqueur départage deux options proches ; il ne remplace ni la lecture de la range adverse, ni la taille de mise, ni le profil de l'adversaire. À petite limite, contre des joueurs qui paient beaucoup, il pèse peu."}}
+]}
+</script>

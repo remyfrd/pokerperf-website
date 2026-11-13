@@ -1,0 +1,80 @@
+---
+layout: default
+lang: fr
+title: "Calculateur de range poker : % → mains et combos"
+description: "Range poker en pourcentage : choisis un top X % et vois les mains, le nombre de combos et la notation (TT+, AQs+). Bloqueurs inclus. Gratuit, sans inscription."
+permalink: /fr/calculateur-range/
+webapp: "Calculateur de range poker"
+last_modified_at: 2026-11-13
+stylesheets: ["/assets/css/starting-hands.css", "/assets/css/range-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-range/" }
+  - { lang: "en", href: "https://pokerperf.com/en/poker-range-calculator/" }
+x_default: "https://pokerperf.com/en/poker-range-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculateur de range poker&nbsp;: % → mains et combos</h1>
+  <p class="lead">Un adversaire «&nbsp;3-bet 4&nbsp;%&nbsp;»&nbsp;? Règle le curseur sur <strong>4&nbsp;%</strong>&nbsp;: tu vois tout de suite <strong>quelles mains</strong> ça représente, <strong>combien de combos</strong> et la range en notation standard (<code>88+, AQs+</code>). Coche ou décoche des cases pour bâtir ta propre range, et retire les cartes que tu tiens pour compter les <strong>bloqueurs</strong>. Gratuit, sans inscription.</p>
+
+  <div id="range-calculator" data-lang="fr" data-pct="4"></div>
+  <noscript><p class="tip">Le calculateur a besoin de JavaScript. Repère sans lui&nbsp;: une paire = 6 combos, une main assortie = 4, une main dépareillée = 12, sur 1&nbsp;326 au total.</p></noscript>
+
+  <h2>Que veut dire une range de X&nbsp;%&nbsp;?</h2>
+  <p>Avant le flop, il existe <strong>1&nbsp;326 combinaisons</strong> de deux cartes. Une range de 10&nbsp;%, c'est donc environ <strong>133 combos</strong>, pas «&nbsp;17 mains sur 169&nbsp;»&nbsp;: les mains ne pèsent pas toutes pareil.</p>
+  <table>
+    <thead><tr><th scope="col">Type de main</th><th scope="col">Combos par main</th><th scope="col">Nombre de mains</th><th scope="col">Total</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Paire (ex. JJ)</th><td>6</td><td>13</td><td>78</td></tr>
+      <tr><th scope="row">Assortie (ex. AKs)</th><td>4</td><td>78</td><td>312</td></tr>
+      <tr><th scope="row">Dépareillée (ex. AKo)</th><td>12</td><td>78</td><td>936</td></tr>
+    </tbody>
+  </table>
+  <p>Conséquence directe&nbsp;: AKo à lui seul (12 combos) pèse autant que deux paires. C'est pour ça qu'on raisonne en combos dès qu'on parle de pourcentage.</p>
+
+  <h2>Exemple&nbsp;: un 3-bet de 4&nbsp;%, c'est quoi&nbsp;?</h2>
+  <p>On entend souvent «&nbsp;4&nbsp;% de 3-bet = AA, KK, QQ, JJ, AK&nbsp;». Faisons le compte&nbsp;: 4 paires × 6 = 24 combos, plus AK = 4 assortis + 12 dépareillés = 16. Total&nbsp;: <strong>40 combos, soit 3,0&nbsp;%</strong>. Un vrai 4&nbsp;%, c'est 53 combos&nbsp;: il y a donc de la place pour <strong>13 combos de plus</strong>.</p>
+  <div class="tip"><p style="margin:0"><strong>Ce qu'affiche l'outil à 4&nbsp;%.</strong> Avec le classement par équité, le top 4&nbsp;% donne <code>88+, AQs+</code>&nbsp;: AA à 88, AKs et AQs, soit <strong>50 combos (3,8&nbsp;%)</strong>. Il ajoute TT, 99, 88 et AQs… mais <strong>pas AKo</strong>, qui n'arrive qu'autour de 5,4&nbsp;%. Une range de 3-bet réelle de taille comparable ressemble plutôt à <code>TT+, AQs+, AKo</code>&nbsp;: <strong>50 combos aussi</strong>, mais choisis autrement. Teste les deux&nbsp;: clique sur «&nbsp;JJ+, AK&nbsp;», puis ajoute TT et AQs à la main.</p></div>
+  <p>Moralité&nbsp;: un pourcentage te dit <strong>combien</strong> de mains, pas <strong>lesquelles</strong>. Deux joueurs à 4&nbsp;% peuvent avoir des ranges très différentes.</p>
+
+  <h2>Les bloqueurs&nbsp;: tes cartes retirent des combos</h2>
+  <p>Les cartes que tu tiens ne peuvent pas être chez l'adversaire. Choisis-les dans «&nbsp;Retirer les bloqueurs&nbsp;» et la grille recompte chaque main. Exemple avec <strong>A♠ K♦</strong>&nbsp;:</p>
+  <ul>
+    <li><strong>AA</strong>&nbsp;: plus que 3 As → 3 combos au lieu de 6.</li>
+    <li><strong>KK</strong>&nbsp;: plus que 3 Rois → 3 combos au lieu de 6.</li>
+    <li><strong>AK</strong>&nbsp;: 3 As × 3 Rois = <strong>9 combos au lieu de 16</strong> (2 assortis, 7 dépareillés).</li>
+    <li><strong>QQ, JJ</strong>&nbsp;: inchangés, 6 combos chacun.</li>
+  </ul>
+  <p>Résultat&nbsp;: la range AA-JJ + AK tombe de 40 à <strong>27 combos</strong>, sur 1&nbsp;225 mains encore possibles. Les mains premium de l'adversaire deviennent bien plus rares&nbsp;: c'est tout l'intérêt de tenir un As quand tu relances. Pour aller plus loin sur ces calculs, vois <a href="/fr/guides/maths-du-poker/">les maths du poker</a>.</p>
+
+  <h2>Comment l'outil classe les mains (et ses limites)</h2>
+  <p>Le «&nbsp;top X&nbsp;%&nbsp;» suit la même convention que PokerStove ou Equilab&nbsp;: les 169 mains sont rangées selon leur <strong>équité à tapis avant le flop contre une main aléatoire</strong>. AA est en tête (≈ 85&nbsp;%), 32o ferme la marche (≈ 32&nbsp;%). Les valeurs viennent de notre propre moteur (200&nbsp;000 tirages par main, précision ≈ ±&nbsp;0,25 point&nbsp;; voir <a href="/fr/methodologie/">notre méthodologie</a>). D'autres outils peuvent inverser quelques mains très proches.</p>
+  <p>Règle du seuil&nbsp;: on ajoute les mains dans l'ordre tant que le total <strong>reste sous X&nbsp;%</strong>. La main qui ferait dépasser n'est pas incluse, d'où 3,8&nbsp;% affichés pour un curseur à 4&nbsp;%.</p>
+  <p>Attention&nbsp;: <strong>équité contre une main aléatoire ≠ jouabilité</strong>. Ce classement favorise les paires et les As dépareillés, et sous-estime les connecteurs assortis (87s, 98s), qui gagnent peu à tapis mais font de belles quintes et couleurs. Les préréglages «&nbsp;UTG / CO / BTN&nbsp;» reprennent les ordres de grandeur de notre <a href="/fr/guides/ranges-preflop/">guide des ranges préflop</a>, mais les vraies ranges d'ouverture contiennent plus de connecteurs. Pour la vraie valeur de chaque main, vois le <a href="/fr/guides/mains-de-depart/">tableau des mains de départ</a>.</p>
+
+  <div class="appcta">
+    <h2>Voir les combos sans calculer</h2>
+    <p>À la table, tu n'as pas de grille sous les yeux. <strong>PokerPerf</strong> t'entraîne à lire une range et ses combos d'un coup d'œil — 10&nbsp;min/jour, sans promesse miracle.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Découvrir PokerPerf</a>
+  </div>
+
+  <h2>Questions fréquentes</h2>
+  <details><summary>Combien y a-t-il de combos au poker&nbsp;?</summary><p>1&nbsp;326 combinaisons de deux cartes, regroupées en 169 mains&nbsp;: une paire compte 6 combos, une main assortie 4, une main dépareillée 12.</p></details>
+  <details><summary>Quelles mains dans une range de 4&nbsp;%&nbsp;?</summary><p>4&nbsp;% ≈ 53 combos. Par équité, l'outil donne 88+, AQs+ (50 combos). AA-JJ + AK ne fait que 40 combos, soit 3&nbsp;%.</p></details>
+  <details><summary>Pourquoi 88 passe-t-il devant AKo&nbsp;?</summary><p>Parce que le classement suit l'équité à tapis contre une main aléatoire, où une paire moyenne gagne un peu plus souvent qu'AKo. En partie réelle, AK se joue souvent mieux&nbsp;: c'est une limite du classement, pas une règle de jeu.</p></details>
+  <details><summary>Comment mes cartes changent-elles les combos adverses&nbsp;?</summary><p>Chaque carte que tu tiens retire les combos qui l'utilisent. Avec A♠ K♦, AA passe de 6 à 3 combos, KK de 6 à 3, et AK de 16 à 9.</p></details>
+  <details><summary>Les préréglages UTG, CO, BTN sont-ils des ranges GTO&nbsp;?</summary><p>Non. Ce sont des largeurs approximatives (≈ 15, 27 et 45&nbsp;%) remplies par équité. Une vraie range d'ouverture choisit ses mains autrement, notamment les connecteurs assortis.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/guides/ranges-preflop/">Ranges préflop</a> · <a href="/fr/guides/mains-de-depart/">Mains de départ</a> · <a href="/fr/calculateur-equite/">Calculateur d'équité</a> · <a href="/fr/guides/maths-du-poker/">Maths du poker</a> · <a href="/fr/methodologie/">Méthodologie</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Combien y a-t-il de combos au poker ?","acceptedAnswer":{"@type":"Answer","text":"1 326 combinaisons de deux cartes, regroupées en 169 mains : une paire compte 6 combos, une main assortie 4, une main dépareillée 12."}},
+  {"@type":"Question","name":"Quelles mains dans une range de 4 % ?","acceptedAnswer":{"@type":"Answer","text":"4 % ≈ 53 combos. Par équité, l'outil donne 88+, AQs+ (50 combos). AA-JJ + AK ne fait que 40 combos, soit 3 %."}},
+  {"@type":"Question","name":"Pourquoi 88 passe-t-il devant AKo ?","acceptedAnswer":{"@type":"Answer","text":"Parce que le classement suit l'équité à tapis contre une main aléatoire, où une paire moyenne gagne un peu plus souvent qu'AKo. En partie réelle, AK se joue souvent mieux : c'est une limite du classement, pas une règle de jeu."}},
+  {"@type":"Question","name":"Comment mes cartes changent-elles les combos adverses ?","acceptedAnswer":{"@type":"Answer","text":"Chaque carte que tu tiens retire les combos qui l'utilisent. Avec A♠ K♦, AA passe de 6 à 3 combos, KK de 6 à 3, et AK de 16 à 9."}},
+  {"@type":"Question","name":"Les préréglages UTG, CO, BTN sont-ils des ranges GTO ?","acceptedAnswer":{"@type":"Answer","text":"Non. Ce sont des largeurs approximatives (≈ 15, 27 et 45 %) remplies par équité. Une vraie range d'ouverture choisit ses mains autrement, notamment les connecteurs assortis."}}
+]}
+</script>
+<script src="/assets/js/range-calculator.js" defer></script>

@@ -1,0 +1,57 @@
+/* ===========================================================================
+   Calculateur de range (% → mains & combos). S'appuie sur starting-hands.css
+   (.sh-scroll, .sh-hint) et sur le widget .pp-calc/.po de pp.css.
+   Sélection jamais codée par la couleur seule : fond plein + coche ✓ + gras
+   + aria-pressed. Cases ≥ 44 px ; la grille défile DANS son cadre à 360 px.
+   =========================================================================== */
+.rc-top{margin-bottom:12px;}
+.rc-toplabel{display:block;font:600 .8rem/1.3 "IBM Plex Mono","Plex Mono Fallback",monospace;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.rc-slider{display:flex;align-items:center;gap:12px;}
+.rc-slider input[type=range]{flex:1;min-width:0;height:44px;accent-color:var(--gold);cursor:pointer;margin:0;}
+.rc .rc-num{display:inline-flex;align-items:center;gap:6px;color:var(--muted);flex:none;}
+.rc .rc-num input{width:5.5em;padding:10px;min-height:44px;box-sizing:border-box;}
+.rc-rule{margin-top:6px;}
+
+.rc-presets{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px;}
+.rc-presets .ctl{padding:10px 13px;min-height:44px;font-size:.88rem;}
+.rc .ctl:focus-visible,.rc-cell:focus-visible{outline:2px solid var(--cream);outline-offset:2px;}
+
+.rc-caption{margin:12px 0 4px;}
+.rc-scroll{margin-top:6px;position:relative;} /* contient le .sr-only de la légende : sinon il déborde la page */
+.rc-grid{border-collapse:separate;border-spacing:2px;width:100%;min-width:620px;margin:0;table-layout:fixed;
+  font-family:"IBM Plex Mono","Plex Mono Fallback",monospace;}
+.rc-grid caption{caption-side:top;text-align:left;padding:10px 10px 6px;color:var(--muted);
+  font:400 .8rem/1.45 Geist,"Geist Fallback",system-ui,sans-serif;}
+.rc-grid th{padding:2px 0;border:0;text-align:center;font-size:.7rem;color:var(--gold);}
+.rc-grid thead td:first-child,.rc-grid tbody th{width:18px;border:0;padding:0;}
+.rc-grid td{padding:0;border:0;}
+
+.rc-cell{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  width:100%;min-width:44px;min-height:44px;padding:3px 0 2px;border:0;border-radius:5px;cursor:pointer;
+  font:inherit;line-height:1.1;color:var(--muted);background:transparent;
+  box-shadow:inset 0 0 0 1px var(--gold-hair);}
+.rc-cell.rc-pair{background:oklch(0.82 0.06 85 / .05);}
+.rc-cell:hover{box-shadow:inset 0 0 0 1px var(--gold-soft);color:var(--cream);}
+.rc-l{font-size:.72rem;font-weight:500;letter-spacing:-.03em;}
+.rc-n{font-size:.6rem;opacity:.8;}
+.rc-m{display:none;position:absolute;top:1px;right:3px;font-size:.62rem;font-weight:700;}
+.rc-cell.on{background:var(--gold);color:var(--ink);box-shadow:inset 0 0 0 1px var(--gold);}
+.rc-cell.on .rc-l{font-weight:800;}
+.rc-cell.on .rc-m{display:block;}
+/* Main entièrement bloquée par tes cartes : 0 combo, barré + pointillés. */
+.rc-cell.dead{box-shadow:inset 0 0 0 1px var(--gold-soft);background-image:repeating-linear-gradient(135deg,transparent 0 5px,oklch(0.82 0.06 85 / .14) 5px 6px);}
+.rc-cell.dead .rc-n{text-decoration:line-through;}
+.rc-cell.on.dead{background-color:oklch(0.62 0.05 85);}
+
+.rc-block .po-row label{min-width:140px;}
+.rc-block .err:empty{display:none;}
+.rc-after{margin:10px 0 0;color:var(--cream);font-weight:600;}
+.rc-list{margin:12px 0 0;}
+.rc-list span{display:block;color:var(--muted);font-size:.85rem;margin-bottom:4px;}
+.rc-list code{display:block;padding:10px 12px;border-radius:9px;border:1px solid var(--gold-hair);background:oklch(0.14 0.03 158);
+  color:var(--cream);font:500 .9rem/1.5 "IBM Plex Mono","Plex Mono Fallback",monospace;overflow-wrap:anywhere;white-space:normal;}
+
+@media (min-width:641px){
+  .rc-l{font-size:.8rem;}
+}

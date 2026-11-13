@@ -1,0 +1,30 @@
+/* Guide « comment étudier le poker » / « how to study poker » — styles propres à la page. */
+.sp-loop{margin:22px 0 26px;border:1px solid var(--gold-hair);border-radius:14px;
+  background:linear-gradient(var(--panel),var(--felt-deep));padding:18px 16px 14px;}
+.sp-loop svg{display:block;width:100%;height:auto;max-width:520px;margin:0 auto;}
+.sp-loop figcaption{margin-top:10px;color:var(--muted);font-size:.9rem;text-align:center;}
+.sp-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0;}
+.sp-scroll table{margin:0;}
+.sp-scroll th[scope="row"]{white-space:normal;word-break:normal;}
+.sp-scroll td{vertical-align:top;}
+.sp-scroll caption{caption-side:top;text-align:left;color:var(--muted);font-size:.88rem;padding:0 0 8px;}
+.sp-steps{counter-reset:sp;list-style:none;padding:0;margin:14px 0;}
+.sp-steps>li{counter-increment:sp;position:relative;padding:0 0 12px 40px;}
+.sp-steps>li::before{content:counter(sp);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;
+  border:1px solid var(--gold-soft);color:var(--gold);font:600 .82rem/28px "IBM Plex Mono","Plex Mono Fallback",monospace;text-align:center;}
+.sp-sources{font-size:.9rem;color:var(--muted);padding-left:1.1em;}
+.sp-sources li{margin:0 0 8px;}
+.sp-toc{background:var(--panel);border:1px solid var(--gold-hair);border-radius:12px;padding:14px 18px;margin:18px 0 26px;}
+.sp-toc p{margin:0 0 6px;font:500 .72rem/1.2 "IBM Plex Mono","Plex Mono Fallback",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+.sp-toc ol{margin:0;padding-left:1.2em;}
+.sp-toc li{margin:3px 0;}
+.sp-loop .sp-box{fill:var(--felt-deep);stroke:var(--gold-soft);stroke-width:1.2;}
+.sp-loop .sp-lbl{fill:var(--cream);font:600 17px Geist,"Geist Fallback",system-ui,sans-serif;}
+.sp-loop .sp-sub{fill:var(--muted);font:400 13px Geist,"Geist Fallback",system-ui,sans-serif;}
+.sp-loop .sp-num{fill:var(--gold);font:600 12px "IBM Plex Mono","Plex Mono Fallback",monospace;letter-spacing:.08em;}
+.sp-loop .sp-arr{fill:none;stroke:var(--gold);stroke-width:1.6;}
+.sp-loop .sp-head{fill:var(--gold);}
+.sp-loop .sp-mid{fill:var(--gold);font:600 14px "IBM Plex Mono","Plex Mono Fallback",monospace;letter-spacing:.14em;text-transform:uppercase;}
+.sp-loop .sp-mid2{fill:var(--muted);font:400 13px Geist,"Geist Fallback",system-ui,sans-serif;}
+@media (max-width:480px){.sp-loop{padding:12px 6px 10px;}}
+.sp-week td:last-child{white-space:nowrap;}

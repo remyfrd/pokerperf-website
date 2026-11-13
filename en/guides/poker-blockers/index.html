@@ -1,0 +1,147 @@
+---
+layout: article
+lang: en
+title: "Poker blockers explained: card removal made simple"
+headline: "Poker blockers: what your cards take away from your opponent"
+description: "Blockers in poker explained: how your cards remove combos from your opponent's range. Exact math, bluffing, calling, A5s 4-bets and the limits."
+permalink: /en/guides/poker-blockers/
+date: 2026-11-13
+last_modified_at: 2026-11-13
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/bloqueurs-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/poker-blockers/" }
+x_default: "https://pokerperf.com/en/guides/poker-blockers/"
+---
+<p class="lead">A <strong>blocker</strong> is a card in your hand that your opponent therefore <strong>can't</strong> hold — so some hands in their range become rarer. That's <strong>card removal</strong>, and used well it helps you pick <em>which</em> hands to bluff or call with when two options are close.</p>
+
+<p>On a poker theory forum, a player recently asked why a solver prefers checking <strong>K♦&nbsp;Q♥</strong> but not <strong>K♣&nbsp;Q♠</strong> on a <strong>K♠&nbsp;9♠&nbsp;3♣&nbsp;6♣</strong> turn. Same pair, same kicker… different decision. The answer is one word: blockers. We'll break that spot down below, once the basics are in place.</p>
+
+<p><em>Notation: every card is written as its rank plus its suit symbol (A♠ = ace of spades, K♥ = king of hearts, Q♦ = queen of diamonds, J♣ = jack of clubs). Every number in this guide comes from an exact enumeration of combinations.</em></p>
+
+<h2>Combos: the foundation</h2>
+<p>To understand blockers you need to think in <strong>combos</strong> — specific two-card holdings. A 52-card deck gives <strong>1,326</strong> possible starting hands. Each "hand" in everyday language groups several combos:</p>
+<ul>
+  <li>a <strong>pocket pair</strong> (AA, 77…): <strong>6 combos</strong> (choose 2 suits out of 4);</li>
+  <li>a <strong>suited</strong> hand (AKs, 76s…): <strong>4 combos</strong> (one per suit);</li>
+  <li>an <strong>offsuit</strong> hand (AKo…): <strong>12 combos</strong>.</li>
+</ul>
+<p>So AK, all suits included, is 4&nbsp;+&nbsp;12 = <strong>16 combos</strong>. For a refresher, our <a href="/en/guides/poker-starting-hands/">poker starting hands</a> guide covers this in detail.</p>
+<p>Here's the key point: as soon as <strong>you</strong> hold a card, it's gone from your opponent's deck. With an ace in your hand, only 3 aces are left for them. Their AA drops from 6 to <strong>3</strong> combos (choosing 2 aces from 3 instead of 4), and their AK from 16 to <strong>12</strong>.</p>
+
+<div class="odds-scroll" role="region" aria-label="Opponent combos depending on your hand" tabindex="0">
+<table class="num">
+  <caption>Combos left for your opponent depending on the cards you hold</caption>
+  <thead><tr><th scope="col">Your hand</th><th scope="col">AA</th><th scope="col">KK</th><th scope="col">QQ</th><th scope="col">AK</th><th scope="col">AQ</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">No known card</th><td>6</td><td>6</td><td>6</td><td>16</td><td>16</td></tr>
+    <tr><th scope="row">One ace (e.g.&nbsp;A♦&nbsp;5♦)</th><td>3</td><td>6</td><td>6</td><td>12</td><td>12</td></tr>
+    <tr><th scope="row">One king (e.g.&nbsp;K♦&nbsp;5♦)</th><td>6</td><td>3</td><td>6</td><td>12</td><td>16</td></tr>
+    <tr><th scope="row">A♦&nbsp;K♣</th><td>3</td><td>3</td><td>6</td><td>9</td><td>12</td></tr>
+    <tr><th scope="row">A♦&nbsp;A♣</th><td>1</td><td>6</td><td>6</td><td>8</td><td>8</td></tr>
+    <tr><th scope="row">7♦&nbsp;6♦</th><td>6</td><td>6</td><td>6</td><td>16</td><td>16</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Two rules to remember: one card of a rank <strong>halves</strong> the matching pocket pairs (6 → 3) and removes <strong>a quarter</strong> of the unpaired combos containing it (16 → 12). A small hand like 7♦&nbsp;6♦ blocks none of these.</p>
+
+<h2>Use #1: bluffing with the right blocker</h2>
+<p>When you bluff, you want your opponent to fold. The hands that will never fold are their strongest ones. So a good bluff is often a hand that <strong>removes their best hands</strong> from their range.</p>
+<p>Take a <strong>monotone</strong> flop: Q♠&nbsp;8♠&nbsp;4♠. How many flushes (two spades in hand) can your opponent have?</p>
+<div class="odds-scroll" role="region" aria-label="Opponent flushes on Q♠ 8♠ 4♠" tabindex="0">
+<table class="num">
+  <caption>Opponent flush combos on Q♠&nbsp;8♠&nbsp;4♠</caption>
+  <thead><tr><th scope="col">Your hand</th><th scope="col">Possible flushes</th><th scope="col">Of which nut flush (with A♠)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">A♦&nbsp;J♦ (no spade)</th><td>45</td><td>9</td></tr>
+    <tr><th scope="row">A♠&nbsp;J♦</th><td>36</td><td>0</td></tr>
+    <tr><th scope="row">K♠&nbsp;J♦</th><td>36</td><td>8</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Holding the <strong>A♠</strong> changes two things: their flushes drop from 45 to <strong>36</strong> combos (one fifth fewer), and above all they can no longer have the <strong>nut flush</strong>. Their best possible flush is now king-high. When you apply pressure, you know no unbeatable hand is waiting for you — and you keep the chance to make the nut flush yourself if a fourth spade comes.</p>
+<p>Same logic on the river: if the only hand that never folds is the nut straight or the nut flush, holding a card that makes it gives your bluff a little more credibility and a little less risk. You don't "know" they don't have it — you know they have it <em>less often</em>.</p>
+
+<h2>Use #2: calling (or not) a big bet</h2>
+<p>For calling, the logic flips. You want your opponent to have <strong>lots of bluffs</strong> and <strong>few value hands</strong>. The best cards to call with block their value hands and <strong>don't block</strong> their bluffs.</p>
+<p>Example: the final board is <strong>K♥&nbsp;9♥&nbsp;5♣&nbsp;2♠&nbsp;2♦</strong>. The heart draw missed. Your opponent bets big, and their natural bluffs are exactly those missed heart draws. You have top pair with a queen kicker. Compare two versions of your hand:</p>
+<div class="odds-scroll" role="region" aria-label="Missed heart draws depending on your hand" tabindex="0">
+<table class="num">
+  <caption>Bluffs (missed heart draws) and AK for your opponent on K♥&nbsp;9♥&nbsp;5♣&nbsp;2♠&nbsp;2♦</caption>
+  <thead><tr><th scope="col">Your hand</th><th scope="col">Missed heart draws (no pair)</th><th scope="col">Opponent's AK</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">K♣&nbsp;Q♦</th><td>36</td><td>8</td></tr>
+    <tr><th scope="row">K♣&nbsp;Q♥</th><td>28</td><td>8</td></tr>
+  </tbody>
+</table>
+</div>
+<p>With the <strong>Q♥</strong>, you remove 8 of their 36 possible bluffs yourself (more than one in five) without touching their value: their AK stays at 8 combos either way (your K♣ and the K♥ on board already removed half of them). Their range is proportionally <em>more</em> value-heavy when you hold the heart. With equal hand strength, <strong>K♣&nbsp;Q♦ is a better call than K♣&nbsp;Q♥</strong>.</p>
+<p>Your king matters too: with pocket queens (Q♣&nbsp;Q♦) instead, they would keep <strong>12</strong> AK combos instead of 8. Holding the king blocks some of the hands that beat you.</p>
+
+<h2>Use #3: the A5s 4-bet bluff</h2>
+<p>This is the best-known use. Facing a 3-bet, why do so many players pick <strong>A5s</strong> for their 4-bet bluffs rather than 76s? Because the ace removes combos from the hands that won't fold.</p>
+<p>Take a "solid" continuing range against a 4-bet: <strong>AA, KK, QQ, JJ and AK</strong>. With no known card, that's 4&nbsp;×&nbsp;6&nbsp;+&nbsp;16 = <strong>40 combos</strong>.</p>
+<div class="odds-scroll" role="region" aria-label="AA-JJ plus AK range depending on your hand" tabindex="0">
+<table class="num">
+  <caption>Opponent range combos depending on your hand</caption>
+  <thead><tr><th scope="col">Your hand</th><th scope="col">AA–JJ + AK</th><th scope="col">AA, KK, AK only</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">7♦&nbsp;6♦</th><td>40</td><td>28</td></tr>
+    <tr><th scope="row">A♦&nbsp;5♦</th><td>33</td><td>21</td></tr>
+    <tr><th scope="row">K♦&nbsp;5♦</th><td>33</td><td>21</td></tr>
+    <tr><th scope="row">A♦&nbsp;Q♣</th><td>30</td><td>21</td></tr>
+    <tr><th scope="row">A♦&nbsp;K♣</th><td>27</td><td>15</td></tr>
+  </tbody>
+</table>
+</div>
+<p>With A5s, their strong range goes from 40 to <strong>33</strong> combos (17.5% fewer), and their tightest range (AA, KK, AK) from 28 to <strong>21</strong> — a quarter fewer. With AK in hand, the 40 combos drop to <strong>27</strong>: that's the figure you often see quoted, and it's exact (AA&nbsp;3 + KK&nbsp;3 + QQ&nbsp;6 + JJ&nbsp;6 + AK&nbsp;9).</p>
+<p>Why A5s rather than A9o, which blocks just as much? Because card removal is only part of the story. When your 4-bet gets called, A5s still has playability: flush draws and the wheel (A-2-3-4-5). The ace does the blocking, the rest of the hand does the playing. To place these hands in a full strategy, see our <a href="/en/guides/preflop-ranges/">preflop ranges</a> guide.</p>
+
+<h2>The K♦&nbsp;Q♥ vs K♣&nbsp;Q♠ spot on K♠&nbsp;9♠&nbsp;3♣&nbsp;6♣</h2>
+<p>Back to the opening question. The K♠&nbsp;9♠&nbsp;3♣&nbsp;6♣ turn has <strong>two flush draws</strong>: spades and clubs. Both versions of your hand are equally strong (top pair, queen kicker), but they don't remove the same cards from your opponent:</p>
+<div class="odds-scroll" role="region" aria-label="Opponent flush draws on K♠ 9♠ 3♣ 6♣" tabindex="0">
+<table class="num">
+  <caption>Opponent flush draws (two cards of the suit) on K♠&nbsp;9♠&nbsp;3♣&nbsp;6♣</caption>
+  <thead><tr><th scope="col">Your hand</th><th scope="col">Spade draws</th><th scope="col">Club draws</th><th scope="col">Total</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">K♦&nbsp;Q♥</th><td>55</td><td>55</td><td>110</td></tr>
+    <tr><th scope="row">K♣&nbsp;Q♠</th><td>45</td><td>45</td><td>90</td></tr>
+  </tbody>
+</table>
+</div>
+<p>With <strong>K♣&nbsp;Q♠</strong>, you hold a club and a spade: you remove <strong>20 flush-draw combos</strong> from your opponent (110 → 90). With <strong>K♦&nbsp;Q♥</strong>, you remove none.</p>
+<p>And flush draws are precisely the hands that <strong>bet when checked to</strong>: they have equity, and they want to take the pot now or give themselves a shot at winning on the river. So the intuition goes like this:</p>
+<ul>
+  <li><strong>With K♦&nbsp;Q♥</strong>, your opponent has all their draws. Checking invites them to bet with those, and your top pair can call against a range full of hands that haven't beaten you yet.</li>
+  <li><strong>With K♣&nbsp;Q♠</strong>, they have fewer draws, so fewer hands that will attack your check. Their range is proportionally more made hands (a 9, a weaker king…) that can call a bet. Betting becomes relatively more attractive.</li>
+</ul>
+<p>Keep in mind this is <em>intuition</em>. A solver's exact frequencies depend on the ranges, bet sizes and earlier action, and we're not going to make them up. What we can state is the mechanism: 20 more or fewer draw combos is enough to tip a borderline hand one way or the other. To measure what those draws are actually worth, count them with our <a href="/en/guides/how-to-count-outs/">how to count outs</a> guide.</p>
+
+<h2>The limits of blockers</h2>
+<p>Blockers are trendy, and that's exactly where many players go wrong. Four guardrails:</p>
+<ul>
+  <li><strong>They're a tiebreaker, not a reason on their own.</strong> Blockers help you choose <em>between</em> two hands that play about the same. "I have the ace of spades, so I bluff" isn't a plan: hand history, bet size and the opponent's range come first, card removal second.</li>
+  <li><strong>One card changes few combos.</strong> Your opponent still has 1,225 possible combos once your two cards are removed. In our examples, a well-placed card removes between 3 and 20 targeted combos: useful at the margin, not magic.</li>
+  <li><strong>Range composition matters far more.</strong> Blocking the nut flush is pointless if your opponent never has a flush on this line, or if all their other combos beat you. Think first about what they actually have — our <a href="/en/poker-range-calculator/">poker range calculator</a> helps you picture it.</li>
+  <li><strong>At low stakes, don't over-level.</strong> Against a player who calls with any pair, your beautiful A♠ bluff is still a bluff that gets called. Against inattentive opponents, your hand strength and bet sizing weigh far more than your blockers.</li>
+</ul>
+<p>To tie all this back to odds and equity, our <a href="/en/guides/poker-math/">poker math</a> guide covers the useful calculations, and the <a href="/en/poker-odds-calculator/">poker odds calculator</a> gives you the exact equity of your hand against another.</p>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What is a blocker in poker?</summary><p>It's a card in your hand that makes some of your opponent's hands impossible or rarer. With an ace, your opponent has only 3 AA combos instead of 6, and 12 AK combos instead of 16.</p></details>
+<details><summary>How many combos does one card remove?</summary><p>One card of a rank halves the matching pocket pairs (6 → 3) and removes a quarter of the unpaired combos containing it (16 → 12). With AK in hand, the AA–JJ + AK range drops from 40 to 27 combos.</p></details>
+<details><summary>Why is A5s a good 4-bet bluff?</summary><p>The ace removes combos from the hands that won't fold: AA, KK and AK go from 28 to 21 combos, a quarter fewer. And if the 4-bet gets called, A5s keeps flush and straight draws.</p></details>
+<details><summary>Which card should I hold to call on the river?</summary><p>One that blocks their value hands without blocking their bluffs. If their bluffs are missed heart draws, holding a heart makes them rarer: on K♥&nbsp;9♥&nbsp;5♣&nbsp;2♠&nbsp;2♦, the Q♥ removes 8 of their 36 missed heart draws, which makes the call worse.</p></details>
+<details><summary>Should I bluff whenever I have a good blocker?</summary><p>No. A blocker breaks ties between two close options; it doesn't replace reading your opponent's range, choosing a bet size or knowing who you're playing. At low stakes, against players who call a lot, it matters little.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/guides/poker-starting-hands/">Poker starting hands</a> · <a href="/en/guides/preflop-ranges/">Preflop ranges</a> · <a href="/en/guides/how-to-count-outs/">How to count outs</a> · <a href="/en/guides/poker-math/">Poker math</a> · <a href="/en/poker-range-calculator/">Poker range calculator</a> · <a href="/en/poker-odds-calculator/">Poker odds calculator</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is a blocker in poker?","acceptedAnswer":{"@type":"Answer","text":"It's a card in your hand that makes some of your opponent's hands impossible or rarer. With an ace, your opponent has only 3 AA combos instead of 6, and 12 AK combos instead of 16."}},
+  {"@type":"Question","name":"How many combos does one card remove?","acceptedAnswer":{"@type":"Answer","text":"One card of a rank halves the matching pocket pairs (6 → 3) and removes a quarter of the unpaired combos containing it (16 → 12). With AK in hand, the AA–JJ + AK range drops from 40 to 27 combos."}},
+  {"@type":"Question","name":"Why is A5s a good 4-bet bluff?","acceptedAnswer":{"@type":"Answer","text":"The ace removes combos from the hands that won't fold: AA, KK and AK go from 28 to 21 combos, a quarter fewer. And if the 4-bet gets called, A5s keeps flush and straight draws."}},
+  {"@type":"Question","name":"Which card should I hold to call on the river?","acceptedAnswer":{"@type":"Answer","text":"One that blocks their value hands without blocking their bluffs. If their bluffs are missed heart draws, holding a heart makes them rarer: on K♥ 9♥ 5♣ 2♠ 2♦, the Q♥ removes 8 of their 36 missed heart draws, which makes the call worse."}},
+  {"@type":"Question","name":"Should I bluff whenever I have a good blocker?","acceptedAnswer":{"@type":"Answer","text":"No. A blocker breaks ties between two close options; it doesn't replace reading your opponent's range, choosing a bet size or knowing who you're playing. At low stakes, against players who call a lot, it matters little."}}
+]}
+</script>

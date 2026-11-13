@@ -9,8 +9,9 @@
     "typecheck": "tsc --noEmit",
     "build:calc": "esbuild src/ui/calculator.ts --bundle --format=iife --minify --target=es2019 --outfile=assets/js/equity-calculator.js",
     "build:potodds": "esbuild src/ui/potodds.ts --bundle --format=iife --minify --target=es2019 --outfile=assets/js/pot-odds.js",
-    "build:js": "npm run build:calc && npm run build:potodds && npm run build:semibluff",
-    "build:semibluff": "esbuild src/ui/semibluff.ts --bundle --format=iife --minify --target=es2019 --outfile=assets/js/semi-bluff.js"
+    "build:js": "npm run build:calc && npm run build:potodds && npm run build:semibluff && npm run build:range",
+    "build:semibluff": "esbuild src/ui/semibluff.ts --bundle --format=iife --minify --target=es2019 --outfile=assets/js/semi-bluff.js",
+    "build:range": "esbuild src/ui/range.ts --bundle --format=iife --minify --target=es2019 --outfile=assets/js/range-calculator.js"
   },
   "devDependencies": {
     "@types/node": "^22.9.0",

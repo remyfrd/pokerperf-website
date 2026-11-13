@@ -14,7 +14,7 @@ x_default: "https://pokerperf.com/en/guides/"
   <p class="brand">PokerPerf</p>
   <h1>{{ t.guides_title }}</h1>
   <p class="lead">{{ t.guides_intro }}</p>
-  <div class="tip"><p style="margin:0"><strong>Where to start?</strong> Our <a href="/en/guides/poker-math/">Poker math</a> page links every guide and tool in the order to learn them: equity, outs, pot odds, EV, probabilities, starting hands.</p></div>
+  <div class="tip"><p style="margin:0"><strong>Where to start?</strong> Our <a href="/en/guides/poker-math/">Poker math</a> page links every guide and tool in the order to learn them: equity, outs, pot odds, EV, probabilities, starting hands. And to organise it all: <a href="/en/guides/how-to-study-poker/">how to study poker</a>.</p></div>
   {%- assign arts = site.pages | where_exp: "p", "p.layout == 'article'" | where: "lang", page.lang | sort: "date" | reverse -%}
   <div class="guide-list">
     {%- for a in arts %}
