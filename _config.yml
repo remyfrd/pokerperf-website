@@ -26,3 +26,5 @@ exclude:
   - package.json
   - package-lock.json
   - tsconfig.json
+  # Outils de maintenance (IndexNow…), pas servis.
+  - scripts
