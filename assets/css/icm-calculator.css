@@ -1,0 +1,26 @@
+/* Calculateur ICM — s'appuie sur .pp-calc/.po/.ctl de pp.css et .odds-scroll/table.num de outs-odds.css. */
+.icm-presets{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 14px;color:var(--muted);font-size:.88rem;}
+.icm-presets .ctl{padding:10px 13px;min-height:44px;font-size:.88rem;}
+.icm .icm-pay{margin-bottom:2px;}
+.icm .po-eq{margin:12px 0 14px;}
+.icm-row{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 14px;padding:8px 0;border-bottom:1px solid var(--gold-hair);}
+.icm-row:last-child{border-bottom:0;}
+.icm-row > label:first-child{flex:1 1 180px;}
+.icm .icm-me{flex:0 0 auto;flex-direction:row;align-items:center;gap:7px;min-width:auto;min-height:44px;cursor:pointer;}
+.icm .icm-me input{width:20px;height:20px;padding:0;accent-color:var(--gold);}
+.icm-del{min-height:44px;padding:8px 12px;font-size:.85rem;}
+#icm-add{margin-top:10px;min-height:44px;}
+.icm .ctl:focus-visible{outline:2px solid var(--cream);outline-offset:2px;}
+.icm-table tr.me th,.icm-table tr.me td{background:oklch(0.82 0.06 85 / .08);}
+.icm-table tr.me .tag{color:var(--gold);font-weight:600;}
+.icm-table tr.total th,.icm-table tr.total td{color:var(--muted);border-top:1px solid var(--gold-soft);}
+.icm-h{margin:20px 0 4px;font-size:1.15rem;}
+/* Mobile : les résultats doivent tenir sans défilement horizontal (la colonne clé = équité requise). */
+@media (max-width:560px){
+  .icm .odds-scroll table{min-width:0;}
+  .icm-table{font-size:.8rem;}
+  .icm-table th,.icm-table td{padding:8px 4px;}
+  .icm-table thead th{font-size:.62rem;letter-spacing:.02em;}
+  .icm-table tbody th{font-size:.68rem;letter-spacing:.02em;}
+  .icm-presets .ctl{flex:1 1 auto;}
+}

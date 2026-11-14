@@ -9,6 +9,7 @@
 - [Poker Pot Odds Calculator](https://pokerperf.com/en/pot-odds-calculator/): pot odds, required equity, call-or-fold verdict with EV, pot odds chart by bet size.
 - [Semi-Bluff EV Calculator](https://pokerperf.com/en/semi-bluff-ev-calculator/): EV of betting a draw and break-even fold equity.
 - [Poker Range Calculator](https://pokerperf.com/en/poker-range-calculator/): top X% → hands, combos and standard notation, with card removal (blockers).
+- [ICM Calculator](https://pokerperf.com/en/icm-calculator/): tournament stacks + payouts → prize equity (Malmuth-Harville, exact) and the equity needed to get all-in against each opponent (bubble factor).
 - [Poker Hand Rankings](https://pokerperf.com/en/poker-hand-rankings/): printable chart, Texas Hold'em probabilities, tie-breakers, "which hand wins" comparator.
 
 ## Guides (English)
@@ -31,6 +32,7 @@
 - [Calculateur de cote du pot](https://pokerperf.com/fr/cote-du-pot/)
 - [Calculateur d'EV du semi-bluff](https://pokerperf.com/fr/calculateur-semi-bluff/)
 - [Calculateur de range en %](https://pokerperf.com/fr/calculateur-range/)
+- [Calculateur ICM](https://pokerperf.com/fr/calculateur-icm/)
 - [Classement et ordre des mains au poker](https://pokerperf.com/fr/classement-des-mains/)
 
 ## Guides (français)

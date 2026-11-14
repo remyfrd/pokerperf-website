@@ -1,0 +1,108 @@
+---
+layout: default
+lang: fr
+title: "Calculateur ICM poker : la valeur de tes jetons en argent"
+description: "Calculateur ICM gratuit : entre les tapis et les prix, vois la valeur en argent de chaque joueur et l'équité qu'il te faut pour un tapis à la bulle, en table finale ou en satellite."
+permalink: /fr/calculateur-icm/
+webapp: "Calculateur ICM poker"
+last_modified_at: 2026-11-14
+stylesheets: ["/assets/css/outs-odds.css", "/assets/css/icm-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-icm/" }
+  - { lang: "en", href: "https://pokerperf.com/en/icm-calculator/" }
+x_default: "https://pokerperf.com/en/icm-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculateur ICM&nbsp;: la valeur de tes jetons en argent</h1>
+  <p class="lead">En tournoi, tes jetons ne valent pas leur poids en argent. L'<strong>ICM</strong> (<em>Independent Chip Model</em>) les convertit en espérance de gain réelle. Entre les tapis et les prix&nbsp;: tu vois ce que vaut chaque joueur, et surtout <strong>quelle équité il te faut pour risquer ton tapis</strong>. Gratuit, sans inscription, jusqu'à 10 joueurs.</p>
+
+  <div id="icm-calculator" data-lang="fr"></div>
+  <noscript><p class="tip">Le calculateur a besoin de JavaScript. Repère sans lui&nbsp;: à la bulle, le gros tapis vaut moins que sa part de jetons, le petit tapis vaut plus, et il faut nettement plus de 50&nbsp;% d'équité pour risquer son tapis.</p></noscript>
+
+  <h2>L'ICM, comment ça marche&nbsp;?</h2>
+  <p>Le modèle le plus utilisé, celui de <strong>Malmuth-Harville</strong>, repose sur une idée simple&nbsp;: ta probabilité de finir premier est égale à ta part des jetons. Avec 30&nbsp;% des jetons, tu gagnes le tournoi 30&nbsp;% du temps.</p>
+  <p>Pour la 2<sup>e</sup> place, on applique la même règle aux joueurs restants. Si un adversaire avec 40&nbsp;% des jetons finit premier, il reste 60&nbsp;% des jetons en jeu, et tes 30&nbsp;% t'en donnent la moitié&nbsp;: tu finis 2<sup>e</sup> une fois sur deux dans ce scénario. En combinant tous les ordres d'arrivée possibles, on obtient pour chaque joueur la probabilité de chaque place, puis son espérance&nbsp;:</p>
+  <p class="formula">valeur ICM = Σ (probabilité de finir à la place k × prix de la place k)</p>
+  <p>Le calculateur fait ce calcul exactement, sans simulation.</p>
+
+  <h2>Exemple&nbsp;: la bulle, 4 joueurs, 3 payés</h2>
+  <p>Quatre joueurs restent, les trois premiers sont payés 50, 30 et 20 (100 au total). Les tapis font 4&nbsp;000, 3&nbsp;000, 2&nbsp;000 et 1&nbsp;000. C'est le premier exemple du calculateur&nbsp;:</p>
+  <div class="odds-scroll" role="region" aria-label="Valeur ICM à la bulle" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Joueur</th><th scope="col">Tapis</th><th scope="col">Part des jetons</th><th scope="col">Valeur ICM</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Joueur 1</th><td>4&nbsp;000</td><td>40&nbsp;%</td><td>33,60 (33,6&nbsp;%)</td></tr>
+      <tr><th scope="row">Joueur 2</th><td>3&nbsp;000</td><td>30&nbsp;%</td><td>29,49 (29,5&nbsp;%)</td></tr>
+      <tr><th scope="row">Joueur 3</th><td>2&nbsp;000</td><td>20&nbsp;%</td><td>23,59 (23,6&nbsp;%)</td></tr>
+      <tr><th scope="row">Joueur 4</th><td>1&nbsp;000</td><td>10&nbsp;%</td><td>13,32 (13,3&nbsp;%)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Le gros tapis a 40&nbsp;% des jetons mais seulement 33,6&nbsp;% de l'argent. Le petit tapis a 10&nbsp;% des jetons mais 13,3&nbsp;% de l'argent&nbsp;: il a encore de bonnes chances d'entrer dans les places payées. <strong>Plus tu as de jetons, moins chaque jeton supplémentaire vaut.</strong></p>
+
+  <h2>Pourquoi il faut plus de 50&nbsp;% pour un tapis</h2>
+  <p>Conséquence directe&nbsp;: un tapis «&nbsp;à pile ou face&nbsp;» te coûte de l'argent. Prends le joueur 2 (3&nbsp;000) contre le joueur 1 (4&nbsp;000), qui le couvre&nbsp;:</p>
+  <ul>
+    <li><strong>s'il gagne</strong>, il passe à 6&nbsp;000 jetons et sa valeur monte de 29,49 à <strong>40,45</strong> (+10,96)&nbsp;;</li>
+    <li><strong>s'il perd</strong>, il est éliminé à la bulle et repart avec <strong>0</strong> (−29,49).</li>
+  </ul>
+  <p>La défaite coûte 2,69 fois plus que ce que rapporte la victoire&nbsp;: c'est le <strong>bubble factor</strong>. L'équité minimale pour accepter ce tapis se calcule ainsi&nbsp;:</p>
+  <p class="formula">équité requise = perte ÷ (gain + perte) = 29,49 ÷ (10,96 + 29,49) ≈ 72,9&nbsp;%</p>
+  <p>Contre les autres joueurs, le même calcul donne&nbsp;:</p>
+  <div class="odds-scroll" role="region" aria-label="Équité requise du joueur 2 à la bulle" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Joueur 2 contre</th><th scope="col">Jetons en jeu</th><th scope="col">Bubble factor</th><th scope="col">Équité requise</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Joueur 1 (4&nbsp;000, le couvre)</th><td>3&nbsp;000</td><td>2,69</td><td>72,9&nbsp;%</td></tr>
+      <tr><th scope="row">Joueur 3 (2&nbsp;000)</th><td>2&nbsp;000</td><td>1,48</td><td>59,7&nbsp;%</td></tr>
+      <tr><th scope="row">Joueur 4 (1&nbsp;000)</th><td>1&nbsp;000</td><td>1,16</td><td>53,7&nbsp;%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Le danger vient des joueurs <strong>qui te couvrent</strong>. Contre le petit tapis, tu ne risques qu'une partie de ton tapis et le seuil reste proche de 50&nbsp;%. C'est pour ça que les gros tapis attaquent à la bulle&nbsp;: leurs adversaires ne peuvent pas payer large.</p>
+  <div class="tip"><p style="margin:0"><strong>Sans argent mort.</strong> Ces seuils supposent un pot vide au départ. En vrai, les blindes et les antes sont déjà au milieu&nbsp;: ils baissent l'équité requise, comme une bonne <a href="/fr/guides/cotes-au-poker/">cote du pot</a>. Le calculateur te donne la référence de base&nbsp;; ajuste ensuite.</p></div>
+
+  <h2>Le cas extrême&nbsp;: la bulle d'un satellite</h2>
+  <p>Dans un satellite, toutes les places payées gagnent le même ticket. Exemple du calculateur&nbsp;: 5 joueurs, 4 tickets, tapis de 3&nbsp;000, 2&nbsp;500, 2&nbsp;000, 1&nbsp;500 et 1&nbsp;000. Le joueur à 2&nbsp;500 vaut déjà 0,89 ticket. Gagner un tapis contre le joueur à 3&nbsp;000 ne lui apporte presque rien (0,99), le perdre lui fait tout perdre. Résultat&nbsp;: il lui faut <strong>90,3&nbsp;% d'équité</strong>.</p>
+  <p>Même AA ne suffit pas&nbsp;: contre une main au hasard, les as n'ont qu'environ 85&nbsp;% d'équité (voir <a href="/fr/guides/variance-poker/">combien de fois AA perd</a>). Dans ce modèle, <strong>se coucher avec AA est correct</strong>. C'est l'exemple le plus parlant de l'écart entre jetons et argent.</p>
+
+  <h2>Quand l'ICM compte vraiment</h2>
+  <ul>
+    <li><strong>À la bulle</strong>&nbsp;: c'est là que l'écart entre jetons et argent est le plus fort.</li>
+    <li><strong>En table finale</strong>&nbsp;: chaque élimination fait monter tout le monde d'une marche de prix.</li>
+    <li><strong>En satellite</strong>&nbsp;: les prix sont plats, donc l'effet est maximal.</li>
+    <li><strong>Peu en début de tournoi</strong>&nbsp;: quand les places payées sont loin, les jetons valent presque leur poids et on raisonne en chip-EV.</li>
+    <li><strong>Jamais en cash game</strong>&nbsp;: un jeton y vaut exactement sa valeur.</li>
+  </ul>
+
+  <h2>Les limites du modèle</h2>
+  <p>L'ICM est un modèle, pas une vérité. Il ne tient compte ni des blindes qui montent, ni de ta position, ni du niveau des joueurs&nbsp;: un bon joueur avec un petit tapis vaut plus que ce que dit le calcul. On reproche aussi au modèle de Malmuth-Harville de surestimer légèrement les petits tapis. Les outils avancés corrigent ça par simulation des mains futures (<em>FGS</em>, <em>Future Game Simulation</em>).</p>
+  <p>Pour les décisions de tapis préflop, garde aussi en tête que nos <a href="/fr/guides/push-fold/">tableaux push/fold</a> sont en chip-EV, en tête-à-tête&nbsp;: à la bulle, l'ICM resserre surtout les ranges de <em>call</em>, bien plus que celles de tapis.</p>
+
+  <div class="appcta">
+    <h2>L'ICM te donne le seuil, à toi de connaître ton équité</h2>
+    <p>Savoir qu'il te faut 73&nbsp;% ne sert à rien si tu ne sais pas estimer ce que vaut ta main contre la range adverse. <strong>PokerPerf</strong> t'entraîne à estimer ton équité et ta cote d'un coup d'œil, 10&nbsp;min par jour, sans promesse miracle.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Découvrir PokerPerf</a>
+  </div>
+
+  <h2>Questions fréquentes</h2>
+  <details><summary>Qu'est-ce que l'ICM au poker&nbsp;?</summary><p>L'Independent Chip Model convertit les tapis d'un tournoi en espérance de gain en argent, selon la structure des prix. Le modèle de Malmuth-Harville suppose que ta probabilité de finir premier est égale à ta part des jetons, puis applique la même règle aux places suivantes.</p></details>
+  <details><summary>Comment calculer l'ICM&nbsp;?</summary><p>On calcule pour chaque joueur la probabilité de finir à chaque place payée (1<sup>re</sup> place = part des jetons, puis même règle sur les joueurs restants), et on multiplie par le prix de la place. À la main, ça devient vite long au-delà de 3 joueurs&nbsp;: c'est le rôle du calculateur.</p></details>
+  <details><summary>Qu'est-ce que le bubble factor&nbsp;?</summary><p>C'est le rapport entre ce que tu perds en argent si tu perds un tapis et ce que tu gagnes si tu le remportes. Un bubble factor de 2 veut dire que perdre coûte deux fois plus que gagner ne rapporte. L'équité requise vaut alors bubble factor ÷ (1 + bubble factor), soit 66,7&nbsp;%.</p></details>
+  <details><summary>Faut-il vraiment se coucher avec AA en satellite&nbsp;?</summary><p>Parfois, oui. Si ta place est presque assurée et qu'un adversaire qui te couvre pousse son tapis, il peut te falloir plus de 90&nbsp;% d'équité. AA n'a qu'environ 85&nbsp;% contre une main au hasard&nbsp;: dans ce modèle, se coucher est correct.</p></details>
+  <details><summary>L'ICM s'applique-t-il en cash game&nbsp;?</summary><p>Non. En cash game, un jeton vaut exactement sa valeur en argent et tu peux te recaver&nbsp;: on raisonne en chip-EV, avec la cote du pot classique.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/guides/push-fold/">Tableaux push/fold</a> · <a href="/fr/guides/spr-poker/">Le SPR</a> · <a href="/fr/guides/variance-poker/">La variance en chiffres</a> · <a href="/fr/calculateur-equite/">Calculateur d'équité</a> · <a href="/fr/guides/maths-du-poker/">Maths du poker</a> · <a href="/fr/methodologie/">Méthodologie</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Qu'est-ce que l'ICM au poker ?","acceptedAnswer":{"@type":"Answer","text":"L'Independent Chip Model convertit les tapis d'un tournoi en espérance de gain en argent, selon la structure des prix. Le modèle de Malmuth-Harville suppose que ta probabilité de finir premier est égale à ta part des jetons, puis applique la même règle aux places suivantes."}},
+  {"@type":"Question","name":"Comment calculer l'ICM ?","acceptedAnswer":{"@type":"Answer","text":"On calcule pour chaque joueur la probabilité de finir à chaque place payée (1re place = part des jetons, puis même règle sur les joueurs restants), et on multiplie par le prix de la place. À la main, ça devient vite long au-delà de 3 joueurs : c'est le rôle du calculateur."}},
+  {"@type":"Question","name":"Qu'est-ce que le bubble factor ?","acceptedAnswer":{"@type":"Answer","text":"C'est le rapport entre ce que tu perds en argent si tu perds un tapis et ce que tu gagnes si tu le remportes. Un bubble factor de 2 veut dire que perdre coûte deux fois plus que gagner ne rapporte. L'équité requise vaut alors bubble factor ÷ (1 + bubble factor), soit 66,7 %."}},
+  {"@type":"Question","name":"Faut-il vraiment se coucher avec AA en satellite ?","acceptedAnswer":{"@type":"Answer","text":"Parfois, oui. Si ta place est presque assurée et qu'un adversaire qui te couvre pousse son tapis, il peut te falloir plus de 90 % d'équité. AA n'a qu'environ 85 % contre une main au hasard : dans ce modèle, se coucher est correct."}},
+  {"@type":"Question","name":"L'ICM s'applique-t-il en cash game ?","acceptedAnswer":{"@type":"Answer","text":"Non. En cash game, un jeton vaut exactement sa valeur en argent et tu peux te recaver : on raisonne en chip-EV, avec la cote du pot classique."}}
+]}
+</script>
+<script src="/assets/js/icm-calculator.js" defer></script>

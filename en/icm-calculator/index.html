@@ -1,0 +1,108 @@
+---
+layout: default
+lang: en
+title: "ICM Calculator: What Your Tournament Chips Are Worth — free"
+description: "Free ICM poker calculator: enter stacks and payouts to see each player's equity in money and the equity you need to get all-in on the bubble, at a final table or in a satellite."
+permalink: /en/icm-calculator/
+webapp: "ICM Poker Calculator"
+last_modified_at: 2026-11-14
+stylesheets: ["/assets/css/outs-odds.css", "/assets/css/icm-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-icm/" }
+  - { lang: "en", href: "https://pokerperf.com/en/icm-calculator/" }
+x_default: "https://pokerperf.com/en/icm-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>ICM calculator: what your chips are worth in money</h1>
+  <p class="lead">In a tournament, your chips aren't worth their weight in money. <strong>ICM</strong> (the Independent Chip Model) converts them into real prize equity. Enter the stacks and payouts: you see what each player is worth and, above all, <strong>how much equity you need to risk your stack</strong>. Free, no sign-up, up to 10 players.</p>
+
+  <div id="icm-calculator" data-lang="en"></div>
+  <noscript><p class="tip">The calculator needs JavaScript. Rule of thumb without it: on the bubble, the big stack is worth less than its share of chips, the short stack is worth more, and you need well over 50% equity to risk your stack.</p></noscript>
+
+  <h2>How does ICM work?</h2>
+  <p>The most widely used model, <strong>Malmuth-Harville</strong>, rests on one simple idea: your chance of finishing first equals your share of the chips. With 30% of the chips, you win the tournament 30% of the time.</p>
+  <p>For 2nd place, the same rule is applied to the remaining players. If an opponent with 40% of the chips finishes first, 60% of the chips are left, and your 30% is half of that: in that scenario you finish 2nd half the time. Combining every possible finishing order gives each player the probability of each place, and from there their equity:</p>
+  <p class="formula">ICM value = Σ (probability of finishing in place k × prize for place k)</p>
+  <p>The calculator computes this exactly, with no simulation.</p>
+
+  <h2>Example: the bubble, 4 players, 3 paid</h2>
+  <p>Four players remain and the top three are paid 50, 30 and 20 (100 total). Stacks are 4,000, 3,000, 2,000 and 1,000. It's the calculator's first example:</p>
+  <div class="odds-scroll" role="region" aria-label="ICM value on the bubble" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Player</th><th scope="col">Stack</th><th scope="col">Share of chips</th><th scope="col">ICM value</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Player 1</th><td>4,000</td><td>40%</td><td>33.60 (33.6%)</td></tr>
+      <tr><th scope="row">Player 2</th><td>3,000</td><td>30%</td><td>29.49 (29.5%)</td></tr>
+      <tr><th scope="row">Player 3</th><td>2,000</td><td>20%</td><td>23.59 (23.6%)</td></tr>
+      <tr><th scope="row">Player 4</th><td>1,000</td><td>10%</td><td>13.32 (13.3%)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The big stack has 40% of the chips but only 33.6% of the money. The short stack has 10% of the chips but 13.3% of the money: it still has a decent chance of making the paid places. <strong>The more chips you have, the less each extra chip is worth.</strong></p>
+
+  <h2>Why you need more than 50% to get all-in</h2>
+  <p>The direct consequence: a coin-flip all-in costs you money. Take player 2 (3,000) against player 1 (4,000), who covers them:</p>
+  <ul>
+    <li><strong>if player 2 wins</strong>, they go to 6,000 chips and their value rises from 29.49 to <strong>40.45</strong> (+10.96);</li>
+    <li><strong>if player 2 loses</strong>, they bust on the bubble with <strong>0</strong> (−29.49).</li>
+  </ul>
+  <p>Losing costs 2.69 times what winning gains: that's the <strong>bubble factor</strong>. The minimum equity to accept the all-in is:</p>
+  <p class="formula">required equity = loss ÷ (gain + loss) = 29.49 ÷ (10.96 + 29.49) ≈ 72.9%</p>
+  <p>Against the other players, the same calculation gives:</p>
+  <div class="odds-scroll" role="region" aria-label="Player 2's required equity on the bubble" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Player 2 against</th><th scope="col">Chips at risk</th><th scope="col">Bubble factor</th><th scope="col">Required equity</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Player 1 (4,000, covers)</th><td>3,000</td><td>2.69</td><td>72.9%</td></tr>
+      <tr><th scope="row">Player 3 (2,000)</th><td>2,000</td><td>1.48</td><td>59.7%</td></tr>
+      <tr><th scope="row">Player 4 (1,000)</th><td>1,000</td><td>1.16</td><td>53.7%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The danger comes from players <strong>who cover you</strong>. Against the short stack you only risk part of your stack, and the threshold stays close to 50%. That's why big stacks attack the bubble: their opponents can't call wide.</p>
+  <div class="tip"><p style="margin:0"><strong>No dead money.</strong> These thresholds assume an empty pot to start with. In practice the blinds and antes are already in the middle: they lower the required equity, just like good <a href="/en/guides/poker-pot-odds/">pot odds</a>. The calculator gives you the baseline; adjust from there.</p></div>
+
+  <h2>The extreme case: a satellite bubble</h2>
+  <p>In a satellite, every paid place wins the same seat. The calculator's example: 5 players, 4 seats, stacks of 3,000, 2,500, 2,000, 1,500 and 1,000. The 2,500 player is already worth 0.89 of a seat. Winning an all-in against the 3,000 player barely helps (0.99); losing it costs everything. Result: they need <strong>90.3% equity</strong>.</p>
+  <p>Even AA isn't enough: against a random hand, aces only have about 85% equity (see <a href="/en/guides/poker-variance/">how often aces lose</a>). In this model, <strong>folding AA is correct</strong>. It's the clearest example of the gap between chips and money.</p>
+
+  <h2>When ICM really matters</h2>
+  <ul>
+    <li><strong>On the bubble</strong>: that's where the gap between chips and money is widest.</li>
+    <li><strong>At a final table</strong>: every bust-out moves everyone up a pay jump.</li>
+    <li><strong>In satellites</strong>: payouts are flat, so the effect is at its maximum.</li>
+    <li><strong>Little early in a tournament</strong>: when the money is far away, chips are worth almost their weight and you think in chip-EV.</li>
+    <li><strong>Never in cash games</strong>: a chip is worth exactly its face value.</li>
+  </ul>
+
+  <h2>The model's limits</h2>
+  <p>ICM is a model, not the truth. It ignores rising blinds, position and player skill: a good player with a short stack is worth more than the math says. The Malmuth-Harville model is also criticized for slightly overvaluing short stacks. Advanced tools correct for this by simulating future hands (<em>FGS</em>, Future Game Simulation).</p>
+  <p>For preflop all-in decisions, keep in mind that our <a href="/en/guides/push-fold-chart/">push/fold charts</a> are chip-EV and heads-up: on the bubble, ICM tightens <em>calling</em> ranges far more than shoving ranges.</p>
+
+  <div class="appcta">
+    <h2>ICM gives you the threshold; you still need your equity</h2>
+    <p>Knowing you need 73% is useless if you can't estimate what your hand is worth against the other player's range. <strong>PokerPerf</strong> trains you to read your equity and your price at a glance, 10 minutes a day, no miracle promises.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Discover PokerPerf</a>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <details><summary>What is ICM in poker?</summary><p>The Independent Chip Model converts tournament stacks into prize equity, based on the payout structure. The Malmuth-Harville model assumes your chance of finishing first equals your share of the chips, then applies the same rule to the following places.</p></details>
+  <details><summary>How do you calculate ICM?</summary><p>For each player, work out the probability of finishing in each paid place (1st place = share of chips, then the same rule among the remaining players), and multiply by that place's prize. By hand it gets long beyond 3 players: that's what the calculator is for.</p></details>
+  <details><summary>What is the bubble factor?</summary><p>It's the ratio between what you lose in money if you lose an all-in and what you gain if you win it. A bubble factor of 2 means losing costs twice what winning gains. The required equity is then bubble factor ÷ (1 + bubble factor), or 66.7%.</p></details>
+  <details><summary>Should you really fold AA on a satellite bubble?</summary><p>Sometimes, yes. If your seat is nearly locked and an opponent who covers you shoves, you can need more than 90% equity. AA only has about 85% against a random hand: in this model, folding is correct.</p></details>
+  <details><summary>Does ICM apply to cash games?</summary><p>No. In a cash game a chip is worth exactly its money value and you can rebuy: you think in chip-EV, with standard pot odds.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/guides/push-fold-chart/">Push/fold charts</a> · <a href="/en/guides/stack-to-pot-ratio/">Stack-to-pot ratio</a> · <a href="/en/guides/poker-variance/">Poker variance in numbers</a> · <a href="/en/poker-odds-calculator/">Poker equity calculator</a> · <a href="/en/guides/poker-math/">Poker math</a> · <a href="/en/methodology/">Methodology</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is ICM in poker?","acceptedAnswer":{"@type":"Answer","text":"The Independent Chip Model converts tournament stacks into prize equity, based on the payout structure. The Malmuth-Harville model assumes your chance of finishing first equals your share of the chips, then applies the same rule to the following places."}},
+  {"@type":"Question","name":"How do you calculate ICM?","acceptedAnswer":{"@type":"Answer","text":"For each player, work out the probability of finishing in each paid place (1st place = share of chips, then the same rule among the remaining players), and multiply by that place's prize. By hand it gets long beyond 3 players: that's what the calculator is for."}},
+  {"@type":"Question","name":"What is the bubble factor?","acceptedAnswer":{"@type":"Answer","text":"It's the ratio between what you lose in money if you lose an all-in and what you gain if you win it. A bubble factor of 2 means losing costs twice what winning gains. The required equity is then bubble factor ÷ (1 + bubble factor), or 66.7%."}},
+  {"@type":"Question","name":"Should you really fold AA on a satellite bubble?","acceptedAnswer":{"@type":"Answer","text":"Sometimes, yes. If your seat is nearly locked and an opponent who covers you shoves, you can need more than 90% equity. AA only has about 85% against a random hand: in this model, folding is correct."}},
+  {"@type":"Question","name":"Does ICM apply to cash games?","acceptedAnswer":{"@type":"Answer","text":"No. In a cash game a chip is worth exactly its money value and you can rebuy: you think in chip-EV, with standard pot odds."}}
+]}
+</script>
+<script src="/assets/js/icm-calculator.js" defer></script>
