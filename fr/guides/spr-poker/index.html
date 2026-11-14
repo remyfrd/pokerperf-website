@@ -1,0 +1,110 @@
+---
+layout: article
+lang: fr
+title: "SPR au poker : le rapport tapis/pot et quand tu es engagé"
+headline: "Le SPR : savoir avant le turn si tu es engagé"
+description: "SPR au poker (rapport tapis/pot) : la formule, l'équité minimale pour payer un tapis selon le SPR, le SPR typique selon le coup préflop et quand une top paire est engagée."
+permalink: /fr/guides/spr-poker/
+date: 2026-11-14
+last_modified_at: 2026-11-14
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/spr-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/stack-to-pot-ratio/" }
+x_default: "https://pokerperf.com/en/guides/stack-to-pot-ratio/"
+---
+<p class="lead">Tu as top paire meilleur kicker, l'adversaire pousse son tapis au turn, et tu hésites. Souvent, la réponse était connue dès le flop. Le <strong>SPR</strong> (<em>stack-to-pot ratio</em>, rapport tapis/pot) te dit combien de mises il reste à jouer, et donc si ta main est déjà engagée.</p>
+
+<h2>Le SPR, c'est quoi&nbsp;?</h2>
+<p>Le SPR se calcule <strong>au flop</strong>, quand les enchères préflop sont terminées&nbsp;:</p>
+<p class="formula">SPR = tapis effectif ÷ pot au flop</p>
+<p>Le <strong>tapis effectif</strong>, c'est le plus petit des tapis en jeu&nbsp;: si tu as 200 et l'adversaire 80, vous ne pouvez jouer que 80 l'un contre l'autre. Exemple&nbsp;: pot de 20 au flop, tapis effectif de 90 → SPR = 90 ÷ 20 = <strong>4,5</strong>.</p>
+<p>Un SPR de 1 veut dire qu'une seule mise de la taille du pot suffit à mettre tout le monde à tapis. Un SPR de 15 veut dire qu'il faut plusieurs grosses mises, sur plusieurs rues, pour y arriver.</p>
+
+<h2>Le calcul qui compte&nbsp;: l'équité pour payer un tapis</h2>
+<p>Pourquoi le SPR décide-t-il de l'engagement&nbsp;? Imagine que l'adversaire pousse tout son tapis effectif <strong>S</strong> dans un pot <strong>P</strong>. Tu dois payer S pour un pot final de P + 2S. Comme pour la <a href="/fr/guides/cotes-au-poker/">cote du pot</a>, l'équité minimale pour payer vaut&nbsp;:</p>
+<p class="formula">équité requise = S ÷ (P + 2S) = SPR ÷ (1 + 2 × SPR)</p>
+<p>Elle ne dépend que du SPR&nbsp;:</p>
+<div class="odds-scroll" role="region" aria-label="Équité minimale pour payer un tapis selon le SPR" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">SPR</th><th scope="col">Équité minimale pour payer le tapis</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">0,5</th><td>25&nbsp;%</td></tr>
+    <tr><th scope="row">0,75</th><td>30&nbsp;%</td></tr>
+    <tr><th scope="row">1</th><td>33,3&nbsp;%</td></tr>
+    <tr><th scope="row">2</th><td>40&nbsp;%</td></tr>
+    <tr><th scope="row">3</th><td>42,9&nbsp;%</td></tr>
+    <tr><th scope="row">4</th><td>44,4&nbsp;%</td></tr>
+    <tr><th scope="row">6</th><td>46,2&nbsp;%</td></tr>
+    <tr><th scope="row">10</th><td>47,6&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p>À faible SPR, l'argent déjà au milieu pèse lourd&nbsp;: il te suffit d'un tiers de l'équité (ou moins) pour payer. À SPR élevé, le seuil se rapproche de 50&nbsp;%. Et surtout, il reste plusieurs mises à jouer&nbsp;: l'adversaire qui met 100 blindes sur trois rues a une range bien plus forte que celui qui pousse 30 blindes au flop.</p>
+
+<h2>Exemple&nbsp;: top paire meilleur kicker</h2>
+<p>Tu as <strong>A♠K♦</strong> sur un flop <strong>K♥9♥4♣</strong>. Équités exactes (calculées sur tous les turns et rivers possibles) contre quelques mains adverses&nbsp;:</p>
+<div class="odds-scroll" role="region" aria-label="Équité de A♠K♦ sur K♥9♥4♣ contre plusieurs mains" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Main adverse</th><th scope="col">Ton équité avec A♠K♦</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Q♣Q♦ (paire inférieure)</th><td>89,6&nbsp;%</td></tr>
+    <tr><th scope="row">K♣Q♠ (même paire, kicker plus faible)</th><td>85,7&nbsp;%</td></tr>
+    <tr><th scope="row">A♥Q♥ (tirage couleur max)</th><td>62,8&nbsp;%</td></tr>
+    <tr><th scope="row">J♥T♥ (tirage couleur + quinte)</th><td>51,7&nbsp;%</td></tr>
+    <tr><th scope="row">9♠9♦ (brelan)</th><td>1,6&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>À SPR 1</strong>, il te faut 33&nbsp;%. Tu es devant toutes ces mains sauf le brelan, et même le plus gros tirage ne te met pas sous le seuil. Tu es engagé&nbsp;: tu mises, et tu paies le tapis sans réfléchir. Te coucher serait une grosse erreur.</p>
+<p><strong>À SPR 12</strong>, la question change. Pour mettre 100 blindes, l'adversaire devra miser ou relancer sur plusieurs rues. Les tirages et les KQ ne vont pas tous jusque-là&nbsp;; les brelans et les doubles paires, si. Ta top paire reste une bonne main, mais ce n'est plus une main de tapis automatique.</p>
+<div class="tip"><strong>Un cas classique&nbsp;:</strong> pot de 188 au flop, il te reste 140 derrière. SPR = 140 ÷ 188 ≈ 0,74. Il te suffit d'environ <strong>30&nbsp;%</strong> d'équité pour payer un tapis. Avec top paire meilleur kicker, perdre ce coup contre un brelan n'est pas une erreur, c'est un <em>cooler</em>. La vraie décision s'est prise préflop et au flop.</div>
+
+<h2>Le SPR selon le coup préflop</h2>
+<p>Le SPR n'arrive pas par hasard&nbsp;: il découle de ce qui s'est passé préflop. Avec des tapis de 100 blindes en cash game (ordres de grandeur, blindes comprises)&nbsp;:</p>
+<div class="odds-scroll" role="region" aria-label="SPR typique selon le coup préflop" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Coup préflop</th><th scope="col">Pot au flop</th><th scope="col">Tapis restant</th><th scope="col">SPR</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Relance à 2,5 bb, payée par la BB</th><td>5,5 bb</td><td>97,5 bb</td><td>≈ 18</td></tr>
+    <tr><th scope="row">Relance à 2,5 bb, payée au bouton</th><td>6,5 bb</td><td>97,5 bb</td><td>≈ 15</td></tr>
+    <tr><th scope="row">3-bet à 9 bb, payé</th><td>19,5 bb</td><td>91 bb</td><td>≈ 4,7</td></tr>
+    <tr><th scope="row">4-bet à 22 bb, payé</th><td>45,5 bb</td><td>78 bb</td><td>≈ 1,7</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Retiens l'ordre de grandeur&nbsp;: <strong>pot relancé simple = SPR élevé</strong> (plus de 10), <strong>pot 3-betté = SPR moyen</strong> (4 à 5), <strong>pot 4-betté = SPR faible</strong> (moins de 2). En tournoi, avec 20 ou 30 blindes, même un pot simple a souvent un SPR de 3 à 5.</p>
+
+<h2>Les repères pratiques</h2>
+<p>Le SPR a été popularisé par le livre <em>Professional No-Limit Hold'em</em> (Flynn, Mehta et Miller, 2007). Les repères qu'on en tire sont des points de départ, pas des lois&nbsp;:</p>
+<ul>
+  <li><strong>SPR inférieur à 3</strong>&nbsp;: top paire bon kicker et overpaire sont des mains de tapis. Tu cherches à mettre l'argent, pas à contrôler le pot.</li>
+  <li><strong>SPR de 3 à 6</strong>&nbsp;: zone grise. Top paire peut aller à tapis contre un joueur agressif, mais une grosse relance d'un joueur prudent mérite réflexion.</li>
+  <li><strong>SPR supérieur à 6</strong>&nbsp;: pour mettre tout le tapis, il faut en général deux paires ou mieux. Avec une paire, tu joues pour gagner un pot de taille moyenne.</li>
+</ul>
+<p>Ces repères bougent avec l'adversaire&nbsp;: contre quelqu'un qui bluffe beaucoup, tu peux t'engager plus léger&nbsp;; contre quelqu'un qui ne relance qu'avec le haut de sa range, moins.</p>
+
+<h2>Comment t'en servir à la table</h2>
+<ul>
+  <li><strong>Calcule-le en voyant le flop.</strong> Tapis effectif ÷ pot, une division approximative suffit&nbsp;: «&nbsp;il me reste à peu près un pot&nbsp;» ou «&nbsp;il me reste cinq pots&nbsp;».</li>
+  <li><strong>Décide ton plan tout de suite.</strong> Si le SPR est faible et que ta main est assez forte, prévois d'aller à tapis&nbsp;: miser puis te coucher sur une relance quand il ne reste qu'un demi-pot est presque toujours une erreur.</li>
+  <li><strong>Prépare-le dès le préflop.</strong> La taille de ton 3-bet fixe le SPR du flop. Avec une main qui aime les petits SPR (une grosse paire), un 3-bet plus gros simplifie les décisions après le flop.</li>
+  <li><strong>Pense au tapis effectif.</strong> Contre un joueur qui n'a que 30 blindes, ton tapis de 200 ne compte pas.</li>
+</ul>
+
+<h2>Questions fréquentes</h2>
+<details><summary>Comment calculer le SPR au poker&nbsp;?</summary><p>Divise le tapis effectif (le plus petit des tapis en jeu) par la taille du pot au flop. Exemple&nbsp;: 90 de tapis effectif pour un pot de 20 au flop → SPR de 4,5.</p></details>
+<details><summary>Quel SPR pour être engagé avec une top paire&nbsp;?</summary><p>En dessous d'environ 3, top paire bon kicker est en général une main de tapis&nbsp;: il suffit de 33 à 43&nbsp;% d'équité pour payer un tapis, et elle les a contre la plupart des ranges. Au-dessus de 6, il faut plutôt deux paires ou mieux pour mettre tout l'argent.</p></details>
+<details><summary>Quelle équité faut-il pour payer un tapis selon le SPR&nbsp;?</summary><p>Équité requise = SPR ÷ (1 + 2 × SPR). Elle vaut 25&nbsp;% à SPR 0,5, 33&nbsp;% à SPR 1, 40&nbsp;% à SPR 2, 43&nbsp;% à SPR 3 et se rapproche de 50&nbsp;% quand le SPR augmente.</p></details>
+<details><summary>Quel est le SPR typique d'un pot 3-betté&nbsp;?</summary><p>Avec des tapis de 100 blindes et un 3-bet à environ 9 blindes payé, le pot au flop fait autour de 19 blindes pour 91 derrière&nbsp;: un SPR d'environ 4 à 5. Un pot relancé simple dépasse 15, un pot 4-betté descend sous 2.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/guides/cotes-au-poker/">Cote du pot</a> · <a href="/fr/guides/cotes-implicites/">Cotes implicites</a> · <a href="/fr/guides/variance-poker/">La variance en chiffres</a> · <a href="/fr/calculateur-equite/">Calculateur d'équité</a> · <a href="/fr/cote-du-pot/">Calculateur de cote du pot</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Comment calculer le SPR au poker ?","acceptedAnswer":{"@type":"Answer","text":"Divise le tapis effectif (le plus petit des tapis en jeu) par la taille du pot au flop. Exemple : 90 de tapis effectif pour un pot de 20 au flop → SPR de 4,5."}},
+  {"@type":"Question","name":"Quel SPR pour être engagé avec une top paire ?","acceptedAnswer":{"@type":"Answer","text":"En dessous d'environ 3, top paire bon kicker est en général une main de tapis : il suffit de 33 à 43 % d'équité pour payer un tapis, et elle les a contre la plupart des ranges. Au-dessus de 6, il faut plutôt deux paires ou mieux pour mettre tout l'argent."}},
+  {"@type":"Question","name":"Quelle équité faut-il pour payer un tapis selon le SPR ?","acceptedAnswer":{"@type":"Answer","text":"Équité requise = SPR ÷ (1 + 2 × SPR). Elle vaut 25 % à SPR 0,5, 33 % à SPR 1, 40 % à SPR 2, 43 % à SPR 3 et se rapproche de 50 % quand le SPR augmente."}},
+  {"@type":"Question","name":"Quel est le SPR typique d'un pot 3-betté ?","acceptedAnswer":{"@type":"Answer","text":"Avec des tapis de 100 blindes et un 3-bet à environ 9 blindes payé, le pot au flop fait autour de 19 blindes pour 91 derrière : un SPR d'environ 4 à 5. Un pot relancé simple dépasse 15, un pot 4-betté descend sous 2."}}
+]}
+</script>

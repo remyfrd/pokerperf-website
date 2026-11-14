@@ -1,0 +1,110 @@
+---
+layout: article
+lang: en
+title: "Stack-to-Pot Ratio (SPR) in Poker: When Are You Committed?"
+headline: "SPR: know before the turn whether you're committed"
+description: "Poker SPR explained: the stack-to-pot ratio formula, the equity you need to call a shove at each SPR, typical SPR by preflop action, and when top pair is committed."
+permalink: /en/guides/stack-to-pot-ratio/
+date: 2026-11-14
+last_modified_at: 2026-11-14
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/spr-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/stack-to-pot-ratio/" }
+x_default: "https://pokerperf.com/en/guides/stack-to-pot-ratio/"
+---
+<p class="lead">You have top pair, top kicker, your opponent shoves the turn, and you freeze. Most of the time the answer was already known on the flop. <strong>SPR</strong> (stack-to-pot ratio) tells you how many bets are left to play, and so whether your hand is already committed.</p>
+
+<h2>What is SPR?</h2>
+<p>SPR is measured <strong>on the flop</strong>, once preflop betting is over:</p>
+<p class="formula">SPR = effective stack ÷ pot on the flop</p>
+<p>The <strong>effective stack</strong> is the smaller of the stacks in play: if you have 200 and your opponent has 80, only 80 can go in between you. Example: a 20 pot on the flop with 90 effective → SPR = 90 ÷ 20 = <strong>4.5</strong>.</p>
+<p>An SPR of 1 means a single pot-sized bet puts everyone all-in. An SPR of 15 means it takes several big bets, over several streets, to get there.</p>
+
+<h2>The math that matters: equity to call a shove</h2>
+<p>Why does SPR decide commitment? Say your opponent shoves their whole effective stack <strong>S</strong> into a pot <strong>P</strong>. You call S for a final pot of P + 2S. Just like with <a href="/en/guides/poker-pot-odds/">pot odds</a>, the minimum equity to call is:</p>
+<p class="formula">required equity = S ÷ (P + 2S) = SPR ÷ (1 + 2 × SPR)</p>
+<p>It depends on SPR alone:</p>
+<div class="odds-scroll" role="region" aria-label="Minimum equity to call a shove by SPR" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">SPR</th><th scope="col">Minimum equity to call the shove</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">0.5</th><td>25%</td></tr>
+    <tr><th scope="row">0.75</th><td>30%</td></tr>
+    <tr><th scope="row">1</th><td>33.3%</td></tr>
+    <tr><th scope="row">2</th><td>40%</td></tr>
+    <tr><th scope="row">3</th><td>42.9%</td></tr>
+    <tr><th scope="row">4</th><td>44.4%</td></tr>
+    <tr><th scope="row">6</th><td>46.2%</td></tr>
+    <tr><th scope="row">10</th><td>47.6%</td></tr>
+  </tbody>
+</table>
+</div>
+<p>At a low SPR, the money already in the middle carries a lot of weight: a third of the equity (or less) is enough to call. At a high SPR the threshold creeps toward 50%. More importantly, several bets are still to come: a player who puts 100 big blinds in over three streets has a much stronger range than one who shoves 30 big blinds on the flop.</p>
+
+<h2>Example: top pair, top kicker</h2>
+<p>You hold <strong>A♠K♦</strong> on a <strong>K♥9♥4♣</strong> flop. Exact equities (every possible turn and river enumerated) against a few hands:</p>
+<div class="odds-scroll" role="region" aria-label="A♠K♦ equity on K♥9♥4♣ against several hands" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Opponent's hand</th><th scope="col">Your equity with A♠K♦</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Q♣Q♦ (lower pair)</th><td>89.6%</td></tr>
+    <tr><th scope="row">K♣Q♠ (same pair, weaker kicker)</th><td>85.7%</td></tr>
+    <tr><th scope="row">A♥Q♥ (nut flush draw)</th><td>62.8%</td></tr>
+    <tr><th scope="row">J♥T♥ (flush + straight draw)</th><td>51.7%</td></tr>
+    <tr><th scope="row">9♠9♦ (set)</th><td>1.6%</td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>At SPR 1</strong> you need 33%. You're ahead of every one of these hands except the set, and even the biggest draw doesn't push you below the line. You're committed: bet, and call the shove without a second thought. Folding would be a big mistake.</p>
+<p><strong>At SPR 12</strong> the question changes. To get 100 big blinds in, your opponent has to bet or raise across several streets. Draws and KQ won't all go that far; sets and two pair will. Top pair is still a good hand, but no longer an automatic stack-off.</p>
+<div class="tip"><strong>A classic spot:</strong> the flop pot is 188 and you have 140 behind. SPR = 140 ÷ 188 ≈ 0.74. You need only about <strong>30%</strong> equity to call a shove. With top pair, top kicker, losing that hand to a set isn't a punt, it's a cooler. The real decision was made preflop and on the flop.</div>
+
+<h2>SPR by preflop action</h2>
+<p>SPR doesn't come out of nowhere: it follows from what happened preflop. With 100 big blind stacks in cash games (rough figures, blinds included):</p>
+<div class="odds-scroll" role="region" aria-label="Typical SPR by preflop action" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Preflop action</th><th scope="col">Flop pot</th><th scope="col">Stack behind</th><th scope="col">SPR</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">2.5 bb open, BB calls</th><td>5.5 bb</td><td>97.5 bb</td><td>≈ 18</td></tr>
+    <tr><th scope="row">2.5 bb open, button calls</th><td>6.5 bb</td><td>97.5 bb</td><td>≈ 15</td></tr>
+    <tr><th scope="row">3-bet to 9 bb, called</th><td>19.5 bb</td><td>91 bb</td><td>≈ 4.7</td></tr>
+    <tr><th scope="row">4-bet to 22 bb, called</th><td>45.5 bb</td><td>78 bb</td><td>≈ 1.7</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Remember the rough shape: <strong>single-raised pot = high SPR</strong> (above 10), <strong>3-bet pot = medium SPR</strong> (4 to 5), <strong>4-bet pot = low SPR</strong> (under 2). In tournaments, with 20 or 30 big blinds, even a single-raised pot often has an SPR of 3 to 5.</p>
+
+<h2>Practical guidelines</h2>
+<p>SPR was popularized by the book <em>Professional No-Limit Hold'em</em> (Flynn, Mehta and Miller, 2007). The guidelines that come out of it are starting points, not laws:</p>
+<ul>
+  <li><strong>SPR under 3</strong>: top pair good kicker and overpairs are stack-off hands. You want to get the money in, not control the pot.</li>
+  <li><strong>SPR 3 to 6</strong>: grey zone. Top pair can go all-in against an aggressive player, but a big raise from a cautious one deserves thought.</li>
+  <li><strong>SPR above 6</strong>: to put in the whole stack you usually want two pair or better. With one pair, you're playing to win a medium-sized pot.</li>
+</ul>
+<p>These lines move with the opponent: against someone who bluffs a lot you can commit lighter; against someone who only raises the top of their range, less.</p>
+
+<h2>How to use it at the table</h2>
+<ul>
+  <li><strong>Work it out when the flop lands.</strong> Effective stack ÷ pot, a rough division is enough: "I have about one pot left" or "I have five pots left".</li>
+  <li><strong>Make your plan right away.</strong> If SPR is low and your hand is strong enough, plan to get it in: betting and then folding to a raise with half a pot left is almost always a mistake.</li>
+  <li><strong>Set it up preflop.</strong> Your 3-bet size sets the flop SPR. With a hand that likes low SPR (a big pair), a larger 3-bet makes the postflop decisions simpler.</li>
+  <li><strong>Mind the effective stack.</strong> Against a player with 30 big blinds, your 200 stack doesn't matter.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<details><summary>How do you calculate SPR in poker?</summary><p>Divide the effective stack (the smaller stack in play) by the size of the pot on the flop. Example: 90 effective with a 20 pot on the flop → SPR of 4.5.</p></details>
+<details><summary>At what SPR is top pair committed?</summary><p>Below about 3, top pair good kicker is usually a stack-off hand: you only need 33 to 43% equity to call a shove, and it has that against most ranges. Above 6, you generally want two pair or better to get the whole stack in.</p></details>
+<details><summary>How much equity do you need to call a shove at a given SPR?</summary><p>Required equity = SPR ÷ (1 + 2 × SPR). That's 25% at SPR 0.5, 33% at SPR 1, 40% at SPR 2, 43% at SPR 3, and it approaches 50% as SPR grows.</p></details>
+<details><summary>What is the typical SPR in a 3-bet pot?</summary><p>With 100 big blind stacks and a called 3-bet to about 9 big blinds, the flop pot is around 19 big blinds with 91 behind: an SPR of about 4 to 5. A single-raised pot is above 15; a 4-bet pot drops below 2.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/guides/poker-pot-odds/">Pot odds</a> · <a href="/en/guides/implied-odds/">Implied odds</a> · <a href="/en/guides/poker-variance/">Poker variance in numbers</a> · <a href="/en/poker-odds-calculator/">Poker equity calculator</a> · <a href="/en/pot-odds-calculator/">Pot odds calculator</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How do you calculate SPR in poker?","acceptedAnswer":{"@type":"Answer","text":"Divide the effective stack (the smaller stack in play) by the size of the pot on the flop. Example: 90 effective with a 20 pot on the flop → SPR of 4.5."}},
+  {"@type":"Question","name":"At what SPR is top pair committed?","acceptedAnswer":{"@type":"Answer","text":"Below about 3, top pair good kicker is usually a stack-off hand: you only need 33 to 43% equity to call a shove, and it has that against most ranges. Above 6, you generally want two pair or better to get the whole stack in."}},
+  {"@type":"Question","name":"How much equity do you need to call a shove at a given SPR?","acceptedAnswer":{"@type":"Answer","text":"Required equity = SPR ÷ (1 + 2 × SPR). That's 25% at SPR 0.5, 33% at SPR 1, 40% at SPR 2, 43% at SPR 3, and it approaches 50% as SPR grows."}},
+  {"@type":"Question","name":"What is the typical SPR in a 3-bet pot?","acceptedAnswer":{"@type":"Answer","text":"With 100 big blind stacks and a called 3-bet to about 9 big blinds, the flop pot is around 19 big blinds with 91 behind: an SPR of about 4 to 5. A single-raised pot is above 15; a 4-bet pot drops below 2."}}
+]}
+</script>

@@ -1,0 +1,104 @@
+---
+layout: article
+lang: fr
+title: "Combien de fois AA perd ? La variance au poker en chiffres"
+headline: "Combien de fois les as perdent : la variance en chiffres"
+description: "AA perd environ 1 fois sur 7 en tête-à-tête et 1 fois sur 3 contre trois adversaires. Équités exactes, séries de pertes, downswings simulés et comment juger son jeu malgré la variance."
+permalink: /fr/guides/variance-poker/
+date: 2026-11-14
+last_modified_at: 2026-11-14
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/variance-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/poker-variance/" }
+x_default: "https://pokerperf.com/en/guides/poker-variance/"
+---
+<p class="lead">Tes as viennent encore de se faire battre, et ça a l'air personnel. Ça ne l'est pas. À tapis préflop contre une seule main au hasard, <strong>AA perd environ 1 fois sur 7</strong>. Contre trois adversaires, environ <strong>1 fois sur 3</strong>. Connaître ces chiffres ne rend pas la défaite agréable, mais ça t'aide à juger ton jeu sans te raconter d'histoires.</p>
+
+<h2>AA contre une ou plusieurs mains au hasard</h2>
+<p>Équités préflop d'A♠A♥ à tapis, contre 1 à 5 mains au hasard (simulation de 400&nbsp;000 donnes par ligne avec le moteur du <a href="/fr/calculateur-equite/">calculateur d'équité</a>, recoupée avec les tables publiées)&nbsp;:</p>
+<div class="odds-scroll" role="region" aria-label="Équité de AA contre 1 à 5 mains au hasard" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Adversaires</th><th scope="col">AA gagne</th><th scope="col">AA perd</th><th scope="col">Soit environ</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">1</th><td>85,0&nbsp;%</td><td>14,5&nbsp;%</td><td>1 fois sur 7</td></tr>
+    <tr><th scope="row">2</th><td>73,1&nbsp;%</td><td>26,4&nbsp;%</td><td>1 fois sur 4</td></tr>
+    <tr><th scope="row">3</th><td>63,5&nbsp;%</td><td>35,9&nbsp;%</td><td>1 fois sur 3</td></tr>
+    <tr><th scope="row">4</th><td>55,7&nbsp;%</td><td>43,7&nbsp;%</td><td>presque 1 fois sur 2</td></tr>
+    <tr><th scope="row">5</th><td>49,0&nbsp;%</td><td>50,4&nbsp;%</td><td>plus d'1 fois sur 2</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Le reste (environ 0,5&nbsp;%) correspond aux partages. Contre cinq adversaires, les as perdent donc <em>plus souvent qu'ils ne gagnent</em>. Ils restent pourtant de loin la meilleure main de la table&nbsp;: chaque adversaire seul n'a qu'environ 10&nbsp;% de chances de gagner le pot.</p>
+
+<h2>AA contre des mains précises</h2>
+<p>En pratique, ce ne sont pas des mains au hasard qui paient ton tapis. Équités exactes (toutes les donnes énumérées), sauf AK estimés par simulation&nbsp;:</p>
+<div class="odds-scroll" role="region" aria-label="Équité de AA contre des mains précises" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Main adverse</th><th scope="col">Équité de AA</th><th scope="col">AA perd environ</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">KK</th><td>81–82&nbsp;%</td><td>1 fois sur 5</td></tr>
+    <tr><th scope="row">JTs (valet-dix assortis)</th><td>78,3&nbsp;%</td><td>1 fois sur 4,6</td></tr>
+    <tr><th scope="row">76s (sept-six assortis)</th><td>77,0&nbsp;%</td><td>1 fois sur 4,4</td></tr>
+    <tr><th scope="row">AKs (as-roi assortis)</th><td>≈ 88&nbsp;%</td><td>1 fois sur 9</td></tr>
+    <tr><th scope="row">AKo (as-roi dépareillés)</th><td>≈ 93&nbsp;%</td><td>1 fois sur 15</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Contre KK, l'écart dépend des couleurs<p>Les connecteurs assortis sontnbsp;: 81,3&nbsp;% si aucune couleur n'est partagée, 81,9&nbsp;% si les deux le sont. Les connecteurs assortis sont les mains qui battent le plus souvent les as&nbsp;: ils peuvent faire quinte et couleur. Mais à environ 77&nbsp;% contre 23&nbsp;%, mettre tous ses jetons avec AA reste une très bonne affaire.</p>
+
+<h2>À quelle fréquence on reçoit AA</h2>
+<p>Tu reçois AA <strong>1 fois sur 221 mains</strong> (6 combinaisons sur 1&nbsp;326), soit environ 4 à 5 fois toutes les 1&nbsp;000 mains. Ce qui donne une autre forme de variance&nbsp;:</p>
+<ul>
+  <li>sur 221 mains, tu n'as que <strong>63&nbsp;%</strong> de chances de voir au moins une paire d'as&nbsp;;</li>
+  <li>passer <strong>500 mains</strong> sans en voir arrive environ <strong>1 fois sur 10</strong>&nbsp;;</li>
+  <li>passer 1&nbsp;000 mains sans en voir arrive environ 1 fois sur 100.</li>
+</ul>
+
+<h2>Les séries de défaites</h2>
+<p>Perdre deux fois de suite avec AA à tapis en tête-à-tête&nbsp;: 14,5&nbsp;% × 14,5&nbsp;% ≈ <strong>2,1&nbsp;%</strong>. Trois fois de suite&nbsp;: environ <strong>0,3&nbsp;%</strong>. Ça paraît rare, mais ces probabilités s'appliquent à <em>chaque</em> série de trois tapis possibles. Sur quelques années de jeu, avec des centaines de tapis à AA, tu vivras forcément ces séries. Elles n'apprennent rien sur ton jeu.</p>
+<p>Contre KK, c'est pire&nbsp;: AA perd environ 18,6&nbsp;% du temps, donc deux fois de suite dans environ 3,4&nbsp;% des cas.</p>
+
+<h2>La variance sur des milliers de mains</h2>
+<p>Les as perdants, ce n'est que la partie visible. La vraie question, c'est&nbsp;: combien de mains faut-il pour savoir si tu gagnes&nbsp;? Pour l'estimer, il faut une hypothèse&nbsp;: en cash game no-limit 6 joueurs, l'écart-type d'un joueur tourne couramment autour de <strong>70 à 100 blindes pour 100 mains</strong>. Avec 90 bb/100 et un joueur qui gagne réellement <strong>5 bb/100</strong> (un bon gagnant)&nbsp;:</p>
+<div class="odds-scroll" role="region" aria-label="Chances d'être perdant selon le nombre de mains" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Nombre de mains</th><th scope="col">Chances d'être perdant malgré tout</th><th scope="col">Taux de gain observé (fourchette à 95&nbsp;%)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">10&nbsp;000</th><td>29&nbsp;%</td><td>−12,6 à +22,6 bb/100</td></tr>
+    <tr><th scope="row">30&nbsp;000</th><td>17&nbsp;%</td><td>−5,2 à +15,2 bb/100</td></tr>
+    <tr><th scope="row">50&nbsp;000</th><td>11&nbsp;%</td><td>−2,9 à +12,9 bb/100</td></tr>
+    <tr><th scope="row">100&nbsp;000</th><td>4&nbsp;%</td><td>−0,6 à +10,6 bb/100</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Autrement dit, sur 10&nbsp;000 mains (plusieurs mois pour un joueur loisir), un bon joueur est perdant <strong>presque 1 fois sur 3</strong>. Et un joueur légèrement perdant peut afficher un beau résultat sur la même période.</p>
+<p>Les <em>downswings</em> suivent la même logique. En simulant 4&nbsp;000 parcours de 100&nbsp;000 mains avec ces hypothèses, la pire chute depuis un sommet vaut en médiane <strong>environ 1&nbsp;900 blindes, soit 19 caves</strong> pour un gagnant à 5 bb/100. Pour un gagnant à 2,5 bb/100, c'est environ 2&nbsp;400 blindes. Ce sont des ordres de grandeur&nbsp;: ton écart-type réel dépend de ton style et de ton format.</p>
+
+<div class="tip"><strong>Calcul utilisé&nbsp;:</strong> sur N mains, le résultat suit à peu près une loi normale de moyenne taux × N/100 et d'écart-type 90 × √(N/100). Exemple pour 10&nbsp;000 mains&nbsp;: moyenne 500 bb, écart-type 900 bb, probabilité d'être sous zéro ≈ 29&nbsp;%.</div>
+
+<h2>Comment vivre avec</h2>
+<ul>
+  <li><strong>Juge la décision, pas le résultat.</strong> Si tu as mis tes jetons avec 80&nbsp;% d'équité, ton travail est fait. La carte qui suit ne dit rien de ta décision.</li>
+  <li><strong>Regarde ta courbe «&nbsp;all-in EV&nbsp;».</strong> La plupart des trackers montrent ce que tu aurais gagné si chaque tapis avait rapporté son espérance. Elle te dit si tu joues bien les coups à tapis, sans le bruit du tirage.</li>
+  <li><strong>Prends une bankroll qui encaisse les downswings.</strong> Si une chute de 20 caves est normale, jouer avec 10 caves revient à accepter de tout perdre sur une période parfaitement ordinaire.</li>
+  <li><strong>Fixe-toi un stop-loss ou un nombre de sessions.</strong> Et après un gros <em>cooler</em>, fais une pause de quelques minutes avant la prochaine décision importante.</li>
+  <li><strong>Mesure tes erreurs plutôt que tes gains.</strong> Ton taux d'erreur par type de situation se stabilise en quelques centaines de questions, là où tes gains demandent des centaines de milliers de mains. C'est l'idée détaillée dans <a href="/fr/guides/comment-etudier-le-poker/">comment étudier le poker</a>.</li>
+</ul>
+
+<h2>Questions fréquentes</h2>
+<details><summary>Combien de fois AA perd contre une main au hasard&nbsp;?</summary><p>À tapis préflop en tête-à-tête, AA gagne environ 85&nbsp;% du temps et perd environ 14,5&nbsp;% du temps, soit à peu près 1 fois sur 7. Le reste correspond aux partages.</p></details>
+<details><summary>Quelle est l'équité de AA contre KK&nbsp;?</summary><p>Environ 81 à 82&nbsp;% pour AA selon les couleurs (81,3&nbsp;% si aucune couleur n'est partagée, 81,9&nbsp;% si les deux le sont). Les as perdent donc environ 1 fois sur 5.</p></details>
+<details><summary>Combien de fois AA perd contre trois adversaires&nbsp;?</summary><p>Contre trois mains au hasard, AA gagne environ 63,5&nbsp;% du temps et perd environ 36&nbsp;% du temps, soit à peu près 1 fois sur 3. Contre cinq adversaires, AA perd plus souvent qu'il ne gagne.</p></details>
+<details><summary>Combien de mains faut-il pour connaître son taux de gain&nbsp;?</summary><p>Beaucoup. Avec un écart-type de 90 bb/100, même 100&nbsp;000 mains ne donnent le taux de gain qu'à environ ±5,6 bb/100 près. Un bon joueur à 5 bb/100 est encore perdant environ 1 fois sur 3 sur 10&nbsp;000 mains.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/guides/mains-de-depart/">Mains de départ</a> · <a href="/fr/guides/probabilites-poker/">Probabilités au Texas Hold'em</a> · <a href="/fr/guides/spr-poker/">Le SPR</a> · <a href="/fr/guides/comment-etudier-le-poker/">Comment étudier le poker</a> · <a href="/fr/calculateur-equite/">Calculateur d'équité</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Combien de fois AA perd contre une main au hasard ?","acceptedAnswer":{"@type":"Answer","text":"À tapis préflop en tête-à-tête, AA gagne environ 85 % du temps et perd environ 14,5 % du temps, soit à peu près 1 fois sur 7. Le reste correspond aux partages."}},
+  {"@type":"Question","name":"Quelle est l'équité de AA contre KK ?","acceptedAnswer":{"@type":"Answer","text":"Environ 81 à 82 % pour AA selon les couleurs (81,3 % si aucune couleur n'est partagée, 81,9 % si les deux le sont). Les as perdent donc environ 1 fois sur 5."}},
+  {"@type":"Question","name":"Combien de fois AA perd contre trois adversaires ?","acceptedAnswer":{"@type":"Answer","text":"Contre trois mains au hasard, AA gagne environ 63,5 % du temps et perd environ 36 % du temps, soit à peu près 1 fois sur 3. Contre cinq adversaires, AA perd plus souvent qu'il ne gagne."}},
+  {"@type":"Question","name":"Combien de mains faut-il pour connaître son taux de gain ?","acceptedAnswer":{"@type":"Answer","text":"Beaucoup. Avec un écart-type de 90 bb/100, même 100 000 mains ne donnent le taux de gain qu'à environ ±5,6 bb/100 près. Un bon joueur à 5 bb/100 est encore perdant environ 1 fois sur 3 sur 10 000 mains."}}
+]}
+</script>

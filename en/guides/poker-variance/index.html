@@ -1,0 +1,104 @@
+---
+layout: article
+lang: en
+title: "How Often Do Pocket Aces Lose? Poker Variance in Numbers"
+headline: "How often aces get cracked: poker variance in numbers"
+description: "Pocket aces lose about 1 time in 7 heads-up and 1 time in 3 against three players. Exact equities, losing streaks, simulated downswings and how to judge your play through variance."
+permalink: /en/guides/poker-variance/
+date: 2026-11-14
+last_modified_at: 2026-11-14
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/variance-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/poker-variance/" }
+x_default: "https://pokerperf.com/en/guides/poker-variance/"
+---
+<p class="lead">Your aces just got cracked again, and it feels personal. It isn't. All-in preflop against one random hand, <strong>AA loses about 1 time in 7</strong>. Against three opponents, about <strong>1 time in 3</strong>. Knowing the numbers doesn't make losing pleasant, but it helps you judge your play without telling yourself stories.</p>
+
+<h2>AA against one or more random hands</h2>
+<p>Preflop all-in equity for A♠A♥ against 1 to 5 random hands (400,000 deals per row, simulated with the engine behind our <a href="/en/poker-odds-calculator/">poker equity calculator</a> and checked against published tables):</p>
+<div class="odds-scroll" role="region" aria-label="AA equity against 1 to 5 random hands" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Opponents</th><th scope="col">AA wins</th><th scope="col">AA loses</th><th scope="col">Roughly</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">1</th><td>85.0%</td><td>14.5%</td><td>1 time in 7</td></tr>
+    <tr><th scope="row">2</th><td>73.1%</td><td>26.4%</td><td>1 time in 4</td></tr>
+    <tr><th scope="row">3</th><td>63.5%</td><td>35.9%</td><td>1 time in 3</td></tr>
+    <tr><th scope="row">4</th><td>55.7%</td><td>43.7%</td><td>almost 1 time in 2</td></tr>
+    <tr><th scope="row">5</th><td>49.0%</td><td>50.4%</td><td>more than 1 time in 2</td></tr>
+  </tbody>
+</table>
+</div>
+<p>The remainder (about 0.5%) is split pots. So against five opponents, aces lose <em>more often than they win</em>. They're still by far the best hand at the table: each opponent alone only has about a 10% chance of winning the pot.</p>
+
+<h2>AA against specific hands</h2>
+<p>In real games, random hands aren't the ones calling your stack. Exact equities (every deal enumerated), except AK, which is simulated:</p>
+<div class="odds-scroll" role="region" aria-label="AA equity against specific hands" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Opponent's hand</th><th scope="col">AA equity</th><th scope="col">AA loses roughly</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">KK</th><td>81–82%</td><td>1 time in 5</td></tr>
+    <tr><th scope="row">JTs (jack-ten suited)</th><td>78.3%</td><td>1 time in 4.6</td></tr>
+    <tr><th scope="row">76s (seven-six suited)</th><td>77.0%</td><td>1 time in 4.4</td></tr>
+    <tr><th scope="row">AKs (ace-king suited)</th><td>≈ 88%</td><td>1 time in 9</td></tr>
+    <tr><th scope="row">AKo (ace-king offsuit)</th><td>≈ 93%</td><td>1 time in 15</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Against KK, the exact figure depends on suits: 81.3% when no suit is shared, 81.9% when both are. Suited connectors crack aces most often: they can make straights and flushes. But at roughly 77% to 23%, getting all your chips in with AA is still a great deal.</p>
+
+<h2>How often you're dealt AA</h2>
+<p>You're dealt AA <strong>once every 221 hands</strong> (6 combos out of 1,326), about 4 or 5 times per 1,000 hands. That's another kind of variance:</p>
+<ul>
+  <li>over 221 hands, you only have a <strong>63%</strong> chance of seeing aces at least once;</li>
+  <li>going <strong>500 hands</strong> without aces happens about <strong>1 time in 10</strong>;</li>
+  <li>going 1,000 hands without them happens about 1 time in 100.</li>
+</ul>
+
+<h2>Losing streaks</h2>
+<p>Losing two heads-up all-ins in a row with AA: 14.5% × 14.5% ≈ <strong>2.1%</strong>. Three in a row: about <strong>0.3%</strong>. That sounds rare, but it applies to <em>every</em> possible run of three all-ins. Over a few years of play, with hundreds of AA all-ins, you will go through those streaks. They tell you nothing about your game.</p>
+<p>Against KK it's worse: AA loses about 18.6% of the time, so twice in a row about 3.4% of the time.</p>
+
+<h2>Variance over thousands of hands</h2>
+<p>Cracked aces are only the visible part. The real question is: how many hands does it take to know whether you're winning? Estimating that needs an assumption: in 6-max no-limit cash games, a player's standard deviation is commonly around <strong>70 to 100 big blinds per 100 hands</strong>. With 90 bb/100 and a player whose true win rate is <strong>5 bb/100</strong> (a solid winner):</p>
+<div class="odds-scroll" role="region" aria-label="Chance of being down by number of hands" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Hands played</th><th scope="col">Chance of being down anyway</th><th scope="col">Observed win rate (95% range)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">10,000</th><td>29%</td><td>−12.6 to +22.6 bb/100</td></tr>
+    <tr><th scope="row">30,000</th><td>17%</td><td>−5.2 to +15.2 bb/100</td></tr>
+    <tr><th scope="row">50,000</th><td>11%</td><td>−2.9 to +12.9 bb/100</td></tr>
+    <tr><th scope="row">100,000</th><td>4%</td><td>−0.6 to +10.6 bb/100</td></tr>
+  </tbody>
+</table>
+</div>
+<p>In other words, over 10,000 hands (several months for a recreational player), a good player is down <strong>almost 1 time in 3</strong>. And a slightly losing player can post a nice result over the same stretch.</p>
+<p>Downswings follow the same logic. Simulating 4,000 runs of 100,000 hands under these assumptions, the median worst drop from a peak is <strong>about 1,900 big blinds, or 19 buy-ins</strong>, for a 5 bb/100 winner. For a 2.5 bb/100 winner it's about 2,400 big blinds. These are ballpark figures: your real standard deviation depends on your style and format.</p>
+
+<div class="tip"><strong>The math used:</strong> over N hands, your result roughly follows a normal distribution with mean win rate × N/100 and standard deviation 90 × √(N/100). Example for 10,000 hands: mean 500 bb, standard deviation 900 bb, probability of being below zero ≈ 29%.</div>
+
+<h2>How to live with it</h2>
+<ul>
+  <li><strong>Judge the decision, not the result.</strong> If you got your chips in with 80% equity, your job is done. The next card says nothing about your decision.</li>
+  <li><strong>Look at your all-in EV graph.</strong> Most trackers show what you would have won if every all-in had paid out its expectation. It tells you whether you play all-in hands well, without the noise of the deal.</li>
+  <li><strong>Use a bankroll that can absorb downswings.</strong> If a 20 buy-in drop is normal, playing with 10 buy-ins means accepting you can go broke during a perfectly ordinary stretch.</li>
+  <li><strong>Set a stop-loss or a fixed number of sessions.</strong> And after a big cooler, take a few minutes' break before your next important decision.</li>
+  <li><strong>Track your mistakes rather than your winnings.</strong> Your error rate by spot type settles within a few hundred questions, while your winnings take hundreds of thousands of hands. That's the idea laid out in <a href="/en/guides/how-to-study-poker/">how to study poker</a>.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<details><summary>How often do pocket aces lose to a random hand?</summary><p>All-in preflop heads-up, AA wins about 85% of the time and loses about 14.5% of the time, roughly 1 time in 7. The rest is split pots.</p></details>
+<details><summary>What is AA's equity against KK?</summary><p>About 81 to 82% for AA depending on suits (81.3% when no suit is shared, 81.9% when both are). So aces lose about 1 time in 5.</p></details>
+<details><summary>How often do aces lose against three players?</summary><p>Against three random hands, AA wins about 63.5% of the time and loses about 36%, roughly 1 time in 3. Against five opponents, AA loses more often than it wins.</p></details>
+<details><summary>How many hands do you need to know your win rate?</summary><p>A lot. With a standard deviation of 90 bb/100, even 100,000 hands only pin your win rate down to about ±5.6 bb/100. A 5 bb/100 winner is still down about 1 time in 3 over 10,000 hands.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/guides/poker-starting-hands/">Poker starting hands</a> · <a href="/en/guides/texas-holdem-odds/">Texas Hold'em odds</a> · <a href="/en/guides/stack-to-pot-ratio/">Stack-to-pot ratio</a> · <a href="/en/guides/how-to-study-poker/">How to study poker</a> · <a href="/en/poker-odds-calculator/">Poker equity calculator</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How often do pocket aces lose to a random hand?","acceptedAnswer":{"@type":"Answer","text":"All-in preflop heads-up, AA wins about 85% of the time and loses about 14.5% of the time, roughly 1 time in 7. The rest is split pots."}},
+  {"@type":"Question","name":"What is AA's equity against KK?","acceptedAnswer":{"@type":"Answer","text":"About 81 to 82% for AA depending on suits (81.3% when no suit is shared, 81.9% when both are). So aces lose about 1 time in 5."}},
+  {"@type":"Question","name":"How often do aces lose against three players?","acceptedAnswer":{"@type":"Answer","text":"Against three random hands, AA wins about 63.5% of the time and loses about 36%, roughly 1 time in 3. Against five opponents, AA loses more often than it wins."}},
+  {"@type":"Question","name":"How many hands do you need to know your win rate?","acceptedAnswer":{"@type":"Answer","text":"A lot. With a standard deviation of 90 bb/100, even 100,000 hands only pin your win rate down to about ±5.6 bb/100. A 5 bb/100 winner is still down about 1 time in 3 over 10,000 hands."}}
+]}
+</script>
