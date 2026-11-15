@@ -1,0 +1,81 @@
+---
+layout: default
+lang: es
+title: "Calculadora de rangos de poker: de % a manos y combos, gratis"
+description: "Calculadora de rangos de poker: elige un top X % y ve las manos, el número de combos y la notación (TT+, AQs+). Incluye card removal. Gratis, sin registro."
+permalink: /es/calculadora-rangos-poker/
+webapp: "Calculadora de rangos de poker"
+last_modified_at: 2026-11-13
+stylesheets: ["/assets/css/starting-hands.css", "/assets/css/range-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-range/" }
+  - { lang: "en", href: "https://pokerperf.com/en/poker-range-calculator/" }
+  - { lang: "es", href: "https://pokerperf.com/es/calculadora-rangos-poker/" }
+x_default: "https://pokerperf.com/en/poker-range-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculadora de rangos de poker: de % a manos y combos</h1>
+  <p class="lead">¿Te enfrentas a un «3-bet del 4&nbsp;%»? Pon el control en <strong>4&nbsp;%</strong> y ves al instante <strong>qué manos</strong> son, <strong>cuántos combos</strong> y el rango en notación estándar (<code>88+, AQs+</code>). Haz clic en las casillas para construir tu propio rango y quita las cartas que tienes para contar los <strong>blockers</strong> (bloqueadores). Gratis, sin registro.</p>
+
+  <div id="range-calculator" data-lang="es" data-pct="4"></div>
+  <noscript><p class="tip">La calculadora necesita JavaScript. Referencia rápida sin ella: una pareja = 6 combos, una mano suited = 4, una mano offsuit = 12, de 1326 en total.</p></noscript>
+
+  <h2>¿Qué significa un rango del X&nbsp;%?</h2>
+  <p>Preflop hay <strong>1326 combinaciones de dos cartas</strong>. Un rango del 10&nbsp;% son, por tanto, unos <strong>133 combos</strong>, no «17 manos de 169»: no todas las manos pesan lo mismo.</p>
+  <table>
+    <thead><tr><th scope="col">Tipo de mano</th><th scope="col">Combos por mano</th><th scope="col">Número de manos</th><th scope="col">Total</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Pareja (p. ej. JJ)</th><td>6</td><td>13</td><td>78</td></tr>
+      <tr><th scope="row">Suited (p. ej. AKs)</th><td>4</td><td>78</td><td>312</td></tr>
+      <tr><th scope="row">Offsuit (p. ej. AKo)</th><td>12</td><td>78</td><td>936</td></tr>
+    </tbody>
+  </table>
+  <p>Consecuencia directa: AKo por sí sola (12 combos) pesa tanto como dos parejas de mano. Por eso, en cuanto hablas de porcentajes, piensas en combos.</p>
+
+  <h2>Ejemplo práctico: ¿qué es un rango de 3-bet del 4&nbsp;%?</h2>
+  <p>Se oye a menudo que «un 3-bet del 4&nbsp;% es AA, KK, QQ, JJ, AK». Contemos: 4 parejas × 6 = 24 combos, más AK = 4 suited + 12 offsuit = 16. Total: <strong>40 combos, o sea el 3,0&nbsp;%</strong>. Un 4&nbsp;% real son 53 combos, así que queda sitio para <strong>13 combos más</strong>.</p>
+  <div class="tip"><p style="margin:0"><strong>Lo que muestra la herramienta al 4&nbsp;%.</strong> Ordenado por equity (tu parte del bote), el top 4&nbsp;% es <code>88+, AQs+</code>: de AA a 88, más AKs y AQs. Son <strong>50 combos (3,8&nbsp;%)</strong>. Añade TT, 99, 88 y AQs… pero <strong>no AKo</strong>, que solo entra hacia el 5,4&nbsp;%. Un rango de 3-bet real de tamaño parecido se parece más a <code>TT+, AQs+, AKo</code>: <strong>también 50 combos</strong>, elegidos de otra forma. Prueba los dos: haz clic en «JJ+, AK» y luego añade TT y AQs a mano.</p></div>
+  <p>Conclusión: un porcentaje te dice <strong>cuántas</strong> manos, no <strong>cuáles</strong>. Dos jugadores que hacen 3-bet con el 4&nbsp;% pueden tener rangos muy distintos.</p>
+
+  <h2>Blockers: tus cartas eliminan combos</h2>
+  <p>Las cartas de tu mano no pueden estar en la de tu rival. Elígelas en «Quitar los blockers de tu mano» y la tabla recuenta cada mano. Ejemplo con <strong>A♠ K♦</strong>:</p>
+  <ul>
+    <li><strong>AA</strong>: solo quedan 3 ases → 3 combos en lugar de 6.</li>
+    <li><strong>KK</strong>: solo quedan 3 reyes → 3 combos en lugar de 6.</li>
+    <li><strong>AK</strong>: 3 ases × 3 reyes = <strong>9 combos en lugar de 16</strong> (2 suited, 7 offsuit).</li>
+    <li><strong>QQ, JJ</strong>: sin cambios, 6 combos cada una.</li>
+  </ul>
+  <p>Resultado: el rango AA-JJ + AK baja de 40 a <strong>27 combos</strong>, sobre 1225 manos aún posibles. Las manos premium de tu rival se vuelven mucho más raras: por eso importa tanto tener un as cuando subes. Para más detalles sobre estas cifras, mira las <a href="/es/guias/matematicas-poker/">matemáticas del poker</a>.</p>
+
+  <h2>Cómo ordena las manos la herramienta (y sus límites)</h2>
+  <p>«Top X&nbsp;%» sigue la misma convención que PokerStove o Equilab: las 169 manos se ordenan por su <strong>equity all-in preflop contra una mano aleatoria</strong>. AA va primera (≈ 85&nbsp;%) y 32o, la última (≈ 32&nbsp;%). Los valores salen de nuestro propio motor (200&nbsp;000 muestras por mano, unos ±0,25 puntos; consulta <a href="/es/metodologia/">nuestra metodología</a>). Otras herramientas pueden intercambiar algunas manos muy próximas.</p>
+  <p>Regla del umbral: las manos se añaden en orden mientras el total <strong>se mantenga en X&nbsp;% o menos</strong>. La mano que cruzaría la línea no se incluye; de ahí el 3,8&nbsp;% que se muestra con el control en 4&nbsp;%.</p>
+  <p>Ten en cuenta: <strong>equity contra una mano aleatoria ≠ jugabilidad</strong>. Este orden favorece las parejas y los ases offsuit e infravalora los conectores suited (87s, 98s), que ganan poco all-in pero ligan escaleras y colores. Los presets «UTG / CO / BTN» usan los anchos aproximados de nuestra <a href="/es/guias/rangos-preflop/">guía de rangos preflop</a>, pero los rangos de apertura reales contienen más conectores. Para el valor real de cada mano, mira la <a href="/es/guias/manos-iniciales/">tabla de manos iniciales</a>.</p>
+
+  <div class="appcta">
+    <h2>Ve los combos sin contar</h2>
+    <p>En la mesa no tienes una tabla delante. <strong>PokerPerf</strong> te entrena para leer un rango y sus combos de un vistazo: 10 minutos al día, sin promesas milagrosas. La app está disponible en inglés y francés.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Descubre PokerPerf</a>
+  </div>
+
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Cuántos combos de manos hay en el poker?</summary><p>1326 combinaciones de dos cartas, agrupadas en 169 manos: una pareja tiene 6 combos, una mano suited 4 y una offsuit 12.</p></details>
+  <details><summary>¿Qué manos entran en un rango del 4&nbsp;%?</summary><p>4&nbsp;% ≈ 53 combos. Ordenado por equity, la herramienta da 88+, AQs+ (50 combos). AA-JJ + AK son solo 40 combos, o sea el 3&nbsp;%.</p></details>
+  <details><summary>¿Por qué 88 está por encima de AKo?</summary><p>Porque el orden usa la equity all-in contra una mano aleatoria, donde una pareja media gana algo más a menudo que AKo. En juego real, AK suele jugarse mejor: es un límite del orden, no una regla de estrategia.</p></details>
+  <details><summary>¿Cómo cambian mis cartas los combos de mi rival?</summary><p>Cada carta que tienes elimina todos los combos que la usan. Con A♠ K♦, AA pasa de 6 a 3 combos, KK de 6 a 3 y AK de 16 a 9.</p></details>
+  <details><summary>¿Los presets UTG, CO y BTN son rangos GTO?</summary><p>No. Son anchos aproximados (≈ 15, 27 y 45&nbsp;%) rellenados por equity. Un rango de apertura real elige sus manos de otra forma, sobre todo los conectores suited.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/guias/rangos-preflop/">Rangos preflop</a> · <a href="/es/guias/manos-iniciales/">Manos iniciales</a> · <a href="/es/calculadora-equity-poker/">Calculadora de equity</a> · <a href="/es/guias/matematicas-poker/">Matemáticas del poker</a> · <a href="/es/metodologia/">Metodología</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Cuántos combos de manos hay en el poker?","acceptedAnswer":{"@type":"Answer","text":"1326 combinaciones de dos cartas, agrupadas en 169 manos: una pareja tiene 6 combos, una mano suited 4 y una offsuit 12."}},
+  {"@type":"Question","name":"¿Qué manos entran en un rango del 4 %?","acceptedAnswer":{"@type":"Answer","text":"4 % ≈ 53 combos. Ordenado por equity, la herramienta da 88+, AQs+ (50 combos). AA-JJ + AK son solo 40 combos, o sea el 3 %."}},
+  {"@type":"Question","name":"¿Por qué 88 está por encima de AKo?","acceptedAnswer":{"@type":"Answer","text":"Porque el orden usa la equity all-in contra una mano aleatoria, donde una pareja media gana algo más a menudo que AKo. En juego real, AK suele jugarse mejor: es un límite del orden, no una regla de estrategia."}},
+  {"@type":"Question","name":"¿Cómo cambian mis cartas los combos de mi rival?","acceptedAnswer":{"@type":"Answer","text":"Cada carta que tienes elimina todos los combos que la usan. Con A♠ K♦, AA pasa de 6 a 3 combos, KK de 6 a 3 y AK de 16 a 9."}},
+  {"@type":"Question","name":"¿Los presets UTG, CO y BTN son rangos GTO?","acceptedAnswer":{"@type":"Answer","text":"No. Son anchos aproximados (≈ 15, 27 y 45 %) rellenados por equity. Un rango de apertura real elige sus manos de otra forma, sobre todo los conectores suited."}}
+]}
+</script>
+<script src="/assets/js/range-calculator.js" defer></script>

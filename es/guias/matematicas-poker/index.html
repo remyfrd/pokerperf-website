@@ -1,0 +1,111 @@
+---
+layout: article
+lang: es
+title: "Matemáticas del poker para principiantes: los conceptos clave"
+headline: "Matemáticas del poker, explicadas en el orden correcto"
+description: "Equity, outs, pot odds, odds implícitas, EV y fold equity: las matemáticas del poker para principiantes, paso a paso y con ejemplos resueltos."
+permalink: /es/guias/matematicas-poker/
+date: 2026-11-12
+last_modified_at: 2026-11-14
+stylesheets: ["/assets/css/poker-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/maths-du-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/poker-math/" }
+  - { lang: "es", href: "https://pokerperf.com/es/guias/matematicas-poker/" }
+x_default: "https://pokerperf.com/en/guides/poker-math/"
+---
+<p class="lead">Las matemáticas del poker se reducen a una pregunta: <strong>¿esta decisión gana dinero a largo plazo?</strong> Para responderla necesitas unas pocas ideas que se apoyan unas en otras: equity, outs, pot odds, valor esperado. No hace falta que se te den bien las matemáticas: basta con multiplicar, dividir y saberte de memoria algunas cifras.</p>
+
+<p>Esta página las recorre <strong>en el orden en que deberías aprenderlas</strong>, cada una en pocas líneas, con un enlace a la guía o la herramienta que la explica a fondo.</p>
+
+<h2>El mapa</h2>
+<div class="table-scroll toc" role="region" aria-label="Conceptos de matemáticas del poker y la pregunta que responde cada uno" tabindex="0">
+<table>
+  <thead><tr><th scope="col">Paso</th><th scope="col">Concepto</th><th scope="col">La pregunta que responde</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><th scope="row"><a href="#equity">Equity</a></th><td>¿Qué parte del bote es mía de media?</td></tr>
+    <tr><td>2</td><th scope="row"><a href="#outs">Outs</a></th><td>¿Qué cartas me ayudan?</td></tr>
+    <tr><td>3</td><th scope="row"><a href="#rule-4-2">Regla del 4 y el 2</a></th><td>¿Qué probabilidad tengo de ligar, calculada de cabeza?</td></tr>
+    <tr><td>4</td><th scope="row"><a href="#pot-odds">Pot odds</a></th><td>¿Cuánta equity necesito para pagar?</td></tr>
+    <tr><td>5</td><th scope="row"><a href="#implied-odds">Odds implícitas</a></th><td>¿Y si gano más cuando ligo?</td></tr>
+    <tr><td>6</td><th scope="row"><a href="#ev">Valor esperado (EV)</a></th><td>¿Cuánto gana esta decisión de media?</td></tr>
+    <tr><td>7</td><th scope="row"><a href="#fold-equity">Fold equity y semifaroles</a></th><td>¿Cuánto vale hacer que se retire?</td></tr>
+    <tr><td>8</td><th scope="row"><a href="#probabilities">Probabilidades</a></th><td>¿Qué puedo esperar del reparto al river?</td></tr>
+    <tr><td>9</td><th scope="row"><a href="#rankings">Ranking de manos</a></th><td>¿Qué le gana a qué?</td></tr>
+    <tr><td>10</td><th scope="row"><a href="#starting-hands">Manos iniciales</a></th><td>¿Qué manos debo jugar?</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="equity">1. Equity: tu parte del bote</h2>
+<p>La <strong>equity</strong> (tu parte del bote) es el porcentaje del bote que te corresponde de media si la mano llegara al showdown sin más apuestas. Con un 35&nbsp;% de equity en un bote de 200, tu parte «media» vale 70.</p>
+<p>Todos los demás conceptos de esta página sirven para <strong>estimar</strong> tu equity o para <strong>compararla</strong> con el precio que te piden pagar. Para obtener la cifra exacta en una situación concreta, usa la <a href="/es/calculadora-equity-poker/">calculadora de equity de poker</a>.</p>
+
+<h2 id="outs">2. Outs: las cartas que te ayudan</h2>
+<p>Un <strong>out</strong> es una carta que sigue en la baraja y que convierte tu mano en la mano ganadora. Un proyecto de color en el flop tiene 9 outs (las 13 cartas del palo menos las 4 que ves); un proyecto de escalera abierta tiene 8.</p>
+<p>La trampa: cuenta solo los outs <strong>limpios</strong>, es decir, las cartas que te dan la mejor mano, no las que completan tu proyecto pero le dan a tu rival algo mejor. El método completo está en <a href="/es/guias/como-contar-outs/">cómo contar outs</a>.</p>
+
+<h2 id="rule-4-2">3. La regla del 4 y el 2: de outs a porcentajes</h2>
+<p>Para convertir outs en probabilidades, multiplica:</p>
+<ul>
+  <li><strong>× 2</strong> cuando solo queda una carta por salir, o cuando tu call solo te compra una carta (el caso más habitual);</li>
+  <li><strong>× 4</strong> solo cuando tienes <strong>garantizado ver el turn y el river</strong>, es decir, cuando tu rival está all-in.</li>
+</ul>
+<p>9 outs → alrededor del 18&nbsp;% con una carta (exacto: 19,1&nbsp;%), alrededor del 36&nbsp;% con dos (exacto: 35,0&nbsp;%). Por encima de 9 outs, el ×4 sobreestima. Detalles y límites en la <a href="/es/guias/regla-4-y-2/">regla del 4 y el 2</a>.</p>
+
+<h2 id="pot-odds">4. Pot odds: el precio de pagar</h2>
+<p>Las <strong>pot odds</strong> (odds del bote) te dicen la equity mínima que necesitas para que pagar sea rentable:</p>
+<p><strong>Equity necesaria = cantidad a pagar ÷ bote final (incluido tu call)</strong></p>
+<p>Bote de 100, tu rival apuesta 50: pagas 50 por un bote final de 200 → <strong>25&nbsp;%</strong>. Regla de decisión: <strong>paga cuando tu equity supera la equity necesaria</strong>. Pero compara lo comparable: si tu rival no está all-in, tu call solo te compra una carta → proyecto de color ≈ 19&nbsp;%, por debajo del 25&nbsp;% → con las odds directas, te retiras.</p>
+<p>Lee la <a href="/es/guias/pot-odds-poker/">guía de pot odds</a> y luego practica con la <a href="/es/calculadora-pot-odds/">calculadora de pot odds</a>.</p>
+
+<h2 id="implied-odds">5. Odds implícitas: el dinero que llega después</h2>
+<p>Las pot odds solo cuentan el dinero que ya está en el centro. Las <strong>odds implícitas</strong> añaden lo que puedes ganar de forma realista <em>después</em> de ligar. Pueden justificar un call algo caro según las odds directas, siempre que tu rival aún tenga fichas y te pague cuando ligues. Con stacks cortos o un proyecto evidente, olvídalas. Todo está en la <a href="/es/guias/odds-implicitas/">guía de odds implícitas</a>.</p>
+
+<h2 id="ev">6. Valor esperado (EV): lo que gana una decisión</h2>
+<p>El <strong>valor esperado</strong> (EV) lo resume todo en una cifra: el resultado medio de una decisión si la repitieras miles de veces.</p>
+<p><strong>EV = (probabilidad de ganar × cantidad ganada) − (probabilidad de perder × cantidad perdida)</strong></p>
+<p>Ejemplo: tu rival está all-in, tienes que pagar 50 para ganar 150 y llevas un proyecto de color en el flop (35&nbsp;% con dos cartas). EV de pagar = 0,35 × 150 − 0,65 × 50 = 52,5 − 32,5 = <strong>+20</strong>. Perderás esta mano casi dos de cada tres veces, y aun así pagar gana dinero de media: es una buena decisión, sea cual sea el resultado.</p>
+<p>En realidad, las pot odds son un atajo de este cálculo: el EV de un call es exactamente cero cuando tu equity es igual a la equity necesaria.</p>
+
+<h2 id="fold-equity">7. Fold equity y semifaroles</h2>
+<p>Cuando eres tú quien apuesta, puedes ganar de dos formas: tu rival <strong>se retira</strong> (esa es tu <em>fold equity</em>), o paga y al final tienes la mejor mano.</p>
+<p>Para un farol puro, el umbral funciona como las pot odds al revés: <strong>tiene que retirarse al menos apuesta ÷ (bote + apuesta)</strong> de las veces. Apuestas 50 en un bote de 100 → tiene que retirarse más de 1 vez de cada 3 (33&nbsp;%).</p>
+<p>Un <strong>semifarol</strong> es una apuesta con proyecto: aunque te paguen, todavía puedes ligar, así que necesitas <em>menos</em> fold equity que con un farol puro. Haz los números de tu propia situación con la <a href="/es/calculadora-semifarol/">calculadora de EV del semifarol</a>.</p>
+
+<h2 id="probabilities">8. Las probabilidades de referencia</h2>
+<p>Algunas cifras que conviene saber porque salen todo el rato:</p>
+<ul>
+  <li>recibir una pareja de mano: <strong>5,88&nbsp;%</strong> (1 de cada 17);</li>
+  <li>ligar un trío (set) en el flop con una pareja de mano: <strong>11,8&nbsp;%</strong> (alrededor de 1 de cada 8,5);</li>
+  <li>ligar al menos una pareja en el flop con dos cartas no emparejadas: <strong>32,4&nbsp;%</strong>;</li>
+  <li>ligar un proyecto de color en el flop con dos cartas suited (del mismo palo): <strong>10,9&nbsp;%</strong>.</li>
+</ul>
+<p>Todas las tablas exactas (preflop, flop, turn, river y enfrentamientos clásicos) están en nuestra guía de <a href="/es/guias/probabilidades-texas-holdem/">probabilidades del Texas Hold'em</a>. Para tenerlas a mano: la <a href="/es/guias/chuleta-odds-poker/">chuleta de odds de poker</a>.</p>
+
+<h2 id="rankings">9. Ranking de manos</h2>
+<p>Antes de calcular nada, tienes que saber al instante que un color le gana a una escalera y que un full le gana a un color. Cuanto más rara es la mano, más fuerte es. Repásalo con el <a href="/es/ranking-manos-poker/">ranking de manos de poker</a>, que también indica con qué frecuencia sale cada mano.</p>
+
+<h2 id="starting-hands">10. Manos iniciales</h2>
+<p>Todo empieza antes del flop. Una mano inicial vale su equity contra las manos que probablemente tienen tus rivales, pero también su <strong>jugabilidad</strong>: las manos suited y conectadas forman más proyectos que las offsuit (de distinto palo) desconectadas. Empieza por las <a href="/es/guias/manos-iniciales/">manos iniciales de poker</a> y luego mira cómo organizarlas por posición en <a href="/es/guias/rangos-preflop/">rangos preflop</a>.</p>
+
+<h2>¿Y ahora qué?</h2>
+<p>Estas ideas llevan de forma natural a la teoría de juegos: el <a href="/es/guias/que-es-gto-poker/">poker GTO</a> combina equity, odds y frecuencias de farol en una estrategia difícil de explotar. Y si quieres saber cómo calculamos nuestras cifras, está todo en nuestra página de <a href="/es/metodologia/">metodología</a>.</p>
+<p>Entender estas matemáticas lleva una tarde. Aplicarlas en pocos segundos en la mesa requiere repetición: eso es lo que PokerPerf te hace practicar, 10 minutos al día.</p>
+
+<h2>FAQ</h2>
+<details><summary>¿Hay que ser bueno en matemáticas para jugar al poker?</summary><p>No. Las matemáticas que importan en el poker se reducen a multiplicaciones y divisiones sencillas, más algunas referencias que hay que saberse de memoria (outs, pot odds, probabilidades clave). Lo difícil no es la aritmética: es hacerla rápido y bien en la mesa.</p></details>
+<details><summary>¿Por dónde debe empezar un principiante con las matemáticas del poker?</summary><p>Por la equity y los outs, luego la regla del 4 y el 2 para estimar tus probabilidades y, por último, las pot odds para saber si un call es rentable. Esas tres ideas cubren la mayoría de las decisiones con proyecto.</p></details>
+<details><summary>¿Qué es el EV en el poker?</summary><p>El valor esperado es el resultado medio de una decisión si la repitieras muchas veces: probabilidad de ganar × cantidad ganada, menos probabilidad de perder × cantidad perdida. Una decisión con EV positivo es buena aunque pierda una mano concreta.</p></details>
+<details><summary>¿Cuándo uso la regla del 4 en lugar de la regla del 2?</summary><p>Solo cuando tienes garantizado ver el turn y el river, es decir, cuando tu rival está all-in. Si no, tu call solo te compra una carta: usa la regla del 2.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/guias/probabilidades-texas-holdem/">Probabilidades del Texas Hold'em</a> · <a href="/es/guias/pot-odds-poker/">Guía de pot odds</a> · <a href="/es/calculadora-equity-poker/">Calculadora de equity de poker</a> · <a href="/es/calculadora-pot-odds/">Calculadora de pot odds</a> · <a href="/es/guias/tablas-push-fold/">Tablas push/fold</a> · <a href="/es/guias/como-estudiar-poker/">Cómo estudiar poker</a> · <a href="/es/calculadora-rangos-poker/">Calculadora de rangos de poker</a> · <a href="/es/guias/blockers-poker/">Blockers en el poker</a> · <a href="/es/calculadora-icm/">Calculadora ICM</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Hay que ser bueno en matemáticas para jugar al poker?","acceptedAnswer":{"@type":"Answer","text":"No. Las matemáticas que importan en el poker se reducen a multiplicaciones y divisiones sencillas, más algunas referencias que hay que saberse de memoria (outs, pot odds, probabilidades clave). Lo difícil no es la aritmética: es hacerla rápido y bien en la mesa."}},
+  {"@type":"Question","name":"¿Por dónde debe empezar un principiante con las matemáticas del poker?","acceptedAnswer":{"@type":"Answer","text":"Por la equity y los outs, luego la regla del 4 y el 2 para estimar tus probabilidades y, por último, las pot odds para saber si un call es rentable. Esas tres ideas cubren la mayoría de las decisiones con proyecto."}},
+  {"@type":"Question","name":"¿Qué es el EV en el poker?","acceptedAnswer":{"@type":"Answer","text":"El valor esperado es el resultado medio de una decisión si la repitieras muchas veces: probabilidad de ganar × cantidad ganada, menos probabilidad de perder × cantidad perdida. Una decisión con EV positivo es buena aunque pierda una mano concreta."}},
+  {"@type":"Question","name":"¿Cuándo uso la regla del 4 en lugar de la regla del 2?","acceptedAnswer":{"@type":"Answer","text":"Solo cuando tienes garantizado ver el turn y el river, es decir, cuando tu rival está all-in. Si no, tu call solo te compra una carta: usa la regla del 2."}}
+]}
+</script>

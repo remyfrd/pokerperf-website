@@ -20,7 +20,7 @@
 {%- endif %}
 
 {%- assign ogimg = page.og_image | default: "/assets/img/og-cover.png" | absolute_url %}
-{%- assign oglocale = "fr_FR" %}{%- if page.lang == "en" %}{%- assign oglocale = "en_US" %}{%- endif %}
+{%- assign oglocale = "fr_FR" %}{%- if page.lang == "en" %}{%- assign oglocale = "en_US" %}{%- elsif page.lang == "es" %}{%- assign oglocale = "es_ES" %}{%- endif %}
 <meta property="og:site_name" content="PokerPerf">
 {%- if page.layout == "article" %}
 <meta property="og:type" content="article">

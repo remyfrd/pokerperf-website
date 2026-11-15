@@ -5,7 +5,7 @@ import { Card, RANKS, SUIT_SYMBOL, makeCard, formatCard, suitOf } from "../equit
 import { computeEquity, Hand } from "../equity/equity";
 import { evaluate7, categoryOf } from "../equity/evaluator";
 
-type Lang = "fr" | "en";
+type Lang = "fr" | "en" | "es";
 interface Strings {
   suitLabel: string[]; // par couleur s,h,d,c
   suitShort: string[];
@@ -97,6 +97,36 @@ const STRINGS: Record<Lang, Strings> = {
     sub: (w, t) => `win ${w}% · split ${t}%`,
     modeExact: (n) => `exact calculation (${n} runouts)`,
     modeMc: (n) => `Monte-Carlo estimate (${n} samples, ±~0.4%)`,
+  },
+  es: {
+    suitLabel: ["picas", "corazones", "diamantes", "tréboles"],
+    suitShort: ["P", "Co", "D", "T"],
+    you: "Tú",
+    opponent: (i) => `Rival ${i}`,
+    board: "Board",
+    random: "mano aleatoria",
+    removeOpp: (i) => `quitar al rival ${i}`,
+    addOpp: "+ Rival",
+    calc: "Calcular equity",
+    reset: "Reiniciar",
+    pickTitle: "Elige una carta",
+    clearSlot: "Quitar esta carta",
+    emptyAria: "casilla vacía, elige una carta",
+    calcInProgress: "Calculando…",
+    errComplete: 'Completa las dos cartas de cada jugador (o marca «aleatoria»).',
+    errBoard: "El board debe tener 0, 3, 4 o 5 cartas.",
+    randomName: "Aleatoria",
+    catNames: ["Carta alta", "Pareja", "Doble pareja", "Trío", "Escalera", "Color", "Full", "Póquer", "Escalera de color"],
+    royal: "Escalera real",
+    player: (i) => `Jugador ${i}`,
+    whoWins: "¿Qué mano gana?",
+    wins: (w) => `Gana ${w}`,
+    tieAll: "Empate: el bote se reparte",
+    needRiver: "Elige las dos manos y las 5 cartas del board.",
+    cardAria: (rank, sl) => `${rank} de ${sl}`,
+    sub: (w, t) => `victoria ${w} % · empate ${t} %`,
+    modeExact: (n) => `cálculo exacto (${n} combinaciones de board)`,
+    modeMc: (n) => `estimación Monte-Carlo (${n} simulaciones, ±~0,4 %)`,
   },
 };
 
@@ -332,6 +362,6 @@ export function mountCalculator(root: HTMLElement, lang: Lang = "fr", mode: "equ
 // Auto-montage : langue lue sur l'élément hôte (data-lang).
 const target = typeof document !== "undefined" && document.getElementById("equity-calculator");
 if (target) {
-  const lang = ((target as HTMLElement).dataset.lang === "en" ? "en" : "fr") as Lang;
+  const lang = ((["en", "es"].includes((target as HTMLElement).dataset.lang ?? "") ? (target as HTMLElement).dataset.lang : "fr") as Lang);
   mountCalculator(target as HTMLElement, lang, (target as HTMLElement).dataset.mode === "showdown" ? "showdown" : "equity");
 }

@@ -1,7 +1,7 @@
 // Widget « cote du pot » (pot odds) — arithmétique client-side, bilingue (data-lang).
 // Entrées : pot, mise à suivre ; sorties : cote (ratio), équité requise ;
 // + verdict payer/coucher et EV si on fournit son équité (directe ou via outs → règle 4/2).
-type Lang = "fr" | "en";
+type Lang = "fr" | "en" | "es";
 interface S {
   pot: string; bet: string; required: string; odds: string; ratioSuffix: string;
   need: (x: string) => string;
@@ -27,6 +27,15 @@ const STR: Record<Lang, S> = {
     outs: "Outs", street: "Cards to come", flop: "Flop → river (2)", turn: "River (1)",
     estEq: (x) => `Estimated equity ≈ ${x}% (rule of 4 and 2)`,
     verdictCall: "CALL", verdictFold: "FOLD", ev: "Call EV", enterNums: "Enter a pot and a bet.",
+  },
+  es: {
+    pot: "Bote en el centro", bet: "Apuesta a pagar", required: "Equity necesaria", odds: "Pot odds",
+    ratioSuffix: "a 1",
+    need: (x) => `Tienes que ganar al menos el ${x} % de las veces para que pagar sea rentable.`,
+    compare: "Compara con tu equity (opcional)", eqPct: "En %", eqOuts: "Con mis outs",
+    outs: "Outs", street: "Cartas por salir", flop: "Flop → river (2)", turn: "River (1)",
+    estEq: (x) => `Equity estimada ≈ ${x} % (regla del 4 y 2)`,
+    verdictCall: "PAGAR", verdictFold: "FOLDEAR", ev: "EV del call", enterNums: "Introduce un bote y una apuesta.",
   },
 };
 
@@ -107,6 +116,6 @@ export function mountPotOdds(root: HTMLElement, lang: Lang = "fr") {
 
 const target = typeof document !== "undefined" && document.getElementById("pot-odds");
 if (target) {
-  const lang = ((target as HTMLElement).dataset.lang === "en" ? "en" : "fr") as Lang;
+  const lang = ((["en", "es"].includes((target as HTMLElement).dataset.lang ?? "") ? (target as HTMLElement).dataset.lang : "fr") as Lang);
   mountPotOdds(target as HTMLElement, lang);
 }

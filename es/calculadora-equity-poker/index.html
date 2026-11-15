@@ -1,0 +1,92 @@
+---
+layout: default
+lang: es
+title: "Calculadora de equity de poker: probabilidades de ganar (gratis)"
+description: "Calculadora de equity de poker gratis para Texas Hold'em: tu mano contra una o varias manos en cada calle, exacta desde el flop. Tus probabilidades y tus outs."
+permalink: /es/calculadora-equity-poker/
+webapp: "Calculadora de equity de poker"
+last_modified_at: 2026-11-12
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-equite/" }
+  - { lang: "en", href: "https://pokerperf.com/en/poker-odds-calculator/" }
+  - { lang: "es", href: "https://pokerperf.com/es/calculadora-equity-poker/" }
+x_default: "https://pokerperf.com/en/poker-odds-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculadora de equity de poker</h1>
+  <p class="lead">Elige tu mano, las manos de tus rivales (o una «mano aleatoria») y el board: obtienes tu <strong>equity</strong> (tu parte esperada del bote) y tus probabilidades en cada calle. Después comprueba si pagar es rentable con nuestra <a href="/es/calculadora-pot-odds/">calculadora de pot odds</a>. Texas Hold'em, gratis, sin registro.</p>
+
+  <div id="equity-calculator" data-lang="es"></div>
+
+  <h2>¿Qué es la equity en el poker?</h2>
+  <p>Tu <strong>equity</strong> es el porcentaje del bote que ganarías <em>de media</em> si la mano llegara al showdown, según las cartas conocidas. 50&nbsp;% es una moneda al aire; 80&nbsp;% significa que eres claro favorito. Es la base de casi todas las decisiones: pagar, apostar o foldear depende de tu equity frente a lo que te cuesta la mano.</p>
+
+  <h2>Cómo calcular la equity en el poker</h2>
+  <p>La equity es un simple recuento: <strong>de todas las formas en que pueden caer las cartas que quedan, ¿cuántas veces gana tu mano?</strong> En el flop, la calculadora reparte cada turn y river posibles (unas mil combinaciones contra una mano conocida) y cuenta tus victorias y empates: es un resultado exacto. Preflop hay demasiados boards, así que simula decenas de miles al azar (±0,6&nbsp;pt).</p>
+  <div class="tip"><p style="margin:0"><strong>Ejemplo práctico.</strong> Tienes A♥K♥, tu rival tiene Q♠Q♣ y el flop es J♥7♥2♠. Ahora mismo vas por detrás, pero tienes <strong>15 outs</strong>: 9 corazones para el color, más los 3 ases y los 3 reyes que quedan para una pareja mejor. La calculadora recorre las 990 combinaciones de turn y river: tu equity es exactamente <strong>54,4&nbsp;%</strong>, así que en realidad eres favorito. La regla del 4 diría 15 × 4 = 60&nbsp;%: con tantos outs sobrestima, por eso importa el recuento exacto.</p></div>
+  <p>En la mesa, la estimas de cabeza: cuenta tus <strong>outs</strong> (las cartas que te mejoran) y aplica la regla del 4 y el 2 que verás más abajo. Algunas equities que conviene saber de memoria:</p>
+  <table>
+    <thead><tr><th>Enfrentamiento (preflop)</th><th>Equity</th></tr></thead>
+    <tbody>
+      <tr><td>Pareja contra dos cartas más bajas (p. ej. 99 vs 87s)</td><td>≈ 81&nbsp;% / 19&nbsp;%</td></tr>
+      <tr><td>Pareja contra dos overcards (p. ej. 22 vs AKo)</td><td>≈ 53&nbsp;% / 47&nbsp;%</td></tr>
+      <tr><td>Pareja alta contra pareja más baja (p. ej. KK vs QQ)</td><td>≈ 81&nbsp;% / 19&nbsp;%</td></tr>
+      <tr><td>Mano dominada (p. ej. AK vs AQ)</td><td>≈ 74&nbsp;% / 26&nbsp;%</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Equity vs pot odds: ¿debo pagar?</h2>
+  <p>Tus <strong>pot odds</strong> (las odds del bote) te dicen la equity mínima que justifica pagar (nuestra <a href="/es/calculadora-pot-odds/">calculadora de pot odds</a> la calcula para cualquier tamaño de apuesta). La regla: <strong>pagas cuando tu equity supera tus pot odds</strong>.</p>
+  <div class="tip">
+    <p style="margin:0"><strong>Ejemplo.</strong> Hay $100 en el bote y tu rival apuesta $50. Puedes ganar $150 pagando $50, así que tus pot odds = 50&nbsp;/&nbsp;(150&nbsp;+&nbsp;50)&nbsp;=&nbsp;<strong>25&nbsp;%</strong>. Si va <strong>all-in</strong>, tu proyecto de color ve el turn y el river (≈&nbsp;35&nbsp;% de equity): estás por encima del umbral, <strong>pagar es rentable</strong>.</p>
+  </div>
+  <div class="tip"><p style="margin:0"><strong>La trampa clásica.</strong> Si tu rival <em>no</em> está all-in, al pagar solo compras el turn: una carta, ≈&nbsp;19&nbsp;% (regla del 2). 19&nbsp;%&nbsp;&lt;&nbsp;25&nbsp;% → con las odds directas, <strong>foldeas</strong>. Solo las <em>odds implícitas</em> (lo que ganarás en las calles siguientes cuando ligues) pueden justificar ese pago.</p></div>
+
+  <h2>Contar outs: la regla del 4 y el 2</h2>
+  <p>Un <strong>out</strong> es una carta que mejora tu mano. Para estimar tu probabilidad de ligar sin calculadora: multiplica tus outs por <strong>4</strong> después del flop (dos cartas por venir), o por <strong>2</strong> para una sola carta. Es una aproximación; la calculadora de arriba da la cifra exacta.</p>
+  <table>
+    <thead><tr><th>Proyecto</th><th>Outs</th><th>Flop → river (×4)</th><th>1 carta (×2)</th></tr></thead>
+    <tbody>
+      <tr><td>Proyecto de color</td><td>9</td><td>≈ 35&nbsp;%</td><td>≈ 19&nbsp;%</td></tr>
+      <tr><td>Escalera abierta (open-ended)</td><td>8</td><td>≈ 32&nbsp;%</td><td>≈ 17&nbsp;%</td></tr>
+      <tr><td>Dos overcards</td><td>6</td><td>≈ 24&nbsp;%</td><td>≈ 13&nbsp;%</td></tr>
+      <tr><td>Gutshot (escalera interna)</td><td>4</td><td>≈ 17&nbsp;%</td><td>≈ 9&nbsp;%</td></tr>
+      <tr><td>Color + escalera abierta</td><td>15</td><td>≈ 54&nbsp;%</td><td>≈ 33&nbsp;%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="appcta">
+    <h2>De la teoría al reflejo</h2>
+    <p>En la mesa no tienes una calculadora a mano: necesitas leer tu equity, tus outs y tus pot odds <strong>en segundos</strong>. Eso es justo lo que entrena <strong>PokerPerf</strong>: ejercicios cortos que convierten las matemáticas en reflejo, 10 minutos al día.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Prueba PokerPerf en Android</a>
+    <p class="stores">Disponible en Android · iOS muy pronto · La app está disponible en inglés y francés.</p>
+  </div>
+
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Cómo calculo mi equity en el poker?</summary>
+    <p>Introduce las manos y el board en la calculadora de arriba: enumera las cartas por venir y te da tu equity exacta desde el flop. De cabeza, usa la regla del 4 y el 2 con tus outs para una buena aproximación.</p></details>
+  <details><summary>¿Qué diferencia hay entre equity y pot odds?</summary>
+    <p>La equity es tu probabilidad de ganar la mano. Las pot odds son el umbral de equity que debes superar para que pagar sea rentable. Pagas cuando tu equity supera tus pot odds.</p></details>
+  <details><summary>¿Es precisa esta calculadora de equity?</summary>
+    <p>Sí: desde el flop enumera cada carta por venir (cálculo exacto). Preflop, donde hay demasiadas combinaciones, usa una simulación Monte Carlo muy precisa (±0,6&nbsp;pt), indicada bajo el resultado. Detalles en nuestra <a href="/es/metodologia/">metodología</a>.</p></details>
+  <details><summary>¿Cuántos outs tiene un proyecto de color?</summary>
+    <p>Nueve outs (las 13 cartas del palo menos las 4 ya visibles), alrededor de un 35&nbsp;% de probabilidad de completarlo hasta el river desde el flop.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/calculadora-pot-odds/">Calculadora de pot odds</a> · <a href="/es/">la app PokerPerf</a> · <a href="/es/guias/probabilidades-texas-holdem/">Probabilidades en Texas Hold'em</a> · <a href="/es/guias/como-contar-outs/">Cómo contar outs</a> · <a href="/es/guias/chuleta-odds-poker/">Chuleta de odds de poker</a> · <a href="/es/guias/matematicas-poker/">Matemáticas del poker</a> · <a href="/es/calculadora-rangos-poker/">Calculadora de rangos de poker</a> · <a href="/es/guias/como-estudiar-poker/">Cómo estudiar poker</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"¿Cómo calculo mi equity en el poker?","acceptedAnswer":{"@type":"Answer","text":"Introduce las manos y el board en la calculadora de arriba: enumera las cartas por venir y te da tu equity exacta desde el flop. De cabeza, usa la regla del 4 y el 2 con tus outs para una buena aproximación."}},
+    {"@type":"Question","name":"¿Qué diferencia hay entre equity y pot odds?","acceptedAnswer":{"@type":"Answer","text":"La equity es tu probabilidad de ganar la mano. Las pot odds son el umbral de equity que debes superar para que pagar sea rentable. Pagas cuando tu equity supera tus pot odds."}},
+    {"@type":"Question","name":"¿Es precisa esta calculadora de equity?","acceptedAnswer":{"@type":"Answer","text":"Sí: desde el flop enumera cada carta por venir (cálculo exacto). Preflop, donde hay demasiadas combinaciones, usa una simulación Monte Carlo muy precisa (±0,6 pt), indicada bajo el resultado. Detalles en nuestra metodología."}},
+    {"@type":"Question","name":"¿Cuántos outs tiene un proyecto de color?","acceptedAnswer":{"@type":"Answer","text":"Nueve outs (las 13 cartas del palo menos las 4 ya visibles), alrededor de un 35 % de probabilidad de completarlo hasta el river desde el flop."}}
+  ]
+}
+</script>
+
+<script src="/assets/js/equity-calculator.js" defer></script>

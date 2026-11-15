@@ -10,7 +10,7 @@
 //
 // Cartes (bloqueurs) : id = rangDesc * 4 + couleur, rangDesc 0..12 = A..2, couleur 0..3 = ♠♥♦♣.
 
-type Lang = "fr" | "en";
+type Lang = "fr" | "en" | "es";
 type Kind = "pair" | "suited" | "offsuit";
 
 export const RANKS_DESC = "AKQJT98765432";
@@ -219,24 +219,39 @@ const STR: Record<Lang, S> = {
     model: "Ranking: all-in equity against one random hand (as in PokerStove / Equilab). Other tools may order a few hands slightly differently.",
     pct: (x) => `${x}%`,
   },
+  es: {
+    topLabel: "Top X % de manos",
+    rule: "Las manos se añaden de la mejor a la peor mientras el total sea ≤ X % de los 1326 combos: la mano que superaría el umbral no se incluye.",
+    presets: "Predefinidos", clear: "Vaciar", all: "Todas (100 %)", exampleLabel: "JJ+, AK (≈ 3 %)",
+    caption: "Haz clic en una casilla para añadirla o quitarla. Número = combos; ✓ = mano en el rango.",
+    hint: "← desliza la cuadrícula →", keys: "Las flechas mueven por la cuadrícula; Espacio o Intro marca o desmarca.",
+    region: "Cuadrícula de las 169 manos", combosSr: (n) => `, ${n} combo${n === 1 ? "" : "s"}`,
+    blockers: "Quitar los blockers de tu mano", card1: "Tu carta 1", card2: "Tu carta 2", none: "—", sameCard: "Elige dos cartas distintas.",
+    combos: "Combos", ofTotal: "Parte de los 1326 combos", hands: "Manos", list: "Rango", empty: "Ninguna mano seleccionada.", custom: "rango personalizado",
+    afterBlock: (n, tot) => `Quitando tus cartas: ${n} combos (de ${tot} todavía posibles)`,
+    copy: "Copiar rango", copied: "Rango copiado.",
+    rankName: (r) => r, suitNames: ["picas", "corazones", "diamantes", "tréboles"],
+    model: "Clasificación: equity all-in contra una mano aleatoria (como en PokerStove / Equilab). Otras herramientas pueden ordenar algunas manos de forma ligeramente distinta.",
+    pct: (x) => `${x}\u00a0%`,
+  },
 };
 const SUIT_SYM = ["♠", "♥", "♦", "♣"];
 
 export function mountRange(root: HTMLElement, lang: Lang = "fr") {
   const s = STR[lang] ?? STR.fr;
-  const dec = (x: number, d = 1) => (lang === "fr" ? x.toFixed(d).replace(".", ",") : x.toFixed(d));
-  const int = (n: number) => (lang === "fr" ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ") : n.toLocaleString("en-US"));
+  const dec = (x: number, d = 1) => (lang !== "en" ? x.toFixed(d).replace(".", ",") : x.toFixed(d));
+  const int = (n: number) => (lang !== "en" ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ") : n.toLocaleString("en-US"));
   const presets: [string, () => Set<number>, number | null][] = [
-    ["Top 5" + (lang === "fr" ? "\u00a0%" : "%"), () => topPercent(5), 5],
-    [lang === "fr" ? "Top 15\u00a0% (≈ open UTG)" : "Top 15% (≈ UTG open)", () => topPercent(15), 15],
-    [lang === "fr" ? "Top 27\u00a0% (≈ CO)" : "Top 27% (≈ CO)", () => topPercent(27), 27],
-    [lang === "fr" ? "Top 45\u00a0% (≈ BTN)" : "Top 45% (≈ BTN)", () => topPercent(45), 45],
+    ["Top 5" + (lang !== "en" ? "\u00a0%" : "%"), () => topPercent(5), 5],
+    [lang !== "en" ? "Top 15\u00a0% (≈ open UTG)" : "Top 15% (≈ UTG open)", () => topPercent(15), 15],
+    [lang !== "en" ? "Top 27\u00a0% (≈ CO)" : "Top 27% (≈ CO)", () => topPercent(27), 27],
+    [lang !== "en" ? "Top 45\u00a0% (≈ BTN)" : "Top 45% (≈ BTN)", () => topPercent(45), 45],
     [s.exampleLabel, () => parseRange("JJ+, AK"), null],
   ];
   const cardOpts = ['<option value="">' + s.none + "</option>"]
     .concat(Array.from({ length: 52 }, (_, id) => {
       const r = RANKS_DESC[id >> 2], su = id & 3;
-      return `<option value="${id}">${r}${SUIT_SYM[su]} (${r} ${lang === "fr" ? "de" : "of"} ${s.suitNames[su]})</option>`;
+      return `<option value="${id}">${r}${SUIT_SYM[su]} (${r} ${lang !== "en" ? "de" : "of"} ${s.suitNames[su]})</option>`;
     })).join("");
 
   let rows = "";
@@ -393,4 +408,4 @@ export function mountRange(root: HTMLElement, lang: Lang = "fr") {
 }
 
 const target = typeof document !== "undefined" && document.getElementById("range-calculator");
-if (target) mountRange(target as HTMLElement, (target as HTMLElement).dataset.lang === "en" ? "en" : "fr");
+if (target) mountRange(target as HTMLElement, (["en", "es"].includes((target as HTMLElement).dataset.lang ?? "") ? (target as HTMLElement).dataset.lang : "fr") as Lang);

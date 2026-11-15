@@ -5,7 +5,7 @@
 //   EV(semi-bluff) = FE·P + (1 − FE)·(E·(P+2B) − B)
 //   Fold equity minimale  = −X / (P − X) avec X = E·(P+2B) − B (0 si X ≥ 0).
 //   Repère « checker »    ≈ E·P (tu réalises ton équité gratuitement).
-type Lang = "fr" | "en";
+type Lang = "fr" | "en" | "es";
 interface S {
   pot: string; bet: string; fe: string; eq: string; eqPct: string; eqOuts: string; outs: string; street: string;
   flop: string; turn: string; estEq: (x: string) => string;
@@ -34,6 +34,17 @@ const STR: Record<Lang, S> = {
     bad: (x) => `❌ Not profitable: he would need to fold at least ${x}% of the time`,
     enter: "Enter a pot, a bet and your fold equity.",
     model: "Simplified model: one betting round, no raise, equity realised when called.",
+  },
+  es: {
+    pot: "Bote", bet: "Tu apuesta", fe: "Probabilidad de que foldee (fold equity, %)", eq: "Tu equity si te pagan",
+    eqPct: "En %", eqOuts: "Con mis outs", outs: "Outs", street: "Cartas por salir", flop: "Flop → river (2)", turn: "River (1)",
+    estEq: (x) => `Equity estimada ≈ ${x} % (regla del 4 y 2)`,
+    evFold: "Ganancia cuando foldea", evCall: "EV cuando te paga", evTotal: "EV del semifarol", feMin: "Fold equity de equilibrio", evCheck: "Referencia: EV si pasas",
+    good: "✅ Semifarol rentable, y mejor que pasar",
+    okButCheck: "⚖️ Rentable, pero pasar gana un poco más en este modelo",
+    bad: (x) => `❌ No es rentable: tendría que foldear al menos el ${x} % de las veces`,
+    enter: "Introduce un bote, una apuesta y tu fold equity.",
+    model: "Modelo simplificado: una sola ronda de apuestas, sin resubida, equity realizada cuando te pagan.",
   },
 };
 
@@ -69,7 +80,7 @@ export function mountSemiBluff(root: HTMLElement, lang: Lang = "fr") {
   const out = root.querySelector("#sb-out") as HTMLElement;
   const est = root.querySelector("#sb-est") as HTMLElement;
   const mode = () => (root.querySelector('input[name="sb-mode"]:checked') as HTMLInputElement)?.value ?? "pct";
-  const dec = (x: number, d = 1) => (lang === "fr" ? x.toFixed(d).replace(".", ",") : x.toFixed(d));
+  const dec = (x: number, d = 1) => (lang !== "en" ? x.toFixed(d).replace(".", ",") : x.toFixed(d));
   const fmt = (x: number) => (x >= 0 ? "+" : "") + dec(x);
 
   function render() {
@@ -91,7 +102,7 @@ export function mountSemiBluff(root: HTMLElement, lang: Lang = "fr") {
     const verdict = ev <= 0 ? s.bad(dec(feMin)) : ev >= evCheck ? s.good : s.okButCheck;
     out.innerHTML =
       row(s.evTotal, fmt(ev)) + row(s.evFold, fmt(P)) + row(s.evCall, fmt(X)) +
-      row(s.feMin, dec(feMin) + (lang === "fr" ? " %" : "%")) + row(s.evCheck, fmt(evCheck)) +
+      row(s.feMin, dec(feMin) + (lang !== "en" ? " %" : "%")) + row(s.evCheck, fmt(evCheck)) +
       `<div class="po-decision ${ev > 0 ? "ok" : "no"}">${verdict}</div>`;
   }
   root.querySelectorAll("input,select").forEach((e) => { e.addEventListener("input", render); e.addEventListener("change", render); });
@@ -99,4 +110,4 @@ export function mountSemiBluff(root: HTMLElement, lang: Lang = "fr") {
 }
 
 const target = typeof document !== "undefined" && document.getElementById("semi-bluff");
-if (target) mountSemiBluff(target as HTMLElement, (target as HTMLElement).dataset.lang === "en" ? "en" : "fr");
+if (target) mountSemiBluff(target as HTMLElement, (["en", "es"].includes((target as HTMLElement).dataset.lang ?? "") ? (target as HTMLElement).dataset.lang : "fr") as Lang);

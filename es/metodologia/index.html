@@ -1,0 +1,61 @@
+---
+layout: default
+lang: es
+title: "Metodología: cómo verificamos nuestros números de poker"
+description: "Cómo calcula y verifica sus números la calculadora de equity de PokerPerf: enumeración exacta, precisión Monte Carlo, tres controles independientes y límites."
+permalink: /es/metodologia/
+last_modified_at: 2026-11-12
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/methodologie/" }
+  - { lang: "en", href: "https://pokerperf.com/en/methodology/" }
+  - { lang: "es", href: "https://pokerperf.com/es/metodologia/" }
+x_default: "https://pokerperf.com/en/methodology/"
+---
+<div class="wrap prose">
+  <p class="brand">PokerPerf</p>
+  <h1>Metodología: cómo verificamos nuestros números</h1>
+  <p class="lead">Una calculadora de poker vale lo que valen sus números. Aquí te explicamos, con palabras sencillas, <strong>cómo calculan nuestras herramientas</strong>, <strong>cómo comprobamos</strong> que aciertan y <strong>lo que no pueden hacer</strong>.</p>
+
+  <h2>1. Cómo se calcula la equity</h2>
+  <p>La <a href="/es/calculadora-equity-poker/">calculadora de equity</a> (tu parte del bote) funciona con un motor escrito para PokerPerf. Para cada forma en que pueden caer las cartas que quedan, construye la <strong>mejor mano de 5 cartas entre 7</strong> de cada jugador, determina el ganador (empates incluidos) y cuenta.</p>
+  <ul>
+    <li><strong>Desde el flop: exacto.</strong> El motor recorre <em>todas</em> las cartas por venir: 990 combinaciones de turn + river en heads-up en el flop, 44 en el turn. El resultado no tiene margen de error.</li>
+    <li><strong>Preflop: simulación (Monte Carlo).</strong> Hay más de 1,7 millones de boards posibles, así que la calculadora reparte <strong>30&nbsp;000 al azar</strong>. El margen es de unos <strong>±0,6 puntos</strong> (intervalo de confianza del 95&nbsp;%): «53,1&nbsp;%» se lee «entre 52,5 y 53,7&nbsp;%».</li>
+    <li><strong>«Mano aleatoria»</strong>: siempre se simula, ya que la mano del rival cambia en cada reparto.</li>
+  </ul>
+  <p>Bajo cada resultado, la calculadora indica qué modo se usó (exacto o simulación) y cuántos casos se examinaron.</p>
+
+  <h2>2. Tres controles independientes</h2>
+  <p>Un motor que se verifica a sí mismo no demuestra nada. Por eso lo comparamos con tres referencias que no comparten su código:</p>
+  <table>
+    <thead><tr><th scope="col">Control</th><th scope="col">Qué se verifica</th></tr></thead>
+    <tbody>
+      <tr><td><strong>El motor de la app</strong></td><td>Se recalcula un conjunto de spots de referencia, calculados por el motor en Python que usa la app PokerPerf; los dos motores deben coincidir.</td></tr>
+      <tr><td><strong>Equities publicadas</strong></td><td>Enfrentamientos de referencia que todo jugador conoce (PokerStove, Equilab): AA vs KK ≈ 82&nbsp;%, AK suited vs QQ ≈ 46&nbsp;%, 22 vs AK ≈ 53&nbsp;%, AA contra una mano aleatoria ≈ 85&nbsp;%, 72 offsuit contra una mano aleatoria ≈ 35&nbsp;%…</td></tr>
+      <tr><td><strong>Un segundo evaluador</strong></td><td>Un evaluador de manos escrito por separado, con otro método, debe devolver la misma categoría en <strong>20&nbsp;000 manos aleatorias de 7 cartas</strong> y el mismo ganador en <strong>20&nbsp;000 showdowns</strong> (desempates por kicker incluidos).</td></tr>
+    </tbody>
+  </table>
+  <p>Estos controles forman parte de un conjunto de <strong>21 tests automáticos</strong> que se ejecutan en cada cambio del motor, antes de publicar nada.</p>
+
+  <h2>3. Probabilidades de las manos</h2>
+  <p>Las probabilidades de nuestra página de <a href="/es/ranking-manos-poker/">ranking de manos</a> (probabilidad de terminar con color, con full…) son probabilidades de <strong>Texas Hold'em</strong>: tu mejor mano de 7 cartas en el river. Las recalculamos con nuestro motor sobre <strong>4 millones de manos simuladas</strong> y coinciden con los valores de referencia publicados (p. ej. pareja 43,8&nbsp;%, color 3,0&nbsp;%, póquer 0,17&nbsp;%).</p>
+
+  <h2>4. Las demás herramientas</h2>
+  <ul>
+    <li><strong><a href="/es/calculadora-pot-odds/">Pot odds</a></strong>: una fórmula exacta: apuesta que pagar ÷ (bote + apuesta + tu pago). Sin aproximación.</li>
+    <li><strong>Regla del 4 y el 2</strong>: una <em>aproximación</em> de cálculo mental, presentada como tal, con la diferencia respecto al valor exacto. El ×4 supone que verás las dos cartas (rival all-in).</li>
+    <li><strong><a href="/es/calculadora-semifarol/">EV del semifarol</a></strong>: un modelo simplificado a propósito: una sola ronda de apuestas, sin subida, equity realizada cuando te pagan. Da un orden de magnitud para decidir, no un valor al céntimo.</li>
+  </ul>
+
+  <h2>5. Lo que no hacen nuestras herramientas</h2>
+  <ul>
+    <li><strong>No deciden por ti.</strong> La equity te dice tus probabilidades, no lo que hará tu rival; las pot odds dan el umbral, no las odds implícitas.</li>
+    <li><strong>Sin entrada de rangos</strong> por ahora: la calculadora compara manos concretas (o una mano aleatoria), no un rango de manos.</li>
+    <li><strong>Ninguna promesa de ganancias.</strong> Entender los números te ayuda a decidir mejor; no garantiza ningún resultado.</li>
+  </ul>
+
+  <h2>¿Has encontrado un error?</h2>
+  <p>Si un número te parece incorrecto, avísanos desde la página de <a href="/support.en.html">Soporte</a>: lo comprobamos, lo corregimos y la fecha de actualización de la página cambia en consecuencia.</p>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Actualizado el 12 de noviembre de 2026 · Ver también: <a href="/es/calculadora-equity-poker/">Calculadora de equity</a> · <a href="/es/ranking-manos-poker/">Ranking de manos</a> · <a href="/es/guias/">Guías</a> · <a href="/es/guias/probabilidades-texas-holdem/">Probabilidades en Texas Hold'em</a> · <a href="/es/guias/manos-iniciales/">Tabla de manos iniciales</a> · <a href="/es/guias/como-estudiar-poker/">Cómo estudiar poker</a>.</p>
+</div>

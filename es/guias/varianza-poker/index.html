@@ -1,0 +1,105 @@
+---
+layout: article
+lang: es
+title: "¿Cuánto pierden los Ases? La varianza en el póker en cifras"
+headline: "Cada cuánto pierden los Ases: la varianza en el póker en cifras"
+description: "Los Ases pierden 1 vez de cada 7 en heads-up y 1 de cada 3 contra tres rivales. Equity exacta, rachas, downswings simulados y cómo juzgar tu juego."
+permalink: /es/guias/varianza-poker/
+date: 2026-11-14
+last_modified_at: 2026-11-14
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/variance-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/poker-variance/" }
+  - { lang: "es", href: "https://pokerperf.com/es/guias/varianza-poker/" }
+x_default: "https://pokerperf.com/en/guides/poker-variance/"
+---
+<p class="lead">Te acaban de reventar los Ases otra vez, y parece algo personal. No lo es. All-in preflop contra una mano aleatoria, <strong>AA pierde más o menos 1 vez de cada 7</strong>. Contra tres rivales, más o menos <strong>1 vez de cada 3</strong>. Conocer las cifras no hace agradable perder, pero te ayuda a juzgar tu juego sin contarte historias.</p>
+
+<h2>AA contra una o varias manos aleatorias</h2>
+<p>Equity (tu parte del bote) all-in preflop de A♠A♥ contra 1 a 5 manos aleatorias (400&nbsp;000 repartos por fila, simulados con el motor de nuestra <a href="/es/calculadora-equity-poker/">calculadora de equity de póker</a> y contrastados con tablas publicadas):</p>
+<div class="odds-scroll" role="region" aria-label="Equity de AA contra 1 a 5 manos aleatorias" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Rivales</th><th scope="col">AA gana</th><th scope="col">AA pierde</th><th scope="col">Más o menos</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">1</th><td>85,0&nbsp;%</td><td>14,5&nbsp;%</td><td>1 vez de cada 7</td></tr>
+    <tr><th scope="row">2</th><td>73,1&nbsp;%</td><td>26,4&nbsp;%</td><td>1 vez de cada 4</td></tr>
+    <tr><th scope="row">3</th><td>63,5&nbsp;%</td><td>35,9&nbsp;%</td><td>1 vez de cada 3</td></tr>
+    <tr><th scope="row">4</th><td>55,7&nbsp;%</td><td>43,7&nbsp;%</td><td>casi 1 vez de cada 2</td></tr>
+    <tr><th scope="row">5</th><td>49,0&nbsp;%</td><td>50,4&nbsp;%</td><td>más de 1 vez de cada 2</td></tr>
+  </tbody>
+</table>
+</div>
+<p>El resto (alrededor del 0,5&nbsp;%) son botes repartidos. Así que contra cinco rivales, los Ases pierden <em>más a menudo de lo que ganan</em>. Aun así siguen siendo, con diferencia, la mejor mano de la mesa: cada rival por separado solo tiene alrededor de un 10&nbsp;% de opciones de ganar el bote.</p>
+
+<h2>AA contra manos concretas</h2>
+<p>En las partidas reales, no son manos aleatorias las que pagan tu stack. Equity exacta (todos los repartos enumerados), salvo AK, que está simulada:</p>
+<div class="odds-scroll" role="region" aria-label="Equity de AA contra manos concretas" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Mano del rival</th><th scope="col">Equity de AA</th><th scope="col">AA pierde más o menos</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">KK</th><td>81–82&nbsp;%</td><td>1 vez de cada 5</td></tr>
+    <tr><th scope="row">JTs (Jota-Diez suited)</th><td>78,3&nbsp;%</td><td>1 vez de cada 4,6</td></tr>
+    <tr><th scope="row">76s (Siete-Seis suited)</th><td>77,0&nbsp;%</td><td>1 vez de cada 4,4</td></tr>
+    <tr><th scope="row">AKs (As-Rey suited)</th><td>≈ 88&nbsp;%</td><td>1 vez de cada 9</td></tr>
+    <tr><th scope="row">AKo (As-Rey offsuit)</th><td>≈ 93&nbsp;%</td><td>1 vez de cada 15</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Contra KK, la cifra exacta depende de los palos: 81,3&nbsp;% cuando no comparten ningún palo, 81,9&nbsp;% cuando comparten los dos. Los conectores suited (del mismo palo) son los que más a menudo revientan los Ases: pueden ligar escaleras y colores. Pero con un 77&nbsp;% contra un 23&nbsp;%, meter todas tus fichas con AA sigue siendo un gran negocio.</p>
+
+<h2>Cada cuánto te llegan AA</h2>
+<p>Te llegan AA <strong>una vez cada 221 manos</strong> (6 combos de 1326), unas 4 o 5 veces cada 1000 manos. Es otro tipo de varianza:</p>
+<ul>
+  <li>en 221 manos, solo tienes un <strong>63&nbsp;%</strong> de probabilidad de ver Ases al menos una vez;</li>
+  <li>pasar <strong>500 manos</strong> sin Ases ocurre más o menos <strong>1 vez de cada 10</strong>;</li>
+  <li>pasar 1000 manos sin ellos ocurre más o menos 1 vez de cada 100.</li>
+</ul>
+
+<h2>Rachas de derrotas</h2>
+<p>Perder dos all-ins heads-up seguidos con AA: 14,5&nbsp;% × 14,5&nbsp;% ≈ <strong>2,1&nbsp;%</strong>. Tres seguidos: alrededor del <strong>0,3&nbsp;%</strong>. Parece poco, pero se aplica a <em>cada</em> serie posible de tres all-ins. En unos años de juego, con cientos de all-ins con AA, vas a pasar por esas rachas. No dicen nada de tu juego.</p>
+<p>Contra KK es peor: AA pierde alrededor del 18,6&nbsp;% de las veces, así que dos veces seguidas alrededor del 3,4&nbsp;% de las veces.</p>
+
+<h2>La varianza en miles de manos</h2>
+<p>Los Ases reventados son solo la parte visible. La verdadera pregunta es: ¿cuántas manos hacen falta para saber si estás ganando? Para estimarlo hace falta una hipótesis: en cash games no-limit 6-max, la desviación típica de un jugador suele estar entre <strong>70 y 100 ciegas grandes por cada 100 manos</strong>. Con 90 bb/100 y un jugador cuyo win rate real es de <strong>5 bb/100</strong> (un ganador sólido):</p>
+<div class="odds-scroll" role="region" aria-label="Probabilidad de ir en negativo según el número de manos" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Manos jugadas</th><th scope="col">Probabilidad de ir en negativo de todos modos</th><th scope="col">Win rate observado (intervalo del 95&nbsp;%)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">10&nbsp;000</th><td>29&nbsp;%</td><td>de −12,6 a +22,6 bb/100</td></tr>
+    <tr><th scope="row">30&nbsp;000</th><td>17&nbsp;%</td><td>de −5,2 a +15,2 bb/100</td></tr>
+    <tr><th scope="row">50&nbsp;000</th><td>11&nbsp;%</td><td>de −2,9 a +12,9 bb/100</td></tr>
+    <tr><th scope="row">100&nbsp;000</th><td>4&nbsp;%</td><td>de −0,6 a +10,6 bb/100</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Dicho de otro modo: en 10&nbsp;000 manos (varios meses para un jugador recreativo), un buen jugador va en negativo <strong>casi 1 vez de cada 3</strong>. Y un jugador ligeramente perdedor puede firmar un buen resultado en ese mismo tramo.</p>
+<p>Los downswings siguen la misma lógica. Simulando 4000 series de 100&nbsp;000 manos con estas hipótesis, la peor caída mediana desde un máximo es de <strong>unas 1900 ciegas grandes, es decir, 19 buy-ins</strong>, para un ganador de 5 bb/100. Para un ganador de 2,5 bb/100 son unas 2400 ciegas grandes. Son órdenes de magnitud: tu desviación típica real depende de tu estilo y de tu formato.</p>
+
+<div class="tip"><strong>Las matemáticas usadas:</strong> en N manos, tu resultado sigue aproximadamente una distribución normal de media win rate × N/100 y desviación típica 90 × √(N/100). Ejemplo para 10&nbsp;000 manos: media 500 bb, desviación típica 900 bb, probabilidad de estar por debajo de cero ≈ 29&nbsp;%.</div>
+
+<h2>Cómo convivir con ella</h2>
+<ul>
+  <li><strong>Juzga la decisión, no el resultado.</strong> Si metiste tus fichas con un 80&nbsp;% de equity, hiciste tu trabajo. La siguiente carta no dice nada de tu decisión.</li>
+  <li><strong>Mira tu gráfica de all-in EV.</strong> La mayoría de trackers muestran lo que habrías ganado si cada all-in hubiera pagado su esperanza. Te dice si juegas bien las manos de all-in, sin el ruido del reparto.</li>
+  <li><strong>Usa un bankroll capaz de aguantar los downswings.</strong> Si una caída de 20 buy-ins es normal, jugar con 10 buy-ins es aceptar que puedes quebrar durante un tramo perfectamente normal.</li>
+  <li><strong>Fija un stop-loss o un número de sesiones.</strong> Y después de un cooler grande, tómate unos minutos de pausa antes de tu próxima decisión importante.</li>
+  <li><strong>Sigue tus errores en lugar de tus ganancias.</strong> Tu tasa de error por tipo de spot se estabiliza en unos cientos de preguntas, mientras que tus ganancias necesitan cientos de miles de manos. Es la idea que se explica en <a href="/es/guias/como-estudiar-poker/">cómo estudiar póker</a>.</li>
+</ul>
+
+<h2>Preguntas frecuentes</h2>
+<details><summary>¿Cada cuánto pierden los Ases contra una mano aleatoria?</summary><p>All-in preflop en heads-up, AA gana alrededor del 85&nbsp;% de las veces y pierde alrededor del 14,5&nbsp;%, más o menos 1 vez de cada 7. El resto son botes repartidos.</p></details>
+<details><summary>¿Cuál es la equity de AA contra KK?</summary><p>Entre el 81 y el 82&nbsp;% para AA según los palos (81,3&nbsp;% cuando no comparten ningún palo, 81,9&nbsp;% cuando comparten los dos). Así que los Ases pierden más o menos 1 vez de cada 5.</p></details>
+<details><summary>¿Cada cuánto pierden los Ases contra tres jugadores?</summary><p>Contra tres manos aleatorias, AA gana alrededor del 63,5&nbsp;% de las veces y pierde alrededor del 36&nbsp;%, más o menos 1 vez de cada 3. Contra cinco rivales, AA pierde más a menudo de lo que gana.</p></details>
+<details><summary>¿Cuántas manos hacen falta para conocer tu win rate?</summary><p>Muchas. Con una desviación típica de 90 bb/100, incluso 100&nbsp;000 manos solo fijan tu win rate con un margen de unos ±5,6 bb/100. Un ganador de 5 bb/100 sigue yendo en negativo más o menos 1 vez de cada 3 en 10&nbsp;000 manos.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/guias/manos-iniciales/">Manos iniciales de póker</a> · <a href="/es/guias/probabilidades-texas-holdem/">Probabilidades en Texas Hold'em</a> · <a href="/es/guias/spr-poker/">Stack-to-pot ratio (SPR)</a> · <a href="/es/guias/como-estudiar-poker/">Cómo estudiar póker</a> · <a href="/es/calculadora-equity-poker/">Calculadora de equity de póker</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Cada cuánto pierden los Ases contra una mano aleatoria?","acceptedAnswer":{"@type":"Answer","text":"All-in preflop en heads-up, AA gana alrededor del 85 % de las veces y pierde alrededor del 14,5 %, más o menos 1 vez de cada 7. El resto son botes repartidos."}},
+  {"@type":"Question","name":"¿Cuál es la equity de AA contra KK?","acceptedAnswer":{"@type":"Answer","text":"Entre el 81 y el 82 % para AA según los palos (81,3 % cuando no comparten ningún palo, 81,9 % cuando comparten los dos). Así que los Ases pierden más o menos 1 vez de cada 5."}},
+  {"@type":"Question","name":"¿Cada cuánto pierden los Ases contra tres jugadores?","acceptedAnswer":{"@type":"Answer","text":"Contra tres manos aleatorias, AA gana alrededor del 63,5 % de las veces y pierde alrededor del 36 %, más o menos 1 vez de cada 3. Contra cinco rivales, AA pierde más a menudo de lo que gana."}},
+  {"@type":"Question","name":"¿Cuántas manos hacen falta para conocer tu win rate?","acceptedAnswer":{"@type":"Answer","text":"Muchas. Con una desviación típica de 90 bb/100, incluso 100 000 manos solo fijan tu win rate con un margen de unos ±5,6 bb/100. Un ganador de 5 bb/100 sigue yendo en negativo más o menos 1 vez de cada 3 en 10 000 manos."}}
+]}
+</script>

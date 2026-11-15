@@ -1,0 +1,57 @@
+---
+layout: default
+lang: es
+title: "Calculadora de EV del semifarol (fold equity), gratis"
+description: "Calcula el EV de un semifarol en poker: bote, apuesta, fold equity y equity de tu proyecto. Obtén la fold equity de equilibrio y sabe si apostar es rentable."
+permalink: /es/calculadora-semifarol/
+webapp: "Calculadora de EV del semifarol"
+last_modified_at: 2026-11-12
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-semi-bluff/" }
+  - { lang: "en", href: "https://pokerperf.com/en/semi-bluff-ev-calculator/" }
+  - { lang: "es", href: "https://pokerperf.com/es/calculadora-semifarol/" }
+x_default: "https://pokerperf.com/en/semi-bluff-ev-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculadora de EV del semifarol</h1>
+  <p class="lead">¿Tienes un proyecto y dudas si apostar? Introduce el <strong>bote</strong>, tu <strong>apuesta</strong>, la <strong>probabilidad de que tu rival se retire</strong> y tu <strong>equity</strong> (tu parte del bote, o tus outs): obtienes el <strong>EV de tu semifarol</strong>, la <strong>fold equity de equilibrio</strong> y un veredicto claro. Gratis, sin registro.</p>
+
+  <div id="semi-bluff" data-lang="es"></div>
+
+  <h2>¿Qué es un semifarol?</h2>
+  <p>Un <strong>semifarol</strong> es una apuesta con una mano que todavía no está hecha pero puede mejorar: normalmente un proyecto de color o de escalera. Tienes <strong>dos formas de ganar</strong>: tu rival se retira en el acto, o paga y tú ligas tu proyecto.</p>
+
+  <h2>Cómo se calcula el EV</h2>
+  <p>Sumamos los dos escenarios, ponderados por su probabilidad:</p>
+  <ul>
+    <li><strong>Se retira</strong> (fold equity): ganas el bote.</li>
+    <li><strong>Paga</strong>: el bote crece con las dos apuestas y lo ganas según tu equity. Tu resultado medio = equity × (bote + 2 × apuesta) − apuesta.</li>
+  </ul>
+  <div class="tip"><p style="margin:0"><strong>Ejemplo.</strong> Bote de 100, apuestas 50 con un proyecto de color (≈ 35&nbsp;% de equity). Tu rival se retira el 30&nbsp;% de las veces. Cuando te paga, tu EV = 0,35 × 200 − 50 = +20. EV total = 0,3 × 100 + 0,7 × 20 = <strong>+44</strong>, mejor que pasar (≈ +35).</p></div>
+
+  <h2>Fold equity de equilibrio</h2>
+  <p>Es la frecuencia con la que tu rival debe retirarse para que el semifarol no pierda dinero. Si tu proyecto ya es rentable cuando te pagan, es <strong>0&nbsp;%</strong>: puedes apostar incluso contra alguien que nunca se retira. Cuanta menos equity tienes, más fold equity necesitas: por eso se semifarolea sobre todo con <a href="/es/guias/regla-4-y-2/">proyectos grandes</a>.</p>
+
+  <div class="appcta">
+    <h2>Siente el momento justo para atacar</h2>
+    <p>En la mesa no hay calculadora: necesitas <strong>sentir en un segundo</strong> si tu proyecto merece una apuesta. <strong>PokerPerf</strong> entrena ese reflejo (equity, outs, pot odds) 10 minutos al día. La app está disponible en inglés y francés.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Descubre PokerPerf</a>
+  </div>
+
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Cuándo conviene semifarolear?</summary><p>Cuando tu proyecto tiene suficiente equity y tu rival puede retirarse. Cuantos más outs tienes, menos fold equity necesitas.</p></details>
+  <details><summary>¿Qué es la fold equity?</summary><p>La parte de tu EV que viene de que tu rival se retire. Depende de la frecuencia con la que se retira y del tamaño del bote.</p></details>
+  <details><summary>¿Es exacto el cálculo?</summary><p>Es un modelo simplificado (una sola ronda de apuestas, sin subida). Da un orden de magnitud fiable para decidir, no una verdad al céntimo.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/calculadora-equity-poker/">Calculadora de equity</a> · <a href="/es/calculadora-pot-odds/">Pot odds</a> · <a href="/es/guias/regla-4-y-2/">Regla del 4 y el 2</a> · <a href="/es/guias/como-contar-outs/">Cómo contar outs</a> · <a href="/es/guias/matematicas-poker/">Matemáticas del poker</a> · <a href="/es/guias/tablas-push-fold/">Push/fold en torneos</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Cuándo conviene semifarolear?","acceptedAnswer":{"@type":"Answer","text":"Cuando tu proyecto tiene suficiente equity y tu rival puede retirarse. Cuantos más outs tienes, menos fold equity necesitas."}},
+  {"@type":"Question","name":"¿Qué es la fold equity?","acceptedAnswer":{"@type":"Answer","text":"La parte de tu EV que viene de que tu rival se retire. Depende de la frecuencia con la que se retira y del tamaño del bote."}},
+  {"@type":"Question","name":"¿Es exacto el cálculo?","acceptedAnswer":{"@type":"Answer","text":"Es un modelo simplificado (una sola ronda de apuestas, sin subida). Da un orden de magnitud fiable para decidir, no una verdad al céntimo."}}
+]}
+</script>
+<script src="/assets/js/semi-bluff.js" defer></script>

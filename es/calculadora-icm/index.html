@@ -1,0 +1,109 @@
+---
+layout: default
+lang: es
+title: "Calculadora ICM: cuánto valen tus fichas de torneo, gratis"
+description: "Calculadora ICM de poker gratis: introduce stacks y premios y ve la equity en dinero de cada jugador y la que necesitas para ir all-in en la burbuja."
+permalink: /es/calculadora-icm/
+webapp: "Calculadora ICM de poker"
+last_modified_at: 2026-11-14
+stylesheets: ["/assets/css/outs-odds.css", "/assets/css/icm-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-icm/" }
+  - { lang: "en", href: "https://pokerperf.com/en/icm-calculator/" }
+  - { lang: "es", href: "https://pokerperf.com/es/calculadora-icm/" }
+x_default: "https://pokerperf.com/en/icm-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculadora ICM: cuánto valen tus fichas en dinero</h1>
+  <p class="lead">En un torneo, tus fichas no valen su peso en dinero. El <strong>ICM</strong> (Independent Chip Model, modelo de fichas independientes) las convierte en equity (tu parte de los premios) real. Introduce los stacks y los premios: ves cuánto vale cada jugador y, sobre todo, <strong>cuánta equity necesitas para arriesgar tu stack</strong>. Gratis, sin registro, hasta 10 jugadores.</p>
+
+  <div id="icm-calculator" data-lang="es"></div>
+  <noscript><p class="tip">La calculadora necesita JavaScript. Regla práctica sin ella: en la burbuja, el stack grande vale menos que su parte de fichas, el stack corto vale más, y necesitas bastante más del 50&nbsp;% de equity para arriesgar tu stack.</p></noscript>
+
+  <h2>¿Cómo funciona el ICM?</h2>
+  <p>El modelo más usado, <strong>Malmuth-Harville</strong>, se basa en una idea sencilla: tu probabilidad de quedar primero es igual a tu parte de las fichas. Con el 30&nbsp;% de las fichas, ganas el torneo el 30&nbsp;% de las veces.</p>
+  <p>Para el 2.º puesto, se aplica la misma regla a los jugadores que quedan. Si un rival con el 40&nbsp;% de las fichas queda primero, queda el 60&nbsp;% de las fichas, y tu 30&nbsp;% es la mitad: en ese escenario quedas 2.º la mitad de las veces. Combinando todos los órdenes de llegada posibles, se obtiene la probabilidad de cada puesto para cada jugador y, de ahí, su equity:</p>
+  <p class="formula">valor ICM = Σ (probabilidad de quedar en el puesto k × premio del puesto k)</p>
+  <p>La calculadora lo computa de forma exacta, sin simulación.</p>
+
+  <h2>Ejemplo: la burbuja, 4 jugadores, 3 cobran</h2>
+  <p>Quedan cuatro jugadores y los tres primeros cobran 50, 30 y 20 (100 en total). Los stacks son 4000, 3000, 2000 y 1000. Es el primer ejemplo de la calculadora:</p>
+  <div class="odds-scroll" role="region" aria-label="Valor ICM en la burbuja" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Jugador</th><th scope="col">Stack</th><th scope="col">Parte de las fichas</th><th scope="col">Valor ICM</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Jugador 1</th><td>4000</td><td>40&nbsp;%</td><td>33,60 (33,6&nbsp;%)</td></tr>
+      <tr><th scope="row">Jugador 2</th><td>3000</td><td>30&nbsp;%</td><td>29,49 (29,5&nbsp;%)</td></tr>
+      <tr><th scope="row">Jugador 3</th><td>2000</td><td>20&nbsp;%</td><td>23,59 (23,6&nbsp;%)</td></tr>
+      <tr><th scope="row">Jugador 4</th><td>1000</td><td>10&nbsp;%</td><td>13,32 (13,3&nbsp;%)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>El stack grande tiene el 40&nbsp;% de las fichas pero solo el 33,6&nbsp;% del dinero. El stack corto tiene el 10&nbsp;% de las fichas pero el 13,3&nbsp;% del dinero: todavía tiene opciones razonables de entrar en premios. <strong>Cuantas más fichas tienes, menos vale cada ficha extra.</strong></p>
+
+  <h2>Por qué necesitas más del 50&nbsp;% para ir all-in</h2>
+  <p>La consecuencia directa: un all-in a cara o cruz te cuesta dinero. Toma al jugador 2 (3000) contra el jugador 1 (4000), que le cubre:</p>
+  <ul>
+    <li><strong>si el jugador 2 gana</strong>, sube a 6000 fichas y su valor pasa de 29,49 a <strong>40,45</strong> (+10,96);</li>
+    <li><strong>si el jugador 2 pierde</strong>, queda eliminado en la burbuja con <strong>0</strong> (−29,49).</li>
+  </ul>
+  <p>Perder cuesta 2,69 veces lo que se gana al ganar: es el <strong>factor burbuja</strong> (bubble factor). La equity mínima para aceptar el all-in es:</p>
+  <p class="formula">equity necesaria = pérdida ÷ (ganancia + pérdida) = 29,49 ÷ (10,96 + 29,49) ≈ 72,9&nbsp;%</p>
+  <p>Contra los demás jugadores, el mismo cálculo da:</p>
+  <div class="odds-scroll" role="region" aria-label="Equity necesaria del jugador 2 en la burbuja" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Jugador 2 contra</th><th scope="col">Fichas en juego</th><th scope="col">Factor burbuja</th><th scope="col">Equity necesaria</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Jugador 1 (4000, le cubre)</th><td>3000</td><td>2,69</td><td>72,9&nbsp;%</td></tr>
+      <tr><th scope="row">Jugador 3 (2000)</th><td>2000</td><td>1,48</td><td>59,7&nbsp;%</td></tr>
+      <tr><th scope="row">Jugador 4 (1000)</th><td>1000</td><td>1,16</td><td>53,7&nbsp;%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>El peligro viene de los jugadores <strong>que te cubren</strong>. Contra el stack corto solo arriesgas parte de tu stack, y el umbral se queda cerca del 50&nbsp;%. Por eso los stacks grandes atacan la burbuja: sus rivales no pueden pagar con manos amplias.</p>
+  <div class="tip"><p style="margin:0"><strong>Sin dinero muerto.</strong> Estos umbrales suponen un bote vacío de partida. En la práctica, las ciegas y los antes ya están en el centro: bajan la equity necesaria, igual que unas buenas <a href="/es/guias/pot-odds-poker/">pot odds</a> (odds del bote). La calculadora te da la base; ajusta a partir de ahí.</p></div>
+
+  <h2>El caso extremo: la burbuja de un satélite</h2>
+  <p>En un satélite, cada puesto pagado gana la misma plaza. El ejemplo de la calculadora: 5 jugadores, 4 plazas, stacks de 3000, 2500, 2000, 1500 y 1000. El jugador de 2500 ya vale 0,89 de una plaza. Ganar un all-in contra el jugador de 3000 apenas le ayuda (0,99); perderlo le cuesta todo. Resultado: necesita un <strong>90,3&nbsp;% de equity</strong>.</p>
+  <p>Ni siquiera AA basta: contra una mano aleatoria, los ases solo tienen alrededor del 85&nbsp;% de equity (mira <a href="/es/guias/varianza-poker/">cuántas veces pierden los ases</a>). En este modelo, <strong>foldear AA es lo correcto</strong>. Es el ejemplo más claro de la diferencia entre fichas y dinero.</p>
+
+  <h2>Cuándo importa de verdad el ICM</h2>
+  <ul>
+    <li><strong>En la burbuja</strong>: ahí es donde la diferencia entre fichas y dinero es mayor.</li>
+    <li><strong>En una mesa final</strong>: cada eliminación sube a todos un salto de premio.</li>
+    <li><strong>En los satélites</strong>: los premios son planos, así que el efecto es máximo.</li>
+    <li><strong>Poco al principio de un torneo</strong>: cuando los premios quedan lejos, las fichas valen casi su peso y piensas en chip-EV.</li>
+    <li><strong>Nunca en cash games</strong>: una ficha vale exactamente su valor nominal.</li>
+  </ul>
+
+  <h2>Los límites del modelo</h2>
+  <p>El ICM es un modelo, no la verdad. Ignora la subida de ciegas, la posición y el nivel de los jugadores: un buen jugador con stack corto vale más de lo que dicen las matemáticas. Al modelo Malmuth-Harville también se le critica que sobrevalora ligeramente los stacks cortos. Las herramientas avanzadas lo corrigen simulando las manos futuras (<em>FGS</em>, Future Game Simulation).</p>
+  <p>Para las decisiones de all-in preflop, ten en cuenta que nuestras <a href="/es/guias/tablas-push-fold/">tablas de push/fold</a> son en chip-EV y heads-up: en la burbuja, el ICM cierra mucho más los rangos para <em>pagar</em> que los rangos para ir all-in.</p>
+
+  <div class="appcta">
+    <h2>El ICM te da el umbral; tu equity tienes que ponerla tú</h2>
+    <p>Saber que necesitas un 73&nbsp;% no sirve de nada si no sabes estimar cuánto vale tu mano contra el rango del otro jugador. <strong>PokerPerf</strong> te entrena para leer tu equity y tu precio de un vistazo, 10 minutos al día, sin promesas milagrosas. La app está disponible en inglés y francés.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Descubre PokerPerf</a>
+  </div>
+
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Qué es el ICM en el poker?</summary><p>El Independent Chip Model convierte los stacks de un torneo en equity de premios, según la estructura de pagos. El modelo Malmuth-Harville supone que tu probabilidad de quedar primero es igual a tu parte de las fichas, y luego aplica la misma regla a los puestos siguientes.</p></details>
+  <details><summary>¿Cómo se calcula el ICM?</summary><p>Para cada jugador, calcula la probabilidad de quedar en cada puesto pagado (1.er puesto = parte de las fichas, y luego la misma regla entre los jugadores que quedan) y multiplícala por el premio de ese puesto. A mano se hace largo a partir de 3 jugadores: para eso está la calculadora.</p></details>
+  <details><summary>¿Qué es el factor burbuja?</summary><p>Es la relación entre lo que pierdes en dinero si pierdes un all-in y lo que ganas si lo ganas. Un factor burbuja de 2 significa que perder cuesta el doble de lo que se gana al ganar. La equity necesaria es entonces factor burbuja ÷ (1 + factor burbuja), o sea el 66,7&nbsp;%.</p></details>
+  <details><summary>¿De verdad hay que foldear AA en la burbuja de un satélite?</summary><p>A veces, sí. Si tu plaza está casi asegurada y un rival que te cubre va all-in, puedes necesitar más del 90&nbsp;% de equity. AA solo tiene alrededor del 85&nbsp;% contra una mano aleatoria: en este modelo, foldear es lo correcto.</p></details>
+  <details><summary>¿Se aplica el ICM a los cash games?</summary><p>No. En un cash game una ficha vale exactamente su valor en dinero y puedes recomprar: piensas en chip-EV, con las pot odds de siempre.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/guias/tablas-push-fold/">Tablas de push/fold</a> · <a href="/es/guias/spr-poker/">Stack-to-pot ratio (SPR)</a> · <a href="/es/guias/varianza-poker/">La varianza del poker en cifras</a> · <a href="/es/calculadora-equity-poker/">Calculadora de equity de poker</a> · <a href="/es/guias/matematicas-poker/">Matemáticas del poker</a> · <a href="/es/metodologia/">Metodología</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Qué es el ICM en el poker?","acceptedAnswer":{"@type":"Answer","text":"El Independent Chip Model convierte los stacks de un torneo en equity de premios, según la estructura de pagos. El modelo Malmuth-Harville supone que tu probabilidad de quedar primero es igual a tu parte de las fichas, y luego aplica la misma regla a los puestos siguientes."}},
+  {"@type":"Question","name":"¿Cómo se calcula el ICM?","acceptedAnswer":{"@type":"Answer","text":"Para cada jugador, calcula la probabilidad de quedar en cada puesto pagado (1.er puesto = parte de las fichas, y luego la misma regla entre los jugadores que quedan) y multiplícala por el premio de ese puesto. A mano se hace largo a partir de 3 jugadores: para eso está la calculadora."}},
+  {"@type":"Question","name":"¿Qué es el factor burbuja?","acceptedAnswer":{"@type":"Answer","text":"Es la relación entre lo que pierdes en dinero si pierdes un all-in y lo que ganas si lo ganas. Un factor burbuja de 2 significa que perder cuesta el doble de lo que se gana al ganar. La equity necesaria es entonces factor burbuja ÷ (1 + factor burbuja), o sea el 66,7 %."}},
+  {"@type":"Question","name":"¿De verdad hay que foldear AA en la burbuja de un satélite?","acceptedAnswer":{"@type":"Answer","text":"A veces, sí. Si tu plaza está casi asegurada y un rival que te cubre va all-in, puedes necesitar más del 90 % de equity. AA solo tiene alrededor del 85 % contra una mano aleatoria: en este modelo, foldear es lo correcto."}},
+  {"@type":"Question","name":"¿Se aplica el ICM a los cash games?","acceptedAnswer":{"@type":"Answer","text":"No. En un cash game una ficha vale exactamente su valor en dinero y puedes recomprar: piensas en chip-EV, con las pot odds de siempre."}}
+]}
+</script>
+<script src="/assets/js/icm-calculator.js" defer></script>

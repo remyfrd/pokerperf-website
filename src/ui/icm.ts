@@ -4,7 +4,7 @@
 // pour un tapis contre chaque adversaire (bubble factor), comparée aux 50 % du chip-EV.
 import { icmEquities, allInRisk, MAX_PLAYERS } from "../icm/icm";
 
-type Lang = "fr" | "en";
+type Lang = "fr" | "en" | "es";
 const STR = {
   fr: {
     payouts: "Prix par place (1re, 2e, 3e…)", payoutsHint: "Montants ou pourcentages, séparés par des espaces ou des virgules.",
@@ -32,6 +32,19 @@ const STR = {
     tooMany: `Maximum ${MAX_PLAYERS} players.`,
     decimal: ".",
   },
+  es: {
+    payouts: "Premios por puesto (1.º, 2.º, 3.º…)", payoutsHint: "Importes o porcentajes, separados por espacios o comas.",
+    players: "Stacks de los jugadores", player: (i: number) => `Jugador ${i}`, stack: "Stack", me: "Soy yo",
+    add: "+ Añadir jugador", remove: "Quitar", removeLabel: (i: number) => `Quitar al jugador ${i}`,
+    presets: "Ejemplos", pBubble: "Burbuja (4 jugadores, 3 premios)", pFt: "Mesa final (6 jugadores)", pSat: "Satélite (5 jugadores, 4 plazas)",
+    thPlayer: "Jugador", thStack: "Stack", thChips: "% de fichas", thIcm: "Valor ICM", thPool: "% de premios",
+    you: "tú", total: "Total",
+    riskTitle: "Tu riesgo all-in", riskIntro: "Equity mínima para pagar (o empujar) un all-in contra cada rival, sin dinero muerto en el bote. En chip-EV sería el 50 %.",
+    thVs: "Contra", thEff: "Fichas en juego", thReq: "Equity necesaria", thBf: "Bubble factor",
+    err: "Introduce al menos un premio y al menos dos stacks mayores que 0.",
+    tooMany: `Máximo ${MAX_PLAYERS} jugadores.`,
+    decimal: ",",
+  },
 };
 
 const PRESETS: Record<string, { payouts: string; stacks: number[]; me: number }> = {
@@ -52,7 +65,7 @@ export function parsePayouts(s: string): number[] {
 export function mountIcm(root: HTMLElement, lang: Lang = "fr") {
   const s = STR[lang] ?? STR.fr;
   const fmt = (x: number, d = 2) => x.toFixed(d).replace(".", s.decimal);
-  const pct = (x: number, d = 1) => `${fmt(x * 100, d)}${lang === "fr" ? " %" : "%"}`;
+  const pct = (x: number, d = 1) => `${fmt(x * 100, d)}${lang !== "en" ? " %" : "%"}`;
   let stacks = PRESETS.bubble.stacks.slice();
   let me = PRESETS.bubble.me;
 
@@ -156,6 +169,6 @@ export function mountIcm(root: HTMLElement, lang: Lang = "fr") {
 
 const target = typeof document !== "undefined" && document.getElementById("icm-calculator");
 if (target) {
-  const lang = ((target as HTMLElement).dataset.lang === "en" ? "en" : "fr") as Lang;
+  const lang = ((["en", "es"].includes((target as HTMLElement).dataset.lang ?? "") ? (target as HTMLElement).dataset.lang : "fr") as Lang);
   mountIcm(target as HTMLElement, lang);
 }

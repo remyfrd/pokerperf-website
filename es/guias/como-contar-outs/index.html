@@ -1,0 +1,110 @@
+---
+layout: article
+lang: es
+title: "Cómo contar outs en poker: tabla de outs, outs limpios y %"
+headline: "Cómo contar outs en poker: la tabla y las trampas"
+description: "Outs en poker explicados: cuántos tiene cada proyecto (color 9, escalera abierta 8, gutshot 4…), outs limpios y sucios, proyectos combinados y su %."
+permalink: /es/guias/como-contar-outs/
+date: 2026-11-12
+last_modified_at: 2026-11-12
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/compter-ses-outs/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/how-to-count-outs/" }
+  - { lang: "es", href: "https://pokerperf.com/es/guias/como-contar-outs/" }
+x_default: "https://pokerperf.com/en/guides/how-to-count-outs/"
+---
+<p class="lead">Tus <strong>outs</strong> son las cartas que te ponen por delante. Contarlos bien es la base de cada decisión con un proyecto: un out de más y pagas cuando pierdes dinero; un out de menos y foldeas manos rentables.</p>
+
+<h2>¿Qué es un out?</h2>
+<p>Un <strong>out</strong> es una carta que sigue en la baraja y que, si sale, te da <strong>la mejor mano</strong>. No «una mano mejor»: una mano <em>ganadora</em>. Esa es la clave: una carta que completa tu proyecto pero le da a tu rival una mano todavía mejor no es un out.</p>
+<p>Para contar, parte de las cartas que no ves: 52 menos tus 2 cartas propias y las 3 del flop dejan <strong>47 cartas desconocidas</strong> en el flop, y <strong>46</strong> en el turn. Las cartas de tus rivales están entre ellas, pero como no sabes cuáles son, las tratas como desconocidas: es la convención detrás de todo cálculo de probabilidades.</p>
+
+<h2>Tabla de outs en poker por proyecto</h2>
+<p>Los proyectos más habituales, con la probabilidad <strong>exacta</strong> de ligar. Lee bien las dos columnas: responden a preguntas distintas.</p>
+<div class="odds-scroll" role="region" aria-label="Tabla de outs en poker por proyecto" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Proyecto</th><th scope="col">Outs</th><th scope="col">1 carta (flop → turn)</th><th scope="col">2 cartas (flop → river)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Proyecto de color + proyecto de escalera abierta</th><td>15</td><td>31,9&nbsp;%</td><td>54,1&nbsp;%</td></tr>
+    <tr><th scope="row">Proyecto de color + gutshot</th><td>12</td><td>25,5&nbsp;%</td><td>45,0&nbsp;%</td></tr>
+    <tr><th scope="row">Proyecto de color</th><td>9</td><td>19,1&nbsp;%</td><td>35,0&nbsp;%</td></tr>
+    <tr><th scope="row">Proyecto de escalera abierta (o doble gutshot)</th><td>8</td><td>17,0&nbsp;%</td><td>31,5&nbsp;%</td></tr>
+    <tr><th scope="row">Dos overcards (para emparejar)</th><td>6</td><td>12,8&nbsp;%</td><td>24,1&nbsp;%</td></tr>
+    <tr><th scope="row">Gutshot (escalera interna)</th><td>4</td><td>8,5&nbsp;%</td><td>16,5&nbsp;%</td></tr>
+    <tr><th scope="row">Doble pareja → full</th><td>4</td><td>8,5&nbsp;%</td><td>16,5&nbsp;%</td></tr>
+    <tr><th scope="row">Una overcard</th><td>3</td><td>6,4&nbsp;%</td><td>12,5&nbsp;%</td></tr>
+    <tr><th scope="row">Pareja de mano → trío (set)</th><td>2</td><td>4,3&nbsp;%</td><td>8,4&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Trío → full o póquer</strong> es un caso aparte, porque el número de outs cambia entre calles. Con un trío (por ejemplo 7-7 en K-7-2), en el flop tienes <strong>7 outs</strong> para el turn (tres reyes, tres doses y el último siete): 14,9&nbsp;%. Si el turn es una carta en blanco, hay una carta más del board que emparejar: <strong>10 outs</strong> para el river, 21,7&nbsp;%.</p>
+
+<div class="tip"><strong>¿Una carta o dos?</strong> La columna «2 cartas» solo vale cuando tienes la <em>seguridad</em> de ver el turn y el river, normalmente cuando tu rival está all-in. Ante una apuesta con más apuestas por venir, tu pago solo compra <strong>una</strong> carta: la columna «1 carta» es la que debes comparar con el precio.</div>
+
+<h2>Outs limpios y outs sucios</h2>
+<p>La tabla supone que cada out te da la mano ganadora. En las manos reales, algunos outs están <strong>sucios</strong>: completan tu proyecto… y también mejoran a tu rival. Las situaciones que debes reconocer:</p>
+
+<h3>La carta que empareja el board</h3>
+<p>Tienes A♥5♥ en K♠7♥2♥ y tu rival tiene trío de sietes. Los nueve corazones parecen buenos, pero el <strong>K♥</strong> empareja el board y le da un full (7-7-7-K-K). Te quedan <strong>8 outs limpios</strong>. E incluso si sale un corazón en el turn, el trío sigue teniendo outs para hacer full en el river.</p>
+
+<h3>La carta que le da color</h3>
+<p>Tienes J♣T♦ en Q♥9♥3♠: una escalera abierta, 8 outs (los ochos y los reyes). Si tu rival tiene proyecto de color, el <strong>8♥</strong> y el <strong>K♥</strong> te dan la escalera pero a él le dan color. Contra él solo tienes <strong>6 outs limpios</strong>.</p>
+
+<h3>Overcards que le dan doble pareja</h3>
+<p>Tienes A♠K♦ en J♣7♥2♠ contra K♣J♦. Crees que tienes 6 outs (tres ases, tres reyes). Pero un rey le da <strong>doble pareja</strong>: tus reyes están muertos. Solo quedan los <strong>3 ases</strong>. Las overcards son los outs más sobrevalorados: contra una pareja con buen kicker, rara vez debes contarlas enteras.</p>
+
+<h3>Proyectos dominados y jugar muerto</h3>
+<p>Tu 7♥6♥ tiene proyecto de color en K♥9♥2♣ y tu rival tiene A♥Q♥: cada corazón que te da color le da a él uno más alto. Tus «9 outs de color» valen <strong>cero</strong>. Peor aún, contra un full ya hecho, tu proyecto de color no puede ganar nunca: <strong>juegas muerto</strong> (drawing dead).</p>
+
+<p>Como no ves las cartas de tu rival, la regla práctica es <strong>descontar</strong>: quita los outs claramente sucios y cuenta como medio out los que solo ganan una parte de las veces (por ejemplo, una overcard cuando tu rival puede tener pareja). Es justo lo que entrena la app PokerPerf en sus ejercicios de outs: detectar primero los outs muertos y luego los medios outs. La app está disponible en inglés y francés.</p>
+
+<h2>Proyectos combinados: no cuentes dos veces</h2>
+<p>Con un proyecto de color <em>y</em> un proyecto de escalera abierta no tienes 9 + 8 = 17 outs. Dos de las 8 cartas de escalera son también de tu palo y ya están contadas en los 9. El total correcto: <strong>9 + 8 − 2 = 15 outs</strong>.</p>
+<p>La misma lógica para un proyecto de color más un gutshot: 9 + 4 − 1 = <strong>12 outs</strong>. Y para un proyecto de color más dos overcards, 9 + 6 = 15 sobre el papel, pero los 6 outs de overcards suelen estar sucios (ver arriba), así que cuenta 12 o menos.</p>
+
+<h2>De outs a porcentajes</h2>
+<p>Una vez contados tus outs, conviértelos en tu probabilidad de ligar. Las fórmulas exactas:</p>
+<ul>
+  <li><strong>Una carta en el flop</strong> (el turn): outs ÷ 47.</li>
+  <li><strong>Una carta en el turn</strong> (el river): outs ÷ 46.</li>
+  <li><strong>Dos cartas, del flop al river</strong>: 1 − [probabilidad de fallar las dos], es decir <span class="formula" style="display:inline-block;padding:2px 8px;">1 − C(47 − outs, 2) ÷ C(47, 2)</span>, donde C(47, 2) = 1081 runouts posibles de dos cartas.</li>
+</ul>
+<p>Ejemplo con un proyecto de color (9 outs): en el turn, 9 ÷ 47 = <strong>19,1&nbsp;%</strong>. Del flop al river, C(38, 2) = 703 de los 1081 runouts no contienen ningún corazón: 1 − 703 ÷ 1081 = <strong>35,0&nbsp;%</strong>.</p>
+
+<h3>El atajo: la regla del 4 y el 2</h3>
+<p>En la mesa, multiplica tus outs por <strong>2</strong> para una carta y por <strong>4</strong> para dos cartas. Comparado con los valores exactos:</p>
+<div class="odds-scroll" role="region" aria-label="Regla del 4 y el 2 comparada con los valores exactos" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Outs</th><th scope="col">1 carta exacto (÷ 47)</th><th scope="col">× 2</th><th scope="col">2 cartas exacto</th><th scope="col">× 4</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">4</th><td>8,5&nbsp;%</td><td class="approx">8&nbsp;%</td><td>16,5&nbsp;%</td><td class="approx">16&nbsp;%</td></tr>
+    <tr><th scope="row">6</th><td>12,8&nbsp;%</td><td class="approx">12&nbsp;%</td><td>24,1&nbsp;%</td><td class="approx">24&nbsp;%</td></tr>
+    <tr><th scope="row">8</th><td>17,0&nbsp;%</td><td class="approx">16&nbsp;%</td><td>31,5&nbsp;%</td><td class="approx">32&nbsp;%</td></tr>
+    <tr><th scope="row">9</th><td>19,1&nbsp;%</td><td class="approx">18&nbsp;%</td><td>35,0&nbsp;%</td><td class="approx">36&nbsp;%</td></tr>
+    <tr><th scope="row">12</th><td>25,5&nbsp;%</td><td class="approx">24&nbsp;%</td><td>45,0&nbsp;%</td><td class="approx">48&nbsp;%</td></tr>
+    <tr><th scope="row">15</th><td>31,9&nbsp;%</td><td class="approx">30&nbsp;%</td><td>54,1&nbsp;%</td><td class="approx">60&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Hasta 8–9 outs la aproximación es excelente. Por encima, ×4 sobreestima claramente (60&nbsp;% anunciado frente a 54&nbsp;% real con 15 outs). Tienes los detalles en nuestra guía de la <a href="/es/guias/regla-4-y-2/">regla del 4 y el 2</a>, y todos los valores de 1 a 20 outs en la <a href="/es/guias/chuleta-odds-poker/">chuleta de odds de poker para imprimir</a>.</p>
+
+<h2>De outs a una decisión</h2>
+<p>Tu probabilidad de ligar solo importa cuando la comparas con el precio del pago: son las <a href="/es/guias/pot-odds-poker/">pot odds</a> (odds del bote). Si no llegan, la pregunta que queda es cuánto ganarás <em>después</em> de ligar: las <a href="/es/guias/odds-implicitas/">odds implícitas</a>. Para comprobar una situación concreta contra manos reales del rival, usa la <a href="/es/calculadora-equity-poker/">calculadora de equity de poker</a>.</p>
+
+<h2>Preguntas frecuentes</h2>
+<details><summary>¿Cuántos outs tiene un proyecto de color?</summary><p>Nueve: cada palo tiene 13 cartas, ves 4 (2 en tu mano, 2 en el board), así que quedan 9. Eso da un 19,1&nbsp;% de ligar en el turn y un 35,0&nbsp;% del flop al river si ves las dos cartas.</p></details>
+<details><summary>¿Qué es un out sucio?</summary><p>Un out que completa tu proyecto pero también le da a tu rival una mano mejor: una carta de color que le da full, una carta de escalera que le da color, una overcard que le da doble pareja. Quítalos de tu cuenta o, si dudas, cuéntalos como medio out.</p></details>
+<details><summary>¿Cuántos outs con proyecto de color y proyecto de escalera?</summary><p>Quince con escalera abierta (9 + 8 − 2, porque dos cartas de escalera ya están contadas en el color) y doce con gutshot (9 + 4 − 1).</p></details>
+<details><summary>¿Cómo se pasan los outs a porcentaje?</summary><p>Para una carta: outs ÷ 47 en el flop, outs ÷ 46 en el turn. Para dos cartas: 1 − C(47 − outs, 2) ÷ C(47, 2). De cabeza, la regla del 4 y el 2 es una buena aproximación hasta unos 9 outs.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/guias/chuleta-odds-poker/">Chuleta de odds de poker</a> · <a href="/es/guias/odds-implicitas/">Odds implícitas</a> · <a href="/es/guias/regla-4-y-2/">Regla del 4 y el 2</a> · <a href="/es/calculadora-equity-poker/">Calculadora de equity de poker</a> · <a href="/es/guias/blockers-poker/">Blockers en poker</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Cuántos outs tiene un proyecto de color?","acceptedAnswer":{"@type":"Answer","text":"Nueve: cada palo tiene 13 cartas, ves 4 (2 en tu mano, 2 en el board), así que quedan 9. Eso da un 19,1 % de ligar en el turn y un 35,0 % del flop al river si ves las dos cartas."}},
+  {"@type":"Question","name":"¿Qué es un out sucio?","acceptedAnswer":{"@type":"Answer","text":"Un out que completa tu proyecto pero también le da a tu rival una mano mejor: una carta de color que le da full, una carta de escalera que le da color, una overcard que le da doble pareja. Quítalos de tu cuenta o, si dudas, cuéntalos como medio out."}},
+  {"@type":"Question","name":"¿Cuántos outs con proyecto de color y proyecto de escalera?","acceptedAnswer":{"@type":"Answer","text":"Quince con escalera abierta (9 + 8 − 2, porque dos cartas de escalera ya están contadas en el color) y doce con gutshot (9 + 4 − 1)."}},
+  {"@type":"Question","name":"¿Cómo se pasan los outs a porcentaje?","acceptedAnswer":{"@type":"Answer","text":"Para una carta: outs ÷ 47 en el flop, outs ÷ 46 en el turn. Para dos cartas: 1 − C(47 − outs, 2) ÷ C(47, 2). De cabeza, la regla del 4 y el 2 es una buena aproximación hasta unos 9 outs."}}
+]}
+</script>

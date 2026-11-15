@@ -1,0 +1,70 @@
+---
+layout: default
+lang: es
+title: "Calculadora de pot odds de poker: ¿pagar o foldear? (gratis)"
+description: "Calculadora de pot odds gratis: introduce el bote y la apuesta y obtén tus pot odds, la equity necesaria para pagar y un veredicto con EV. Con tabla de tamaños."
+permalink: /es/calculadora-pot-odds/
+webapp: "Calculadora de pot odds de poker"
+last_modified_at: 2026-11-12
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/cote-du-pot/" }
+  - { lang: "en", href: "https://pokerperf.com/en/pot-odds-calculator/" }
+  - { lang: "es", href: "https://pokerperf.com/es/calculadora-pot-odds/" }
+x_default: "https://pokerperf.com/en/pot-odds-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculadora de pot odds de poker</h1>
+  <p class="lead">Introduce el <strong>bote</strong> y la <strong>apuesta que debes pagar</strong>: obtienes tus <strong>pot odds</strong> (las odds del bote) y la <strong>equity necesaria</strong> (tu parte del bote) para que pagar sea rentable. Añade tu equity (o tus outs) y la calculadora decide: <strong>pagar o foldear</strong>, con el EV. Gratis, sin registro.</p>
+
+  <div id="pot-odds" data-lang="es"></div>
+
+  <h2>¿Qué son las pot odds?</h2>
+  <p>Las <strong>pot odds</strong> comparan lo que puedes ganar con lo que te cuesta pagar. Se traducen en una <strong>equity necesaria</strong>: el porcentaje mínimo de veces que debes ganar la mano para que pagar sea rentable. La regla: <strong>pagas cuando tu equity supera la equity necesaria</strong>.</p>
+
+  <h2>Cómo calcularlas</h2>
+  <p>Equity necesaria = apuesta que pagar ÷ (bote + apuesta + apuesta). Ejemplo: un bote de $100 y una apuesta de $50 → 50&nbsp;/&nbsp;(100&nbsp;+&nbsp;50&nbsp;+&nbsp;50)&nbsp;=&nbsp;<strong>25&nbsp;%</strong>. Solo necesitas que tu equity real supere ese umbral.</p>
+
+  <h2>Tabla de pot odds: tamaños de apuesta habituales</h2>
+  <p>Te vas a encontrar los mismos tamaños de apuesta una y otra vez. Apréndete estos umbrales y no tendrás que dividir nunca en la mesa:</p>
+  <table>
+    <thead><tr><th>Apuesta que enfrentas</th><th>Pot odds</th><th>Equity necesaria para pagar</th></tr></thead>
+    <tbody>
+      <tr><td>¼ de bote</td><td>5 a 1</td><td>16,7&nbsp;%</td></tr>
+      <tr><td>⅓ de bote</td><td>4 a 1</td><td>20&nbsp;%</td></tr>
+      <tr><td>½ bote</td><td>3 a 1</td><td>25&nbsp;%</td></tr>
+      <tr><td>⅔ de bote</td><td>2,5 a 1</td><td>28,6&nbsp;%</td></tr>
+      <tr><td>¾ de bote</td><td>2,33 a 1</td><td>30&nbsp;%</td></tr>
+      <tr><td>Bote</td><td>2 a 1</td><td>33,3&nbsp;%</td></tr>
+      <tr><td>2× bote (overbet)</td><td>1,5 a 1</td><td>40&nbsp;%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <p style="margin:0"><strong>De los outs a la decisión.</strong> ¿No tienes clara tu equity? Cuenta tus outs y usa la <strong>regla del 4 y el 2</strong> (×4 en el flop, ×2 para una sola carta). Frente a una apuesta de ½ bote (25&nbsp;% necesario): un proyecto de color = 9 outs ≈ 36&nbsp;% <em>si tu rival está all-in</em> (ves 2 cartas) → pagas; pero ≈ 18&nbsp;% si no lo está (solo pagas por ver el turn) → foldeas con las odds directas. La calculadora lo hace por ti con la opción «mis outs».</p>
+  </div>
+
+  <div class="appcta">
+    <h2>Decide rápido, en la mesa</h2>
+    <p>Aquí calculas a tu ritmo; en juego tienes que decidir en segundos. <strong>PokerPerf</strong> entrena ese reflejo (pot odds, equity y outs) hasta que sale solo, 10 min al día. La app está disponible en inglés y francés.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Descubre PokerPerf</a>
+  </div>
+
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Cómo calculo las pot odds?</summary><p>Divide la apuesta que debes pagar entre el bote final (bote + la apuesta + tu pago): el resultado es la equity mínima necesaria para que pagar sea rentable.</p></details>
+  <details><summary>¿Qué equity necesito para pagar con un proyecto de color?</summary><p>Un proyecto de color vale alrededor de un 36&nbsp;% en el flop (9 outs, regla del 4). Pagas siempre que la equity necesaria esté por debajo.</p></details>
+  <details><summary>Pot odds vs equity: ¿cuál es la diferencia?</summary><p>La equity es tu probabilidad de ganar la mano; las pot odds fijan el umbral que hay que superar. Pagas cuando tu equity supera tus pot odds.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/calculadora-equity-poker/">Calculadora de equity de poker</a> · <a href="/es/calculadora-semifarol/">Calculadora de EV del semifarol</a> · <a href="/es/guias/pot-odds-poker/">Guía de pot odds</a> · <a href="/es/">la app PokerPerf</a> · <a href="/es/guias/odds-implicitas/">Odds implícitas</a> · <a href="/es/guias/chuleta-odds-poker/">Chuleta de odds de poker</a> · <a href="/es/guias/matematicas-poker/">Matemáticas del poker</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"¿Cómo calculo las pot odds?","acceptedAnswer":{"@type":"Answer","text":"Divide la apuesta que debes pagar entre el bote final (bote + la apuesta + tu pago): el resultado es la equity mínima necesaria para que pagar sea rentable."}},
+    {"@type":"Question","name":"¿Qué equity necesito para pagar con un proyecto de color?","acceptedAnswer":{"@type":"Answer","text":"Un proyecto de color vale alrededor de un 36 % en el flop (9 outs, regla del 4). Pagas siempre que la equity necesaria esté por debajo."}},
+    {"@type":"Question","name":"Pot odds vs equity: ¿cuál es la diferencia?","acceptedAnswer":{"@type":"Answer","text":"La equity es tu probabilidad de ganar la mano; las pot odds fijan el umbral que hay que superar. Pagas cuando tu equity supera tus pot odds."}}
+  ]
+}
+</script>
+<script src="/assets/js/pot-odds.js" defer></script>

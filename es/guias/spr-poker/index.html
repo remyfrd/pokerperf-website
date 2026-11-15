@@ -1,0 +1,111 @@
+---
+layout: article
+lang: es
+title: "SPR en el póker (stack-to-pot ratio): ¿cuándo estás comprometido?"
+headline: "SPR: sabe antes del turn si estás comprometido"
+description: "El SPR en el póker explicado: fórmula del stack-to-pot ratio, equity necesaria para pagar un all-in según el SPR, SPR típico según la acción preflop y top pair."
+permalink: /es/guias/spr-poker/
+date: 2026-11-14
+last_modified_at: 2026-11-14
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/spr-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/stack-to-pot-ratio/" }
+  - { lang: "es", href: "https://pokerperf.com/es/guias/spr-poker/" }
+x_default: "https://pokerperf.com/en/guides/stack-to-pot-ratio/"
+---
+<p class="lead">Tienes top pair con el mejor kicker, tu rival va all-in en el turn y te quedas bloqueado. La mayoría de las veces la respuesta ya se conocía en el flop. El <strong>SPR</strong> (<em>stack-to-pot ratio</em>, la relación entre stack y bote) te dice cuántas apuestas quedan por jugar y, por tanto, si tu mano ya está comprometida.</p>
+
+<h2>¿Qué es el SPR?</h2>
+<p>El SPR se mide <strong>en el flop</strong>, una vez terminadas las apuestas preflop:</p>
+<p class="formula">SPR = stack efectivo ÷ bote en el flop</p>
+<p>El <strong>stack efectivo</strong> es el más pequeño de los stacks en juego: si tú tienes 200 y tu rival 80, solo pueden entrar 80 entre los dos. Ejemplo: un bote de 20 en el flop con 90 efectivos → SPR = 90 ÷ 20 = <strong>4,5</strong>.</p>
+<p>Un SPR de 1 significa que una sola apuesta del tamaño del bote pone a todos all-in. Un SPR de 15 significa que hacen falta varias apuestas grandes, en varias calles, para llegar ahí.</p>
+
+<h2>Las matemáticas que importan: la equity para pagar un all-in</h2>
+<p>¿Por qué el SPR decide el compromiso? Supón que tu rival mete todo su stack efectivo <strong>S</strong> en un bote <strong>P</strong>. Pagas S para un bote final de P + 2S. Igual que con las <a href="/es/guias/pot-odds-poker/">pot odds</a> (odds del bote), la equity (tu parte del bote) mínima para pagar es:</p>
+<p class="formula">equity necesaria = S ÷ (P + 2S) = SPR ÷ (1 + 2 × SPR)</p>
+<p>Depende solo del SPR:</p>
+<div class="odds-scroll" role="region" aria-label="Equity mínima para pagar un all-in según el SPR" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">SPR</th><th scope="col">Equity mínima para pagar el all-in</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">0,5</th><td>25&nbsp;%</td></tr>
+    <tr><th scope="row">0,75</th><td>30&nbsp;%</td></tr>
+    <tr><th scope="row">1</th><td>33,3&nbsp;%</td></tr>
+    <tr><th scope="row">2</th><td>40&nbsp;%</td></tr>
+    <tr><th scope="row">3</th><td>42,9&nbsp;%</td></tr>
+    <tr><th scope="row">4</th><td>44,4&nbsp;%</td></tr>
+    <tr><th scope="row">6</th><td>46,2&nbsp;%</td></tr>
+    <tr><th scope="row">10</th><td>47,6&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Con un SPR bajo, el dinero que ya está en el centro pesa mucho: basta con un tercio de equity (o menos) para pagar. Con un SPR alto, el umbral se acerca al 50&nbsp;%. Y sobre todo, todavía quedan varias apuestas por llegar: un jugador que mete 100 ciegas grandes a lo largo de tres calles tiene un rango mucho más fuerte que uno que va all-in con 30 ciegas grandes en el flop.</p>
+
+<h2>Ejemplo: top pair con el mejor kicker</h2>
+<p>Tienes <strong>A♠K♦</strong> en un flop <strong>K♥9♥4♣</strong>. Equity exacta (todos los turns y rivers posibles enumerados) contra algunas manos:</p>
+<div class="odds-scroll" role="region" aria-label="Equity de A♠K♦ en K♥9♥4♣ contra varias manos" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Mano del rival</th><th scope="col">Tu equity con A♠K♦</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Q♣Q♦ (pareja inferior)</th><td>89,6&nbsp;%</td></tr>
+    <tr><th scope="row">K♣Q♠ (misma pareja, peor kicker)</th><td>85,7&nbsp;%</td></tr>
+    <tr><th scope="row">A♥Q♥ (proyecto de color máximo)</th><td>62,8&nbsp;%</td></tr>
+    <tr><th scope="row">J♥T♥ (proyecto de color + escalera)</th><td>51,7&nbsp;%</td></tr>
+    <tr><th scope="row">9♠9♦ (trío)</th><td>1,6&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Con SPR 1</strong> necesitas un 33&nbsp;%. Vas por delante de todas estas manos salvo el trío, y ni siquiera el proyecto más grande te deja por debajo de la línea. Estás comprometido: apuesta y paga el all-in sin pensarlo dos veces. Foldear sería un error grave.</p>
+<p><strong>Con SPR 12</strong> la pregunta cambia. Para meter 100 ciegas grandes, tu rival tiene que apostar o subir en varias calles. No todos los proyectos ni todos los KQ llegarán tan lejos; los tríos y las dobles parejas, sí. Top pair sigue siendo una buena mano, pero ya no es un stack-off automático.</p>
+<div class="tip"><strong>Un spot clásico:</strong> el bote en el flop es de 188 y te quedan 140 detrás. SPR = 140 ÷ 188 ≈ 0,74. Solo necesitas alrededor de un <strong>30&nbsp;%</strong> de equity para pagar un all-in. Con top pair y el mejor kicker, perder esa mano contra un trío no es un error, es un cooler. La verdadera decisión se tomó preflop y en el flop.</div>
+
+<h2>El SPR según la acción preflop</h2>
+<p>El SPR no sale de la nada: se deriva de lo que pasó preflop. Con stacks de 100 ciegas grandes en cash game (cifras aproximadas, ciegas incluidas):</p>
+<div class="odds-scroll" role="region" aria-label="SPR típico según la acción preflop" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Acción preflop</th><th scope="col">Bote en el flop</th><th scope="col">Stack detrás</th><th scope="col">SPR</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Open a 2,5 bb, la BB paga</th><td>5,5 bb</td><td>97,5 bb</td><td>≈ 18</td></tr>
+    <tr><th scope="row">Open a 2,5 bb, el botón paga</th><td>6,5 bb</td><td>97,5 bb</td><td>≈ 15</td></tr>
+    <tr><th scope="row">3-bet a 9 bb, pagado</th><td>19,5 bb</td><td>91 bb</td><td>≈ 4,7</td></tr>
+    <tr><th scope="row">4-bet a 22 bb, pagado</th><td>45,5 bb</td><td>78 bb</td><td>≈ 1,7</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Quédate con el esquema general: <strong>bote con una sola subida = SPR alto</strong> (más de 10), <strong>bote de 3-bet = SPR medio</strong> (de 4 a 5), <strong>bote de 4-bet = SPR bajo</strong> (menos de 2). En torneos, con 20 o 30 ciegas grandes, incluso un bote con una sola subida suele tener un SPR de 3 a 5.</p>
+
+<h2>Referencias prácticas</h2>
+<p>El SPR lo popularizó el libro <em>Professional No-Limit Hold'em</em> (Flynn, Mehta y Miller, 2007). Las referencias que salen de él son puntos de partida, no leyes:</p>
+<ul>
+  <li><strong>SPR por debajo de 3</strong>: top pair con buen kicker y las overpairs son manos de stack-off. Quieres meter el dinero, no controlar el bote.</li>
+  <li><strong>SPR de 3 a 6</strong>: zona gris. Top pair puede ir all-in contra un jugador agresivo, pero una subida grande de un jugador prudente merece pensarlo.</li>
+  <li><strong>SPR por encima de 6</strong>: para meter todo el stack sueles querer doble pareja o más. Con una pareja, juegas para ganar un bote mediano.</li>
+</ul>
+<p>Estas líneas se mueven según el rival: contra alguien que se tira muchos faroles puedes comprometerte con menos; contra alguien que solo sube con lo mejor de su rango, con más.</p>
+
+<h2>Cómo usarlo en la mesa</h2>
+<ul>
+  <li><strong>Calcúlalo al ver el flop.</strong> Stack efectivo ÷ bote, basta con una división aproximada: «me queda más o menos un bote» o «me quedan cinco botes».</li>
+  <li><strong>Haz tu plan enseguida.</strong> Si el SPR es bajo y tu mano es lo bastante fuerte, planea meterlo todo: apostar y luego foldear ante una subida con medio bote por detrás es casi siempre un error.</li>
+  <li><strong>Prepáralo preflop.</strong> El tamaño de tu 3-bet fija el SPR del flop. Con una mano a la que le gusta el SPR bajo (una pareja alta), un 3-bet más grande simplifica las decisiones postflop.</li>
+  <li><strong>Atento al stack efectivo.</strong> Contra un jugador con 30 ciegas grandes, tu stack de 200 da igual.</li>
+</ul>
+
+<h2>Preguntas frecuentes</h2>
+<details><summary>¿Cómo se calcula el SPR en el póker?</summary><p>Divide el stack efectivo (el más pequeño de los stacks en juego) por el tamaño del bote en el flop. Ejemplo: 90 efectivos con un bote de 20 en el flop → SPR de 4,5.</p></details>
+<details><summary>¿Con qué SPR está comprometido top pair?</summary><p>Por debajo de 3 más o menos, top pair con buen kicker suele ser una mano de stack-off: solo necesitas entre un 33 y un 43&nbsp;% de equity para pagar un all-in, y la tiene contra la mayoría de rangos. Por encima de 6, en general quieres doble pareja o más para meter todo el stack.</p></details>
+<details><summary>¿Cuánta equity necesitas para pagar un all-in con un SPR dado?</summary><p>Equity necesaria = SPR ÷ (1 + 2 × SPR). Es un 25&nbsp;% con SPR 0,5, un 33&nbsp;% con SPR 1, un 40&nbsp;% con SPR 2, un 43&nbsp;% con SPR 3, y se acerca al 50&nbsp;% a medida que sube el SPR.</p></details>
+<details><summary>¿Cuál es el SPR típico en un bote de 3-bet?</summary><p>Con stacks de 100 ciegas grandes y un 3-bet a unas 9 ciegas grandes pagado, el bote en el flop ronda las 19 ciegas grandes con 91 detrás: un SPR de 4 a 5 más o menos. Un bote con una sola subida supera 15; un bote de 4-bet baja de 2.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/guias/pot-odds-poker/">Pot odds</a> · <a href="/es/guias/odds-implicitas/">Odds implícitas</a> · <a href="/es/guias/varianza-poker/">La varianza en el póker en cifras</a> · <a href="/es/calculadora-equity-poker/">Calculadora de equity de póker</a> · <a href="/es/calculadora-pot-odds/">Calculadora de pot odds</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Cómo se calcula el SPR en el póker?","acceptedAnswer":{"@type":"Answer","text":"Divide el stack efectivo (el más pequeño de los stacks en juego) por el tamaño del bote en el flop. Ejemplo: 90 efectivos con un bote de 20 en el flop → SPR de 4,5."}},
+  {"@type":"Question","name":"¿Con qué SPR está comprometido top pair?","acceptedAnswer":{"@type":"Answer","text":"Por debajo de 3 más o menos, top pair con buen kicker suele ser una mano de stack-off: solo necesitas entre un 33 y un 43 % de equity para pagar un all-in, y la tiene contra la mayoría de rangos. Por encima de 6, en general quieres doble pareja o más para meter todo el stack."}},
+  {"@type":"Question","name":"¿Cuánta equity necesitas para pagar un all-in con un SPR dado?","acceptedAnswer":{"@type":"Answer","text":"Equity necesaria = SPR ÷ (1 + 2 × SPR). Es un 25 % con SPR 0,5, un 33 % con SPR 1, un 40 % con SPR 2, un 43 % con SPR 3, y se acerca al 50 % a medida que sube el SPR."}},
+  {"@type":"Question","name":"¿Cuál es el SPR típico en un bote de 3-bet?","acceptedAnswer":{"@type":"Answer","text":"Con stacks de 100 ciegas grandes y un 3-bet a unas 9 ciegas grandes pagado, el bote en el flop ronda las 19 ciegas grandes con 91 detrás: un SPR de 4 a 5 más o menos. Un bote con una sola subida supera 15; un bote de 4-bet baja de 2."}}
+]}
+</script>

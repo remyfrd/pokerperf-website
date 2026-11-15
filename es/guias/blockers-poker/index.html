@@ -1,0 +1,148 @@
+---
+layout: article
+lang: es
+title: "Blockers en el póker: el efecto de tus cartas, explicado"
+headline: "Blockers en el póker: lo que tus cartas le quitan a tu rival"
+description: "Blockers en el póker: cómo tus cartas quitan combos del rango rival. Cálculos exactos, faroles, pagar, el 4-bet con A5s y sus límites."
+permalink: /es/guias/blockers-poker/
+date: 2026-11-13
+last_modified_at: 2026-11-13
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/bloqueurs-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/poker-blockers/" }
+  - { lang: "es", href: "https://pokerperf.com/es/guias/blockers-poker/" }
+x_default: "https://pokerperf.com/en/guides/poker-blockers/"
+---
+<p class="lead">Un <strong>blocker</strong> (bloqueador) es una carta de tu mano que, por eso mismo, tu rival <strong>no puede</strong> tener: algunas manos de su rango se vuelven más raras. Es el <strong>efecto de eliminación de cartas</strong> (<em>card removal</em>) y, bien usado, te ayuda a elegir <em>con qué</em> manos tirarte un farol o pagar cuando dos opciones están muy igualadas.</p>
+
+<p>Hace poco, en un foro de teoría de póker, un jugador preguntaba por qué un solver prefiere pasar (check) con <strong>K♦&nbsp;Q♥</strong> pero no con <strong>K♣&nbsp;Q♠</strong> en un turn <strong>K♠&nbsp;9♠&nbsp;3♣&nbsp;6♣</strong>. Misma pareja, mismo kicker… decisión distinta. La respuesta cabe en una palabra: blockers. Analizamos ese spot más abajo, cuando tengamos las bases.</p>
+
+<p><em>Notación: cada carta se escribe con su valor y el símbolo de su palo (A♠ = As de picas, K♥ = Rey de corazones, Q♦ = Dama de diamantes, J♣ = Jota de tréboles). Todas las cifras de esta guía salen de una enumeración exacta de combinaciones.</em></p>
+
+<h2>Los combos: la base</h2>
+<p>Para entender los blockers tienes que pensar en <strong>combos</strong>: combinaciones concretas de dos cartas. Una baraja de 52 cartas da <strong>1326</strong> manos iniciales posibles. Cada «mano» del lenguaje cotidiano agrupa varios combos:</p>
+<ul>
+  <li>una <strong>pareja de mano</strong> (AA, 77…): <strong>6 combos</strong> (elegir 2 palos de 4);</li>
+  <li>una mano <strong>suited</strong> (del mismo palo: AKs, 76s…): <strong>4 combos</strong> (uno por palo);</li>
+  <li>una mano <strong>offsuit</strong> (de distinto palo: AKo…): <strong>12 combos</strong>.</li>
+</ul>
+<p>Así que AK, contando todos los palos, son 4&nbsp;+&nbsp;12 = <strong>16 combos</strong>. Si quieres repasarlo, nuestra guía de <a href="/es/guias/manos-iniciales/">manos iniciales de póker</a> lo explica en detalle.</p>
+<p>La clave es esta: en cuanto <strong>tú</strong> tienes una carta, desaparece de la baraja de tu rival. Con un As en tu mano, solo le quedan 3 Ases. Sus AA bajan de 6 a <strong>3</strong> combos (elegir 2 Ases entre 3 en lugar de 4), y sus AK de 16 a <strong>12</strong>.</p>
+
+<div class="odds-scroll" role="region" aria-label="Combos del rival según tu mano" tabindex="0">
+<table class="num">
+  <caption>Combos que le quedan a tu rival según las cartas que tienes</caption>
+  <thead><tr><th scope="col">Tu mano</th><th scope="col">AA</th><th scope="col">KK</th><th scope="col">QQ</th><th scope="col">AK</th><th scope="col">AQ</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Ninguna carta conocida</th><td>6</td><td>6</td><td>6</td><td>16</td><td>16</td></tr>
+    <tr><th scope="row">Un As (p.&nbsp;ej.&nbsp;A♦&nbsp;5♦)</th><td>3</td><td>6</td><td>6</td><td>12</td><td>12</td></tr>
+    <tr><th scope="row">Un Rey (p.&nbsp;ej.&nbsp;K♦&nbsp;5♦)</th><td>6</td><td>3</td><td>6</td><td>12</td><td>16</td></tr>
+    <tr><th scope="row">A♦&nbsp;K♣</th><td>3</td><td>3</td><td>6</td><td>9</td><td>12</td></tr>
+    <tr><th scope="row">A♦&nbsp;A♣</th><td>1</td><td>6</td><td>6</td><td>8</td><td>8</td></tr>
+    <tr><th scope="row">7♦&nbsp;6♦</th><td>6</td><td>6</td><td>6</td><td>16</td><td>16</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Dos reglas para recordar: una carta de un valor <strong>divide por dos</strong> las parejas de mano de ese valor (6 → 3) y quita <strong>una cuarta parte</strong> de los combos sin pareja que la contienen (16 → 12). Una mano pequeña como 7♦&nbsp;6♦ no bloquea ninguna de estas.</p>
+
+<h2>Uso n.º 1: el farol con el blocker adecuado</h2>
+<p>Cuando te tiras un farol, quieres que tu rival se retire. Las manos que nunca van a foldear son las más fuertes. Por eso un buen farol suele ser una mano que <strong>quita sus mejores manos</strong> de su rango.</p>
+<p>Toma un flop <strong>monocolor</strong>: Q♠&nbsp;8♠&nbsp;4♠. ¿Cuántos colores (dos picas en mano) puede tener tu rival?</p>
+<div class="odds-scroll" role="region" aria-label="Colores del rival en Q♠ 8♠ 4♠" tabindex="0">
+<table class="num">
+  <caption>Combos de color del rival en Q♠&nbsp;8♠&nbsp;4♠</caption>
+  <thead><tr><th scope="col">Tu mano</th><th scope="col">Colores posibles</th><th scope="col">De ellos, color máximo (con A♠)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">A♦&nbsp;J♦ (sin picas)</th><td>45</td><td>9</td></tr>
+    <tr><th scope="row">A♠&nbsp;J♦</th><td>36</td><td>0</td></tr>
+    <tr><th scope="row">K♠&nbsp;J♦</th><td>36</td><td>8</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Tener el <strong>A♠</strong> cambia dos cosas: sus colores bajan de 45 a <strong>36</strong> combos (una quinta parte menos) y, sobre todo, ya no puede tener el <strong>color máximo</strong> (<em>nut flush</em>). Su mejor color posible es ahora al Rey. Cuando metes presión, sabes que no te espera ninguna mano imbatible, y conservas la opción de ligar tú el color máximo si cae una cuarta pica.</p>
+<p>La misma lógica vale en el river: si la única mano que nunca foldea es la escalera máxima o el color máximo, tener una carta que la forma le da a tu farol un poco más de credibilidad y un poco menos de riesgo. No «sabes» que no la tiene: sabes que la tiene <em>menos a menudo</em>.</p>
+
+<h2>Uso n.º 2: pagar (o no) una apuesta grande</h2>
+<p>Para pagar, la lógica se invierte. Quieres que tu rival tenga <strong>muchos faroles</strong> y <strong>pocas manos de valor</strong>. Las mejores cartas para pagar bloquean sus manos de valor y <strong>no bloquean</strong> sus faroles.</p>
+<p>Ejemplo: el board final es <strong>K♥&nbsp;9♥&nbsp;5♣&nbsp;2♠&nbsp;2♦</strong>. El proyecto de color a corazones no ha entrado. Tu rival apuesta fuerte, y sus faroles naturales son justo esos proyectos de corazones fallados. Tienes top pair con kicker Dama. Compara dos versiones de tu mano:</p>
+<div class="odds-scroll" role="region" aria-label="Proyectos de corazones fallados según tu mano" tabindex="0">
+<table class="num">
+  <caption>Faroles (proyectos de corazones fallados) y AK de tu rival en K♥&nbsp;9♥&nbsp;5♣&nbsp;2♠&nbsp;2♦</caption>
+  <thead><tr><th scope="col">Tu mano</th><th scope="col">Proyectos de corazones fallados (sin pareja)</th><th scope="col">AK del rival</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">K♣&nbsp;Q♦</th><td>36</td><td>8</td></tr>
+    <tr><th scope="row">K♣&nbsp;Q♥</th><td>28</td><td>8</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Con la <strong>Q♥</strong>, tú mismo quitas 8 de sus 36 faroles posibles (más de uno de cada cinco) sin tocar su valor: sus AK se quedan en 8 combos en ambos casos (tu K♣ y el K♥ del board ya quitaron la mitad). Cuando tienes el corazón, su rango tiene proporcionalmente <em>más</em> valor. Con la misma fuerza de mano, <strong>K♣&nbsp;Q♦ es mejor para pagar que K♣&nbsp;Q♥</strong>.</p>
+<p>Tu Rey también cuenta: si tuvieras pareja de Damas (Q♣&nbsp;Q♦), le quedarían <strong>12</strong> combos de AK en lugar de 8. Tener el Rey bloquea parte de las manos que te ganan.</p>
+
+<h2>Uso n.º 3: el 4-bet de farol con A5s</h2>
+<p>Es el uso más conocido. Ante un 3-bet, ¿por qué tantos jugadores eligen <strong>A5s</strong> para sus 4-bets de farol en lugar de 76s? Porque el As quita combos de las manos que no van a foldear.</p>
+<p>Toma un rango «sólido» para continuar ante un 4-bet: <strong>AA, KK, QQ, JJ y AK</strong>. Sin ninguna carta conocida, son 4&nbsp;×&nbsp;6&nbsp;+&nbsp;16 = <strong>40 combos</strong>.</p>
+<div class="odds-scroll" role="region" aria-label="Rango AA-JJ más AK según tu mano" tabindex="0">
+<table class="num">
+  <caption>Combos del rango rival según tu mano</caption>
+  <thead><tr><th scope="col">Tu mano</th><th scope="col">AA–JJ + AK</th><th scope="col">Solo AA, KK, AK</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">7♦&nbsp;6♦</th><td>40</td><td>28</td></tr>
+    <tr><th scope="row">A♦&nbsp;5♦</th><td>33</td><td>21</td></tr>
+    <tr><th scope="row">K♦&nbsp;5♦</th><td>33</td><td>21</td></tr>
+    <tr><th scope="row">A♦&nbsp;Q♣</th><td>30</td><td>21</td></tr>
+    <tr><th scope="row">A♦&nbsp;K♣</th><td>27</td><td>15</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Con A5s, su rango fuerte pasa de 40 a <strong>33</strong> combos (un 17,5&nbsp;% menos), y su rango más cerrado (AA, KK, AK) de 28 a <strong>21</strong>: una cuarta parte menos. Con AK en mano, los 40 combos bajan a <strong>27</strong>: es la cifra que se cita a menudo, y es exacta (AA&nbsp;3 + KK&nbsp;3 + QQ&nbsp;6 + JJ&nbsp;6 + AK&nbsp;9).</p>
+<p>¿Por qué A5s y no A9o, que bloquea lo mismo? Porque la eliminación de cartas es solo una parte de la historia. Cuando te pagan el 4-bet, A5s sigue siendo jugable: proyectos de color y la rueda (A-2-3-4-5). El As bloquea, el resto de la mano juega. Para situar estas manos en una estrategia completa, consulta nuestra guía de <a href="/es/guias/rangos-preflop/">rangos preflop</a>.</p>
+
+<h2>El spot K♦&nbsp;Q♥ contra K♣&nbsp;Q♠ en K♠&nbsp;9♠&nbsp;3♣&nbsp;6♣</h2>
+<p>Volvamos a la pregunta del principio. El turn K♠&nbsp;9♠&nbsp;3♣&nbsp;6♣ tiene <strong>dos proyectos de color</strong>: picas y tréboles. Las dos versiones de tu mano son igual de fuertes (top pair, kicker Dama), pero no le quitan las mismas cartas a tu rival:</p>
+<div class="odds-scroll" role="region" aria-label="Proyectos de color del rival en K♠ 9♠ 3♣ 6♣" tabindex="0">
+<table class="num">
+  <caption>Proyectos de color del rival (dos cartas del palo) en K♠&nbsp;9♠&nbsp;3♣&nbsp;6♣</caption>
+  <thead><tr><th scope="col">Tu mano</th><th scope="col">Proyectos a picas</th><th scope="col">Proyectos a tréboles</th><th scope="col">Total</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">K♦&nbsp;Q♥</th><td>55</td><td>55</td><td>110</td></tr>
+    <tr><th scope="row">K♣&nbsp;Q♠</th><td>45</td><td>45</td><td>90</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Con <strong>K♣&nbsp;Q♠</strong> tienes un trébol y una pica: le quitas <strong>20 combos de proyecto de color</strong> a tu rival (110 → 90). Con <strong>K♦&nbsp;Q♥</strong> no le quitas ninguno.</p>
+<p>Y los proyectos de color son justo las manos que <strong>apuestan cuando les pasan</strong>: tienen equity (su parte del bote) y quieren llevarse el bote ya o darse una oportunidad de ganar en el river. La intuición es esta:</p>
+<ul>
+  <li><strong>Con K♦&nbsp;Q♥</strong>, tu rival tiene todos sus proyectos. Pasar le invita a apostar con ellos, y tu top pair puede pagar contra un rango lleno de manos que todavía no te han superado.</li>
+  <li><strong>Con K♣&nbsp;Q♠</strong>, tiene menos proyectos, así que menos manos que van a atacar tu check. Su rango tiene proporcionalmente más manos hechas (un 9, un Rey más flojo…) que pueden pagar una apuesta. Apostar se vuelve relativamente más atractivo.</li>
+</ul>
+<p>Ten en cuenta que esto es <em>intuición</em>. Las frecuencias exactas de un solver dependen de los rangos, los tamaños de apuesta y la acción previa, y no te las vamos a inventar. Lo que sí podemos afirmar es el mecanismo: 20 combos de proyecto más o menos bastan para inclinar una mano límite hacia un lado o hacia el otro. Para medir lo que valen realmente esos proyectos, cuéntalos con nuestra guía <a href="/es/guias/como-contar-outs/">cómo contar outs</a>.</p>
+
+<h2>Los límites de los blockers</h2>
+<p>Los blockers están de moda, y ahí es justo donde muchos jugadores se equivocan. Cuatro precauciones:</p>
+<ul>
+  <li><strong>Desempatan, no son un motivo por sí solos.</strong> Los blockers te ayudan a elegir <em>entre</em> dos manos que juegan más o menos igual. «Tengo el As de picas, así que me tiro un farol» no es un plan: primero van la historia de la mano, el tamaño de apuesta y el rango del rival; la eliminación de cartas, después.</li>
+  <li><strong>Una carta cambia pocos combos.</strong> A tu rival le quedan 1225 combos posibles una vez quitadas tus dos cartas. En nuestros ejemplos, una carta bien colocada quita entre 3 y 20 combos concretos: útil en el margen, no mágico.</li>
+  <li><strong>La composición del rango pesa mucho más.</strong> Bloquear el color máximo no sirve de nada si tu rival nunca tiene color en esta línea, o si todos sus demás combos te ganan. Piensa primero en lo que tiene de verdad: nuestra <a href="/es/calculadora-rangos-poker/">calculadora de rangos de póker</a> te ayuda a visualizarlo.</li>
+  <li><strong>En límites bajos, no te pases de nivel.</strong> Contra un jugador que paga con cualquier pareja, tu precioso farol con el A♠ sigue siendo un farol que te pagan. Contra rivales poco atentos, la fuerza de tu mano y el tamaño de tu apuesta pesan mucho más que tus blockers.</li>
+</ul>
+<p>Para relacionar todo esto con las odds y la equity, nuestra guía de <a href="/es/guias/matematicas-poker/">matemáticas del póker</a> reúne los cálculos útiles, y la <a href="/es/calculadora-equity-poker/">calculadora de equity de póker</a> te da la equity exacta de tu mano contra otra.</p>
+
+<h2>Preguntas frecuentes</h2>
+<details><summary>¿Qué es un blocker en el póker?</summary><p>Es una carta de tu mano que hace imposibles o más raras algunas manos de tu rival. Con un As, tu rival solo tiene 3 combos de AA en lugar de 6, y 12 combos de AK en lugar de 16.</p></details>
+<details><summary>¿Cuántos combos quita una carta?</summary><p>Una carta de un valor divide por dos las parejas de mano de ese valor (6 → 3) y quita una cuarta parte de los combos sin pareja que la contienen (16 → 12). Con AK en mano, el rango AA–JJ + AK baja de 40 a 27 combos.</p></details>
+<details><summary>¿Por qué A5s es un buen 4-bet de farol?</summary><p>El As quita combos de las manos que no van a foldear: AA, KK y AK pasan de 28 a 21 combos, una cuarta parte menos. Y si te pagan el 4-bet, A5s conserva proyectos de color y de escalera.</p></details>
+<details><summary>¿Qué carta conviene tener para pagar en el river?</summary><p>Una que bloquee sus manos de valor sin bloquear sus faroles. Si sus faroles son proyectos de corazones fallados, tener un corazón los hace más raros: en K♥&nbsp;9♥&nbsp;5♣&nbsp;2♠&nbsp;2♦, la Q♥ quita 8 de sus 36 proyectos de corazones fallados, lo que empeora el pago.</p></details>
+<details><summary>¿Debo tirarme un farol siempre que tenga un buen blocker?</summary><p>No. Un blocker desempata entre dos opciones cercanas; no sustituye leer el rango de tu rival, elegir un tamaño de apuesta ni saber contra quién juegas. En límites bajos, contra jugadores que pagan mucho, importa poco.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/guias/manos-iniciales/">Manos iniciales de póker</a> · <a href="/es/guias/rangos-preflop/">Rangos preflop</a> · <a href="/es/guias/como-contar-outs/">Cómo contar outs</a> · <a href="/es/guias/matematicas-poker/">Matemáticas del póker</a> · <a href="/es/calculadora-rangos-poker/">Calculadora de rangos de póker</a> · <a href="/es/calculadora-equity-poker/">Calculadora de equity de póker</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Qué es un blocker en el póker?","acceptedAnswer":{"@type":"Answer","text":"Es una carta de tu mano que hace imposibles o más raras algunas manos de tu rival. Con un As, tu rival solo tiene 3 combos de AA en lugar de 6, y 12 combos de AK en lugar de 16."}},
+  {"@type":"Question","name":"¿Cuántos combos quita una carta?","acceptedAnswer":{"@type":"Answer","text":"Una carta de un valor divide por dos las parejas de mano de ese valor (6 → 3) y quita una cuarta parte de los combos sin pareja que la contienen (16 → 12). Con AK en mano, el rango AA–JJ + AK baja de 40 a 27 combos."}},
+  {"@type":"Question","name":"¿Por qué A5s es un buen 4-bet de farol?","acceptedAnswer":{"@type":"Answer","text":"El As quita combos de las manos que no van a foldear: AA, KK y AK pasan de 28 a 21 combos, una cuarta parte menos. Y si te pagan el 4-bet, A5s conserva proyectos de color y de escalera."}},
+  {"@type":"Question","name":"¿Qué carta conviene tener para pagar en el river?","acceptedAnswer":{"@type":"Answer","text":"Una que bloquee sus manos de valor sin bloquear sus faroles. Si sus faroles son proyectos de corazones fallados, tener un corazón los hace más raros: en K♥ 9♥ 5♣ 2♠ 2♦, la Q♥ quita 8 de sus 36 proyectos de corazones fallados, lo que empeora el pago."}},
+  {"@type":"Question","name":"¿Debo tirarme un farol siempre que tenga un buen blocker?","acceptedAnswer":{"@type":"Answer","text":"No. Un blocker desempata entre dos opciones cercanas; no sustituye leer el rango de tu rival, elegir un tamaño de apuesta ni saber contra quién juegas. En límites bajos, contra jugadores que pagan mucho, importa poco."}}
+]}
+</script>

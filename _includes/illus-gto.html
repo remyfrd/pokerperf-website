@@ -1,4 +1,4 @@
-<svg viewBox="0 0 600 170" role="img" aria-label="{% if page.lang == 'en' %}GTO: balancing value and bluffs{% else %}GTO : équilibrer value et bluffs{% endif %}" preserveAspectRatio="xMidYMid meet">
+<svg viewBox="0 0 600 170" role="img" aria-label="{% if page.lang == 'en' %}GTO: balancing value and bluffs{% elsif page.lang == 'es' %}GTO: equilibrar valor y faroles{% else %}GTO : équilibrer value et bluffs{% endif %}" preserveAspectRatio="xMidYMid meet">
   <style>
     .beam{stroke:oklch(0.86 0.06 88);stroke-width:4;fill:none;stroke-linecap:round}
     .pan{fill:oklch(0.82 0.06 85 / .14);stroke:oklch(0.86 0.06 88);stroke-width:2}
@@ -17,5 +17,5 @@
   <line class="beam" x1="440" y1="56" x2="440" y2="84"/><ellipse class="pan" cx="440" cy="88" rx="52" ry="12"/>
   <text class="plbl" x="160" y="120" text-anchor="middle">VALUE</text>
   <text class="plbl" x="440" y="120" text-anchor="middle">BLUFF</text>
-  <text class="eq" x="300" y="152" text-anchor="middle">{% if page.lang == 'en' %}balance = unexploitable{% else %}équilibre = inexploitable{% endif %}</text>
+  <text class="eq" x="300" y="152" text-anchor="middle">{% if page.lang == 'en' %}balance = unexploitable{% elsif page.lang == 'es' %}equilibrio = inexplotable{% else %}équilibre = inexploitable{% endif %}</text>
 </svg>

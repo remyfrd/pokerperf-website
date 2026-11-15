@@ -1,0 +1,185 @@
+---
+layout: article
+lang: es
+title: "Probabilidades del Texas Hold'em: cálculos exactos (tablas)"
+headline: "Probabilidades del Texas Hold'em: las cifras exactas del poker"
+description: "Probabilidad de recibir ases, ligar un trío en el flop o completar tu proyecto de color: las probabilidades clave del Texas Hold'em, exactas y explicadas."
+permalink: /es/guias/probabilidades-texas-holdem/
+date: 2026-11-12
+last_modified_at: 2026-11-12
+stylesheets: ["/assets/css/poker-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/probabilites-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/texas-holdem-odds/" }
+  - { lang: "es", href: "https://pokerperf.com/es/guias/probabilidades-texas-holdem/" }
+x_default: "https://pokerperf.com/en/guides/texas-holdem-odds/"
+---
+<p class="lead">Recibes una pareja de mano el <strong>5,88&nbsp;%</strong> de las veces (1 de cada 17), una pareja de ases el <strong>0,45&nbsp;%</strong> (1 de cada 221), y ligas un trío (set) en el flop con una pareja de mano el <strong>11,8&nbsp;%</strong> de las veces. Aquí tienes todas las probabilidades del Texas Hold'em que importan, del reparto al river, y cómo usarlas de verdad para tomar mejores decisiones.</p>
+
+<p>Todas las cifras de esta página están <strong>calculadas</strong>, no copiadas de otra tabla: con combinatoria exacta (contando cada combinación posible) o enumerando todos los boards posibles. Sin simulación ni redondeos ocultos. Consulta nuestra <a href="/es/metodologia/">metodología</a> para más detalles.</p>
+
+<h2>Cómo leer las probabilidades: porcentaje, «1 de cada N» y «N a 1»</h2>
+<p>Una misma probabilidad se puede escribir de tres formas. Toma una pareja de mano:</p>
+<ul>
+  <li><strong>en porcentaje</strong>: 5,88&nbsp;%;</li>
+  <li><strong>como «1 de cada N»</strong>: 1 mano de cada 17 (100 ÷ 5,88);</li>
+  <li><strong>como odds en contra</strong>: 16 a 1, es decir, 16 manos sin pareja por cada 1 con pareja.</li>
+</ul>
+<p>«1 de cada N» es lo más fácil de visualizar para sucesos raros; «N a 1» es lo que comparas con las <a href="/es/guias/pot-odds-poker/">pot odds</a>. No los confundas: las odds en contra siempre son N − 1.</p>
+
+<h2>Probabilidades preflop: tus dos cartas</h2>
+<p>Hay <strong>1326</strong> manos iniciales posibles (todas las combinaciones de dos cartas de una baraja de 52). Cada probabilidad de abajo es el número de combos que cumplen ÷ 1326.</p>
+<div class="table-scroll" role="region" aria-label="Probabilidades preflop" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Mano inicial</th><th scope="col">Combos</th><th scope="col">Probabilidad</th><th scope="col">1 de cada…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Cualquier pareja de mano</th><td>78</td><td>5,88&nbsp;%</td><td>17</td></tr>
+    <tr><th scope="row">Una pareja concreta (p. ej. ases)</th><td>6</td><td>0,45&nbsp;%</td><td>221</td></tr>
+    <tr><th scope="row">AA o KK</th><td>12</td><td>0,90&nbsp;%</td><td>110,5</td></tr>
+    <tr><th scope="row">QQ, KK o AA</th><td>18</td><td>1,36&nbsp;%</td><td>74</td></tr>
+    <tr><th scope="row">AK (suited u offsuit)</th><td>16</td><td>1,21&nbsp;%</td><td>83</td></tr>
+    <tr><th scope="row">AK suited</th><td>4</td><td>0,30&nbsp;%</td><td>331,5</td></tr>
+    <tr><th scope="row">Al menos un as</th><td>198</td><td>14,9&nbsp;%</td><td>6,7</td></tr>
+    <tr><th scope="row">Cualquier mano suited</th><td>312</td><td>23,5&nbsp;%</td><td>4,25</td></tr>
+    <tr><th scope="row">Conectores suited (54s a AKs)</th><td>40</td><td>3,02&nbsp;%</td><td>33</td></tr>
+  </tbody>
+</table>
+</div>
+<p>El cálculo de la pareja de mano, paso a paso: hay 13 valores y, para cada uno, 6 formas de elegir dos de las cuatro cartas (C(4,2) = 6). 13 × 6 = 78 parejas, y 78 ÷ 1326 = <strong>5,88&nbsp;%</strong>. Una pareja concreta, como los ases, son solo 6 combos: 6 ÷ 1326, o una vez cada 221 manos.</p>
+
+<h3>Tienes KK: ¿qué probabilidad hay de que alguien tenga AA?</h3>
+<p>Es el miedo clásico con los reyes. Casi nunca está justificado:</p>
+<div class="table-scroll" role="region" aria-label="Probabilidad de que un rival tenga AA cuando tú tienes KK" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Rivales</th><th scope="col">Al menos uno tiene AA</th><th scope="col">1 de cada…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">1 (heads-up)</th><td>0,49&nbsp;%</td><td>204</td></tr>
+    <tr><th scope="row">5 (mesa 6-max)</th><td>2,4&nbsp;%</td><td>41</td></tr>
+    <tr><th scope="row">8 (full ring)</th><td>3,9&nbsp;%</td><td>26</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">Son probabilidades antes de cualquier acción. Cuando un jugador tight hace 4-bet, sus manos posibles se reducen y AA se vuelve mucho más probable: ahí entra la lectura de <a href="/es/guias/rangos-preflop/">rangos</a>.</p>
+
+<h2>Probabilidades en el flop</h2>
+<p>Una vez conoces tus dos cartas, quedan 50 cartas y hay <strong>19&nbsp;600</strong> flops posibles. Hemos contado, para cada tipo de mano, cuántos de esos flops dan cada resultado.</p>
+<div class="table-scroll" role="region" aria-label="Probabilidades en el flop" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Tienes…</th><th scope="col">En el flop ligas…</th><th scope="col">Probabilidad</th><th scope="col">1 de cada…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Una pareja de mano</th><td>Un trío o mejor</td><td>11,8&nbsp;%</td><td>8,5</td></tr>
+    <tr><th scope="row">Una pareja de mano</th><td>de los cuales póquer</td><td>0,24&nbsp;%</td><td>408</td></tr>
+    <tr><th scope="row">Dos cartas no emparejadas (p. ej. AK)</th><td>Al menos una pareja con una de tus cartas</td><td>32,4&nbsp;%</td><td>3,1</td></tr>
+    <tr><th scope="row">Dos cartas no emparejadas</th><td>Doble pareja con tus dos cartas</td><td>2,02&nbsp;%</td><td>49,5</td></tr>
+    <tr><th scope="row">Dos cartas no emparejadas</th><td>Trío con una de tus cartas (trips)</td><td>1,35&nbsp;%</td><td>74</td></tr>
+    <tr><th scope="row">Dos cartas suited</th><td>Un color hecho</td><td>0,84&nbsp;%</td><td>119</td></tr>
+    <tr><th scope="row">Dos cartas suited</th><td>Un proyecto de color (2 de tu palo)</td><td>10,9&nbsp;%</td><td>9,1</td></tr>
+    <tr><th scope="row">Dos cartas suited</th><td>Un proyecto de color backdoor (1 de tu palo)</td><td>41,6&nbsp;%</td><td>2,4</td></tr>
+    <tr><th scope="row">Conectores (p. ej. 8-7)</th><td>Una escalera hecha</td><td>1,31&nbsp;%</td><td>77</td></tr>
+    <tr><th scope="row">Conectores (p. ej. 8-7)</th><td>Un proyecto de escalera de 8 outs (abierta o doble gutshot)</td><td>9,7&nbsp;%</td><td>10,3</td></tr>
+    <tr><th scope="row">Conectores (p. ej. 8-7)</th><td>Un gutshot (escalera interna, 4 outs)</td><td>16,8&nbsp;%</td><td>6</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">«Con una de tus cartas»: una pareja que solo está en el board no cuenta, porque la comparten todos. «Trío o mejor» incluye los full (0,73&nbsp;%) y los póquer.</p>
+<p>Dos cifras que conviene recordar: con una pareja pequeña de mano ligas trío en el flop solo <strong>alrededor de 1 vez de cada 8,5</strong>. Y con dos cartas no emparejadas fallas el flop por completo (ninguna pareja con tus cartas) <strong>dos de cada tres veces</strong> (67,6&nbsp;%). Por eso no deberías enamorarte de una mano que no ha conectado.</p>
+
+<h2>Completar tu proyecto en el turn y el river</h2>
+<p>Después del flop quedan <strong>47 cartas sin ver</strong> (52 menos tus 2 y las 3 del flop); después del turn, 46. Para cada número de <a href="/es/guias/como-contar-outs/">outs</a>, aquí tienes tus probabilidades exactas junto a la estimación de la <a href="/es/guias/regla-4-y-2/">regla del 4 y el 2</a>:</p>
+<div class="table-scroll" role="region" aria-label="Probabilidad de completar un proyecto según el número de outs" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Proyecto</th><th scope="col">Outs</th><th scope="col">Flop → turn (1 carta)</th><th scope="col">Turn → river (1 carta)</th><th scope="col">Regla del 2</th><th scope="col">Flop → river (2 cartas)</th><th scope="col">Regla del 4</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Pareja de mano → trío</th><td>2</td><td>4,3&nbsp;%</td><td>4,3&nbsp;%</td><td>4&nbsp;%</td><td>8,4&nbsp;%</td><td>8&nbsp;%</td></tr>
+    <tr><th scope="row">Gutshot (escalera interna)</th><td>4</td><td>8,5&nbsp;%</td><td>8,7&nbsp;%</td><td>8&nbsp;%</td><td>16,5&nbsp;%</td><td>16&nbsp;%</td></tr>
+    <tr><th scope="row">Dos overcards</th><td>6</td><td>12,8&nbsp;%</td><td>13,0&nbsp;%</td><td>12&nbsp;%</td><td>24,1&nbsp;%</td><td>24&nbsp;%</td></tr>
+    <tr><th scope="row">Proyecto de escalera abierta</th><td>8</td><td>17,0&nbsp;%</td><td>17,4&nbsp;%</td><td>16&nbsp;%</td><td>31,5&nbsp;%</td><td>32&nbsp;%</td></tr>
+    <tr><th scope="row">Proyecto de color</th><td>9</td><td>19,1&nbsp;%</td><td>19,6&nbsp;%</td><td>18&nbsp;%</td><td>35,0&nbsp;%</td><td>36&nbsp;%</td></tr>
+    <tr><th scope="row">Proyecto de color + gutshot</th><td>12</td><td>25,5&nbsp;%</td><td>26,1&nbsp;%</td><td>24&nbsp;%</td><td>45,0&nbsp;%</td><td>48&nbsp;%</td></tr>
+    <tr><th scope="row">Proyecto de color + escalera abierta</th><td>15</td><td>31,9&nbsp;%</td><td>32,6&nbsp;%</td><td>30&nbsp;%</td><td>54,1&nbsp;%</td><td>60&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">Cálculo exacto: una carta = outs ÷ 47 (o ÷ 46 en el turn); dos cartas = 1 − (probabilidad de fallar las dos). Los outs de «dos overcards» suponen que una pareja basta para ganar, lo que no siempre es cierto.</p>
+<p>Lo que muestra la tabla:</p>
+<ul>
+  <li>La regla del 2 es <strong>algo conservadora</strong> (alrededor de un punto por debajo).</li>
+  <li>La regla del 4 es precisa hasta 8–9 outs y luego <strong>sobreestima</strong>: 48&nbsp;% frente al 45&nbsp;% real con 12 outs, 60&nbsp;% frente al 54&nbsp;% con 15.</li>
+  <li>La columna de dos cartas solo se aplica si tienes <strong>garantizado ver el turn y el river</strong>; en la práctica, cuando tu rival está all-in. Si no, tu call solo te compra una carta: usa la columna de una carta.</li>
+</ul>
+<p>Un caso especial, el <strong>proyecto de color backdoor</strong> (una carta de tu palo en el flop): necesitas tu palo en el turn <em>y</em> en el river, así que 10/47 × 9/46 = <strong>4,2&nbsp;%</strong> (1 de cada 24).</p>
+
+<h2>Frecuencia de las manos finales (7 cartas)</h2>
+<p>Si llegas hasta el river, tu mejor mano de cinco cartas se elige entre siete (tus 2 cartas más las 5 del board). Sobre las 133&nbsp;784&nbsp;560 combinaciones de siete cartas, este es el reparto exacto:</p>
+<div class="table-scroll" role="region" aria-label="Frecuencia de las manos finales con 7 cartas" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Mano final</th><th scope="col">Probabilidad</th><th scope="col">1 de cada…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Escalera real</th><td>0,0032&nbsp;%</td><td>30&nbsp;940</td></tr>
+    <tr><th scope="row">Escalera de color (no real)</th><td>0,0279&nbsp;%</td><td>3591</td></tr>
+    <tr><th scope="row">Póquer</th><td>0,168&nbsp;%</td><td>595</td></tr>
+    <tr><th scope="row">Full</th><td>2,60&nbsp;%</td><td>38,5</td></tr>
+    <tr><th scope="row">Color</th><td>3,03&nbsp;%</td><td>33</td></tr>
+    <tr><th scope="row">Escalera</th><td>4,62&nbsp;%</td><td>21,6</td></tr>
+    <tr><th scope="row">Trío</th><td>4,83&nbsp;%</td><td>20,7</td></tr>
+    <tr><th scope="row">Doble pareja</th><td>23,5&nbsp;%</td><td>4,3</td></tr>
+    <tr><th scope="row">Pareja</th><td>43,8&nbsp;%</td><td>2,3</td></tr>
+    <tr><th scope="row">Carta alta</th><td>17,4&nbsp;%</td><td>5,7</td></tr>
+  </tbody>
+</table>
+</div>
+<p>La sorpresa: con siete cartas terminas con una pareja (43,8&nbsp;%) mucho más a menudo que sin nada (17,4&nbsp;%). Estas frecuencias describen la mano con la que <em>terminas</em>, no su fuerza: el orden nunca cambia, consulta el <a href="/es/ranking-manos-poker/">ranking de manos de poker</a>.</p>
+
+<h2>Enfrentamientos clásicos all-in preflop</h2>
+<p>All-in antes del flop, ¿quién gana? Estas equities salen de una <strong>enumeración completa</strong> de los 1&nbsp;712&nbsp;304 boards posibles para cada enfrentamiento (los empates cuentan como medio bote).</p>
+<div class="table-scroll" role="region" aria-label="Equities de los enfrentamientos clásicos preflop" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Enfrentamiento</th><th scope="col">Tipo</th><th scope="col">Favorito</th><th scope="col">Underdog</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">A♠A♥ vs K♦K♣</th><td>Pareja contra pareja menor</td><td>81,3&nbsp;%</td><td>18,7&nbsp;%</td></tr>
+    <tr><th scope="row">T♠T♥ vs 8♦8♣</th><td>Pareja contra pareja menor</td><td>80,9&nbsp;%</td><td>19,1&nbsp;%</td></tr>
+    <tr><th scope="row">A♠A♥ vs 7♦6♦</th><td>Pareja contra conectores suited</td><td>77,0&nbsp;%</td><td>23,0&nbsp;%</td></tr>
+    <tr><th scope="row">A♠K♥ vs A♦Q♣</th><td>Mano dominada (kicker)</td><td>74,0&nbsp;%</td><td>26,0&nbsp;%</td></tr>
+    <tr><th scope="row">A♠K♥ vs Q♦J♣</th><td>Dos cartas altas contra dos más bajas</td><td>64,3&nbsp;%</td><td>35,7&nbsp;%</td></tr>
+    <tr><th scope="row">A♠K♥ vs 8♦7♦</th><td>Overcards contra conectores suited</td><td>58,1&nbsp;%</td><td>41,9&nbsp;%</td></tr>
+    <tr><th scope="row">Q♠Q♥ vs A♦K♣</th><td>Pareja contra dos overcards</td><td>57,2&nbsp;%</td><td>42,8&nbsp;%</td></tr>
+    <tr><th scope="row">2♠2♥ vs A♦K♣</th><td>Pareja pequeña contra dos overcards</td><td>53,0&nbsp;%</td><td>47,0&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">Se muestran los palos exactos: con otros palos las cifras varían ligeramente, porque cambian las posibilidades de color de cada mano.</p>
+<p>Tres conclusiones:</p>
+<ul>
+  <li><strong>Pareja contra pareja menor ≈ 80/20</strong>: el underdog necesita ligar un trío.</li>
+  <li><strong>Pareja contra dos overcards ≈ moneda al aire</strong>: QQ contra AK es 57/43, e incluso 22 solo es favorita al 53&nbsp;%. Es el clásico «coin flip».</li>
+  <li><strong>Estar dominado sale caro</strong>: AQ contra AK solo gana el 26&nbsp;%, apenas más que 7♦6♦ contra AA (23&nbsp;%). Tu kicker importa.</li>
+</ul>
+<p>Para probar otros enfrentamientos o manos contra varios rivales, usa la <a href="/es/calculadora-equity-poker/">calculadora de equity de poker</a>.</p>
+
+<h2>Cómo usar esto en la mesa</h2>
+<p>Una probabilidad solo sirve si cambia tu decisión. Tres usos concretos:</p>
+<ol>
+  <li><strong>Pagar con un proyecto</strong>: cuenta tus outs, conviértelos en porcentaje (regla del 2 para una carta, regla del 4 solo si tu rival está all-in) y compáralo con tus <a href="/es/calculadora-pot-odds/">pot odds</a>. Paga cuando tu equity supera la equity necesaria.</li>
+  <li><strong>Jugar parejas pequeñas</strong>: ligas trío en el flop solo alrededor de 1 vez de cada 8,5. Pagar una subida para «buscar el set» solo tiene sentido cuando los stacks son lo bastante profundos para ganar mucho cuando ligas: eso son las <a href="/es/guias/odds-implicitas/">odds implícitas</a>.</li>
+  <li><strong>Mantener la perspectiva</strong>: una pareja contra dos overcards está cerca de una moneda al aire. Perder una no es un error, es varianza. Juzga la decisión, no el resultado.</li>
+</ol>
+<p>Para una mano concreta en un board concreto, la herramienta más fiable es la <a href="/es/calculadora-equity-poker/">calculadora de equity de poker</a>. Y para convertir estas cifras en reflejos, PokerPerf te hace practicarlas en situaciones reales de juego, 10 minutos al día.</p>
+
+<h2>FAQ</h2>
+<details><summary>¿Qué probabilidad hay de recibir una pareja de ases?</summary><p>6 combos de 1326, es decir, 0,45&nbsp;%, o 1 mano de cada 221 (220 a 1 en contra). La probabilidad de recibir cualquier pareja de mano es del 5,88&nbsp;%, o 1 de cada 17.</p></details>
+<details><summary>¿Qué probabilidad hay de ligar un trío en el flop?</summary><p>Con una pareja de mano, 11,8&nbsp;%: alrededor de 1 vez de cada 8,5. Esa cifra incluye los raros full y póquer. Si fallas, te quedan 2 outs: 4,3&nbsp;% en el turn y luego 4,3&nbsp;% en el river.</p></details>
+<details><summary>¿Qué probabilidad hay de completar un proyecto de color?</summary><p>Con 9 outs, 19,1&nbsp;% en el turn y 19,6&nbsp;% del turn al river. Si ves las dos cartas (rival all-in), 35,0&nbsp;% del flop al river.</p></details>
+<details><summary>¿Es precisa la regla del 4 y el 2?</summary><p>Es una aproximación. Funciona hasta unos 9 outs; a partir de ahí la regla del 4 sobreestima: 60&nbsp;% frente al 54,1&nbsp;% real con 15 outs. Y el ×4 solo se aplica cuando tienes seguro ver el turn y el river.</p></details>
+<details><summary>¿Cuál es la mano final más frecuente en el Texas Hold'em?</summary><p>La pareja: el 43,8&nbsp;% de las manos de siete cartas. Después, la doble pareja (23,5&nbsp;%) y la carta alta (17,4&nbsp;%).</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/guias/matematicas-poker/">Matemáticas del poker</a> · <a href="/es/guias/chuleta-odds-poker/">Chuleta de odds de poker</a> · <a href="/es/guias/manos-iniciales/">Manos iniciales</a> · <a href="/es/calculadora-equity-poker/">Calculadora de equity de poker</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Qué probabilidad hay de recibir una pareja de ases?","acceptedAnswer":{"@type":"Answer","text":"6 combos de 1326, es decir, 0,45 %, o 1 mano de cada 221 (220 a 1 en contra). La probabilidad de recibir cualquier pareja de mano es del 5,88 %, o 1 de cada 17."}},
+  {"@type":"Question","name":"¿Qué probabilidad hay de ligar un trío en el flop?","acceptedAnswer":{"@type":"Answer","text":"Con una pareja de mano, 11,8 %: alrededor de 1 vez de cada 8,5. Esa cifra incluye los raros full y póquer. Si fallas, te quedan 2 outs: 4,3 % en el turn y luego 4,3 % en el river."}},
+  {"@type":"Question","name":"¿Qué probabilidad hay de completar un proyecto de color?","acceptedAnswer":{"@type":"Answer","text":"Con 9 outs, 19,1 % en el turn y 19,6 % del turn al river. Si ves las dos cartas (rival all-in), 35,0 % del flop al river."}},
+  {"@type":"Question","name":"¿Es precisa la regla del 4 y el 2?","acceptedAnswer":{"@type":"Answer","text":"Es una aproximación. Funciona hasta unos 9 outs; a partir de ahí la regla del 4 sobreestima: 60 % frente al 54,1 % real con 15 outs. Y el x4 solo se aplica cuando tienes seguro ver el turn y el river."}},
+  {"@type":"Question","name":"¿Cuál es la mano final más frecuente en el Texas Hold'em?","acceptedAnswer":{"@type":"Answer","text":"La pareja: el 43,8 % de las manos de siete cartas. Después, la doble pareja (23,5 %) y la carta alta (17,4 %)."}}
+]}
+</script>

@@ -1,0 +1,88 @@
+---
+layout: article
+lang: es
+title: "Odds implícitas en poker: fórmula y ejemplo resuelto"
+headline: "Odds implícitas: cuándo pagar sin tener el precio"
+description: "Odds implícitas en poker: la fórmula de cuánto más debes ganar cuando ligas, un ejemplo resuelto, las odds implícitas inversas y la regla del set mining."
+permalink: /es/guias/odds-implicitas/
+date: 2026-11-12
+last_modified_at: 2026-11-14
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/cotes-implicites/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/implied-odds/" }
+  - { lang: "es", href: "https://pokerperf.com/es/guias/odds-implicitas/" }
+x_default: "https://pokerperf.com/en/guides/implied-odds/"
+---
+<p class="lead">Tu proyecto no tiene el precio y, aun así, los buenos jugadores a veces pagan. No es una corazonada: son matemáticas. Las <strong>odds implícitas</strong> te dicen cuánto <em>más</em> necesitas ganar cuando ligas para que el pago sea rentable.</p>
+
+<h2>¿Por qué pagar sin pot odds directas?</h2>
+<p>Las <a href="/es/guias/pot-odds-poker/">pot odds</a> (odds del bote) solo miran el dinero que ya está en el centro. Ahí está <a href="/es/guias/pot-odds-poker/">la trampa clásica</a>: ante una apuesta con más apuestas por venir, tu pago solo compra <strong>una</strong> carta. Un proyecto de color liga entonces solo un 19&nbsp;% de las veces, más o menos, mientras que una apuesta de medio bote exige un 25&nbsp;%. Con las odds directas, foldeas.</p>
+<p>Pero cuando entra el color, la mano no ha terminado: queda otra ronda de apuestas y tu rival todavía puede pagarte una apuesta. Ese dinero <em>futuro</em>, que solo ganas cuando ligas, son tus odds implícitas. La pregunta pasa a ser: ¿cuánto de ese dinero necesitas para cerrar la diferencia?</p>
+
+<h2>La fórmula de las odds implícitas</h2>
+<p>Sean:</p>
+<ul>
+  <li><strong>P</strong> = el bote cuando pagas, incluida la apuesta de tu rival;</li>
+  <li><strong>C</strong> = la cantidad que tienes que pagar;</li>
+  <li><strong>e</strong> = tu probabilidad de ligar en la siguiente carta;</li>
+  <li><strong>X</strong> = lo que ganas <em>de más</em> en las calles siguientes cuando ligas.</li>
+</ul>
+<p>Cuando ligas (probabilidad e), ganas P + X. Cuando fallas, foldeas y pierdes C. El pago queda en equilibrio cuando las dos cosas se compensan:</p>
+<p class="formula">e × (P + X) = (1 − e) × C<br>⇔ e × (P + C + X) = C<br>⇔ X = C ÷ e − (P + C)</p>
+<p>Si X es negativo, las pot odds directas ya bastan: paga sin esperar nada más. Si es positivo, es lo mínimo que necesitas cobrar <strong>de media</strong> cuando entra tu proyecto.</p>
+
+<h2>Ejemplo resuelto: un proyecto de color en el turn</h2>
+<p>En el turn, el bote es de <strong>$100</strong>. Tu rival apuesta <strong>$50</strong>. Tienes proyecto de color: 9 outs de 46 cartas no vistas, queda una carta por salir.</p>
+<ul>
+  <li>P = 100 + 50 = <strong>$150</strong>, C = <strong>$50</strong>.</li>
+  <li>Equity (tu parte del bote) necesaria con las odds directas: 50 ÷ (150 + 50) = <strong>25&nbsp;%</strong>.</li>
+  <li>Tu probabilidad de ligar: e = 9 ÷ 46 = <strong>19,6&nbsp;%</strong>. No basta con las odds directas.</li>
+  <li>Odds implícitas necesarias: X = 50 ÷ (9/46) − 200 = 255,6 − 200 = <strong>$55,60</strong>.</li>
+</ul>
+<p>Dicho de otro modo, cuando entra el color, necesitas ganar de media <strong>unos $56 más</strong> en el river: más o menos una apuesta del 28&nbsp;% del bote de $200 que tu rival paga. Comprobación: 19,6&nbsp;% × (150 + 55,6) ≈ $40,20 ganados de media, frente a 80,4&nbsp;% × 50 ≈ $40,20 perdidos. El pago queda justo en equilibrio.</p>
+<p>Si crees que tu rival pagará <em>al menos</em> eso de media cuando ligues, el pago es rentable. Si se frena en cuanto aparece la tercera carta del mismo palo, X vale cero y debes foldear.</p>
+
+<div class="tip"><strong>¿Por qué el turn?</strong> En el flop, el mismo cálculo (9 ÷ 47 = 19,1&nbsp;%) da X ≈ $61. Pero cuando fallas en el flop, la mano sigue: te enfrentarás a otra apuesta en el turn y la respuesta exacta se convierte en un árbol de decisiones. En el turn, fallar significa foldear, así que la fórmula es exacta. Y la cifra del 35&nbsp;% «del flop al river» solo vale cuando tienes la seguridad de ver las dos cartas, es decir, cuando tu rival está all-in; y en ese caso no hay odds implícitas.</div>
+
+<h2>Cuándo las odds implícitas son reales</h2>
+<p>La fórmula te dice cuánto necesitas. El criterio es saber si ese dinero existe de verdad. Las odds implícitas son buenas cuando:</p>
+<ul>
+  <li><strong>Los stacks son profundos</strong>: hay suficiente dinero detrás para que X sea posible. Si a tu rival solo le quedan $30, tu X no puede superar los $30.</li>
+  <li><strong>Tu proyecto está disimulado</strong>: un gutshot que se completa con una carta de aspecto inofensivo cobra más a menudo que una cuarta carta del mismo palo que todo el mundo ve.</li>
+  <li><strong>Tu rival tiene una mano que no va a soltar</strong>: top pair, doble pareja, un trío. Son ellos quienes te pagan.</li>
+  <li><strong>Ligas la mejor mano</strong>: el color máximo (nut flush), el extremo alto de la escalera.</li>
+</ul>
+
+<h2>Odds implícitas inversas</h2>
+<p>La otra cara: a veces ligar te cuesta dinero. Son las <strong>odds implícitas inversas</strong>: completas tu mano pero sigues por detrás, así que eres tú quien paga en las calles siguientes.</p>
+<ul>
+  <li><strong>El color bajo</strong>: 7♥6♥ contra un color más alto. Ligas, apuestas y te suben.</li>
+  <li><strong>El extremo bajo de la escalera</strong> (idiot end): completas la parte baja de la escalera mientras tu rival tiene la alta.</li>
+  <li><strong>La overcard dominada</strong>: emparejas tu as, pero tu rival tiene un as con mejor kicker.</li>
+  <li><strong>Los outs sucios</strong>: la carta que te da el color empareja el board y le da full. Mira <a href="/es/guias/como-contar-outs/">cómo contar outs</a>.</li>
+</ul>
+<p>Con estas manos, X es menor de lo que crees, o incluso negativo: necesitas odds directas <em>mejores</em> para pagar.</p>
+
+<h2>Set mining y la regla de 15–20×</h2>
+<p>La situación de manual de odds implícitas: pagar preflop con una pareja pequeña para ligar un trío en el flop (set mining). La probabilidad de ligar trío o mejor en el flop:</p>
+<p class="formula">1 − C(48, 3) ÷ C(50, 3) = 1 − 17&nbsp;296 ÷ 19&nbsp;600 ≈ 11,8&nbsp;%</p>
+<p>Es más o menos una vez de cada 8,5, es decir, odds de <strong>7,5 a 1</strong> en contra. Sin contar lo que ya hay en el bote, la fórmula da X = C ÷ 0,118 − C ≈ <strong>7,5 × C</strong>: cuando ligas, necesitas ganar de media 7,5 veces tu pago solo para quedar en equilibrio.</p>
+<p>La regla que se cita a menudo, <strong>jugar por el trío solo cuando los stacks efectivos son de 15 a 20 veces el pago</strong>, es un margen de seguridad sobre ese mínimo. Cuando ligas trío en el flop, no ganas todo el stack cada vez: tu rival foldea, o tu trío pierde contra un trío mayor o contra un proyecto que entra. Si de media solo cobras más o menos la mitad del stack efectivo, necesitas un stack de unas 2 × 7,5 = <strong>15 veces el pago</strong>. De ahí el rango. Es una referencia, no una ley: contra un jugador que nunca paga, ni siquiera 30× basta.</p>
+
+<h2>Preguntas frecuentes</h2>
+<details><summary>¿Qué son las odds implícitas en poker?</summary><p>Las odds implícitas son el dinero que esperas ganar en las rondas de apuestas siguientes cuando entra tu proyecto. Te permiten pagar un proyecto que no tiene pot odds directas, siempre que tu rival pueda y quiera pagarte cuando ligues.</p></details>
+<details><summary>¿Cuál es la fórmula de las odds implícitas?</summary><p>X = C ÷ e − (P + C), donde C es el pago, e tu probabilidad de ligar en la siguiente carta y P el bote incluida la apuesta de tu rival. X es cuánto más necesitas ganar, de media, cuando ligas. Ejemplo: bote de $100, apuesta de $50, proyecto de color en el turn (9/46): X ≈ $55,60.</p></details>
+<details><summary>¿De dónde sale la regla de 15–20× del set mining?</summary><p>Una pareja pequeña liga trío o mejor en el flop el 11,8&nbsp;% de las veces, odds de 7,5 a 1: necesitas ganar al menos 7,5 veces el pago cuando ligas. Como no ganas todo el stack cada vez, los jugadores piden stacks de 15 a 20 veces el pago. Es una regla práctica, no un cálculo exacto.</p></details>
+<details><summary>¿Qué son las odds implícitas inversas?</summary><p>El dinero que pierdes cuando completas tu mano pero sigues por detrás: un color bajo contra uno más alto, el extremo bajo de una escalera, un as con kicker dominado. Reducen el valor de un proyecto.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/guias/pot-odds-poker/">Pot odds</a> · <a href="/es/guias/como-contar-outs/">Cómo contar outs</a> · <a href="/es/guias/chuleta-odds-poker/">Chuleta de odds de poker</a> · <a href="/es/calculadora-pot-odds/">Calculadora de pot odds</a> · <a href="/es/calculadora-semifarol/">Calculadora de EV del semifarol</a> · <a href="/es/guias/spr-poker/">Stack-to-pot ratio (SPR)</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Qué son las odds implícitas en poker?","acceptedAnswer":{"@type":"Answer","text":"Las odds implícitas son el dinero que esperas ganar en las rondas de apuestas siguientes cuando entra tu proyecto. Te permiten pagar un proyecto que no tiene pot odds directas, siempre que tu rival pueda y quiera pagarte cuando ligues."}},
+  {"@type":"Question","name":"¿Cuál es la fórmula de las odds implícitas?","acceptedAnswer":{"@type":"Answer","text":"X = C ÷ e − (P + C), donde C es el pago, e tu probabilidad de ligar en la siguiente carta y P el bote incluida la apuesta de tu rival. X es cuánto más necesitas ganar, de media, cuando ligas. Ejemplo: bote de $100, apuesta de $50, proyecto de color en el turn (9/46): X ≈ $55,60."}},
+  {"@type":"Question","name":"¿De dónde sale la regla de 15–20× del set mining?","acceptedAnswer":{"@type":"Answer","text":"Una pareja pequeña liga trío o mejor en el flop el 11,8 % de las veces, odds de 7,5 a 1: necesitas ganar al menos 7,5 veces el pago cuando ligas. Como no ganas todo el stack cada vez, los jugadores piden stacks de 15 a 20 veces el pago. Es una regla práctica, no un cálculo exacto."}},
+  {"@type":"Question","name":"¿Qué son las odds implícitas inversas?","acceptedAnswer":{"@type":"Answer","text":"El dinero que pierdes cuando completas tu mano pero sigues por detrás: un color bajo contra uno más alto, el extremo bajo de una escalera, un as con kicker dominado. Reducen el valor de un proyecto."}}
+]}
+</script>

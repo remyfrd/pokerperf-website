@@ -1,4 +1,4 @@
-<svg viewBox="0 0 600 170" role="img" aria-label="{% if page.lang == 'en' %}Rule of 4 and 2: outs times 4 gives your equity{% else %}Règle du 4 et 2 : les outs multipliés par 4 donnent ton équité{% endif %}" preserveAspectRatio="xMidYMid meet">
+<svg viewBox="0 0 600 170" role="img" aria-label="{% if page.lang == 'en' %}Rule of 4 and 2: outs times 4 gives your equity{% elsif page.lang == 'es' %}Regla del 4 y 2: los outs por 4 dan tu equity{% else %}Règle du 4 et 2 : les outs multipliés par 4 donnent ton équité{% endif %}" preserveAspectRatio="xMidYMid meet">
   <style>
     .pill{fill:oklch(0.86 0.06 88 / .16);stroke:oklch(0.86 0.06 88);stroke-width:1.5}
     .pillt{fill:oklch(0.9 0.05 90);font:700 22px "IBM Plex Mono","Plex Mono Fallback",monospace}
@@ -17,5 +17,5 @@
   <rect x="300" y="56" width="99" height="40" rx="20" fill="oklch(0.86 0.06 88)"/>
   <text class="pct" x="349" y="81" text-anchor="middle">≈ 36 %</text>
   <!-- légende -->
-  <text class="cap" x="300" y="138" text-anchor="middle">{% if page.lang == 'en' %}× 4 on the flop · × 2 with one card to come{% else %}× 4 au flop · × 2 s'il reste une carte{% endif %}</text>
+  <text class="cap" x="300" y="138" text-anchor="middle">{% if page.lang == 'en' %}× 4 on the flop · × 2 with one card to come{% elsif page.lang == 'es' %}× 4 en el flop · × 2 con una carta por salir{% else %}× 4 au flop · × 2 s'il reste une carte{% endif %}</text>
 </svg>

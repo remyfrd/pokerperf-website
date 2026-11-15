@@ -1,0 +1,63 @@
+---
+layout: article
+lang: es
+title: "La regla del 4 y el 2 en poker: contar outs (guía)"
+headline: "La regla del 4 y el 2: estima tu probabilidad de ligar"
+description: "La regla del 4 y el 2 en poker explicada fácil: cuenta tus outs, estima tu equity de cabeza y sabe si pagar es rentable. Ejemplos y tabla."
+permalink: /es/guias/regla-4-y-2/
+last_modified_at: 2026-11-12
+date: 2026-11-03
+illus: rule42
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/regle-du-4-et-2/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/rule-of-4-and-2/" }
+  - { lang: "es", href: "https://pokerperf.com/es/guias/regla-4-y-2/" }
+x_default: "https://pokerperf.com/en/guides/rule-of-4-and-2/"
+---
+<p class="lead">En la mesa no tienes calculadora. La <strong>regla del 4 y el 2</strong> te da, en un segundo, tu probabilidad de completar tu proyecto: suficiente para decidir si pagas sin equivocarte.</p>
+
+<h2>La regla del 4 y el 2, en una línea</h2>
+<p>Cuenta tus <strong>outs</strong> (las cartas que mejoran tu mano) y luego:</p>
+<ul>
+  <li><strong>× 4</strong> en el flop, cuando aún quedan <strong>dos cartas</strong> por salir (turn + river) <em>y tienes la seguridad de ver las dos</em> (rival all-in);</li>
+  <li><strong>× 2</strong> cuando solo queda <strong>una</strong> (del turn al river).</li>
+</ul>
+<p>El resultado es tu <strong>equity</strong> (tu parte del bote) aproximada, en porcentaje. ¿Nueve outs en el flop? 9&nbsp;×&nbsp;4&nbsp;=&nbsp;<strong>36&nbsp;%</strong> de ligar.</p>
+
+<h2>Contar tus outs</h2>
+<p>Un <strong>out</strong> es una carta que sigue en la baraja y que convierte tu mano en ganadora. Los proyectos más habituales:</p>
+<table>
+  <thead><tr><th scope="col">Proyecto</th><th scope="col">Outs</th><th scope="col">Flop → river (×4)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Proyecto de color</th><td>9</td><td>≈ 36&nbsp;%</td></tr>
+    <tr><th scope="row">Escalera abierta</th><td>8</td><td>≈ 32&nbsp;%</td></tr>
+    <tr><th scope="row">Dos overcards</th><td>6</td><td>≈ 24&nbsp;%</td></tr>
+    <tr><th scope="row">Gutshot (escalera interna)</th><td>4</td><td>≈ 16&nbsp;%</td></tr>
+  </tbody>
+</table>
+<p>Consejo: cuenta solo los outs «limpios», los que te dan <em>la mejor</em> mano, no una que sigue por detrás.</p>
+
+<h2>Por qué funciona (y sus límites)</h2>
+<p>Es una <strong>aproximación</strong>, muy fiable hasta 8 outs. Por encima, el ×4 sobrestima un poco: con 12 outs o más, réstale unos puntos. Para el valor <strong>exacto</strong>, usa nuestra <a href="/es/calculadora-equity-poker/">calculadora de equity</a>.</p>
+
+<blockquote>Ejemplo. Tienes proyecto de color en el flop (9 outs). Tu rival apuesta medio bote <strong>y está all-in</strong>: verás las dos cartas, así que regla del 4: ≈ 36&nbsp;% de equity. Tus <a href="/es/calculadora-pot-odds/">pot odds</a> (odds del bote) exigen un 25&nbsp;%. 36&nbsp;%&nbsp;&gt;&nbsp;25&nbsp;% → <strong>pagas</strong>.</blockquote>
+
+<blockquote><strong>La trampa clásica.</strong> Si tu rival <em>no</em> está all-in, tu call solo te compra el turn: una carta, ≈&nbsp;19&nbsp;% (regla del 2). 19&nbsp;%&nbsp;&lt;&nbsp;25&nbsp;% → con las odds directas, <strong>foldeas</strong>. Solo las <em>odds implícitas</em> (lo que ganarás en las calles siguientes cuando ligues) pueden justificar ese call.</blockquote>
+
+<h2>De la equity a la decisión</h2>
+<p>Conocer tu equity no basta: la comparas con lo que te cuesta la mano. Para eso sirven las <strong>pot odds</strong>. La regla de oro: <strong>paga cuando tu equity supera la equity necesaria</strong>. Practica con nuestra <a href="/es/calculadora-pot-odds/">calculadora de pot odds</a>.</p>
+
+<h2>Preguntas frecuentes</h2>
+<details><summary>¿Por qué 4 y 2?</summary><p>Cada out vale aproximadamente un 2&nbsp;% por carta por salir. Dos cartas → ×4; una carta → ×2. Es un atajo de cálculo mental, no una fórmula exacta.</p></details>
+<details><summary>¿Cuántos outs tiene un proyecto de color?</summary><p>Nueve (las 13 cartas del palo menos las 4 ya visibles), aproximadamente un 36&nbsp;% en el flop.</p></details>
+<details><summary>¿Es precisa la regla del 4 y el 2?</summary><p>Muy fiable hasta 8 outs; por encima, sobrestima un poco. La cifra exacta la da una calculadora de equity.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/calculadora-equity-poker/">Calculadora de equity</a> · <a href="/es/calculadora-pot-odds/">Pot odds</a> · <a href="/es/ranking-manos-poker/">Ranking de manos</a> · <a href="/es/guias/como-contar-outs/">Cómo contar outs</a> · <a href="/es/guias/odds-implicitas/">Odds implícitas</a> · <a href="/es/guias/chuleta-odds-poker/">Chuleta de odds de poker</a> · <a href="/es/guias/matematicas-poker/">Matemáticas del poker</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Por qué 4 y 2?","acceptedAnswer":{"@type":"Answer","text":"Cada out vale aproximadamente un 2 % por carta por salir: dos cartas dan ×4, una carta ×2. Es un atajo de cálculo mental, no una fórmula exacta."}},
+  {"@type":"Question","name":"¿Cuántos outs tiene un proyecto de color?","acceptedAnswer":{"@type":"Answer","text":"Nueve outs, aproximadamente un 36 % de ligar hasta el river desde el flop."}},
+  {"@type":"Question","name":"¿Es precisa la regla del 4 y el 2?","acceptedAnswer":{"@type":"Answer","text":"Muy fiable hasta 8 outs; por encima, sobrestima un poco. La cifra exacta la da una calculadora de equity."}}
+]}
+</script>

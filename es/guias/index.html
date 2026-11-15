@@ -1,0 +1,26 @@
+---
+layout: default
+lang: es
+title: "Guías de poker: decide mejor (pot odds, outs, rangos, GTO)"
+description: "Guías de PokerPerf para mejorar en el poker: pot odds, outs, rangos preflop y GTO, explicados de forma simple, con herramientas gratis para practicar."
+permalink: /es/guias/
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/" }
+  - { lang: "es", href: "https://pokerperf.com/es/guias/" }
+x_default: "https://pokerperf.com/en/guides/"
+---
+{%- assign t = site.data.i18n[page.lang] -%}
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>{{ t.guides_title }}</h1>
+  <p class="lead">{{ t.guides_intro }}</p>
+  <div class="tip"><p style="margin:0"><strong>¿Por dónde empezar?</strong> Nuestra página de <a href="/es/guias/matematicas-poker/">Matemáticas del poker</a> enlaza cada guía y herramienta en el orden en que conviene aprenderlas: equity (tu parte del bote), outs, pot odds, EV, probabilidades, manos iniciales. Y para organizarlo todo: <a href="/es/guias/como-estudiar-poker/">cómo estudiar poker</a>.</p></div>
+  {%- assign arts = site.pages | where_exp: "p", "p.layout == 'article'" | where: "lang", page.lang | sort: "date" | reverse -%}
+  <div class="guide-list">
+    {%- for a in arts %}
+    <a class="guide-card" href="{{ a.url }}"><h2>{{ a.headline | default: a.title }}</h2><p>{{ a.description }}</p></a>
+    {%- endfor %}
+    {%- if arts.size == 0 %}<p class="calc">Más guías muy pronto.</p>{%- endif %}
+  </div>
+</div>
