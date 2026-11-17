@@ -1,11 +1,11 @@
-// Widget « calculateur de side pots » — bilingue (data-lang fr/en), 100 % client-side.
+// Widget « calculateur de side pots » — trilingue (data-lang fr/en/es), 100 % client-side.
 // Entrées : par joueur (ordre des sièges depuis la gauche du bouton) le total misé dans la main,
 // couché ou non, et optionnellement le classement au showdown.
 // Sorties : mise non payée rendue, pot principal + side pots (montant, qui peut les gagner),
 // et si le classement est complet : gagnants, gains et résultat net de chacun.
 import { computeSidePots, SidePotPlayer } from "../sidepot/sidepot";
 
-type Lang = "fr" | "en";
+type Lang = "fr" | "en" | "es";
 const MAX = 10;
 const STR = {
   fr: {
@@ -40,6 +40,22 @@ const STR = {
     err: "Enter at least two players, at least one not folded, with bets of 0 or more.",
     and: " and ", colon: ":",
   },
+  es: {
+    presets: "Ejemplos", pBasic: "Clásico (4 jugadores)", pJams: "3 all-in + un call", pFold: "Con un jugador retirado", pSplit: "Bote dividido",
+    players: "Jugadores (en orden de asiento, empezando a la izquierda del botón)",
+    player: (i: number) => `Jugador ${i}`, playersN: "Jugadores", bet: "Total apostado en la mano", folded: "Retirado",
+    rank: "Showdown", rankNone: "—", rankOpt: (r: number) => `${r}.ª mejor`,
+    rankHint: "Opcional: ordena las manos en el showdown (1 = la mejor; mismo puesto = empate) para ver quién gana qué.",
+    unit: "Unidad mínima (ficha indivisible)",
+    add: "+ Añadir un jugador", remove: "Quitar", removeLabel: (i: number) => `Quitar al jugador ${i}`,
+    refund: (p: string, a: string) => `Apuesta no igualada: se devuelven <strong>${a}</strong> a ${p} (nadie pagó esa parte de su apuesta).`,
+    thPot: "Bote", main: "Bote principal", side: (k: number) => `Bote secundario ${k}`, thAmount: "Importe", thEligible: "Quién puede ganarlo", thWinner: "Ganador(es)",
+    total: "Total en el centro", only: "solo",
+    thPlayer: "Jugador", thBet: "Apostado", thBack: "Recupera", thNet: "Resultado",
+    noRank: "Ordena todas las manos que siguen en juego (menú «Showdown») para ver quién gana cada bote.",
+    err: "Introduce al menos dos jugadores, uno de ellos sin retirarse, con apuestas de 0 o más.",
+    and: " y ", colon: ":",
+  },
 };
 
 interface Row { bet: number; folded: boolean; rank: number | null }
@@ -52,7 +68,7 @@ const PRESETS: Record<string, { rows: Row[]; unit: number }> = {
 
 export function mountSidePot(root: HTMLElement, lang: Lang = "fr") {
   const s = STR[lang] ?? STR.fr;
-  const num = (x: number) => x.toLocaleString(lang === "fr" ? "fr-FR" : "en-US", { maximumFractionDigits: 2 });
+  const num = (x: number) => x.toLocaleString(lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US", { maximumFractionDigits: 2 });
   const signed = (x: number) => (x > 0 ? "+" : x < 0 ? "−" : "") + num(Math.abs(x));
   let rows: Row[] = PRESETS.basic.rows.map((r) => ({ ...r }));
 
@@ -177,6 +193,7 @@ export function mountSidePot(root: HTMLElement, lang: Lang = "fr") {
 
 const target = typeof document !== "undefined" && document.getElementById("side-pot-calculator");
 if (target) {
-  const lang = ((target as HTMLElement).dataset.lang === "en" ? "en" : "fr") as Lang;
+  const dl = (target as HTMLElement).dataset.lang;
+  const lang = (dl === "en" || dl === "es" ? dl : "fr") as Lang;
   mountSidePot(target as HTMLElement, lang);
 }

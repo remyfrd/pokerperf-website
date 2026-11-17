@@ -6,7 +6,7 @@ headline: "Probabilidades del Texas Hold'em: las cifras exactas del poker"
 description: "Probabilidad de recibir ases, ligar un trío en el flop o completar tu proyecto de color: las probabilidades clave del Texas Hold'em, exactas y explicadas."
 permalink: /es/guias/probabilidades-texas-holdem/
 date: 2026-11-12
-last_modified_at: 2026-11-12
+last_modified_at: 2026-11-17
 stylesheets: ["/assets/css/poker-odds.css"]
 alternates:
   - { lang: "fr", href: "https://pokerperf.com/fr/guides/probabilites-poker/" }
@@ -46,6 +46,22 @@ x_default: "https://pokerperf.com/en/guides/texas-holdem-odds/"
 </table>
 </div>
 <p>El cálculo de la pareja de mano, paso a paso: hay 13 valores y, para cada uno, 6 formas de elegir dos de las cuatro cartas (C(4,2) = 6). 13 × 6 = 78 parejas, y 78 ÷ 1326 = <strong>5,88&nbsp;%</strong>. Una pareja concreta, como los ases, son solo 6 combos: 6 ÷ 1326, o una vez cada 221 manos.</p>
+
+<h3 id="pareja-de-mano">Probabilidades de una pareja de mano, del reparto al river</h3>
+<p>Todo sobre las parejas de mano en un solo lugar (conteo exacto, cualquier pareja):</p>
+<div class="table-scroll" role="region" aria-label="Probabilidades de una pareja de mano del reparto al river" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Situación</th><th scope="col">Probabilidad</th><th scope="col">1 de cada…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Recibir una pareja de mano</th><td>5,88&nbsp;%</td><td>17</td></tr>
+    <tr><th scope="row">Al menos una pareja en 10 manos</th><td>45,5&nbsp;%</td><td>2,2</td></tr>
+    <tr><th scope="row">Ligar un trío o mejor en el flop</th><td>11,8&nbsp;%</td><td>8,5</td></tr>
+    <tr><th scope="row">Trío o mejor al river (viendo las 5 cartas)</th><td>19,2&nbsp;%</td><td>5,2</td></tr>
+    <tr><th scope="row">Fallaste el flop: ligar en el turn o el river</th><td>8,4&nbsp;%</td><td>11,9</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">Trío al river: 1 − C(48,5) ÷ C(50,5) = 19,2&nbsp;%. Ese 19,2&nbsp;% solo vale si ves las cinco cartas sin enfrentarte a una apuesta grande; si tienes que pagar en el flop, lo que cuenta es el 11,8&nbsp;%.</p>
 
 <h3>Tienes KK: ¿qué probabilidad hay de que alguien tenga AA?</h3>
 <p>Es el miedo clásico con los reyes. Casi nunca está justificado:</p>
@@ -167,6 +183,7 @@ x_default: "https://pokerperf.com/en/guides/texas-holdem-odds/"
 
 <h2>FAQ</h2>
 <details><summary>¿Qué probabilidad hay de recibir una pareja de ases?</summary><p>6 combos de 1326, es decir, 0,45&nbsp;%, o 1 mano de cada 221 (220 a 1 en contra). La probabilidad de recibir cualquier pareja de mano es del 5,88&nbsp;%, o 1 de cada 17.</p></details>
+<details><summary>¿Qué probabilidad hay de recibir una pareja de mano?</summary><p>78 de las 1326 manos iniciales posibles son parejas: el 5,88&nbsp;%, o 1 mano de cada 17. En 10 manos, recibes al menos una pareja el 45,5&nbsp;% de las veces. Con una pareja, ligas un trío o mejor al river el 19,2&nbsp;% de las veces si ves las cinco cartas del board.</p></details>
 <details><summary>¿Qué probabilidad hay de ligar un trío en el flop?</summary><p>Con una pareja de mano, 11,8&nbsp;%: alrededor de 1 vez de cada 8,5. Esa cifra incluye los raros full y póquer. Si fallas, te quedan 2 outs: 4,3&nbsp;% en el turn y luego 4,3&nbsp;% en el river.</p></details>
 <details><summary>¿Qué probabilidad hay de completar un proyecto de color?</summary><p>Con 9 outs, 19,1&nbsp;% en el turn y 19,6&nbsp;% del turn al river. Si ves las dos cartas (rival all-in), 35,0&nbsp;% del flop al river.</p></details>
 <details><summary>¿Es precisa la regla del 4 y el 2?</summary><p>Es una aproximación. Funciona hasta unos 9 outs; a partir de ahí la regla del 4 sobreestima: 60&nbsp;% frente al 54,1&nbsp;% real con 15 outs. Y el ×4 solo se aplica cuando tienes seguro ver el turn y el river.</p></details>
@@ -177,6 +194,7 @@ x_default: "https://pokerperf.com/en/guides/texas-holdem-odds/"
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
   {"@type":"Question","name":"¿Qué probabilidad hay de recibir una pareja de ases?","acceptedAnswer":{"@type":"Answer","text":"6 combos de 1326, es decir, 0,45 %, o 1 mano de cada 221 (220 a 1 en contra). La probabilidad de recibir cualquier pareja de mano es del 5,88 %, o 1 de cada 17."}},
+  {"@type":"Question","name":"¿Qué probabilidad hay de recibir una pareja de mano?","acceptedAnswer":{"@type":"Answer","text":"78 de las 1326 manos iniciales posibles son parejas: el 5,88 %, o 1 mano de cada 17. En 10 manos, recibes al menos una pareja el 45,5 % de las veces. Con una pareja, ligas un trío o mejor al river el 19,2 % de las veces si ves las cinco cartas del board."}},
   {"@type":"Question","name":"¿Qué probabilidad hay de ligar un trío en el flop?","acceptedAnswer":{"@type":"Answer","text":"Con una pareja de mano, 11,8 %: alrededor de 1 vez de cada 8,5. Esa cifra incluye los raros full y póquer. Si fallas, te quedan 2 outs: 4,3 % en el turn y luego 4,3 % en el river."}},
   {"@type":"Question","name":"¿Qué probabilidad hay de completar un proyecto de color?","acceptedAnswer":{"@type":"Answer","text":"Con 9 outs, 19,1 % en el turn y 19,6 % del turn al river. Si ves las dos cartas (rival all-in), 35,0 % del flop al river."}},
   {"@type":"Question","name":"¿Es precisa la regla del 4 y el 2?","acceptedAnswer":{"@type":"Answer","text":"Es una aproximación. Funciona hasta unos 9 outs; a partir de ahí la regla del 4 sobreestima: 60 % frente al 54,1 % real con 15 outs. Y el x4 solo se aplica cuando tienes seguro ver el turn y el river."}},

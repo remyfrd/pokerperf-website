@@ -1,11 +1,11 @@
-// Widget « calculateur d'équité PLO / Omaha » — vanilla TS, bilingue (data-lang fr|en), 100 % client-side.
+// Widget « calculateur d'équité PLO / Omaha » — vanilla TS, trilingue (data-lang fr|en|es), 100 % client-side.
 // PLO4 / PLO5, 2 à 6 joueurs, mains adverses aléatoires possibles, board 0/3/4/5.
 // Exact dès le flop (énumération), Monte-Carlo par paquets préflop (UI réactive).
 import { Card, RANKS, SUIT_SYMBOL, makeCard, formatCard, suitOf, parseCards } from "../equity/cards";
 import { categoryOf } from "../equity/evaluator";
 import { computeOmahaEquityAsync, evaluateOmaha, OmahaHand, OmahaResult, MAX_PLAYERS } from "../omaha/omaha";
 
-type Lang = "fr" | "en";
+type Lang = "fr" | "en" | "es";
 const STR = {
   fr: {
     suitLabel: ["pique", "cœur", "carreau", "trèfle"], suitShort: ["P", "Cœ", "Ca", "T"],
@@ -44,6 +44,25 @@ const STR = {
     modeMc: (n: number) => `Monte-Carlo estimate (${n.toLocaleString("en-US")} samples, ±~0.5%)`,
     examples: "Examples", ex1: "AAKK double-suited vs JT98 double-suited", ex2: "Set vs wrap on the flop", ex3: "AAKK double-suited vs a random hand",
     best: "best", pct: (x: number) => `${x.toFixed(1)}%`, num: (x: number) => x.toFixed(1),
+  },
+  es: {
+    suitLabel: ["picas", "corazones", "diamantes", "tréboles"], suitShort: ["P", "Co", "D", "T"],
+    variant: "Modalidad", plo4: "PLO (4 cartas)", plo5: "PLO5 (5 cartas)",
+    you: "Tú", opponent: (i: number) => `Rival ${i}`, board: "Board",
+    random: "mano aleatoria", removeOpp: (i: number) => `quitar al rival ${i}`, addOpp: "+ Rival",
+    calc: "Calcular equity", reset: "Reiniciar", pickTitle: "Elige una carta", clearSlot: "Quitar esta carta",
+    emptyAria: "casilla vacía, elige una carta", cardAria: (r: string, s: string) => `${r} de ${s}`,
+    slotAria: (who: string, i: number) => `${who}, carta ${i}`, boardAria: (i: number) => `Board, carta ${i}`,
+    progress: (n: number) => `Calculando… ${n} simulaciones`,
+    errComplete: (n: number) => `Completa las ${n} cartas de cada jugador (o marca «aleatoria» para un rival).`,
+    errBoard: "El board debe tener 0, 3, 4 o 5 cartas.",
+    randomName: "Aleatoria",
+    catNames: ["Carta alta", "Pareja", "Doble pareja", "Trío", "Escalera", "Color", "Full", "Póquer", "Escalera de color"],
+    sub: (w: string, t: string) => `victoria ${w} % · empate ${t} %`,
+    modeExact: (n: number) => `cálculo exacto (${n.toLocaleString("es-ES")} runouts)`,
+    modeMc: (n: number) => `estimación Monte-Carlo (${n.toLocaleString("es-ES")} simulaciones, ±~0,5 %)`,
+    examples: "Ejemplos", ex1: "AAKK doble suited contra JT98 doble suited", ex2: "Trío contra wrap en el flop", ex3: "AAKK doble suited contra una mano aleatoria",
+    best: "mejor", pct: (x: number) => `${x.toFixed(1).replace(".", ",")} %`, num: (x: number) => x.toFixed(1).replace(".", ","),
   },
 };
 
@@ -310,4 +329,4 @@ export function mountPlo(root: HTMLElement, lang: Lang = "fr") {
 }
 
 const target = typeof document !== "undefined" && document.getElementById("plo-calculator");
-if (target) mountPlo(target as HTMLElement, (target as HTMLElement).dataset.lang === "en" ? "en" : "fr");
+if (target) { const dl = (target as HTMLElement).dataset.lang; mountPlo(target as HTMLElement, dl === "en" || dl === "es" ? dl : "fr"); }

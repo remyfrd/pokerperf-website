@@ -70,6 +70,9 @@
 - [Calculadora de EV del semifarol](https://pokerperf.com/es/calculadora-semifarol/)
 - [Calculadora de rangos de póker](https://pokerperf.com/es/calculadora-rangos-poker/)
 - [Calculadora ICM](https://pokerperf.com/es/calculadora-icm/)
+- [Calculadora de equity Omaha (PLO)](https://pokerperf.com/es/calculadora-omaha/)
+- [Calculadora de side pot](https://pokerperf.com/es/calculadora-side-pot/)
+- [Calculadora de bankroll de poker](https://pokerperf.com/es/calculadora-bankroll-poker/)
 - [Ranking de manos de póker](https://pokerperf.com/es/ranking-manos-poker/)
 
 ## Guías (español)
@@ -88,6 +91,8 @@
 - [Blockers en el póker](https://pokerperf.com/es/guias/blockers-poker/)
 - [SPR](https://pokerperf.com/es/guias/spr-poker/)
 - [Varianza en el póker](https://pokerperf.com/es/guias/varianza-poker/)
+- [Glosario de póker](https://pokerperf.com/es/guias/glosario-poker/)
+- [Cómo jugar Ases](https://pokerperf.com/es/guias/como-jugar-ases/)
 - Nota: la app PokerPerf está disponible en inglés y francés.
 
 ## How the numbers are checked / Méthodologie

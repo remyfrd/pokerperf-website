@@ -1,0 +1,113 @@
+---
+layout: default
+lang: es
+title: "Calculadora de side pot: cómo funcionan los botes secundarios en el póker, gratis"
+description: "Calculadora de side pot gratis: introduce lo que apostó cada jugador, quién se retiró y el orden del showdown, y ve el bote principal, cada bote secundario, quién puede ganarlo, las apuestas no igualadas y los botes divididos."
+permalink: /es/calculadora-side-pot/
+webapp: "Calculadora de side pot de póker"
+last_modified_at: 2026-11-17
+stylesheets: ["/assets/css/outs-odds.css", "/assets/css/side-pot-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-side-pot/" }
+  - { lang: "en", href: "https://pokerperf.com/en/side-pot-calculator/" }
+  - { lang: "es", href: "https://pokerperf.com/es/calculadora-side-pot/" }
+x_default: "https://pokerperf.com/en/side-pot-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculadora de side pot: quién gana qué cuando varios jugadores van all-in</h1>
+  <p class="lead">Cuando un jugador va all-in por menos que los demás, el dinero se reparte en un <strong>bote principal</strong> y uno o varios <strong>botes secundarios</strong> (<em>side pots</em>). Introduce cuánto puso cada jugador en la mano, quién se retiró y, si quieres, el orden de las manos en el showdown: verás cada bote, quién puede ganarlo y cuánto se lleva cada jugador. Gratis, sin registro, hasta 10 jugadores.</p>
+
+  <div id="side-pot-calculator" data-lang="es"></div>
+  <noscript><p class="tip">La calculadora necesita JavaScript. La regla sin ella: ordena los all-in de menor a mayor; en cada nivel, cada jugador que puso al menos esa cantidad aporta la misma porción. Cada porción es un bote, y solo pueden ganarlo los jugadores que siguen en la mano y llegaron a ese nivel.</p></noscript>
+
+  <h2>¿Cómo funcionan los side pots?</h2>
+  <p>Una sola regla lo explica todo: <strong>a cada rival solo puedes ganarle lo mismo que tú has puesto</strong>. Un jugador all-in por 20 puede ganar 20 de cada rival, no más. El resto del dinero se lo juegan, en un bote aparte, los jugadores a los que aún les quedan fichas.</p>
+  <p>Para construir los botes, toma los all-in de los jugadores que siguen en la mano, de menor a mayor. Cada nivel corta una porción:</p>
+  <p class="formula">bote del nivel L = Σ sobre todos los jugadores de (mín(su total, L) − mín(su total, nivel anterior))</p>
+  <p>Ese bote lo puede ganar cualquier jugador que siga en la mano y haya puesto al menos L. Las fichas de los jugadores retirados se quedan en los botes que alimentaron, pero ellos no pueden ganar nada.</p>
+
+  <h2>Ejemplo paso a paso: 4 jugadores, 3 ganadores distintos</h2>
+  <p>El jugador 1 va all-in por 20, el jugador 2 all-in por 50, y los jugadores 3 y 4 ponen 100 cada uno. Es el primer ejemplo de la calculadora.</p>
+  <div class="odds-scroll" role="region" aria-label="Cómo se forman los botes secundarios" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Bote</th><th scope="col">Porción por jugador</th><th scope="col">Cálculo</th><th scope="col">Importe</th><th scope="col">Quién puede ganarlo</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Bote principal</th><td>0 → 20</td><td>4 × 20</td><td>80</td><td>Jugadores 1, 2, 3, 4</td></tr>
+      <tr><th scope="row">Bote secundario 1</th><td>20 → 50</td><td>3 × 30</td><td>90</td><td>Jugadores 2, 3, 4</td></tr>
+      <tr><th scope="row">Bote secundario 2</th><td>50 → 100</td><td>2 × 50</td><td>100</td><td>Jugadores 3, 4</td></tr>
+      <tr><th scope="row">Total</th><td></td><td>20 + 50 + 100 + 100</td><td>270</td><td></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>En el showdown, el jugador 1 tiene la mejor mano, el jugador 2 la segunda y el jugador 3 la tercera. El jugador 1 gana el bote principal (80): no puede tocar el resto. El bote secundario 1 (90) va a la mejor mano entre los jugadores 2, 3 y 4, es decir, al jugador 2. El bote secundario 2 (100) va al mejor entre los jugadores 3 y 4, es decir, al jugador 3. <strong>Los botes se reparten siempre desde el último bote secundario hasta el principal</strong>, comparando solo las manos que pueden optar a cada uno.</p>
+
+  <h2>Reglas de los side pots que conviene conocer</h2>
+  <ul>
+    <li><strong>Apuesta no igualada.</strong> Si apuestas 150 y el único que paga va all-in por 40, nadie ha igualado los otros 110: vuelven directamente a ti, no están en ningún bote. La calculadora lo muestra en una línea aparte.</li>
+    <li><strong>Jugadores retirados.</strong> Un jugador que pagó 60 y luego se retiró deja esos 60 en el centro. Alimentan el bote principal y los botes secundarios hasta su nivel, pero ese jugador no puede ganarlos.</li>
+    <li><strong>Botes divididos.</strong> Cada bote se reparte por separado entre las mejores manos que optan a él. Puedes empatar un bote secundario y perder el principal, o al revés.</li>
+    <li><strong>Ficha indivisible.</strong> Cuando un bote no se puede dividir a partes iguales, la ficha sobrante va al primer ganador a la izquierda del botón (la regla habitual en hold'em y Omaha; los reglamentos de torneo también la siguen). La calculadora la aplica bote por bote: introduce a los jugadores en orden de asiento empezando a la izquierda del botón, e indica la ficha más pequeña si no es 1.</li>
+    <li><strong>All-in que no completa una subida.</strong> Un all-in inferior a una subida completa no reabre la acción para los jugadores que ya han actuado: pueden pagar o retirarse, pero no volver a subir. Cambia la acción, no el reparto de los botes.</li>
+  </ul>
+
+  <h2>Pot odds con side pots: tres all-in delante de ti</h2>
+  <p>Una pregunta real de un foro: set bajo en un flop seco, tres jugadores van all-in delante de ti. ¿Te retiras? Los side pots cambian las cuentas, porque <strong>no juegas contra los mismos rivales en cada bote</strong>.</p>
+  <p>Ejemplo: todos pusieron 15 preflop (60 en el bote). En un flop K♠&nbsp;8♠&nbsp;3♣, el jugador A va all-in por 100, el jugador B por 250 y el jugador C por 400. Tienes 3♥&nbsp;3♦ y cubres a todos: pagar te cuesta 400. Las aportaciones totales son 115, 265, 415 y 415 (el segundo ejemplo de la calculadora):</p>
+  <div class="odds-scroll" role="region" aria-label="Botes después de pagar" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Bote</th><th scope="col">Importe</th><th scope="col">Tus rivales en ese bote</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Bote principal</th><td>460</td><td>A, B, C</td></tr>
+      <tr><th scope="row">Bote secundario 1</th><td>450</td><td>B, C</td></tr>
+      <tr><th scope="row">Bote secundario 2</th><td>300</td><td>C</td></tr>
+      <tr><th scope="row">Total que puedes ganar</th><td>1210</td><td></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Si tuvieras la misma probabilidad de ganar cada bote, el umbral serían unas <a href="/es/calculadora-pot-odds/">pot odds</a> normales sobre todo lo que puedes ganar:</p>
+  <p class="formula">equity necesaria ≈ lo que pagas ÷ total que puedes ganar = 400 ÷ 1210 ≈ 33,1&nbsp;%</p>
+  <p>Pero tu probabilidad no es la misma en todas partes. Supongamos que A tiene A♠&nbsp;Q♠ (proyecto de color al nuts), B tiene K♦&nbsp;Q♦ (top pair) y C tiene A♥&nbsp;A♣. Enumerando exactamente las 820 combinaciones de turn y river, tu parte de cada bote es:</p>
+  <div class="odds-scroll" role="region" aria-label="Tu equity en cada bote" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Bote</th><th scope="col">Importe</th><th scope="col">Tu equity</th><th scope="col">Parte esperada</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Bote principal (contra A, B, C)</th><td>460</td><td>66,5&nbsp;%</td><td>306</td></tr>
+      <tr><th scope="row">Bote secundario 1 (contra B, C)</th><td>450</td><td>93,4&nbsp;%</td><td>420</td></tr>
+      <tr><th scope="row">Bote secundario 2 (contra C)</th><td>300</td><td>94,8&nbsp;%</td><td>284</td></tr>
+      <tr><th scope="row">Total</th><td>1210</td><td>83,5&nbsp;% de media</td><td>1010</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Recuperas de media unos 1010 por un call de 400: <strong>+610 respecto a retirarte</strong>. El proyecto de color es el único peligro real, y solo amenaza el bote principal, algo más de un tercio del dinero. El método general:</p>
+  <p class="formula">paga si Σ (tu equity en el bote k × importe del bote k) &gt; lo que pagas</p>
+  <p>Dos lecciones prácticas. La mano del stack corto solo cuenta para el bote principal, así que un all-in corto que asusta te cuesta menos de lo que parece. Y los botes secundarios más profundos se juegan contra menos rivales, así que tu equity en ellos suele ser mayor.</p>
+
+  <div class="appcta">
+    <h2>Repartir botes es mecánico; lo difícil es tu equity</h2>
+    <p>La calculadora se encarga de las cuentas. En la mesa, lo que decide el call es estimar tu equity y tu precio en pocos segundos. <strong>PokerPerf</strong> entrena justo eso, 10 minutos al día, sin promesas de dinero fácil. La app está disponible en inglés y francés.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Descubre PokerPerf</a>
+  </div>
+
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Cómo funcionan los side pots en el póker?</summary><p>Cuando un jugador va all-in por menos que los demás, solo puede ganar de cada rival lo que él mismo puso. Ese dinero forma el bote principal. Lo que los demás apuesten por encima va a un bote secundario que solo ellos pueden ganar. Cada all-in adicional por una cantidad distinta crea otro bote secundario.</p></details>
+  <details><summary>¿Quién gana el bote secundario?</summary><p>La mejor mano entre los jugadores que optan a él: los que siguen en la mano y pusieron al menos el nivel de ese bote. El jugador all-in con el stack más pequeño nunca opta a los botes secundarios, aunque tenga la mejor mano de la mesa.</p></details>
+  <details><summary>¿Puede un jugador all-in ganar más de lo que apostó?</summary><p>Sí, pero como mucho su propia apuesta de cada rival. All-in por 20 contra tres jugadores, puedes ganar 80 en total (tus 20 más 20 de cada rival), más el dinero muerto que hubiera antes en la mano.</p></details>
+  <details><summary>¿Qué pasa con las fichas de un jugador que se retira?</summary><p>Se quedan en el bote. Se suman al bote principal y a los botes secundarios hasta la cantidad que puso ese jugador, pero quien se retiró no puede ganar nada de ello.</p></details>
+  <details><summary>¿Qué es una apuesta no igualada?</summary><p>La parte de una apuesta que nadie ha igualado. Si apuestas 150 y tu único rival va all-in por 40, los otros 110 se te devuelven antes de repartir los botes.</p></details>
+  <details><summary>¿Quién se lleva la ficha indivisible en un bote dividido?</summary><p>En hold'em y Omaha, el primer ganador a la izquierda del botón. Cada bote se divide por separado, así que el bote principal y un bote secundario pueden tener cada uno su propia ficha sobrante.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/calculadora-pot-odds/">Calculadora de pot odds</a> · <a href="/es/guias/spr-poker/">El SPR (stack-to-pot ratio)</a> · <a href="/es/calculadora-icm/">Calculadora ICM</a> · <a href="/es/calculadora-equity-poker/">Calculadora de equity</a> · <a href="/es/guias/pot-odds-poker/">Guía de pot odds</a> · <a href="/es/metodologia/">Metodología</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Cómo funcionan los side pots en el póker?","acceptedAnswer":{"@type":"Answer","text":"Cuando un jugador va all-in por menos que los demás, solo puede ganar de cada rival lo que él mismo puso. Ese dinero forma el bote principal. Lo que los demás apuesten por encima va a un bote secundario que solo ellos pueden ganar. Cada all-in adicional por una cantidad distinta crea otro bote secundario."}},
+  {"@type":"Question","name":"¿Quién gana el bote secundario?","acceptedAnswer":{"@type":"Answer","text":"La mejor mano entre los jugadores que optan a él: los que siguen en la mano y pusieron al menos el nivel de ese bote. El jugador all-in con el stack más pequeño nunca opta a los botes secundarios, aunque tenga la mejor mano de la mesa."}},
+  {"@type":"Question","name":"¿Puede un jugador all-in ganar más de lo que apostó?","acceptedAnswer":{"@type":"Answer","text":"Sí, pero como mucho su propia apuesta de cada rival. All-in por 20 contra tres jugadores, puedes ganar 80 en total (tus 20 más 20 de cada rival), más el dinero muerto que hubiera antes en la mano."}},
+  {"@type":"Question","name":"¿Qué pasa con las fichas de un jugador que se retira?","acceptedAnswer":{"@type":"Answer","text":"Se quedan en el bote. Se suman al bote principal y a los botes secundarios hasta la cantidad que puso ese jugador, pero quien se retiró no puede ganar nada de ello."}},
+  {"@type":"Question","name":"¿Qué es una apuesta no igualada?","acceptedAnswer":{"@type":"Answer","text":"La parte de una apuesta que nadie ha igualado. Si apuestas 150 y tu único rival va all-in por 40, los otros 110 se te devuelven antes de repartir los botes."}},
+  {"@type":"Question","name":"¿Quién se lleva la ficha indivisible en un bote dividido?","acceptedAnswer":{"@type":"Answer","text":"En hold'em y Omaha, el primer ganador a la izquierda del botón. Cada bote se divide por separado, así que el bote principal y un bote secundario pueden tener cada uno su propia ficha sobrante."}}
+]}
+</script>
+<script src="/assets/js/side-pot-calculator.js" defer></script>

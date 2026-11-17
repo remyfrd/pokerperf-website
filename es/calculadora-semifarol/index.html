@@ -1,11 +1,12 @@
 ---
 layout: default
 lang: es
-title: "Calculadora de EV del semifarol (fold equity), gratis"
-description: "Calcula el EV de un semifarol en poker: bote, apuesta, fold equity y equity de tu proyecto. Obtén la fold equity de equilibrio y sabe si apostar es rentable."
+title: "Calculadora de EV de poker: semifarol y fold equity, gratis"
+description: "Calculadora de EV de poker gratis para semifaroles: introduce el bote, tu apuesta, la fold equity y la equity de tu proyecto y obtén tu valor esperado, la fold equity de equilibrio y un veredicto claro."
 permalink: /es/calculadora-semifarol/
-webapp: "Calculadora de EV del semifarol"
-last_modified_at: 2026-11-12
+webapp: "Calculadora de EV de poker (semifarol)"
+last_modified_at: 2026-11-17
+stylesheets: ["/assets/css/outs-odds.css"]
 alternates:
   - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-semi-bluff/" }
   - { lang: "en", href: "https://pokerperf.com/en/semi-bluff-ev-calculator/" }
@@ -14,10 +15,16 @@ x_default: "https://pokerperf.com/en/semi-bluff-ev-calculator/"
 ---
 <div class="wrap">
   <p class="brand">PokerPerf</p>
-  <h1>Calculadora de EV del semifarol</h1>
+  <h1>Calculadora de EV de poker: semifarol y fold equity</h1>
   <p class="lead">¿Tienes un proyecto y dudas si apostar? Introduce el <strong>bote</strong>, tu <strong>apuesta</strong>, la <strong>probabilidad de que tu rival se retire</strong> y tu <strong>equity</strong> (tu parte del bote, o tus outs): obtienes el <strong>EV de tu semifarol</strong>, la <strong>fold equity de equilibrio</strong> y un veredicto claro. Gratis, sin registro.</p>
 
   <div id="semi-bluff" data-lang="es"></div>
+
+  <h2>¿Qué es el EV en el poker?</h2>
+  <p>El <strong>EV</strong> (valor esperado) es lo que una decisión gana o pierde <em>de media</em>, si la repitieras miles de veces. Cada resultado se pondera por su probabilidad:</p>
+  <p class="formula">EV = Σ (probabilidad del resultado × fichas ganadas o perdidas)</p>
+  <p>El caso más sencillo es una <strong>llamada</strong>. El bote es de 100, tu rival apuesta 50 y tienes un 25&nbsp;% de equity. Si pagas, el bote final es de 200 y tú pones 50: EV = 0,25 × 200 − 50 = <strong>0</strong>. Es justo el punto de equilibrio que da la <a href="/es/calculadora-pot-odds/">calculadora de pot odds</a> (25&nbsp;% de equity necesaria). Con más equity la llamada es +EV; con menos, −EV.</p>
+  <p>Cuando eres <strong>tú</strong> quien apuesta, aparece un tercer resultado: que tu rival se retire. Eso es lo que calcula esta herramienta.</p>
 
   <h2>¿Qué es un semifarol?</h2>
   <p>Un <strong>semifarol</strong> es una apuesta con una mano que todavía no está hecha pero puede mejorar: normalmente un proyecto de color o de escalera. Tienes <strong>dos formas de ganar</strong>: tu rival se retira en el acto, o paga y tú ligas tu proyecto.</p>
@@ -40,6 +47,7 @@ x_default: "https://pokerperf.com/en/semi-bluff-ev-calculator/"
   </div>
 
   <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Cómo se calcula el EV en el poker?</summary><p>Multiplica cada resultado posible por su probabilidad y súmalos. Para una llamada: EV = equity × bote final − cantidad pagada. Para una apuesta: EV = % de fold × bote + % de call × (equity × bote final − apuesta).</p></details>
   <details><summary>¿Cuándo conviene semifarolear?</summary><p>Cuando tu proyecto tiene suficiente equity y tu rival puede retirarse. Cuantos más outs tienes, menos fold equity necesitas.</p></details>
   <details><summary>¿Qué es la fold equity?</summary><p>La parte de tu EV que viene de que tu rival se retire. Depende de la frecuencia con la que se retira y del tamaño del bote.</p></details>
   <details><summary>¿Es exacto el cálculo?</summary><p>Es un modelo simplificado (una sola ronda de apuestas, sin subida). Da un orden de magnitud fiable para decidir, no una verdad al céntimo.</p></details>
@@ -49,6 +57,7 @@ x_default: "https://pokerperf.com/en/semi-bluff-ev-calculator/"
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Cómo se calcula el EV en el poker?","acceptedAnswer":{"@type":"Answer","text":"Multiplica cada resultado posible por su probabilidad y súmalos. Para una llamada: EV = equity × bote final − cantidad pagada. Para una apuesta: EV = % de fold × bote + % de call × (equity × bote final − apuesta)."}},
   {"@type":"Question","name":"¿Cuándo conviene semifarolear?","acceptedAnswer":{"@type":"Answer","text":"Cuando tu proyecto tiene suficiente equity y tu rival puede retirarse. Cuantos más outs tienes, menos fold equity necesitas."}},
   {"@type":"Question","name":"¿Qué es la fold equity?","acceptedAnswer":{"@type":"Answer","text":"La parte de tu EV que viene de que tu rival se retire. Depende de la frecuencia con la que se retira y del tamaño del bote."}},
   {"@type":"Question","name":"¿Es exacto el cálculo?","acceptedAnswer":{"@type":"Answer","text":"Es un modelo simplificado (una sola ronda de apuestas, sin subida). Da un orden de magnitud fiable para decidir, no una verdad al céntimo."}}

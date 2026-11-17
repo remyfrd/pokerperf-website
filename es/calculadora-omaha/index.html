@@ -1,0 +1,122 @@
+---
+layout: default
+lang: es
+title: "Calculadora de equity Omaha (PLO 4 y 5 cartas), gratis"
+description: "Calculadora PLO gratis para Pot-Limit Omaha de 4 y 5 cartas: equity y odds de Omaha hasta 6 jugadores, manos aleatorias, cálculo exacto desde el flop. La regla 2+3 y por qué las equities son tan ajustadas."
+permalink: /es/calculadora-omaha/
+webapp: "Calculadora de equity Omaha (PLO)"
+last_modified_at: 2026-11-17
+stylesheets: ["/assets/css/outs-odds.css", "/assets/css/plo-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-omaha/" }
+  - { lang: "en", href: "https://pokerperf.com/en/plo-equity-calculator/" }
+  - { lang: "es", href: "https://pokerperf.com/es/calculadora-omaha/" }
+x_default: "https://pokerperf.com/en/plo-equity-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculadora de equity Omaha: odds de PLO con 4 y 5 cartas</h1>
+  <p class="lead">Introduce las manos de Omaha y el board: obtienes la <strong>equity</strong> de cada jugador (su parte del bote) en Pot-Limit Omaha, con 4 o 5 cartas. Hasta 6 jugadores, manos aleatorias permitidas, <strong>cálculo exacto desde el flop</strong>. Gratis, sin registro.</p>
+
+  <div id="plo-calculator" data-lang="es"></div>
+  <noscript><p class="tip">La calculadora necesita JavaScript. Sin ella, recuerda la regla que lo cambia todo en Omaha: tienes que usar exactamente 2 de tus cartas y 3 del board.</p></noscript>
+
+  <h2>Cómo usar la calculadora de Omaha</h2>
+  <ol>
+    <li>Elige la modalidad: <strong>PLO</strong> (4 cartas) o <strong>PLO5</strong> (Omaha de 5 cartas).</li>
+    <li>Haz clic en una casilla y elige la carta. La siguiente casilla vacía se abre sola, así que puedes introducir una mano entera en un momento. Las cartas ya usadas aparecen en gris.</li>
+    <li>Añade rivales (hasta 6 jugadores) o marca <em>mano aleatoria</em> para probar contra cualquier mano.</li>
+    <li>Deja el board vacío para el preflop, o introduce 3, 4 o 5 cartas.</li>
+  </ol>
+  <p>Desde el flop el cálculo es <strong>exacto</strong>: se recorren todos los turns y rivers posibles. En el preflop hay más de un millón de boards por enfrentamiento, así que la calculadora hace una simulación Monte-Carlo (decenas de miles de boards aleatorios, con una precisión de unos ±0,5&nbsp;%).</p>
+
+  <h2>La regla de Omaha: exactamente 2 cartas de tu mano + 3 del board</h2>
+  <p>Es la regla que los jugadores de Hold'em aplican mal. En Omaha, tu mano de cinco cartas siempre se forma con <strong>exactamente dos cartas propias y exactamente tres del board</strong>. Nunca una, nunca tres.</p>
+  <ul>
+    <li><strong>Cuatro picas en el board y una pica en tu mano: no hay color.</strong> Necesitas dos picas en la mano. Con A♠ K♦ 7♣ 2♥ en Q♠ J♠ 9♠ 4♠ 3♦, no tienes nada mejor que carta alta as.</li>
+    <li><strong>Cuatro cartas a escalera en el board no completan tu escalera</strong> con una sola carta. En A♠ K♠ Q♠ J♠ 2♦, una mano como T♠ 3♣ 4♣ 5♥ no tiene ni escalera ni color: sus cinco mejores cartas son A-K-Q-T-5, carta alta as.</li>
+    <li><strong>Un trío en la mano no es un trío.</strong> Con 9♥ 9♦ 9♣ 2♠ solo puedes jugar dos nueves. En K♣ K♦ 5♥ 7♠ 3♣ tienes doble pareja (reyes y nueves), no un full.</li>
+  </ul>
+  <p>La calculadora aplica esta regla de forma estricta. La comprobamos contra un evaluador independiente por fuerza bruta que prueba todas las combinaciones válidas (6 parejas de cartas propias × 10 tríos del board en PLO, 10 × 10 en PLO5).</p>
+
+  <h2>Por qué las equities en PLO están mucho más igualadas que en Hold'em</h2>
+  <p>Con cuatro cartas, cada mano tiene seis combinaciones de dos cartas para ligar algo. Incluso una mano monstruo rara vez domina. Compara estas equities all-in, calculadas con el motor de esta página:</p>
+  <div class="odds-scroll" role="region" aria-label="Equities de Hold'em frente a Omaha" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Enfrentamiento</th><th scope="col">Equity del favorito</th><th scope="col">Método</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Hold'em: A♠A♥ contra K♦K♣</th><td>81,2&nbsp;%</td><td>1.000.000 de boards</td></tr>
+      <tr><th scope="row">PLO: A♠A♥7♦2♣ contra K♠K♥8♦3♣</th><td>74,8&nbsp;%</td><td>exacto</td></tr>
+      <tr><th scope="row">Hold'em: A♠A♥ contra una mano aleatoria</th><td>85,2&nbsp;%</td><td>1.000.000 de boards</td></tr>
+      <tr><th scope="row">PLO: A♠A♥K♠K♥ contra una mano aleatoria</th><td>70,7&nbsp;%</td><td>1.000.000 de boards</td></tr>
+      <tr><th scope="row">PLO: A♠A♥K♠K♥ contra J♦T♦9♣8♣</th><td>61,5&nbsp;%</td><td>exacto</td></tr>
+      <tr><th scope="row">PLO: A♠A♥7♦2♣ contra K♣Q♣J♦T♦</th><td>52,1&nbsp;%</td><td>exacto</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>La última línea es la lección: unos ases con dos cartas sin conexión y de distinto palo apenas van por delante de una mano conectada y doble suited como KQJT. En Omaha, <strong>una pareja de ases por sí sola no es una gran mano</strong>. Lo que cuenta es cómo trabajan juntas las cuatro cartas.</p>
+
+  <h2>Los palos importan: doble suited frente a rainbow</h2>
+  <p>Mismos valores, distintos palos, contra una mano aleatoria (1.000.000 de boards simulados en cada caso):</p>
+  <div class="odds-scroll" role="region" aria-label="Efecto de los palos en la equity de AAKK" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Mano</th><th scope="col">Equity contra una mano aleatoria</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">A♠A♥K♠K♥ (doble suited)</th><td>70,7&nbsp;%</td></tr>
+      <tr><th scope="row">A♠A♥K♦K♣ (rainbow)</th><td>65,0&nbsp;%</td></tr>
+      <tr><th scope="row">A♠A♥7♦2♣ (ases sin conexión, rainbow)</th><td>61,1&nbsp;%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Ser doble suited vale aquí casi 6 puntos: son posibles dos proyectos de color al nuts distintos. Por eso los jugadores de Omaha valoran tanto las manos «ds».</p>
+
+  <h2>En el flop, el proyecto puede ser el favorito</h2>
+  <p>En Hold'em, un set es muy favorito contra un proyecto de escalera. En Omaha, un gran «wrap» (un proyecto de escalera que usa varias de tus cartas) puede ir por delante. En 9♥ 8♣ 2♦:</p>
+  <div class="odds-scroll" role="region" aria-label="Set contra wrap en el flop" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Situación</th><th scope="col">Set</th><th scope="col">Proyecto</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Hold'em: 9♠9♦ contra J♥T♣</th><td>74,1&nbsp;%</td><td>25,9&nbsp;%</td></tr>
+      <tr><th scope="row">PLO: 9♠9♦K♣4♥ contra J♥T♣7♦6♠</th><td>45,6&nbsp;%</td><td>54,4&nbsp;%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Los dos son cálculos exactos. Con J-T-7-6, <strong>20 de las 41 cartas no vistas completan una escalera en el turn</strong> (cualquier 5, 6, 7, diez, jota o reina que quede en la baraja). En Hold'em, J-T tiene 8 outs. El set de arriba sigue vivo porque liga full cuando el board se empareja, pero <strong>ya no es el favorito</strong>. Pruébalo en la calculadora: es el segundo ejemplo.</p>
+  <h2>PLO de 5 cartas: todavía más igualado</h2>
+  <p>En PLO5 cada mano tiene diez parejas de dos cartas en lugar de seis, así que las diferencias se reducen aún más. A♠A♥K♠Q♦J♣ (ases, tres cartas altas y un as suited) tiene un <strong>60,6&nbsp;%</strong> contra una mano aleatoria de cinco cartas (1.000.000 de boards simulados). Y en multiway, hasta las mejores manos de cuatro cartas se quedan cortas: A♠A♥K♠K♥ solo tiene un <strong>54,7&nbsp;%</strong> contra dos manos aleatorias.</p>
+
+  <h2>Errores clásicos en Omaha</h2>
+  <ul>
+    <li><strong>Contar un color con una sola carta del palo.</strong> Regla 2+3: necesitas dos.</li>
+    <li><strong>Sobrevalorar los ases sin estructura.</strong> AA72 rainbow solo tiene alrededor del 52&nbsp;% contra KQJT doble suited.</li>
+    <li><strong>Jugarse el stack con proyectos que no son el nuts.</strong> Con cuatro cartas cada uno, a menudo alguien tiene el color o la escalera más alta. Calcula contra una mano realista, no contra una mano aleatoria.</li>
+    <li><strong>Olvidar tus propios blockers.</strong> Si tienes cuatro picas, quedan menos picas para completar tu color: tu mano se bloquea a sí misma.</li>
+    <li><strong>Usar los reflejos de Hold'em con las pot odds.</strong> Como las equities están muy igualadas, los all-in preflop suelen rondar el 50/50. Las <a href="/es/calculadora-pot-odds/">pot odds</a> que te dan importan más que la «fuerza» de la mano.</li>
+  </ul>
+
+  <div class="appcta">
+    <h2>PokerPerf entrena Hold'em, no Omaha</h2>
+    <p>Para ser claros: la app <strong>PokerPerf</strong> entrena tus decisiones de <em>Texas Hold'em</em> (equity, outs, pot odds, rangos), 10 minutos al día. Todavía no tiene ejercicios de Omaha. Si juegas a los dos, los reflejos que desarrolla (estimar tu equity y compararla con tu precio) se trasladan directamente al PLO. La app está disponible en inglés y francés.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Descubre PokerPerf</a>
+  </div>
+
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Cómo se calcula la equity en Omaha?</summary><p>Se toman todos los boards posibles que quedan y, en cada uno, se busca la mejor mano de cada jugador usando exactamente dos cartas propias y tres del board. Tu equity es tu parte media del bote: las victorias cuentan enteras y los botes repartidos, en parte. Desde el flop la calculadora recorre todos los boards de forma exacta; en el preflop simula una gran muestra aleatoria.</p></details>
+  <details><summary>¿Hay que usar dos cartas en Omaha?</summary><p>Sí, exactamente dos cartas propias y exactamente tres del board. Por eso cuatro cartas de un palo en el board no te dan color salvo que tengas dos de ese palo.</p></details>
+  <details><summary>¿AA es muy favorito en PLO?</summary><p>Mucho menos que en Hold'em. A♠A♥7♦2♣ tiene un 74,8&nbsp;% contra K♠K♥8♦3♣ (81,2&nbsp;% para AA contra KK en Hold'em), y solo un 52,1&nbsp;% contra K♣Q♣J♦T♦. Las otras dos cartas importan tanto como los ases.</p></details>
+  <details><summary>¿La calculadora sirve para el PLO de 5 cartas?</summary><p>Sí. Elige PLO5: cada jugador recibe cinco cartas y se aplica la misma regla (dos de la mano, tres del board), con 10 parejas posibles por mano en lugar de 6.</p></details>
+  <details><summary>¿Sirve para Omaha Hi-Lo?</summary><p>No. Calcula Omaha solo a la carta alta (PLO, PLO5). El Hi-Lo (Omaha 8 or better) reparte el bote con la mejor mano baja y necesita otra evaluación.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/calculadora-equity-poker/">Calculadora de equity de Hold'em</a> · <a href="/es/calculadora-pot-odds/">Calculadora de pot odds</a> · <a href="/es/guias/como-contar-outs/">Cómo contar outs</a> · <a href="/es/guias/blockers-poker/">Blockers en el poker</a> · <a href="/es/guias/matematicas-poker/">Matemáticas del poker</a> · <a href="/es/metodologia/">Metodología</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Cómo se calcula la equity en Omaha?","acceptedAnswer":{"@type":"Answer","text":"Se toman todos los boards posibles que quedan y, en cada uno, se busca la mejor mano de cada jugador usando exactamente dos cartas propias y tres del board. Tu equity es tu parte media del bote: las victorias cuentan enteras y los botes repartidos, en parte. Desde el flop la calculadora recorre todos los boards de forma exacta; en el preflop simula una gran muestra aleatoria."}},
+  {"@type":"Question","name":"¿Hay que usar dos cartas en Omaha?","acceptedAnswer":{"@type":"Answer","text":"Sí, exactamente dos cartas propias y exactamente tres del board. Por eso cuatro cartas de un palo en el board no te dan color salvo que tengas dos de ese palo."}},
+  {"@type":"Question","name":"¿AA es muy favorito en PLO?","acceptedAnswer":{"@type":"Answer","text":"Mucho menos que en Hold'em. A♠A♥7♦2♣ tiene un 74,8 % contra K♠K♥8♦3♣ (81,2 % para AA contra KK en Hold'em), y solo un 52,1 % contra K♣Q♣J♦T♦. Las otras dos cartas importan tanto como los ases."}},
+  {"@type":"Question","name":"¿La calculadora sirve para el PLO de 5 cartas?","acceptedAnswer":{"@type":"Answer","text":"Sí. Elige PLO5: cada jugador recibe cinco cartas y se aplica la misma regla (dos de la mano, tres del board), con 10 parejas posibles por mano en lugar de 6."}},
+  {"@type":"Question","name":"¿Sirve para Omaha Hi-Lo?","acceptedAnswer":{"@type":"Answer","text":"No. Calcula Omaha solo a la carta alta (PLO, PLO5). El Hi-Lo (Omaha 8 or better) reparte el bote con la mejor mano baja y necesita otra evaluación."}}
+]}
+</script>
+<script src="/assets/js/plo-calculator.js" defer></script>

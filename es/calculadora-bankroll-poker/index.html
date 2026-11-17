@@ -1,0 +1,125 @@
+---
+layout: default
+lang: es
+title: "Calculadora de bankroll de poker: riesgo de ruina y buy-ins necesarios, gratis"
+description: "Calculadora de bankroll de poker gratis: introduce tu winrate y tu desviación estándar (o tu ROI en torneos) y obtén tu riesgo de ruina, la bankroll que necesitas para un 5 % o un 1 % de riesgo y los downswings que te esperan."
+permalink: /es/calculadora-bankroll-poker/
+webapp: "Calculadora de bankroll de poker"
+last_modified_at: 2026-11-17
+stylesheets: ["/assets/css/outs-odds.css", "/assets/css/bankroll-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-bankroll/" }
+  - { lang: "en", href: "https://pokerperf.com/en/poker-bankroll-calculator/" }
+  - { lang: "es", href: "https://pokerperf.com/es/calculadora-bankroll-poker/" }
+x_default: "https://pokerperf.com/en/poker-bankroll-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculadora de bankroll de poker: tu riesgo de ruina, en cifras</h1>
+  <p class="lead">«&nbsp;20 buy-ins para cash, 100 para torneos&nbsp;»: todo el mundo ha oído estas reglas, pero no te dicen <strong>cuánto riesgo estás corriendo de verdad</strong>. Introduce tu winrate y tu desviación estándar (o tu ROI en torneos): obtienes tu <strong>riesgo de ruina</strong>, la bankroll que necesitas para un 5&nbsp;% o un 1&nbsp;% de riesgo y el tamaño de los downswings que te esperan. Gratis y sin registro.</p>
+
+  <div id="bankroll-calculator" data-lang="es"></div>
+  <noscript><p class="tip">La calculadora necesita JavaScript. La fórmula sin ella: riesgo de ruina = e<sup>−2 × winrate × bankroll ÷ desviación estándar²</sup>, con el winrate y la desviación estándar en bb/100 y la bankroll en ciegas grandes.</p></noscript>
+
+  <h2>¿Cuánta bankroll necesitas para jugar al poker?</h2>
+  <p>La respuesta habitual es un conjunto de convenciones que pasan de foro en foro:</p>
+  <ul>
+    <li><strong>cash games</strong>: de 20 a 40 buy-ins (un buy-in = 100 ciegas grandes);</li>
+    <li><strong>sit &amp; go</strong>: de 50 a 100 buy-ins;</li>
+    <li><strong>torneos multimesa (MTT)</strong>: 100 buy-ins o más, a veces de 200 a 300 en torneos con muchos inscritos.</li>
+  </ul>
+  <p>Son puntos de partida razonables, pero esconden la verdadera pregunta: <strong>¿cuánta ventaja tienes?</strong> Los mismos 20 buy-ins son cómodos para un gran ganador y arriesgados para uno pequeño. Y si en realidad eres un jugador que empata o pierde, ninguna bankroll es suficiente: tarde o temprano la pierdes.</p>
+
+  <h2>La fórmula del riesgo de ruina</h2>
+  <p>En cash, tus resultados se comportan más o menos como un paseo aleatorio con pendiente: tu winrate te empuja hacia arriba y tu desviación estándar te zarandea. El modelo clásico de difusión da la probabilidad de llegar a perder toda tu bankroll:</p>
+  <p class="formula">riesgo de ruina = e<sup>−2 × winrate × bankroll ÷ desviación estándar²</sup></p>
+  <p>El winrate y la desviación estándar van en ciegas grandes por cada 100 manos (bb/100) y la bankroll en ciegas grandes. Ejemplo con 5 bb/100, una desviación estándar de 90 bb/100 (la hipótesis de nuestra <a href="/es/guias/varianza-poker/">guía sobre la varianza</a>) y 20 buy-ins (2.000 bb):</p>
+  <p class="formula">riesgo de ruina = e<sup>−2 × 5 × 2.000 ÷ 8.100</sup> = e<sup>−2,47</sup> ≈ 8,5&nbsp;%</p>
+  <p>Al revés, da la bankroll que necesitas para un riesgo objetivo:</p>
+  <p class="formula">bankroll = −desviación estándar² × ln(riesgo) ÷ (2 × winrate)</p>
+  <p>Para un 5&nbsp;% de riesgo: 8.100 × 3,0 ÷ 10 ≈ 2.430 bb, es decir, <strong>24 buy-ins</strong>. Para un 1&nbsp;% de riesgo: <strong>37 buy-ins</strong>.</p>
+
+  <h2>Cash: riesgo de ruina según la bankroll y el winrate</h2>
+  <p>Desviación estándar de 90 bb/100, un buy-in = 100 bb, riesgo a largo plazo (fórmula anterior):</p>
+  <div class="odds-scroll" role="region" aria-label="Riesgo de ruina según la bankroll y el winrate" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Winrate</th><th scope="col">20 buy-ins</th><th scope="col">30 buy-ins</th><th scope="col">40 buy-ins</th><th scope="col">60 buy-ins</th><th scope="col">Para un 5&nbsp;% de riesgo</th><th scope="col">Para un 1&nbsp;% de riesgo</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">1 bb/100</th><td>61&nbsp;%</td><td>48&nbsp;%</td><td>37&nbsp;%</td><td>23&nbsp;%</td><td>121 buy-ins</td><td>187 buy-ins</td></tr>
+      <tr><th scope="row">2,5 bb/100</th><td>29&nbsp;%</td><td>16&nbsp;%</td><td>8,5&nbsp;%</td><td>2,5&nbsp;%</td><td>49 buy-ins</td><td>75 buy-ins</td></tr>
+      <tr><th scope="row">5 bb/100</th><td>8,5&nbsp;%</td><td>2,5&nbsp;%</td><td>0,7&nbsp;%</td><td>0,1&nbsp;%</td><td>24 buy-ins</td><td>37 buy-ins</td></tr>
+      <tr><th scope="row">10 bb/100</th><td>0,7&nbsp;%</td><td>0,1&nbsp;%</td><td>&lt; 0,1&nbsp;%</td><td>&lt; 0,1&nbsp;%</td><td>12 buy-ins</td><td>19 buy-ins</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>La regla de «&nbsp;20 a 40 buy-ins&nbsp;» es más o menos correcta <strong>para un ganador sólido</strong> (5 bb/100). Para un ganador pequeño a 2,5 bb/100, 20 buy-ins suponen casi 1 posibilidad entre 3 de arruinarse. La bankroll necesaria se duplica cuando tu winrate se reduce a la mitad.</p>
+  <p>La volatilidad pesa igual, y entra al cuadrado: a 5 bb/100 necesitas 15 buy-ins para un 5&nbsp;% de riesgo con una desviación estándar de 70, 24 con 90 y <strong>43 con 120</strong> (un estilo agresivo, o el PLO).</p>
+
+  <h2>Los downswings que te esperan</h2>
+  <p>La bankroll no sirve solo para no arruinarte: sirve para atravesar las malas rachas normales sin cambiar tu forma de jugar. Simulando 4.000 trayectorias de 100.000 manos con una desviación estándar de 90:</p>
+  <div class="odds-scroll" role="region" aria-label="Peor downswing en 100.000 manos" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Winrate</th><th scope="col">Peor downswing, caso típico</th><th scope="col">Peor downswing, 1 vez de cada 10</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">2,5 bb/100</th><td>24 buy-ins</td><td>41 buy-ins</td></tr>
+      <tr><th scope="row">5 bb/100</th><td>19 buy-ins</td><td>31 buy-ins</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Dicho de otro modo, un <strong>downswing de 20 buy-ins es algo normal</strong> en 100.000 manos, incluso para un buen jugador. Por eso 20 buy-ins son un mínimo y no un objetivo cómodo.</p>
+
+  <h2>Torneos y sit &amp; go</h2>
+  <p>En torneos pierdes la mayoría de las veces y ganas pocas, pero a lo grande. La varianza es mucho mayor y crece con el número de inscritos. La calculadora simula series de torneos con una estructura de premios típica. Bankroll necesaria para limitar a un 5&nbsp;% o un 1&nbsp;% el riesgo de arruinarte en 1.000 torneos:</p>
+  <div class="odds-scroll" role="region" aria-label="Bankroll para torneos según el formato y el ROI" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Formato (rake)</th><th scope="col">ROI</th><th scope="col">Para un 5&nbsp;% de riesgo</th><th scope="col">Para un 1&nbsp;% de riesgo</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Sit &amp; go de 9 jugadores (7&nbsp;%)</th><td>+5&nbsp;%</td><td>55 buy-ins</td><td>77 buy-ins</td></tr>
+      <tr><th scope="row">Sit &amp; go de 9 jugadores (7&nbsp;%)</th><td>+10&nbsp;%</td><td>32 buy-ins</td><td>50 buy-ins</td></tr>
+      <tr><th scope="row">MTT de 200 jugadores (10&nbsp;%)</th><td>+10&nbsp;%</td><td>132 buy-ins</td><td>188 buy-ins</td></tr>
+      <tr><th scope="row">MTT de 1.000 jugadores (10&nbsp;%)</th><td>+20&nbsp;%</td><td>148 buy-ins</td><td>207 buy-ins</td></tr>
+      <tr><th scope="row">MTT de 1.000 jugadores (10&nbsp;%)</th><td>+30&nbsp;%</td><td>101 buy-ins</td><td>148 buy-ins</td></tr>
+      <tr><th scope="row">MTT de 5.000 jugadores (10&nbsp;%)</th><td>+20&nbsp;%</td><td>234 buy-ins</td><td>299 buy-ins</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>La regla de «&nbsp;100 buy-ins para MTT&nbsp;» se queda por tanto <strong>corta</strong>: con un buen ROI del +20&nbsp;% en torneos de 1.000 jugadores, sigue dejando alrededor de un 15&nbsp;% de posibilidades de arruinarte en 1.000 torneos. Y estas cifras son un mínimo: el modelo reparte tu ventaja por igual entre todos los puestos pagados, mientras que los ganadores reales ganan sobre todo más premios grandes, lo que aumenta la varianza.</p>
+
+  <h2>Reglas prácticas que sí ayudan</h2>
+  <ul>
+    <li><strong>Usa un winrate prudente.</strong> En 50.000 manos, tu winrate real solo se conoce con un margen de unos ±8 bb/100. Pon el valor bajo, no tu mejor mes.</li>
+    <li><strong>Decide de antemano cuándo bajar de límite.</strong> Por ejemplo: bajar en cuanto tengas menos de 20 buy-ins del límite actual. Decidida en frío, la regla aguanta cuando estás en tilt.</li>
+    <li><strong>Prueba el límite superior en pequeñas dosis.</strong> Intenta subir con 3 a 5 buy-ins de ese límite y vuelve a bajar si los pierdes. Tu riesgo global sigue bajo control.</li>
+    <li><strong>Separa la bankroll del dinero para vivir.</strong> Si retiras de tu bankroll para vivir, tu winrate efectivo baja y el riesgo sube.</li>
+    <li><strong>Si no estás seguro de ser ganador, tu bankroll es tu presupuesto.</strong> Para un jugador recreativo, la bankroll es la cantidad que te puedes permitir perder, no una garantía.</li>
+  </ul>
+
+  <h2>Los límites del modelo</h2>
+  <p>La fórmula de cash supone un winrate y una desviación estándar constantes, sin retiradas ni rakeback, y en la práctica nunca bajas de cero porque te detienes antes. Su principal debilidad es el dato de entrada: tu winrate es incierto, y un winrate sobrestimado da un riesgo subestimado. El modelo de torneos usa una estructura de premios simplificada (alrededor del 15&nbsp;% de pagados en MTT) y una ventaja uniforme entre los puestos pagados. Toma los resultados como órdenes de magnitud, no como certezas.</p>
+
+  <div class="appcta">
+    <h2>Tu bankroll te protege; tus decisiones hacen el winrate</h2>
+    <p>El factor que más pesa en la calculadora es tu winrate, y se construye decisión a decisión: equity, pot odds, rangos. <strong>PokerPerf</strong> entrena esas decisiones hasta convertirlas en reflejos, 10 minutos al día. Sin promesas de ganancias: solo más decisiones correctas. La app está disponible en inglés y francés.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Descubre PokerPerf</a>
+  </div>
+
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿De cuánto debe ser mi bankroll de poker?</summary><p>En cash, la convención habitual es de 20 a 40 buy-ins. En cifras: un ganador de 5 bb/100 con una desviación estándar de 90 necesita unos 24 buy-ins para un 5&nbsp;% de riesgo de ruina y 37 para un 1&nbsp;%. Un ganador de 2,5 bb/100 necesita el doble.</p></details>
+  <details><summary>¿Qué es el riesgo de ruina en el poker?</summary><p>Es la probabilidad de perder toda tu bankroll antes de que tu ventaja dé frutos. En cash se estima como e^(−2 × winrate × bankroll ÷ desviación estándar²), con el winrate y la desviación estándar en bb/100 y la bankroll en ciegas grandes.</p></details>
+  <details><summary>¿Cuántos buy-ins necesitas para jugar MTT?</summary><p>Más que los 100 clásicos. En nuestras simulaciones, un ROI del +20&nbsp;% en torneos de 1.000 jugadores necesita unos 150 buy-ins para un 5&nbsp;% de riesgo de arruinarse en 1.000 torneos, y unos 230 en torneos de 5.000 jugadores.</p></details>
+  <details><summary>¿Qué desviación estándar debo usar?</summary><p>Tu tracker te la indica. Sin él, toma de 70 a 100 bb/100 para no-limit hold'em 6-max (90 es un buen valor por defecto), algo menos en full ring y más con un estilo agresivo o en pot-limit Omaha.</p></details>
+  <details><summary>¿Bastan 20 buy-ins para jugar cash?</summary><p>Para un ganador sólido, más o menos sí: alrededor de un 8,5&nbsp;% de riesgo de ruina a 5 bb/100. Para un ganador pequeño es arriesgado (alrededor del 29&nbsp;% a 2,5 bb/100). Y un downswing de 20 buy-ins es algo normal en 100.000 manos.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Ver también: <a href="/es/guias/varianza-poker/">La varianza del poker en cifras</a> · <a href="/es/calculadora-icm/">Calculadora ICM</a> · <a href="/es/guias/tablas-push-fold/">Tablas de push/fold</a> · <a href="/es/guias/como-estudiar-poker/">Cómo estudiar poker</a> · <a href="/es/calculadora-equity-poker/">Calculadora de equity de poker</a> · <a href="/es/metodologia/">Metodología</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿De cuánto debe ser mi bankroll de poker?","acceptedAnswer":{"@type":"Answer","text":"En cash, la convención habitual es de 20 a 40 buy-ins. En cifras: un ganador de 5 bb/100 con una desviación estándar de 90 necesita unos 24 buy-ins para un 5 % de riesgo de ruina y 37 para un 1 %. Un ganador de 2,5 bb/100 necesita el doble."}},
+  {"@type":"Question","name":"¿Qué es el riesgo de ruina en el poker?","acceptedAnswer":{"@type":"Answer","text":"Es la probabilidad de perder toda tu bankroll antes de que tu ventaja dé frutos. En cash se estima como e^(−2 × winrate × bankroll ÷ desviación estándar²), con el winrate y la desviación estándar en bb/100 y la bankroll en ciegas grandes."}},
+  {"@type":"Question","name":"¿Cuántos buy-ins necesitas para jugar MTT?","acceptedAnswer":{"@type":"Answer","text":"Más que los 100 clásicos. En nuestras simulaciones, un ROI del +20 % en torneos de 1.000 jugadores necesita unos 150 buy-ins para un 5 % de riesgo de arruinarse en 1.000 torneos, y unos 230 en torneos de 5.000 jugadores."}},
+  {"@type":"Question","name":"¿Qué desviación estándar debo usar?","acceptedAnswer":{"@type":"Answer","text":"Tu tracker te la indica. Sin él, toma de 70 a 100 bb/100 para no-limit hold'em 6-max (90 es un buen valor por defecto), algo menos en full ring y más con un estilo agresivo o en pot-limit Omaha."}},
+  {"@type":"Question","name":"¿Bastan 20 buy-ins para jugar cash?","acceptedAnswer":{"@type":"Answer","text":"Para un ganador sólido, más o menos sí: alrededor de un 8,5 % de riesgo de ruina a 5 bb/100. Para un ganador pequeño es arriesgado (alrededor del 29 % a 2,5 bb/100). Y un downswing de 20 buy-ins es algo normal en 100.000 manos."}}
+]}
+</script>
+<script src="/assets/js/bankroll-calculator.js" defer></script>

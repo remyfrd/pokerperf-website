@@ -1,4 +1,4 @@
-// Widget « calculateur de bankroll / risque de ruine » — bilingue (data-lang fr|en), 100 % client-side.
+// Widget « calculateur de bankroll / risque de ruine » — trilingue (data-lang fr|en|es), 100 % client-side.
 // Mode cash : formule fermée (horizon infini) + simulation (downswings, ruine sur l'horizon choisi).
 // Mode tournois : modèle discret simplifié (voir src/bankroll/bankroll.ts) + simulation.
 import {
@@ -6,7 +6,7 @@ import {
   tourneyModel, simulateTourneys, tourneyRuin, tourneyRequired, type TourneyFormat,
 } from "../bankroll/bankroll";
 
-type Lang = "fr" | "en";
+type Lang = "fr" | "en" | "es";
 const STR = {
   fr: {
     mode: "Format", cash: "Cash game", tourney: "Tournois / Sit & Go",
@@ -58,13 +58,38 @@ const STR = {
     err: "Enter positive values (standard deviation, bankroll, horizon).",
     decimal: ".", pctSp: "%",
   },
+  es: {
+    mode: "Formato", cash: "Cash game", tourney: "Torneos / Sit & Go",
+    wr: "Winrate (bb/100)", wrHint: "Tu ganancia media por cada 100 manos. Referencia: de 2 a 5 es un buen ganador online.",
+    sd: "Desviación estándar (bb/100)", sdHint: "Tu volatilidad. Referencia: de 70 a 100 en NL 6-max (90 por defecto), algo menos en full ring.",
+    br: "Bankroll (buy-ins de 100 bb)", hands: "Horizonte (manos)", handsHint: "Sirve para los downswings y el riesgo de ruina en ese periodo.",
+    fmt: "Formato", sng9: "Sit & Go de 9 jugadores (3 pagados)", sng6: "Sit & Go de 6 jugadores (2 pagados)", mtt: "Torneo MTT (~15 % pagados)",
+    field: "Número de inscritos", roi: "ROI (%)", roiHint: "Beneficio ÷ total invertido en buy-ins, como en los trackers. Referencia: +5 a +10 % en SnG, +10 a +30 % en MTT para un buen ganador.",
+    rake: "Rake (% del buy-in)", brT: "Bankroll (en buy-ins)", nT: "Horizonte (torneos)", amount: "Importe de un buy-in (opcional)",
+    rorInf: "Riesgo de ruina (a largo plazo)", rorH: (h: string) => `Riesgo de ruina en ${h} manos`,
+    req5: "Bankroll para un 5 % de riesgo", req1: "Bankroll para un 1 % de riesgo",
+    after: (h: string) => `Después de ${h} manos`, exp: "Resultado medio", range95: "Intervalo al 95 %", pLoss: "Probabilidad de ir en pérdidas",
+    obsWr: "Winrate observado (95 %)", ddMed: "Peor downswing, caso típico (mediana)", dd90: "Peor downswing, 1 vez de cada 10",
+    itm: "Puestos pagados (ITM)", sdT: "Desviación estándar por torneo", rorT: (n: string) => `Riesgo de ruina en ${n} torneos`,
+    reqT5: (n: string) => `Bankroll para un 5 % de riesgo (${n} torneos)`, reqT1: (n: string) => `Bankroll para un 1 % de riesgo (${n} torneos)`,
+    pLossT: (n: string) => `Probabilidad de ir en pérdidas tras ${n} torneos`, ddT: "Peor downswing, caso típico (mediana)",
+    caves: (x: string) => `${x} buy-ins`, bi: (x: string) => `${x} buy-ins`, bb: (x: string) => `${x} bb`,
+    never: "nunca (winrate ≤ 0)", certain: "100 % (winrate ≤ 0: la ruina es segura a largo plazo)",
+    infeasible: (max: string) => `ROI imposible en este formato: el máximo es ${max} (cobrarías en todos los torneos).`,
+    summaryCash: (ror: string, r5: string) => `Riesgo de ruina a largo plazo: ${ror}. Bankroll para un 5 % de riesgo: ${r5}.`,
+    summaryT: (ror: string, r5: string) => `Riesgo de ruina en el horizonte: ${ror}. Bankroll para un 5 % de riesgo: ${r5}.`,
+    simNote: (n: string) => `Downswings y riesgo en el periodo: simulación de ${n} trayectorias (aproximación, varía un poco de una tirada a otra).`,
+    modelNoteT: "Modelo simplificado: tu ventaja aumenta en la misma proporción la probabilidad de cada puesto pagado. Un ganador real gana sobre todo más premios grandes, así que su varianza es mayor: toma estas bankrolls como un mínimo.",
+    err: "Introduce valores positivos (desviación estándar, bankroll, horizonte).",
+    decimal: ",", pctSp: " %",
+  },
 };
 
 const MAX_DRAWS = 3_000_000; // budget de tirages aléatoires par recalcul (fluidité mobile)
 
 export function mountBankroll(root: HTMLElement, lang: Lang = "fr") {
   const s = STR[lang] ?? STR.fr;
-  const loc = lang === "fr" ? "fr-FR" : "en-US";
+  const loc = lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US";
   const num = (x: number, d = 0) => x.toLocaleString(loc, { minimumFractionDigits: d, maximumFractionDigits: d });
   const pct = (p: number) => {
     if (p <= 0) return `0${s.pctSp}`;
@@ -207,6 +232,7 @@ export function mountBankroll(root: HTMLElement, lang: Lang = "fr") {
 
 const target = typeof document !== "undefined" && document.getElementById("bankroll-calculator");
 if (target) {
-  const lang = ((target as HTMLElement).dataset.lang === "en" ? "en" : "fr") as Lang;
+  const dl = (target as HTMLElement).dataset.lang;
+  const lang = (dl === "en" || dl === "es" ? dl : "fr") as Lang;
   mountBankroll(target as HTMLElement, lang);
 }
