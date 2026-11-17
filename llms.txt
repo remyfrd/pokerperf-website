@@ -10,6 +10,9 @@
 - [Semi-Bluff EV Calculator](https://pokerperf.com/en/semi-bluff-ev-calculator/): EV of betting a draw and break-even fold equity.
 - [Poker Range Calculator](https://pokerperf.com/en/poker-range-calculator/): top X% → hands, combos and standard notation, with card removal (blockers).
 - [ICM Calculator](https://pokerperf.com/en/icm-calculator/): tournament stacks + payouts → prize equity (Malmuth-Harville, exact) and the equity needed to get all-in against each opponent (bubble factor).
+- [PLO Equity Calculator](https://pokerperf.com/en/plo-equity-calculator/): Pot-Limit Omaha equity (4 and 5 cards, up to 6 players, random hands), exact from the flop, strict 2+3 rule.
+- [Side Pot Calculator](https://pokerperf.com/en/side-pot-calculator/): main pot and side pots from each player's total bet, folded players, uncalled bet returned, winners and split pots (odd chip left of the button); pot odds when facing several all-ins.
+- [Poker Bankroll Calculator](https://pokerperf.com/en/poker-bankroll-calculator/): risk of ruin (cash: win rate + standard deviation; tournaments/SnG: ROI, simulated), bankroll needed for 5%/1% risk, expected downswings.
 - [Poker Hand Rankings](https://pokerperf.com/en/poker-hand-rankings/): printable chart, Texas Hold'em probabilities, tie-breakers, "which hand wins" comparator.
 
 ## Guides (English)
@@ -28,6 +31,8 @@
 - [Push/fold charts](https://pokerperf.com/en/guides/push-fold-chart/): heads-up Nash shove/call ranges at 10, 12, 15 and 20bb (chip-EV, no antes).
 - [Stack-to-pot ratio (SPR)](https://pokerperf.com/en/guides/stack-to-pot-ratio/): equity needed to call a shove at each SPR, typical SPR by preflop action, when top pair is committed.
 - [Poker variance](https://pokerperf.com/en/guides/poker-variance/): how often aces lose (exact equities), losing streaks, win-rate confidence intervals, simulated downswings.
+- [Poker glossary](https://pokerperf.com/en/guides/poker-glossary/): 78 poker terms (c-bet, 3-bet, squeeze, value bet, SPR, ICM, GTO…) with short definitions and anchors.
+- [How to play pocket aces](https://pokerperf.com/en/guides/how-to-play-pocket-aces/): preflop raising, when slowplaying makes sense, AA vs 3-bets/4-bets with blockers, AA on wet boards, SPR.
 
 ## Outils gratuits (français)
 - [Calculateur d'équité poker](https://pokerperf.com/fr/calculateur-equite/)
@@ -35,6 +40,9 @@
 - [Calculateur d'EV du semi-bluff](https://pokerperf.com/fr/calculateur-semi-bluff/)
 - [Calculateur de range en %](https://pokerperf.com/fr/calculateur-range/)
 - [Calculateur ICM](https://pokerperf.com/fr/calculateur-icm/)
+- [Calculateur Omaha (PLO)](https://pokerperf.com/fr/calculateur-omaha/)
+- [Calculateur de side pot](https://pokerperf.com/fr/calculateur-side-pot/)
+- [Calculateur de bankroll poker](https://pokerperf.com/fr/calculateur-bankroll/)
 - [Classement et ordre des mains au poker](https://pokerperf.com/fr/classement-des-mains/)
 
 ## Guides (français)
@@ -53,6 +61,8 @@
 - [Les bloqueurs au poker](https://pokerperf.com/fr/guides/bloqueurs-poker/)
 - [Le SPR (rapport tapis/pot)](https://pokerperf.com/fr/guides/spr-poker/)
 - [La variance en chiffres](https://pokerperf.com/fr/guides/variance-poker/)
+- [Lexique poker](https://pokerperf.com/fr/guides/lexique-poker/)
+- [Comment jouer les as](https://pokerperf.com/fr/guides/jouer-les-as/)
 
 ## Herramientas gratuitas (español)
 - [Calculadora de equity de póker](https://pokerperf.com/es/calculadora-equity-poker/)

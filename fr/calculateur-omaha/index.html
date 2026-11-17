@@ -1,0 +1,122 @@
+---
+layout: default
+lang: fr
+title: "Calculateur Omaha (PLO 4 et 5 cartes) : équité gratuite"
+description: "Calculateur d'équité Omaha gratuit pour le PLO à 4 et 5 cartes : jusqu'à 6 joueurs, mains aléatoires, calcul exact dès le flop. La règle des 2+3 et pourquoi les équités sont si serrées."
+permalink: /fr/calculateur-omaha/
+webapp: "Calculateur d'équité Omaha (PLO)"
+last_modified_at: 2026-11-17
+stylesheets: ["/assets/css/outs-odds.css", "/assets/css/plo-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-omaha/" }
+  - { lang: "en", href: "https://pokerperf.com/en/plo-equity-calculator/" }
+x_default: "https://pokerperf.com/en/plo-equity-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculateur Omaha : l'équité au PLO à 4 et 5 cartes</h1>
+  <p class="lead">Entre les mains d'Omaha et le board : tu obtiens l'<strong>équité</strong> de chaque joueur (sa part du pot) au Pot-Limit Omaha, à 4 ou 5 cartes. Jusqu'à 6 joueurs, mains aléatoires possibles, <strong>calcul exact dès le flop</strong>. Gratuit, sans inscription.</p>
+
+  <div id="plo-calculator" data-lang="fr"></div>
+  <noscript><p class="tip">Le calculateur a besoin de JavaScript. Sans lui, retiens la règle qui change tout à l'Omaha : on joue exactement 2 cartes de sa main et 3 du board.</p></noscript>
+
+  <h2>Comment utiliser le calculateur Omaha</h2>
+  <ol>
+    <li>Choisis la variante : <strong>PLO</strong> (4 cartes) ou <strong>PLO5</strong> (Omaha à 5 cartes).</li>
+    <li>Clique sur un emplacement et choisis la carte. L'emplacement vide suivant s'ouvre tout seul, pour saisir une main entière rapidement. Les cartes déjà utilisées sont grisées.</li>
+    <li>Ajoute des adversaires (jusqu'à 6 joueurs) ou coche <em>main aléatoire</em> pour tester contre n'importe quelle main.</li>
+    <li>Laisse le board vide pour le préflop, ou entre 3, 4 ou 5 cartes.</li>
+  </ol>
+  <p>Dès le flop, le calcul est <strong>exact</strong> : toutes les turns et rivers possibles sont énumérées. Au préflop, il y a plus d'un million de boards par confrontation : le calculateur fait alors une simulation Monte-Carlo (des dizaines de milliers de boards tirés au hasard, précision d'environ ±0,5 %).</p>
+
+  <h2>La règle de l'Omaha : exactement 2 cartes de ta main + 3 du board</h2>
+  <p>C'est la règle que les joueurs de Hold'em oublient. À l'Omaha, ta main de cinq cartes est toujours faite d'<strong>exactement deux cartes privatives et exactement trois cartes du board</strong>. Jamais une, jamais trois.</p>
+  <ul>
+    <li><strong>Quatre piques au board, un pique en main : pas de couleur.</strong> Il faut deux piques dans ta main. Avec A♠ K♦ 7♣ 2♥ sur Q♠ J♠ 9♠ 4♠ 3♦, tu n'as rien de mieux qu'une hauteur as.</li>
+    <li><strong>Quatre cartes pour une quinte au board ne te donnent pas la quinte</strong> avec une seule carte. Sur A♠ K♠ Q♠ J♠ 2♦, une main comme T♠ 3♣ 4♣ 5♥ n'a ni quinte ni couleur : ses cinq meilleures cartes sont A-K-Q-T-5, hauteur as.</li>
+    <li><strong>Un brelan en main n'est pas un brelan.</strong> Avec 9♥ 9♦ 9♣ 2♠, tu ne peux jouer que deux neuf. Sur K♣ K♦ 5♥ 7♠ 3♣, c'est une double paire (rois et neuf), pas un full.</li>
+  </ul>
+  <p>Le calculateur applique cette règle strictement. Nous le testons contre un évaluateur indépendant qui essaie toutes les combinaisons légales (6 paires de cartes privatives × 10 triplets du board au PLO, 10 × 10 au PLO5).</p>
+
+  <h2>Pourquoi les équités sont bien plus serrées qu'au Hold'em</h2>
+  <p>Avec quatre cartes, chaque main dispose de six combinaisons de deux cartes pour faire quelque chose. Même une très grosse main domine rarement. Compare ces équités à tapis, calculées avec le moteur de cette page :</p>
+  <div class="odds-scroll" role="region" aria-label="Équités Hold'em et Omaha comparées" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Confrontation</th><th scope="col">Équité du favori</th><th scope="col">Méthode</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Hold'em : A♠A♥ contre K♦K♣</th><td>81,2 %</td><td>1 000 000 de boards</td></tr>
+      <tr><th scope="row">PLO : A♠A♥7♦2♣ contre K♠K♥8♦3♣</th><td>74,8 %</td><td>exact</td></tr>
+      <tr><th scope="row">Hold'em : A♠A♥ contre une main aléatoire</th><td>85,2 %</td><td>1 000 000 de boards</td></tr>
+      <tr><th scope="row">PLO : A♠A♥K♠K♥ contre une main aléatoire</th><td>70,7 %</td><td>1 000 000 de boards</td></tr>
+      <tr><th scope="row">PLO : A♠A♥K♠K♥ contre J♦T♦9♣8♣</th><td>61,5 %</td><td>exact</td></tr>
+      <tr><th scope="row">PLO : A♠A♥7♦2♣ contre K♣Q♣J♦T♦</th><td>52,1 %</td><td>exact</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>La dernière ligne est la leçon : des as accompagnés de deux cartes sans lien ni couleur sont à peine devant une main connectée et double-couleur comme KQJT. À l'Omaha, <strong>une paire d'as seule n'est pas une grosse main</strong>. Ce qui compte, c'est la façon dont les quatre cartes travaillent ensemble.</p>
+
+  <h2>Les couleurs comptent : double-couleur ou dépareillée</h2>
+  <p>Mêmes rangs, couleurs différentes, contre une main aléatoire (1 000 000 de boards simulés pour chaque ligne) :</p>
+  <div class="odds-scroll" role="region" aria-label="Effet des couleurs sur l'équité de AAKK" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Main</th><th scope="col">Équité contre une main aléatoire</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">A♠A♥K♠K♥ (double-couleur)</th><td>70,7 %</td></tr>
+      <tr><th scope="row">A♠A♥K♦K♣ (dépareillée)</th><td>65,0 %</td></tr>
+      <tr><th scope="row">A♠A♥7♦2♣ (as sans lien, dépareillés)</th><td>61,1 %</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Être double-couleur (<em>double-suited</em>) vaut ici près de 6 points : deux tirages couleur max différents sont possibles. C'est pour ça que les joueurs d'Omaha recherchent tant les mains « ds ».</p>
+
+  <h2>Au flop, le tirage peut être favori</h2>
+  <p>Au Hold'em, un brelan est très largement favori contre un tirage quinte. À l'Omaha, un gros « wrap » (un tirage quinte qui utilise plusieurs de tes cartes) peut passer devant. Sur 9♥ 8♣ 2♦ :</p>
+  <div class="odds-scroll" role="region" aria-label="Brelan contre wrap au flop" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Situation</th><th scope="col">Brelan</th><th scope="col">Tirage</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Hold'em : 9♠9♦ contre J♥T♣</th><td>74,1 %</td><td>25,9 %</td></tr>
+      <tr><th scope="row">PLO : 9♠9♦K♣4♥ contre J♥T♣7♦6♠</th><td>45,6 %</td><td>54,4 %</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Les deux sont des calculs exacts. Avec J-T-7-6, <strong>20 des 41 cartes inconnues complètent une quinte dès la turn</strong> (tous les 5, 6, 7, 10, valets et dames encore dans le paquet). Au Hold'em, J-T n'a que 8 outs. Le brelan reste vivant, car il se transforme en full quand le board se paire, mais il <strong>n'est plus favori</strong>. Essaie-le dans le calculateur : c'est le deuxième exemple.</p>
+
+  <h2>PLO à 5 cartes : encore plus serré</h2>
+  <p>Au PLO5, chaque main compte dix paires de deux cartes au lieu de six : les écarts se resserrent encore. A♠A♥K♠Q♦J♣ (as, trois cartes hautes, un as assorti) a <strong>60,6 %</strong> contre une main aléatoire de cinq cartes (1 000 000 de boards simulés). Et à plusieurs, même les meilleures mains à quatre cartes fondent : A♠A♥K♠K♥ n'a que <strong>54,7 %</strong> contre deux mains aléatoires.</p>
+
+  <h2>Les erreurs classiques à l'Omaha</h2>
+  <ul>
+    <li><strong>Compter une couleur avec une seule carte de la couleur.</strong> Règle des 2+3 : il en faut deux.</li>
+    <li><strong>Surestimer des as sans structure.</strong> AA72 dépareillé n'a qu'environ 52 % contre KQJT double-couleur.</li>
+    <li><strong>Mettre son tapis avec un tirage qui n'est pas max.</strong> Avec quatre cartes chacun, quelqu'un a souvent la meilleure couleur ou la meilleure quinte. Calcule contre une main réaliste, pas contre une main aléatoire.</li>
+    <li><strong>Oublier ses propres bloqueurs.</strong> Si tu tiens quatre piques, il reste moins de piques pour compléter ta couleur : ta main se bloque elle-même.</li>
+    <li><strong>Appliquer ses réflexes Hold'em à la cote du pot.</strong> Comme les équités sont serrées, les tapis préflop sont souvent proches du 50/50. La <a href="/fr/cote-du-pot/">cote du pot</a> que tu obtiens compte plus que la « force » de la main.</li>
+  </ul>
+
+  <div class="appcta">
+    <h2>PokerPerf entraîne au Hold'em, pas à l'Omaha</h2>
+    <p>Pour être clair : l'application <strong>PokerPerf</strong> entraîne tes décisions au <em>Texas Hold'em</em> (équité, outs, cote du pot, ranges), 10 minutes par jour. Elle n'a pas encore d'exercices d'Omaha. Si tu joues aux deux, les réflexes qu'elle installe (estimer ton équité, la comparer à ton prix) se transposent directement au PLO.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Découvrir PokerPerf</a>
+  </div>
+
+  <h2>Questions fréquentes</h2>
+  <details><summary>Comment calculer l'équité à l'Omaha ?</summary><p>On prend tous les boards restants possibles et, pour chacun, la meilleure main de chaque joueur avec exactement deux cartes privatives et trois du board. Ton équité est ta part moyenne du pot : une victoire compte entière, un partage compte en partie. Dès le flop, le calculateur énumère tous les boards ; au préflop, il simule un grand échantillon aléatoire.</p></details>
+  <details><summary>Faut-il obligatoirement jouer deux cartes à l'Omaha ?</summary><p>Oui, exactement deux cartes privatives et exactement trois du board. C'est pourquoi quatre cartes d'une couleur au board ne te donnent pas la couleur si tu n'as pas deux cartes de cette couleur.</p></details>
+  <details><summary>AA est-il très favori au PLO ?</summary><p>Beaucoup moins qu'au Hold'em. A♠A♥7♦2♣ a 74,8 % contre K♠K♥8♦3♣ (81,2 % pour AA contre KK au Hold'em), et seulement 52,1 % contre K♣Q♣J♦T♦. Les deux autres cartes comptent autant que les as.</p></details>
+  <details><summary>Le calculateur fonctionne-t-il pour l'Omaha à 5 cartes ?</summary><p>Oui. Choisis PLO5 : chaque joueur reçoit cinq cartes et la même règle s'applique (deux de la main, trois du board), avec 10 paires possibles par main au lieu de 6.</p></details>
+  <details><summary>Gère-t-il l'Omaha Hi-Lo ?</summary><p>Non. Il calcule l'Omaha « high » uniquement (PLO, PLO5). Le Hi-Lo (Omaha 8 or better) partage le pot avec la meilleure main basse et demande une autre évaluation.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Voir aussi : <a href="/fr/calculateur-equite/">Calculateur d'équité Hold'em</a> · <a href="/fr/cote-du-pot/">Calculateur de cote du pot</a> · <a href="/fr/guides/compter-ses-outs/">Compter ses outs</a> · <a href="/fr/guides/bloqueurs-poker/">Les bloqueurs au poker</a> · <a href="/fr/guides/maths-du-poker/">Maths du poker</a> · <a href="/fr/methodologie/">Méthodologie</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Comment calculer l'équité à l'Omaha ?","acceptedAnswer":{"@type":"Answer","text":"On prend tous les boards restants possibles et, pour chacun, la meilleure main de chaque joueur avec exactement deux cartes privatives et trois du board. Ton équité est ta part moyenne du pot : une victoire compte entière, un partage compte en partie. Dès le flop, le calculateur énumère tous les boards ; au préflop, il simule un grand échantillon aléatoire."}},
+  {"@type":"Question","name":"Faut-il obligatoirement jouer deux cartes à l'Omaha ?","acceptedAnswer":{"@type":"Answer","text":"Oui, exactement deux cartes privatives et exactement trois du board. C'est pourquoi quatre cartes d'une couleur au board ne te donnent pas la couleur si tu n'as pas deux cartes de cette couleur."}},
+  {"@type":"Question","name":"AA est-il très favori au PLO ?","acceptedAnswer":{"@type":"Answer","text":"Beaucoup moins qu'au Hold'em. A♠A♥7♦2♣ a 74,8 % contre K♠K♥8♦3♣ (81,2 % pour AA contre KK au Hold'em), et seulement 52,1 % contre K♣Q♣J♦T♦. Les deux autres cartes comptent autant que les as."}},
+  {"@type":"Question","name":"Le calculateur fonctionne-t-il pour l'Omaha à 5 cartes ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Choisis PLO5 : chaque joueur reçoit cinq cartes et la même règle s'applique (deux de la main, trois du board), avec 10 paires possibles par main au lieu de 6."}},
+  {"@type":"Question","name":"Gère-t-il l'Omaha Hi-Lo ?","acceptedAnswer":{"@type":"Answer","text":"Non. Il calcule l'Omaha « high » uniquement (PLO, PLO5). Le Hi-Lo (Omaha 8 or better) partage le pot avec la meilleure main basse et demande une autre évaluation."}}
+]}
+</script>
+<script src="/assets/js/plo-calculator.js" defer></script>

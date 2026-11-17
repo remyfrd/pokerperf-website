@@ -1,0 +1,21 @@
+/* Calculateur PLO / Omaha — s'appuie sur .pp-calc/.card/.picker/.ctl/.results de pp.css. */
+.plo-variant{border:0;margin:0 0 12px;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;}
+.plo-variant legend{float:left;margin-right:12px;padding:0;font-family:"IBM Plex Mono","Plex Mono Fallback",monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+.plo-radio{display:inline-flex;align-items:center;gap:7px;min-height:44px;cursor:pointer;color:var(--cream);}
+.plo-radio input{width:20px;height:20px;accent-color:var(--gold);}
+.plo-examples{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 10px;color:var(--muted);font-size:.88rem;}
+.plo-ex-label{margin-right:2px;}
+.plo-calc .ctl.small{padding:9px 12px;min-height:44px;font-size:.84rem;}
+.plo-calc .ctl:focus-visible,.plo-calc .card:focus-visible,.plo-calc .pick:focus-visible,.plo-calc .picker-clear:focus-visible{outline:3px solid var(--cream);outline-offset:2px;}
+.plo-calc .rnd{min-height:44px;}
+.plo-calc .rnd input{width:20px;height:20px;accent-color:var(--gold);}
+.plo-calc .del{min-width:44px;min-height:44px;}
+.plo-calc .rhead{flex-wrap:wrap;}
+@media (max-width:560px){
+  .plo-calc{padding:14px;}
+  .plo-variant legend{float:none;width:100%;margin:0 0 2px;}
+  .plo-calc .pname,.plo-calc .blabel{min-width:0;flex-basis:100%;}
+  .plo-calc .slots{gap:5px;}
+  .plo-calc .card{width:44px;height:62px;}
+  .plo-examples .ctl{flex:1 1 auto;}
+}

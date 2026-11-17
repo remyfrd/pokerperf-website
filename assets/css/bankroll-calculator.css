@@ -1,0 +1,25 @@
+/* Calculateur de bankroll — s'appuie sur .pp-calc/.po/.po-big/.po-modes de pp.css. */
+.br .br-mode{border:0;padding:0;margin:0 0 12px;}
+.br .br-mode legend{color:var(--gold);font-size:.78rem;font-family:"IBM Plex Mono","Plex Mono Fallback",monospace;letter-spacing:.06em;text-transform:uppercase;padding:0;margin-bottom:6px;}
+.br .po-modes{flex-wrap:wrap;}
+.br .po-modes label{min-height:44px;cursor:pointer;font-size:.95rem;color:var(--cream);}
+.br .po-modes input{width:20px;height:20px;padding:0;accent-color:var(--gold);}
+.br .br-gap{margin-top:12px;}
+.br .sub{margin-top:5px;}
+.br input,.br select{min-height:44px;}
+.br input:focus-visible,.br select:focus-visible{outline:2px solid var(--cream);outline-offset:2px;}
+.br [hidden]{display:none !important;}
+.br-key{border:1px solid var(--gold-soft);border-radius:12px;padding:4px 14px;margin-bottom:6px;}
+.br-key .po-big:last-child{border-bottom:0;}
+.br .po-big{gap:12px;}
+.br .po-big span{flex:1 1 auto;}
+.br .po-big strong{text-align:right;flex:0 0 auto;}
+.br .br-sec strong{font-size:1rem;color:var(--cream);font-weight:600;}
+.br-h{margin:18px 0 2px;font-size:1.1rem;}
+.br-note{margin-top:10px;}
+.br-warn{border-left:3px solid var(--gold);padding-left:10px;}
+@media (max-width:560px){
+  .br .po-big{flex-wrap:wrap;}
+  .br .po-big strong{text-align:left;}
+}
+.br .po-row{align-items:flex-end;}

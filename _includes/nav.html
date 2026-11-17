@@ -15,6 +15,12 @@
           <a role="menuitem" href="{{ t.semibluff_url }}">{{ t.nav_calc_semibluff }}</a>
           <a role="menuitem" href="{{ t.range_url }}">{{ t.nav_calc_range }}</a>
           <a role="menuitem" href="{{ t.icm_url }}">{{ t.nav_calc_icm }}</a>
+          {%- if t.plo_url %}
+          <a role="menuitem" href="{{ t.plo_url }}">{{ t.nav_calc_plo }}</a>{% endif %}
+          {%- if t.sidepot_url %}
+          <a role="menuitem" href="{{ t.sidepot_url }}">{{ t.nav_calc_sidepot }}</a>{% endif %}
+          {%- if t.bankroll_url %}
+          <a role="menuitem" href="{{ t.bankroll_url }}">{{ t.nav_calc_bankroll }}</a>{% endif %}
           <a role="menuitem" href="{{ t.rankings_url }}">{{ t.nav_calc_rankings }}</a>
         </div>
       </div>

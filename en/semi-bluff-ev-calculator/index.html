@@ -1,11 +1,12 @@
 ---
 layout: default
 lang: en
-title: "Semi-Bluff EV Calculator (fold equity) — free"
-description: "Calculate the EV of a poker semi-bluff: pot, bet, fold equity and your draw's equity. Get the break-even fold equity and know if betting is profitable. Free."
+title: "Poker EV Calculator: Semi-Bluff & Fold Equity — free"
+description: "Free poker EV calculator for semi-bluffs: enter the pot, your bet, fold equity and your draw's equity to get your expected value, the break-even fold equity and a clear bet-or-check verdict."
 permalink: /en/semi-bluff-ev-calculator/
-webapp: "Semi-Bluff EV Calculator"
-last_modified_at: 2026-11-12
+webapp: "Poker EV Calculator (Semi-Bluff)"
+last_modified_at: 2026-11-17
+stylesheets: ["/assets/css/outs-odds.css"]
 alternates:
   - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-semi-bluff/" }
   - { lang: "en", href: "https://pokerperf.com/en/semi-bluff-ev-calculator/" }
@@ -14,10 +15,16 @@ x_default: "https://pokerperf.com/en/semi-bluff-ev-calculator/"
 ---
 <div class="wrap">
   <p class="brand">PokerPerf</p>
-  <h1>Semi-Bluff EV Calculator</h1>
+  <h1>Poker EV calculator: semi-bluff &amp; fold equity</h1>
   <p class="lead">Holding a draw and unsure whether to bet? Enter the <strong>pot</strong>, your <strong>bet</strong>, the <strong>chance he folds</strong> and your <strong>equity</strong> (or outs): you get your <strong>semi-bluff EV</strong>, the <strong>break-even fold equity</strong> and a clear verdict. Free, no sign-up.</p>
 
   <div id="semi-bluff" data-lang="en"></div>
+
+  <h2>What is EV in poker?</h2>
+  <p><strong>EV</strong> (expected value) is what a decision earns or loses <em>on average</em>, if you repeated it thousands of times. Each outcome is weighted by its probability:</p>
+  <p class="formula">EV = Σ (probability of the outcome × chips won or lost)</p>
+  <p>The simplest case is a <strong>call</strong>. The pot is 100, your opponent bets 50, you have 25% equity. If you call, the final pot is 200 and you put in 50: EV = 0.25 × 200 − 50 = <strong>0</strong>. That's exactly the break-even point given by the <a href="/en/pot-odds-calculator/">pot odds calculator</a> (25% required equity). With more equity the call is +EV, with less it's −EV.</p>
+  <p>When <strong>you</strong> bet, a third outcome appears: your opponent folds. That's what this calculator handles.</p>
 
   <h2>What is a semi-bluff?</h2>
   <p>A <strong>semi-bluff</strong> is a bet with a hand that isn't made yet but can improve — typically a flush or straight draw. You have <strong>two ways to win</strong>: your opponent folds right away, or he calls and you hit your draw.</p>
@@ -40,6 +47,7 @@ x_default: "https://pokerperf.com/en/semi-bluff-ev-calculator/"
   </div>
 
   <h2>Frequently asked questions</h2>
+  <details><summary>How do you calculate EV in poker?</summary><p>Multiply each possible outcome by its probability and add them up. For a call: EV = equity × final pot − amount called. For a bet: EV = fold % × pot + call % × (equity × final pot − bet).</p></details>
   <details><summary>When should you semi-bluff?</summary><p>When your draw has enough equity and your opponent can fold. The more outs you have, the less fold equity you need.</p></details>
   <details><summary>What is fold equity?</summary><p>The part of your EV that comes from your opponent folding. It depends on how often he folds and on the pot size.</p></details>
   <details><summary>Is the calculation exact?</summary><p>It's a simplified model (one betting round, no raise). It gives a reliable ballpark to decide, not a to-the-cent truth.</p></details>
@@ -49,6 +57,7 @@ x_default: "https://pokerperf.com/en/semi-bluff-ev-calculator/"
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How do you calculate EV in poker?","acceptedAnswer":{"@type":"Answer","text":"Multiply each possible outcome by its probability and add them up. For a call: EV = equity × final pot − amount called. For a bet: EV = fold % × pot + call % × (equity × final pot − bet)."}},
   {"@type":"Question","name":"When should you semi-bluff?","acceptedAnswer":{"@type":"Answer","text":"When your draw has enough equity and your opponent can fold. The more outs you have, the less fold equity you need."}},
   {"@type":"Question","name":"What is fold equity?","acceptedAnswer":{"@type":"Answer","text":"The part of your EV that comes from your opponent folding; it depends on how often he folds and on the pot size."}},
   {"@type":"Question","name":"Is the calculation exact?","acceptedAnswer":{"@type":"Answer","text":"It's a simplified model (one betting round, no raise) that gives a reliable ballpark to decide."}}

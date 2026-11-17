@@ -1,0 +1,233 @@
+---
+layout: article
+lang: en
+title: "Poker Glossary: 78 Poker Terms Explained (C-Bet, Squeeze, SPR…)"
+headline: "Poker glossary: the poker terms you need, explained simply"
+description: "78 poker terms explained in plain English: c-bet, 3-bet, squeeze, value bet, equity, pot odds, SPR, ICM, GTO… Short definitions, worked numbers and links to go further."
+permalink: /en/guides/poker-glossary/
+date: 2026-11-17
+last_modified_at: 2026-11-17
+stylesheets: ["/assets/css/glossary.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/lexique-poker/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/poker-glossary/" }
+x_default: "https://pokerperf.com/en/guides/poker-glossary/"
+---
+<p class="lead">Poker has its own language, and most of it is English shorthand: c-bet, squeeze, SPR, ICM. Here are <strong>78 poker terms</strong> grouped by theme, each with a short definition, a number when it helps, and a link to the page that goes deeper. Every term has its own anchor, so you can link straight to it.</p>
+
+<nav class="toc" aria-label="Glossary contents">
+<p class="toc-title">Contents</p>
+<ol>
+  <li><a href="#actions">Actions</a></li>
+  <li><a href="#positions">Positions</a></li>
+  <li><a href="#preflop">Preflop</a></li>
+  <li><a href="#postflop">Postflop</a></li>
+  <li><a href="#maths">Poker math</a></li>
+  <li><a href="#tournaments">Tournaments</a></li>
+  <li><a href="#gto-strategy">GTO & strategy</a></li>
+  <li><a href="#table">Game & table</a></li>
+</ol>
+</nav>
+
+<h2 id="actions">Actions</h2>
+<dl class="glossary">
+  <dt id="check">Check</dt>
+  <dd>Passing the action without betting, only possible when no one has bet yet on the current street.</dd>
+  <dt id="bet">Bet</dt>
+  <dd>Putting chips in when no one has bet yet on the street. The first bet of a street can then be called, raised or folded to.</dd>
+  <dt id="call">Call</dt>
+  <dd>Matching the current bet to stay in the hand. <a class="gl-more" href="/en/pot-odds-calculator/">Go further: Pot odds calculator</a></dd>
+  <dt id="raise">Raise</dt>
+  <dd>Increasing the current bet. Opponents must then put in at least the new amount to continue.</dd>
+  <dt id="fold">Fold</dt>
+  <dd>Giving up the hand and any chips already in the pot.</dd>
+  <dt id="all-in">All-in (shove, jam)</dt>
+  <dd>Betting or raising your whole stack. An all-in for less than the current bet creates a side pot. <a class="gl-more" href="/en/guides/push-fold-chart/">Go further: Push/fold charts</a></dd>
+  <dt id="limp">Limp</dt>
+  <dd>Just calling the big blind preflop instead of raising. Usually a weak play when you're first to enter the pot. <a class="gl-more" href="/en/guides/preflop-ranges/">Go further: Preflop ranges</a></dd>
+  <dt id="open">Open (open-raise)</dt>
+  <dd>Being the first player to raise preflop. Standard open sizes online are around 2 to 2.5 big blinds. <a class="gl-more" href="/en/guides/preflop-ranges/">Go further: Preflop ranges</a></dd>
+  <dt id="check-raise">Check-raise</dt>
+  <dd>Checking, then raising after an opponent bets. A strong move for both value hands and semi-bluffs out of position.</dd>
+  <dt id="donk-bet">Donk bet</dt>
+  <dd>Betting into the player who had the initiative on the previous street (usually the preflop raiser), instead of checking to them.</dd>
+  <dt id="overbet">Overbet</dt>
+  <dd>A bet larger than the pot. It asks the opponent for more than 33% equity to call, and is used with polarized ranges. <a class="gl-more" href="/en/guides/poker-pot-odds/">Go further: Poker pot odds</a></dd>
+  <dt id="float">Float</dt>
+  <dd>Calling a bet with a weak hand, planning to win the pot later by betting when the opponent shows weakness.</dd>
+</dl>
+
+<h2 id="positions">Positions</h2>
+<dl class="glossary">
+  <dt id="utg">UTG (under the gun)</dt>
+  <dd>The first player to act preflop, just left of the big blind. It requires the tightest opening range. <a class="gl-more" href="/en/guides/preflop-ranges/">Go further: Preflop ranges</a></dd>
+  <dt id="hijack">Hijack (HJ)</dt>
+  <dd>The seat two to the right of the button. In 6-max, the second seat to act preflop.</dd>
+  <dt id="cutoff">Cutoff (CO)</dt>
+  <dd>The seat just right of the button. The second-best position at the table.</dd>
+  <dt id="button">Button (BTN)</dt>
+  <dd>The dealer seat. It acts last on every postflop street, which makes it the most profitable position and the one with the widest opening range. <a class="gl-more" href="/en/guides/poker-starting-hands/">Go further: Starting hands chart</a></dd>
+  <dt id="blinds">Small blind / big blind (SB, BB)</dt>
+  <dd>The two forced bets posted before the cards are dealt. The big blind is the unit used to count stacks (bb) and win rates (bb/100).</dd>
+  <dt id="in-position">In position / out of position (IP, OOP)</dt>
+  <dd>In position means you act after your opponent on the postflop streets; out of position means you act first. Acting last gives you more information.</dd>
+</dl>
+
+<h2 id="preflop">Preflop</h2>
+<dl class="glossary">
+  <dt id="3-bet">3-bet</dt>
+  <dd>The first re-raise preflop (the blinds count as the first bet, the open as the second). A 3-bet is usually about 3 times the open in position, a bit more out of position. <a class="gl-more" href="/en/guides/preflop-ranges/">Go further: Preflop ranges</a></dd>
+  <dt id="4-bet">4-bet, 5-bet</dt>
+  <dd>A re-raise of a 3-bet, then a re-raise of the 4-bet. With 100 big blinds, a 5-bet is almost always all-in. <a class="gl-more" href="/en/guides/how-to-play-pocket-aces/">Go further: How to play pocket aces</a></dd>
+  <dt id="squeeze">Squeeze</dt>
+  <dd>A 3-bet made after an open and one or more callers. The callers have shown they didn't want to 3-bet, so they often can't continue, and the extra dead money makes the play profitable more often. Size it bigger than a normal 3-bet (add about one open per caller).</dd>
+  <dt id="cold-call">Cold call</dt>
+  <dd>Calling a raise (or a 3-bet) without having put any money in the pot yet in that betting round.</dd>
+  <dt id="steal">Steal</dt>
+  <dd>An open from the cutoff, button or small blind mainly aimed at winning the blinds.</dd>
+  <dt id="isolation-raise">Isolation raise (iso)</dt>
+  <dd>A raise over one or more limpers, to play the pot heads-up against a weak player, in position.</dd>
+  <dt id="range">Range</dt>
+  <dd>The set of all hands a player can have in a given situation, often written as a % of hands or a list (e.g. 22+, ATs+, KQo). <a class="gl-more" href="/en/poker-range-calculator/">Go further: Range calculator</a></dd>
+  <dt id="combos">Combos</dt>
+  <dd>The number of card combinations of a hand: 6 for a pair, 4 for a suited hand, 12 for an offsuit hand, 1,326 starting hands in total. <a class="gl-more" href="/en/poker-range-calculator/">Go further: Range calculator</a></dd>
+  <dt id="suited">Suited / offsuit (s, o)</dt>
+  <dd>Suited means both hole cards are of the same suit (AKs); offsuit means two different suits (AKo). Being suited adds a few points of equity. <a class="gl-more" href="/en/guides/poker-starting-hands/">Go further: Starting hands chart</a></dd>
+  <dt id="pocket-pair">Pocket pair</dt>
+  <dd>Two hole cards of the same rank, like 77. You're dealt one about 1 time in 17 (5.9%). <a class="gl-more" href="/en/guides/texas-holdem-odds/">Go further: Texas Hold'em odds</a></dd>
+  <dt id="broadway">Broadway</dt>
+  <dd>Cards from ten to ace (T, J, Q, K, A). The ace-high straight T-J-Q-K-A is also called Broadway. <a class="gl-more" href="/en/poker-hand-rankings/">Go further: Poker hand rankings</a></dd>
+  <dt id="suited-connectors">Suited connectors</dt>
+  <dd>Two consecutive suited cards, like 8♠7♠. They rarely win big preflop but make straights and flushes that are hard to read. <a class="gl-more" href="/en/guides/poker-starting-hands/">Go further: Starting hands chart</a></dd>
+</dl>
+
+<h2 id="postflop">Postflop</h2>
+<dl class="glossary">
+  <dt id="c-bet">C-bet (continuation bet)</dt>
+  <dd>A bet on the flop by the player who raised last preflop, continuing their aggression. Small c-bets (about a third of the pot) are common on dry boards that favor the raiser. <a class="gl-more" href="/en/guides/what-is-gto-poker/">Go further: What is GTO poker</a></dd>
+  <dt id="value-bet">Value bet</dt>
+  <dd>A bet made to be called by worse hands. Thin value means betting a hand that is only slightly ahead of the calling range.</dd>
+  <dt id="bluff">Bluff</dt>
+  <dd>A bet made to make better hands fold. A pure bluff needs to work often enough: betting half the pot, it must succeed more than 33% of the time to break even. <a class="gl-more" href="/en/semi-bluff-ev-calculator/">Go further: Semi-bluff EV calculator</a></dd>
+  <dt id="semi-bluff">Semi-bluff</dt>
+  <dd>A bluff with a draw: you win if the opponent folds now, and you can still win at showdown if you hit. <a class="gl-more" href="/en/semi-bluff-ev-calculator/">Go further: Semi-bluff EV calculator</a></dd>
+  <dt id="slowplay">Slowplay</dt>
+  <dd>Playing a very strong hand passively (checking or calling) to hide its strength. Risky when the board lets the opponent catch up cheaply. <a class="gl-more" href="/en/guides/how-to-play-pocket-aces/">Go further: How to play pocket aces</a></dd>
+  <dt id="top-pair">Top pair, overpair</dt>
+  <dd>Top pair: a pair with the highest card on the board. Overpair: a pocket pair higher than every board card (QQ on 9-7-2). <a class="gl-more" href="/en/poker-hand-rankings/">Go further: Poker hand rankings</a></dd>
+  <dt id="set">Set, trips</dt>
+  <dd>Three of a kind. A set uses a pocket pair plus one board card (it's well hidden); trips use one hole card plus a pair on the board. <a class="gl-more" href="/en/poker-hand-rankings/">Go further: Poker hand rankings</a></dd>
+  <dt id="nuts">Nuts</dt>
+  <dd>The best possible hand given the board. The second nuts is the second-best hand, and so on. <a class="gl-more" href="/en/poker-hand-rankings/">Go further: Poker hand rankings</a></dd>
+  <dt id="draw">Draw (flush draw, OESD, gutshot)</dt>
+  <dd>A hand that needs one more card to become strong. A flush draw has 9 outs, an open-ended straight draw (OESD) 8, a gutshot 4. <a class="gl-more" href="/en/guides/how-to-count-outs/">Go further: How to count outs</a></dd>
+  <dt id="backdoor">Backdoor draw</dt>
+  <dd>A draw that needs both the turn and the river, like three cards of the same suit on the flop. It's worth roughly one extra out. <a class="gl-more" href="/en/guides/how-to-count-outs/">Go further: How to count outs</a></dd>
+  <dt id="board-texture">Board texture (dry, wet)</dt>
+  <dd>How connected the board is. A dry board (K-7-2 rainbow) offers few draws; a wet board (9♠8♠7♦) offers many straights and flushes.</dd>
+  <dt id="showdown">Showdown</dt>
+  <dd>The moment, after the last betting round, when the remaining players reveal their cards to decide the winner.</dd>
+  <dt id="cooler">Cooler, bad beat</dt>
+  <dd>A cooler is a loss with a very strong hand against an even stronger one (KK vs AA) that was hard to avoid. A bad beat is a loss as a big favorite after the money went in. <a class="gl-more" href="/en/guides/poker-variance/">Go further: Poker variance</a></dd>
+</dl>
+
+<h2 id="maths">Poker math</h2>
+<dl class="glossary">
+  <dt id="equity">Equity</dt>
+  <dd>Your share of the pot if the hand were played to the end with no more betting. A♠K♠ has about 67% equity against a random hand. <a class="gl-more" href="/en/poker-odds-calculator/">Go further: Poker equity calculator</a></dd>
+  <dt id="pot-odds">Pot odds</dt>
+  <dd>The price of a call, compared with what you can win. Facing a half-pot bet (100 in the pot, 50 to call), you pay 50 to win 200: you need 25% equity. <a class="gl-more" href="/en/pot-odds-calculator/">Go further: Pot odds calculator</a></dd>
+  <dt id="implied-odds">Implied odds</dt>
+  <dd>The money you expect to win on later streets when you hit, on top of the current pot. They can justify calling without the direct odds. Reverse implied odds are the opposite: what you lose when you hit a second-best hand. <a class="gl-more" href="/en/guides/implied-odds/">Go further: Implied odds</a></dd>
+  <dt id="outs">Outs</dt>
+  <dd>The cards left in the deck that improve your hand into the likely winner. 9 outs on the flop give 19.1% on the turn. <a class="gl-more" href="/en/guides/how-to-count-outs/">Go further: How to count outs</a></dd>
+  <dt id="rule-of-4-and-2">Rule of 4 and 2</dt>
+  <dd>A shortcut to turn outs into equity: outs × 2 for one card, outs × 4 for two cards (only when you're sure to see both, i.e. all-in). 9 outs × 4 = 36%, close to the exact 35%. <a class="gl-more" href="/en/guides/rule-of-4-and-2/">Go further: Rule of 4 and 2</a></dd>
+  <dt id="ev">EV (expected value)</dt>
+  <dd>The average amount a decision wins or loses if it were repeated many times. A +EV decision is profitable in the long run, whatever happens this time. <a class="gl-more" href="/en/semi-bluff-ev-calculator/">Go further: Semi-bluff EV calculator</a></dd>
+  <dt id="fold-equity">Fold equity</dt>
+  <dd>The extra value a bet gets from the times the opponent folds. It's what makes a semi-bluff profitable when your draw alone isn't enough. <a class="gl-more" href="/en/semi-bluff-ev-calculator/">Go further: Semi-bluff EV calculator</a></dd>
+  <dt id="mdf">MDF (minimum defense frequency)</dt>
+  <dd>The share of your range you must continue with so that a pure bluff doesn't automatically profit: pot ÷ (pot + bet). Facing a half-pot bet, MDF = 100 ÷ 150 = 66.7%. <a class="gl-more" href="/en/guides/what-is-gto-poker/">Go further: What is GTO poker</a></dd>
+  <dt id="spr">SPR (stack-to-pot ratio)</dt>
+  <dd>Effective stack divided by the pot on the flop. 100 left behind in a pot of 20 gives an SPR of 5. The lower the SPR, the sooner one pair is committed. <a class="gl-more" href="/en/guides/stack-to-pot-ratio/">Go further: Stack-to-pot ratio</a></dd>
+  <dt id="effective-stack">Effective stack</dt>
+  <dd>The smaller of the two stacks in a confrontation: it's the most that can actually be won or lost between those two players. <a class="gl-more" href="/en/guides/stack-to-pot-ratio/">Go further: Stack-to-pot ratio</a></dd>
+  <dt id="blockers">Blockers (card removal)</dt>
+  <dd>Cards in your hand that reduce the opponent's combos. Holding an ace leaves only 3 combos of AA instead of 6, and 12 of AK instead of 16. <a class="gl-more" href="/en/guides/poker-blockers/">Go further: Poker blockers</a></dd>
+  <dt id="variance">Variance</dt>
+  <dd>The gap between your results and your expected results over a given sample. Over 10,000 hands it can easily hide whether a player wins or loses. <a class="gl-more" href="/en/guides/poker-variance/">Go further: Poker variance</a></dd>
+  <dt id="bb-100">bb/100</dt>
+  <dd>Win rate in big blinds per 100 hands, the standard measure in cash games. 5 bb/100 is a solid win rate at low stakes. <a class="gl-more" href="/en/guides/poker-variance/">Go further: Poker variance</a></dd>
+</dl>
+
+<h2 id="tournaments">Tournaments</h2>
+<dl class="glossary">
+  <dt id="icm">ICM (Independent Chip Model)</dt>
+  <dd>A model that converts tournament stacks into prize equity. It explains why chips you can lose are worth more than chips you can win near the money. <a class="gl-more" href="/en/icm-calculator/">Go further: ICM calculator</a></dd>
+  <dt id="bubble">Bubble, bubble factor</dt>
+  <dd>The bubble is the last place before the paid places. The bubble factor compares what you lose by busting with what you gain by winning an all-in: a bubble factor of 2 means you need 66.7% equity. <a class="gl-more" href="/en/icm-calculator/">Go further: ICM calculator</a></dd>
+  <dt id="itm">ITM (in the money)</dt>
+  <dd>Finishing in a paid place. ITM % is the share of tournaments you cash in; it says less than your ROI, the average profit per buy-in.</dd>
+  <dt id="push-fold">Push/fold</dt>
+  <dd>The short-stack strategy (roughly under 15 big blinds) where you either go all-in or fold preflop. <a class="gl-more" href="/en/guides/push-fold-chart/">Go further: Push/fold charts</a></dd>
+  <dt id="nash">Nash equilibrium</dt>
+  <dd>A pair of strategies in which no player can gain by changing theirs alone. Push/fold charts are Nash equilibria for a simplified game. <a class="gl-more" href="/en/guides/push-fold-chart/">Go further: Push/fold charts</a></dd>
+  <dt id="ante">Ante (big blind ante)</dt>
+  <dd>A small forced bet added to the blinds in tournaments. With a big blind ante, the big blind pays it for the whole table. Antes enlarge the pot and push you to play more hands.</dd>
+  <dt id="chip-ev">Chip EV (cEV)</dt>
+  <dd>Expected value counted in chips, ignoring prize structure. It's the right yardstick in cash games and early in tournaments; near the money, ICM takes over. <a class="gl-more" href="/en/icm-calculator/">Go further: ICM calculator</a></dd>
+  <dt id="satellite">Satellite</dt>
+  <dd>A tournament that awards entries (seats) to a bigger event. All paid places win the same thing, so ICM pressure is extreme on the bubble. <a class="gl-more" href="/en/icm-calculator/">Go further: ICM calculator</a></dd>
+</dl>
+
+<h2 id="gto-strategy">GTO & strategy</h2>
+<dl class="glossary">
+  <dt id="gto">GTO (game theory optimal)</dt>
+  <dd>A strategy that can't be exploited: against it, no opponent strategy does better than break even in the long run. In practice, solvers compute approximations. <a class="gl-more" href="/en/guides/what-is-gto-poker/">Go further: What is GTO poker</a></dd>
+  <dt id="solver">Solver</dt>
+  <dd>Software that computes a near-equilibrium strategy for a given spot, from ranges, bet sizes and stacks. <a class="gl-more" href="/en/guides/what-is-gto-poker/">Go further: What is GTO poker</a></dd>
+  <dt id="exploit">Exploitative play</dt>
+  <dd>Deviating from equilibrium to take advantage of an opponent's leak, for example by bluffing less against players who never fold. <a class="gl-more" href="/en/guides/what-is-gto-poker/">Go further: What is GTO poker</a></dd>
+  <dt id="mixed-strategy">Mixed strategy (frequencies)</dt>
+  <dd>Playing the same hand in different ways at set frequencies (for example, bet 60%, check 40%) so the opponent can't read you. <a class="gl-more" href="/en/guides/what-is-gto-poker/">Go further: What is GTO poker</a></dd>
+  <dt id="polarized">Polarized range, linear range</dt>
+  <dd>A polarized range contains strong hands and bluffs, but few medium hands; it suits big bets. A linear (merged) range contains the best hands in order; it suits smaller bets.</dd>
+  <dt id="capped">Capped range</dt>
+  <dd>A range that can't contain the strongest hands, usually because the player would have raised them earlier. For example, a flat-call preflop rarely contains AA.</dd>
+  <dt id="range-advantage">Range advantage, nut advantage</dt>
+  <dd>Range advantage: your range has more equity than the opponent's on this board. Nut advantage: you have more of the very strongest hands. Both explain who bets, and how much.</dd>
+</dl>
+
+<h2 id="table">Game & table</h2>
+<dl class="glossary">
+  <dt id="cash-game">Cash game</dt>
+  <dd>A game where the chips are worth money directly and you can rebuy or leave at any time.</dd>
+  <dt id="heads-up">Heads-up, multiway</dt>
+  <dd>Heads-up: only two players in the hand (or at the table). Multiway: three or more. Every hand's equity drops in multiway pots. <a class="gl-more" href="/en/guides/poker-variance/">Go further: Poker variance</a></dd>
+  <dt id="kicker">Kicker</dt>
+  <dd>The side card that breaks a tie between two equal hands. With A♠K♦ against A♣Q♥ on A-7-2-9-3, the king kicker wins. <a class="gl-more" href="/en/poker-hand-rankings/">Go further: Poker hand rankings</a></dd>
+  <dt id="split-pot">Split pot</dt>
+  <dd>A pot shared between players with exactly the same best five-card hand. <a class="gl-more" href="/en/poker-hand-rankings/">Go further: Poker hand rankings</a></dd>
+  <dt id="tilt">Tilt</dt>
+  <dd>Playing worse because of emotions, often after a bad beat or a losing streak. <a class="gl-more" href="/en/guides/poker-variance/">Go further: Poker variance</a></dd>
+  <dt id="bankroll">Bankroll</dt>
+  <dd>The money set aside only for poker. It's usually counted in buy-ins, to absorb downswings without going broke. <a class="gl-more" href="/en/guides/poker-variance/">Go further: Poker variance</a></dd>
+  <dt id="rake">Rake</dt>
+  <dd>The fee the poker room takes from each pot or tournament entry.</dd>
+</dl>
+
+<h2>Frequently asked questions</h2>
+<details><summary>What does c-bet mean in poker?</summary><p>A c-bet (continuation bet) is a bet on the flop by the player who made the last raise preflop. They continue their aggression whether or not the flop helped them. Small c-bets, around a third of the pot, are common on dry boards that favor the preflop raiser.</p></details>
+<details><summary>What is a squeeze in poker?</summary><p>A squeeze is a 3-bet made after an open-raise and one or more callers. The callers showed they didn't want to re-raise, so they often fold, and the money already in the pot makes the play profitable more often. It's sized bigger than a normal 3-bet, adding roughly one open per caller.</p></details>
+<details><summary>What is a value bet?</summary><p>A value bet is a bet you make because worse hands will call it. Thin value means betting a hand that is only slightly ahead of the hands that call. The opposite is a bluff, which aims to make better hands fold.</p></details>
+<details><summary>What is the difference between a 3-bet and a 4-bet?</summary><p>Preflop, the big blind counts as the first bet and the open-raise as the second. The first re-raise is the 3-bet, a re-raise of that is the 4-bet, then the 5-bet. With 100 big blinds, a 5-bet is almost always all-in.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/guides/poker-math/">Poker math</a> · <a href="/en/guides/how-to-play-pocket-aces/">How to play pocket aces</a> · <a href="/en/poker-hand-rankings/">Poker hand rankings</a> · <a href="/en/poker-odds-calculator/">Poker equity calculator</a> · <a href="/en/guides/how-to-study-poker/">How to study poker</a>.</p>
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does c-bet mean in poker?", "acceptedAnswer": {"@type": "Answer", "text": "A c-bet (continuation bet) is a bet on the flop by the player who made the last raise preflop. They continue their aggression whether or not the flop helped them. Small c-bets, around a third of the pot, are common on dry boards that favor the preflop raiser."}}, {"@type": "Question", "name": "What is a squeeze in poker?", "acceptedAnswer": {"@type": "Answer", "text": "A squeeze is a 3-bet made after an open-raise and one or more callers. The callers showed they didn't want to re-raise, so they often fold, and the money already in the pot makes the play profitable more often. It's sized bigger than a normal 3-bet, adding roughly one open per caller."}}, {"@type": "Question", "name": "What is a value bet?", "acceptedAnswer": {"@type": "Answer", "text": "A value bet is a bet you make because worse hands will call it. Thin value means betting a hand that is only slightly ahead of the hands that call. The opposite is a bluff, which aims to make better hands fold."}}, {"@type": "Question", "name": "What is the difference between a 3-bet and a 4-bet?", "acceptedAnswer": {"@type": "Answer", "text": "Preflop, the big blind counts as the first bet and the open-raise as the second. The first re-raise is the 3-bet, a re-raise of that is the 4-bet, then the 5-bet. With 100 big blinds, a 5-bet is almost always all-in."}}]}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "DefinedTermSet", "name": "PokerPerf poker glossary", "url": "https://pokerperf.com/en/guides/poker-glossary/", "inLanguage": "en", "hasDefinedTerm": [{"@type": "DefinedTerm", "name": "Check", "description": "Passing the action without betting, only possible when no one has bet yet on the current street.", "url": "https://pokerperf.com/en/guides/poker-glossary/#check"}, {"@type": "DefinedTerm", "name": "Bet", "description": "Putting chips in when no one has bet yet on the street. The first bet of a street can then be called, raised or folded to.", "url": "https://pokerperf.com/en/guides/poker-glossary/#bet"}, {"@type": "DefinedTerm", "name": "Call", "description": "Matching the current bet to stay in the hand.", "url": "https://pokerperf.com/en/guides/poker-glossary/#call"}, {"@type": "DefinedTerm", "name": "Raise", "description": "Increasing the current bet. Opponents must then put in at least the new amount to continue.", "url": "https://pokerperf.com/en/guides/poker-glossary/#raise"}, {"@type": "DefinedTerm", "name": "Fold", "description": "Giving up the hand and any chips already in the pot.", "url": "https://pokerperf.com/en/guides/poker-glossary/#fold"}, {"@type": "DefinedTerm", "name": "All-in (shove, jam)", "description": "Betting or raising your whole stack. An all-in for less than the current bet creates a side pot.", "url": "https://pokerperf.com/en/guides/poker-glossary/#all-in"}, {"@type": "DefinedTerm", "name": "Limp", "description": "Just calling the big blind preflop instead of raising. Usually a weak play when you're first to enter the pot.", "url": "https://pokerperf.com/en/guides/poker-glossary/#limp"}, {"@type": "DefinedTerm", "name": "Open (open-raise)", "description": "Being the first player to raise preflop. Standard open sizes online are around 2 to 2.5 big blinds.", "url": "https://pokerperf.com/en/guides/poker-glossary/#open"}, {"@type": "DefinedTerm", "name": "Check-raise", "description": "Checking, then raising after an opponent bets. A strong move for both value hands and semi-bluffs out of position.", "url": "https://pokerperf.com/en/guides/poker-glossary/#check-raise"}, {"@type": "DefinedTerm", "name": "Donk bet", "description": "Betting into the player who had the initiative on the previous street (usually the preflop raiser), instead of checking to them.", "url": "https://pokerperf.com/en/guides/poker-glossary/#donk-bet"}, {"@type": "DefinedTerm", "name": "Overbet", "description": "A bet larger than the pot. It asks the opponent for more than 33% equity to call, and is used with polarized ranges.", "url": "https://pokerperf.com/en/guides/poker-glossary/#overbet"}, {"@type": "DefinedTerm", "name": "Float", "description": "Calling a bet with a weak hand, planning to win the pot later by betting when the opponent shows weakness.", "url": "https://pokerperf.com/en/guides/poker-glossary/#float"}, {"@type": "DefinedTerm", "name": "UTG (under the gun)", "description": "The first player to act preflop, just left of the big blind. It requires the tightest opening range.", "url": "https://pokerperf.com/en/guides/poker-glossary/#utg"}, {"@type": "DefinedTerm", "name": "Hijack (HJ)", "description": "The seat two to the right of the button. In 6-max, the second seat to act preflop.", "url": "https://pokerperf.com/en/guides/poker-glossary/#hijack"}, {"@type": "DefinedTerm", "name": "Cutoff (CO)", "description": "The seat just right of the button. The second-best position at the table.", "url": "https://pokerperf.com/en/guides/poker-glossary/#cutoff"}, {"@type": "DefinedTerm", "name": "Button (BTN)", "description": "The dealer seat. It acts last on every postflop street, which makes it the most profitable position and the one with the widest opening range.", "url": "https://pokerperf.com/en/guides/poker-glossary/#button"}, {"@type": "DefinedTerm", "name": "Small blind / big blind (SB, BB)", "description": "The two forced bets posted before the cards are dealt. The big blind is the unit used to count stacks (bb) and win rates (bb/100).", "url": "https://pokerperf.com/en/guides/poker-glossary/#blinds"}, {"@type": "DefinedTerm", "name": "In position / out of position (IP, OOP)", "description": "In position means you act after your opponent on the postflop streets; out of position means you act first. Acting last gives you more information.", "url": "https://pokerperf.com/en/guides/poker-glossary/#in-position"}, {"@type": "DefinedTerm", "name": "3-bet", "description": "The first re-raise preflop (the blinds count as the first bet, the open as the second). A 3-bet is usually about 3 times the open in position, a bit more out of position.", "url": "https://pokerperf.com/en/guides/poker-glossary/#3-bet"}, {"@type": "DefinedTerm", "name": "4-bet, 5-bet", "description": "A re-raise of a 3-bet, then a re-raise of the 4-bet. With 100 big blinds, a 5-bet is almost always all-in.", "url": "https://pokerperf.com/en/guides/poker-glossary/#4-bet"}, {"@type": "DefinedTerm", "name": "Squeeze", "description": "A 3-bet made after an open and one or more callers. The callers have shown they didn't want to 3-bet, so they often can't continue, and the extra dead money makes the play profitable more often. Size it bigger than a normal 3-bet (add about one open per caller).", "url": "https://pokerperf.com/en/guides/poker-glossary/#squeeze"}, {"@type": "DefinedTerm", "name": "Cold call", "description": "Calling a raise (or a 3-bet) without having put any money in the pot yet in that betting round.", "url": "https://pokerperf.com/en/guides/poker-glossary/#cold-call"}, {"@type": "DefinedTerm", "name": "Steal", "description": "An open from the cutoff, button or small blind mainly aimed at winning the blinds.", "url": "https://pokerperf.com/en/guides/poker-glossary/#steal"}, {"@type": "DefinedTerm", "name": "Isolation raise (iso)", "description": "A raise over one or more limpers, to play the pot heads-up against a weak player, in position.", "url": "https://pokerperf.com/en/guides/poker-glossary/#isolation-raise"}, {"@type": "DefinedTerm", "name": "Range", "description": "The set of all hands a player can have in a given situation, often written as a % of hands or a list (e.g. 22+, ATs+, KQo).", "url": "https://pokerperf.com/en/guides/poker-glossary/#range"}, {"@type": "DefinedTerm", "name": "Combos", "description": "The number of card combinations of a hand: 6 for a pair, 4 for a suited hand, 12 for an offsuit hand, 1,326 starting hands in total.", "url": "https://pokerperf.com/en/guides/poker-glossary/#combos"}, {"@type": "DefinedTerm", "name": "Suited / offsuit (s, o)", "description": "Suited means both hole cards are of the same suit (AKs); offsuit means two different suits (AKo). Being suited adds a few points of equity.", "url": "https://pokerperf.com/en/guides/poker-glossary/#suited"}, {"@type": "DefinedTerm", "name": "Pocket pair", "description": "Two hole cards of the same rank, like 77. You're dealt one about 1 time in 17 (5.9%).", "url": "https://pokerperf.com/en/guides/poker-glossary/#pocket-pair"}, {"@type": "DefinedTerm", "name": "Broadway", "description": "Cards from ten to ace (T, J, Q, K, A). The ace-high straight T-J-Q-K-A is also called Broadway.", "url": "https://pokerperf.com/en/guides/poker-glossary/#broadway"}, {"@type": "DefinedTerm", "name": "Suited connectors", "description": "Two consecutive suited cards, like 8♠7♠. They rarely win big preflop but make straights and flushes that are hard to read.", "url": "https://pokerperf.com/en/guides/poker-glossary/#suited-connectors"}, {"@type": "DefinedTerm", "name": "C-bet (continuation bet)", "description": "A bet on the flop by the player who raised last preflop, continuing their aggression. Small c-bets (about a third of the pot) are common on dry boards that favor the raiser.", "url": "https://pokerperf.com/en/guides/poker-glossary/#c-bet"}, {"@type": "DefinedTerm", "name": "Value bet", "description": "A bet made to be called by worse hands. Thin value means betting a hand that is only slightly ahead of the calling range.", "url": "https://pokerperf.com/en/guides/poker-glossary/#value-bet"}, {"@type": "DefinedTerm", "name": "Bluff", "description": "A bet made to make better hands fold. A pure bluff needs to work often enough: betting half the pot, it must succeed more than 33% of the time to break even.", "url": "https://pokerperf.com/en/guides/poker-glossary/#bluff"}, {"@type": "DefinedTerm", "name": "Semi-bluff", "description": "A bluff with a draw: you win if the opponent folds now, and you can still win at showdown if you hit.", "url": "https://pokerperf.com/en/guides/poker-glossary/#semi-bluff"}, {"@type": "DefinedTerm", "name": "Slowplay", "description": "Playing a very strong hand passively (checking or calling) to hide its strength. Risky when the board lets the opponent catch up cheaply.", "url": "https://pokerperf.com/en/guides/poker-glossary/#slowplay"}, {"@type": "DefinedTerm", "name": "Top pair, overpair", "description": "Top pair: a pair with the highest card on the board. Overpair: a pocket pair higher than every board card (QQ on 9-7-2).", "url": "https://pokerperf.com/en/guides/poker-glossary/#top-pair"}, {"@type": "DefinedTerm", "name": "Set, trips", "description": "Three of a kind. A set uses a pocket pair plus one board card (it's well hidden); trips use one hole card plus a pair on the board.", "url": "https://pokerperf.com/en/guides/poker-glossary/#set"}, {"@type": "DefinedTerm", "name": "Nuts", "description": "The best possible hand given the board. The second nuts is the second-best hand, and so on.", "url": "https://pokerperf.com/en/guides/poker-glossary/#nuts"}, {"@type": "DefinedTerm", "name": "Draw (flush draw, OESD, gutshot)", "description": "A hand that needs one more card to become strong. A flush draw has 9 outs, an open-ended straight draw (OESD) 8, a gutshot 4.", "url": "https://pokerperf.com/en/guides/poker-glossary/#draw"}, {"@type": "DefinedTerm", "name": "Backdoor draw", "description": "A draw that needs both the turn and the river, like three cards of the same suit on the flop. It's worth roughly one extra out.", "url": "https://pokerperf.com/en/guides/poker-glossary/#backdoor"}, {"@type": "DefinedTerm", "name": "Board texture (dry, wet)", "description": "How connected the board is. A dry board (K-7-2 rainbow) offers few draws; a wet board (9♠8♠7♦) offers many straights and flushes.", "url": "https://pokerperf.com/en/guides/poker-glossary/#board-texture"}, {"@type": "DefinedTerm", "name": "Showdown", "description": "The moment, after the last betting round, when the remaining players reveal their cards to decide the winner.", "url": "https://pokerperf.com/en/guides/poker-glossary/#showdown"}, {"@type": "DefinedTerm", "name": "Cooler, bad beat", "description": "A cooler is a loss with a very strong hand against an even stronger one (KK vs AA) that was hard to avoid. A bad beat is a loss as a big favorite after the money went in.", "url": "https://pokerperf.com/en/guides/poker-glossary/#cooler"}, {"@type": "DefinedTerm", "name": "Equity", "description": "Your share of the pot if the hand were played to the end with no more betting. A♠K♠ has about 67% equity against a random hand.", "url": "https://pokerperf.com/en/guides/poker-glossary/#equity"}, {"@type": "DefinedTerm", "name": "Pot odds", "description": "The price of a call, compared with what you can win. Facing a half-pot bet (100 in the pot, 50 to call), you pay 50 to win 200: you need 25% equity.", "url": "https://pokerperf.com/en/guides/poker-glossary/#pot-odds"}, {"@type": "DefinedTerm", "name": "Implied odds", "description": "The money you expect to win on later streets when you hit, on top of the current pot. They can justify calling without the direct odds. Reverse implied odds are the opposite: what you lose when you hit a second-best hand.", "url": "https://pokerperf.com/en/guides/poker-glossary/#implied-odds"}, {"@type": "DefinedTerm", "name": "Outs", "description": "The cards left in the deck that improve your hand into the likely winner. 9 outs on the flop give 19.1% on the turn.", "url": "https://pokerperf.com/en/guides/poker-glossary/#outs"}, {"@type": "DefinedTerm", "name": "Rule of 4 and 2", "description": "A shortcut to turn outs into equity: outs × 2 for one card, outs × 4 for two cards (only when you're sure to see both, i.e. all-in). 9 outs × 4 = 36%, close to the exact 35%.", "url": "https://pokerperf.com/en/guides/poker-glossary/#rule-of-4-and-2"}, {"@type": "DefinedTerm", "name": "EV (expected value)", "description": "The average amount a decision wins or loses if it were repeated many times. A +EV decision is profitable in the long run, whatever happens this time.", "url": "https://pokerperf.com/en/guides/poker-glossary/#ev"}, {"@type": "DefinedTerm", "name": "Fold equity", "description": "The extra value a bet gets from the times the opponent folds. It's what makes a semi-bluff profitable when your draw alone isn't enough.", "url": "https://pokerperf.com/en/guides/poker-glossary/#fold-equity"}, {"@type": "DefinedTerm", "name": "MDF (minimum defense frequency)", "description": "The share of your range you must continue with so that a pure bluff doesn't automatically profit: pot ÷ (pot + bet). Facing a half-pot bet, MDF = 100 ÷ 150 = 66.7%.", "url": "https://pokerperf.com/en/guides/poker-glossary/#mdf"}, {"@type": "DefinedTerm", "name": "SPR (stack-to-pot ratio)", "description": "Effective stack divided by the pot on the flop. 100 left behind in a pot of 20 gives an SPR of 5. The lower the SPR, the sooner one pair is committed.", "url": "https://pokerperf.com/en/guides/poker-glossary/#spr"}, {"@type": "DefinedTerm", "name": "Effective stack", "description": "The smaller of the two stacks in a confrontation: it's the most that can actually be won or lost between those two players.", "url": "https://pokerperf.com/en/guides/poker-glossary/#effective-stack"}, {"@type": "DefinedTerm", "name": "Blockers (card removal)", "description": "Cards in your hand that reduce the opponent's combos. Holding an ace leaves only 3 combos of AA instead of 6, and 12 of AK instead of 16.", "url": "https://pokerperf.com/en/guides/poker-glossary/#blockers"}, {"@type": "DefinedTerm", "name": "Variance", "description": "The gap between your results and your expected results over a given sample. Over 10,000 hands it can easily hide whether a player wins or loses.", "url": "https://pokerperf.com/en/guides/poker-glossary/#variance"}, {"@type": "DefinedTerm", "name": "bb/100", "description": "Win rate in big blinds per 100 hands, the standard measure in cash games. 5 bb/100 is a solid win rate at low stakes.", "url": "https://pokerperf.com/en/guides/poker-glossary/#bb-100"}, {"@type": "DefinedTerm", "name": "ICM (Independent Chip Model)", "description": "A model that converts tournament stacks into prize equity. It explains why chips you can lose are worth more than chips you can win near the money.", "url": "https://pokerperf.com/en/guides/poker-glossary/#icm"}, {"@type": "DefinedTerm", "name": "Bubble, bubble factor", "description": "The bubble is the last place before the paid places. The bubble factor compares what you lose by busting with what you gain by winning an all-in: a bubble factor of 2 means you need 66.7% equity.", "url": "https://pokerperf.com/en/guides/poker-glossary/#bubble"}, {"@type": "DefinedTerm", "name": "ITM (in the money)", "description": "Finishing in a paid place. ITM % is the share of tournaments you cash in; it says less than your ROI, the average profit per buy-in.", "url": "https://pokerperf.com/en/guides/poker-glossary/#itm"}, {"@type": "DefinedTerm", "name": "Push/fold", "description": "The short-stack strategy (roughly under 15 big blinds) where you either go all-in or fold preflop.", "url": "https://pokerperf.com/en/guides/poker-glossary/#push-fold"}, {"@type": "DefinedTerm", "name": "Nash equilibrium", "description": "A pair of strategies in which no player can gain by changing theirs alone. Push/fold charts are Nash equilibria for a simplified game.", "url": "https://pokerperf.com/en/guides/poker-glossary/#nash"}, {"@type": "DefinedTerm", "name": "Ante (big blind ante)", "description": "A small forced bet added to the blinds in tournaments. With a big blind ante, the big blind pays it for the whole table. Antes enlarge the pot and push you to play more hands.", "url": "https://pokerperf.com/en/guides/poker-glossary/#ante"}, {"@type": "DefinedTerm", "name": "Chip EV (cEV)", "description": "Expected value counted in chips, ignoring prize structure. It's the right yardstick in cash games and early in tournaments; near the money, ICM takes over.", "url": "https://pokerperf.com/en/guides/poker-glossary/#chip-ev"}, {"@type": "DefinedTerm", "name": "Satellite", "description": "A tournament that awards entries (seats) to a bigger event. All paid places win the same thing, so ICM pressure is extreme on the bubble.", "url": "https://pokerperf.com/en/guides/poker-glossary/#satellite"}, {"@type": "DefinedTerm", "name": "GTO (game theory optimal)", "description": "A strategy that can't be exploited: against it, no opponent strategy does better than break even in the long run. In practice, solvers compute approximations.", "url": "https://pokerperf.com/en/guides/poker-glossary/#gto"}, {"@type": "DefinedTerm", "name": "Solver", "description": "Software that computes a near-equilibrium strategy for a given spot, from ranges, bet sizes and stacks.", "url": "https://pokerperf.com/en/guides/poker-glossary/#solver"}, {"@type": "DefinedTerm", "name": "Exploitative play", "description": "Deviating from equilibrium to take advantage of an opponent's leak, for example by bluffing less against players who never fold.", "url": "https://pokerperf.com/en/guides/poker-glossary/#exploit"}, {"@type": "DefinedTerm", "name": "Mixed strategy (frequencies)", "description": "Playing the same hand in different ways at set frequencies (for example, bet 60%, check 40%) so the opponent can't read you.", "url": "https://pokerperf.com/en/guides/poker-glossary/#mixed-strategy"}, {"@type": "DefinedTerm", "name": "Polarized range, linear range", "description": "A polarized range contains strong hands and bluffs, but few medium hands; it suits big bets. A linear (merged) range contains the best hands in order; it suits smaller bets.", "url": "https://pokerperf.com/en/guides/poker-glossary/#polarized"}, {"@type": "DefinedTerm", "name": "Capped range", "description": "A range that can't contain the strongest hands, usually because the player would have raised them earlier. For example, a flat-call preflop rarely contains AA.", "url": "https://pokerperf.com/en/guides/poker-glossary/#capped"}, {"@type": "DefinedTerm", "name": "Range advantage, nut advantage", "description": "Range advantage: your range has more equity than the opponent's on this board. Nut advantage: you have more of the very strongest hands. Both explain who bets, and how much.", "url": "https://pokerperf.com/en/guides/poker-glossary/#range-advantage"}, {"@type": "DefinedTerm", "name": "Cash game", "description": "A game where the chips are worth money directly and you can rebuy or leave at any time.", "url": "https://pokerperf.com/en/guides/poker-glossary/#cash-game"}, {"@type": "DefinedTerm", "name": "Heads-up, multiway", "description": "Heads-up: only two players in the hand (or at the table). Multiway: three or more. Every hand's equity drops in multiway pots.", "url": "https://pokerperf.com/en/guides/poker-glossary/#heads-up"}, {"@type": "DefinedTerm", "name": "Kicker", "description": "The side card that breaks a tie between two equal hands. With A♠K♦ against A♣Q♥ on A-7-2-9-3, the king kicker wins.", "url": "https://pokerperf.com/en/guides/poker-glossary/#kicker"}, {"@type": "DefinedTerm", "name": "Split pot", "description": "A pot shared between players with exactly the same best five-card hand.", "url": "https://pokerperf.com/en/guides/poker-glossary/#split-pot"}, {"@type": "DefinedTerm", "name": "Tilt", "description": "Playing worse because of emotions, often after a bad beat or a losing streak.", "url": "https://pokerperf.com/en/guides/poker-glossary/#tilt"}, {"@type": "DefinedTerm", "name": "Bankroll", "description": "The money set aside only for poker. It's usually counted in buy-ins, to absorb downswings without going broke.", "url": "https://pokerperf.com/en/guides/poker-glossary/#bankroll"}, {"@type": "DefinedTerm", "name": "Rake", "description": "The fee the poker room takes from each pot or tournament entry.", "url": "https://pokerperf.com/en/guides/poker-glossary/#rake"}]}
+</script>

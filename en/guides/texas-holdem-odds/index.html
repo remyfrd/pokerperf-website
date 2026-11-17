@@ -6,7 +6,7 @@ headline: "Texas Hold'em odds: the exact poker probabilities"
 description: "Odds of being dealt pocket aces, flopping a set or hitting your flush draw: every key Texas Hold'em probability, computed exactly and explained."
 permalink: /en/guides/texas-holdem-odds/
 date: 2026-11-12
-last_modified_at: 2026-11-12
+last_modified_at: 2026-11-17
 stylesheets: ["/assets/css/poker-odds.css"]
 alternates:
   - { lang: "fr", href: "https://pokerperf.com/fr/guides/probabilites-poker/" }
@@ -46,6 +46,22 @@ x_default: "https://pokerperf.com/en/guides/texas-holdem-odds/"
 </table>
 </div>
 <p>The pocket pair math, step by step: there are 13 ranks, and for each one 6 ways to pick two of the four cards (C(4,2) = 6). 13 × 6 = 78 pairs, and 78 ÷ 1,326 = <strong>5.88%</strong>. A specific pair like aces is only 6 combos: 6 ÷ 1,326, or once every 221 hands.</p>
+
+<h3 id="pocket-pair">Odds of a pocket pair, from the deal to the river</h3>
+<p>Everything about pocket pairs in one place (exact counts, any pair):</p>
+<div class="table-scroll" role="region" aria-label="Pocket pair odds from the deal to the river" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Situation</th><th scope="col">Probability</th><th scope="col">1 in…</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Being dealt a pocket pair</th><td>5.88%</td><td>17</td></tr>
+    <tr><th scope="row">At least one pair in 10 hands</th><td>45.5%</td><td>2.2</td></tr>
+    <tr><th scope="row">Flopping a set or better</th><td>11.8%</td><td>8.5</td></tr>
+    <tr><th scope="row">Making a set or better by the river (seeing all 5 cards)</th><td>19.2%</td><td>5.2</td></tr>
+    <tr><th scope="row">Missed the flop, hitting on the turn or river</th><td>8.4%</td><td>11.9</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="table-note">Set by the river: 1 − C(48,5) ÷ C(50,5) = 19.2%. Remember that 19.2% only applies if you see all five cards without facing a big bet; when you have to pay on the flop, the 11.8% is what counts.</p>
 
 <h3>You have KK: what are the odds someone has AA?</h3>
 <p>It's the classic fear with kings. It's almost never justified:</p>
@@ -167,6 +183,7 @@ x_default: "https://pokerperf.com/en/guides/texas-holdem-odds/"
 
 <h2>FAQ</h2>
 <details><summary>What are the odds of being dealt pocket aces?</summary><p>6 combos out of 1,326, so 0.45%, or 1 hand in 221 (220 to 1 against). The odds of being dealt any pocket pair are 5.88%, or 1 in 17.</p></details>
+<details><summary>What are the odds of getting a pocket pair?</summary><p>78 of the 1,326 possible starting hands are pairs: 5.88%, or 1 hand in 17. Over 10 hands, you get at least one pair 45.5% of the time. With a pair, you make a set or better by the river 19.2% of the time if you see all five board cards.</p></details>
 <details><summary>What are the odds of flopping a set?</summary><p>With a pocket pair, 11.8% — about 1 time in 8.5. That figure includes the rare full houses and quads. If you miss, you have 2 outs left: 4.3% on the turn, then 4.3% on the river.</p></details>
 <details><summary>What are the odds of hitting a flush draw?</summary><p>With 9 outs, 19.1% on the turn and 19.6% from turn to river. If you see both cards (opponent all-in), 35.0% from flop to river.</p></details>
 <details><summary>Is the rule of 4 and 2 accurate?</summary><p>It's an approximation. It holds up to about 9 outs; beyond that the rule of 4 overestimates — 60% vs. 54.1% real with 15 outs. And ×4 only applies when you're sure to see both the turn and the river.</p></details>
@@ -177,6 +194,7 @@ x_default: "https://pokerperf.com/en/guides/texas-holdem-odds/"
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
   {"@type":"Question","name":"What are the odds of being dealt pocket aces?","acceptedAnswer":{"@type":"Answer","text":"6 combos out of 1,326, so 0.45%, or 1 hand in 221 (220 to 1 against). The odds of being dealt any pocket pair are 5.88%, or 1 in 17."}},
+  {"@type":"Question","name":"What are the odds of getting a pocket pair?","acceptedAnswer":{"@type":"Answer","text":"78 of the 1,326 possible starting hands are pairs: 5.88%, or 1 hand in 17. Over 10 hands, you get at least one pair 45.5% of the time. With a pair, you make a set or better by the river 19.2% of the time if you see all five board cards."}},
   {"@type":"Question","name":"What are the odds of flopping a set?","acceptedAnswer":{"@type":"Answer","text":"With a pocket pair, 11.8%, about 1 time in 8.5. That figure includes the rare full houses and quads. If you miss, you have 2 outs left: 4.3% on the turn, then 4.3% on the river."}},
   {"@type":"Question","name":"What are the odds of hitting a flush draw?","acceptedAnswer":{"@type":"Answer","text":"With 9 outs, 19.1% on the turn and 19.6% from turn to river. If you see both cards (opponent all-in), 35.0% from flop to river."}},
   {"@type":"Question","name":"Is the rule of 4 and 2 accurate?","acceptedAnswer":{"@type":"Answer","text":"It's an approximation. It holds up to about 9 outs; beyond that the rule of 4 overestimates: 60% vs. 54.1% real with 15 outs. And x4 only applies when you're sure to see both the turn and the river."}},

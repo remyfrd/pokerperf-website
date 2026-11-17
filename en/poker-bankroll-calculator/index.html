@@ -1,0 +1,124 @@
+---
+layout: default
+lang: en
+title: "Poker Bankroll Calculator: Risk of Ruin & Buy-ins Needed — free"
+description: "Free poker bankroll calculator: enter your win rate and standard deviation (or tournament ROI) to get your risk of ruin, the bankroll you need for 5% or 1% risk, and the downswings to expect."
+permalink: /en/poker-bankroll-calculator/
+webapp: "Poker Bankroll Calculator"
+last_modified_at: 2026-11-17
+stylesheets: ["/assets/css/outs-odds.css", "/assets/css/bankroll-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-bankroll/" }
+  - { lang: "en", href: "https://pokerperf.com/en/poker-bankroll-calculator/" }
+x_default: "https://pokerperf.com/en/poker-bankroll-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Poker bankroll calculator: your risk of ruin, in numbers</h1>
+  <p class="lead">"20 buy-ins for cash, 100 for tournaments": everyone has heard these rules, but they don't tell you <strong>how much risk you're actually taking</strong>. Enter your win rate and your standard deviation (or your tournament ROI): you get your <strong>risk of ruin</strong>, the bankroll you need for 5% or 1% risk, and the size of the downswings to expect. Free, no sign-up.</p>
+
+  <div id="bankroll-calculator" data-lang="en"></div>
+  <noscript><p class="tip">The calculator needs JavaScript. Formula without it: risk of ruin = e<sup>−2 × win rate × bankroll ÷ standard deviation²</sup>, with the win rate and standard deviation in bb/100 and the bankroll in big blinds.</p></noscript>
+
+  <h2>How much bankroll do you need for poker?</h2>
+  <p>The usual answer is a set of conventions, passed from forum to forum:</p>
+  <ul>
+    <li><strong>cash games</strong>: 20 to 40 buy-ins (a buy-in = 100 big blinds);</li>
+    <li><strong>sit &amp; gos</strong>: 50 to 100 buy-ins;</li>
+    <li><strong>multi-table tournaments (MTTs)</strong>: 100 buy-ins or more, sometimes 200 to 300 for large fields.</li>
+  </ul>
+  <p>They're reasonable starting points, but they hide the real question: <strong>how big is your edge?</strong> The same 20 buy-ins are comfortable for a big winner and risky for a small one. And if you're actually a break-even or losing player, no bankroll is enough: you go broke sooner or later.</p>
+
+  <h2>The risk of ruin formula</h2>
+  <p>In cash games, your results behave roughly like a random walk with a slope: your win rate pushes you up, your standard deviation shakes you around. The classic diffusion model gives the probability of ever losing your whole bankroll:</p>
+  <p class="formula">risk of ruin = e<sup>−2 × win rate × bankroll ÷ standard deviation²</sup></p>
+  <p>Win rate and standard deviation are in big blinds per 100 hands (bb/100), the bankroll in big blinds. Example with 5 bb/100, a standard deviation of 90 bb/100 (the assumption from our <a href="/en/guides/poker-variance/">poker variance guide</a>) and 20 buy-ins (2,000 bb):</p>
+  <p class="formula">risk of ruin = e<sup>−2 × 5 × 2,000 ÷ 8,100</sup> = e<sup>−2.47</sup> ≈ 8.5%</p>
+  <p>Turned around, it gives the bankroll you need for a target risk:</p>
+  <p class="formula">bankroll = −standard deviation² × ln(risk) ÷ (2 × win rate)</p>
+  <p>For 5% risk: 8,100 × 3.0 ÷ 10 ≈ 2,430 bb, or <strong>24 buy-ins</strong>. For 1% risk: <strong>37 buy-ins</strong>.</p>
+
+  <h2>Cash games: risk of ruin by bankroll and win rate</h2>
+  <p>Standard deviation 90 bb/100, a buy-in = 100 bb, long-run risk (formula above):</p>
+  <div class="odds-scroll" role="region" aria-label="Risk of ruin by bankroll and win rate" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Win rate</th><th scope="col">20 buy-ins</th><th scope="col">30 buy-ins</th><th scope="col">40 buy-ins</th><th scope="col">60 buy-ins</th><th scope="col">For 5% risk</th><th scope="col">For 1% risk</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">1 bb/100</th><td>61%</td><td>48%</td><td>37%</td><td>23%</td><td>121 buy-ins</td><td>187 buy-ins</td></tr>
+      <tr><th scope="row">2.5 bb/100</th><td>29%</td><td>16%</td><td>8.5%</td><td>2.5%</td><td>49 buy-ins</td><td>75 buy-ins</td></tr>
+      <tr><th scope="row">5 bb/100</th><td>8.5%</td><td>2.5%</td><td>0.7%</td><td>0.1%</td><td>24 buy-ins</td><td>37 buy-ins</td></tr>
+      <tr><th scope="row">10 bb/100</th><td>0.7%</td><td>0.1%</td><td>&lt; 0.1%</td><td>&lt; 0.1%</td><td>12 buy-ins</td><td>19 buy-ins</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The "20 to 40 buy-ins" rule is about right <strong>for a solid winner</strong> (5 bb/100). For a small winner at 2.5 bb/100, 20 buy-ins means almost a 1 in 3 chance of going broke. The bankroll you need doubles when your win rate halves.</p>
+  <p>Volatility matters just as much, and it goes in squared: at 5 bb/100, you need 15 buy-ins for 5% risk with a standard deviation of 70, 24 with 90, and <strong>43 with 120</strong> (an aggressive style, or PLO).</p>
+
+  <h2>The downswings to expect</h2>
+  <p>A bankroll isn't just there to avoid going broke: it's there to get through ordinary bad runs without changing how you play. Simulating 4,000 runs of 100,000 hands with a standard deviation of 90:</p>
+  <div class="odds-scroll" role="region" aria-label="Worst downswing over 100,000 hands" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Win rate</th><th scope="col">Worst downswing, typical</th><th scope="col">Worst downswing, 1 time in 10</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">2.5 bb/100</th><td>24 buy-ins</td><td>41 buy-ins</td></tr>
+      <tr><th scope="row">5 bb/100</th><td>19 buy-ins</td><td>31 buy-ins</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>In other words, a <strong>20 buy-in downswing is a normal event</strong> over 100,000 hands, even for a good player. That's why 20 buy-ins is a floor rather than a comfortable target.</p>
+
+  <h2>Tournaments and sit &amp; gos</h2>
+  <p>In tournaments you lose most of the time and win rarely, but big. Variance is far higher, and it grows with field size. The calculator simulates series of tournaments with a typical payout structure. Bankroll needed to keep the risk of going broke within 1,000 tournaments to 5% or 1%:</p>
+  <div class="odds-scroll" role="region" aria-label="Tournament bankroll by format and ROI" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Format (rake)</th><th scope="col">ROI</th><th scope="col">For 5% risk</th><th scope="col">For 1% risk</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">9-max sit &amp; go (7%)</th><td>+5%</td><td>55 buy-ins</td><td>77 buy-ins</td></tr>
+      <tr><th scope="row">9-max sit &amp; go (7%)</th><td>+10%</td><td>32 buy-ins</td><td>50 buy-ins</td></tr>
+      <tr><th scope="row">MTT, 200 players (10%)</th><td>+10%</td><td>132 buy-ins</td><td>188 buy-ins</td></tr>
+      <tr><th scope="row">MTT, 1,000 players (10%)</th><td>+20%</td><td>148 buy-ins</td><td>207 buy-ins</td></tr>
+      <tr><th scope="row">MTT, 1,000 players (10%)</th><td>+30%</td><td>101 buy-ins</td><td>148 buy-ins</td></tr>
+      <tr><th scope="row">MTT, 5,000 players (10%)</th><td>+20%</td><td>234 buy-ins</td><td>299 buy-ins</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The "100 buy-ins for MTTs" rule is therefore <strong>on the low side</strong>: with a good +20% ROI in 1,000-player fields, it still leaves about a 15% chance of going broke within 1,000 tournaments. And these figures are a minimum: the model spreads your edge evenly over every paid place, whereas real winners mostly win more big finishes, which increases variance.</p>
+
+  <h2>Rules of thumb that actually help</h2>
+  <ul>
+    <li><strong>Use a conservative win rate.</strong> Over 50,000 hands, your real win rate is only known to within about ±8 bb/100. Plug in the low end, not your best month.</li>
+    <li><strong>Decide in advance when to move down.</strong> For example: move down a limit as soon as you drop below 20 buy-ins for your current stake. Decided calmly, the rule holds when you're tilting.</li>
+    <li><strong>Take shots in small chunks.</strong> Try the stake above with 3 to 5 of its buy-ins, and move back down if they're gone. Your overall risk stays under control.</li>
+    <li><strong>Separate bankroll and living expenses.</strong> If you withdraw from your bankroll to live, your effective win rate drops, and the risk climbs.</li>
+    <li><strong>If you're not sure you're a winner, the right bankroll is your budget.</strong> For a recreational player, the bankroll is the amount you can afford to lose, not a guarantee.</li>
+  </ul>
+
+  <h2>The model's limits</h2>
+  <p>The cash formula assumes a constant win rate and standard deviation, with no withdrawals and no rakeback, and you can never truly drop below zero, since you stop before that. Its main weakness is the input: your win rate is uncertain, and an overestimated win rate gives an underestimated risk. The tournament model uses a simplified payout structure (about 15% paid in MTTs) and a uniform edge across paid places. Treat the results as orders of magnitude, not certainties.</p>
+
+  <div class="appcta">
+    <h2>Your bankroll protects you; your decisions make the win rate</h2>
+    <p>The biggest factor in the calculator is your win rate, and it's built one decision at a time: equity, pot odds, ranges. <strong>PokerPerf</strong> trains those decisions until they become reflexes, 10 minutes a day. No promise of winnings: just more right decisions.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Discover PokerPerf</a>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <details><summary>How big should my poker bankroll be?</summary><p>In cash games, 20 to 40 buy-ins is the usual convention. In numbers: a 5 bb/100 winner with a standard deviation of 90 needs about 24 buy-ins for a 5% risk of ruin and 37 for 1%. A 2.5 bb/100 winner needs twice as much.</p></details>
+  <details><summary>What is risk of ruin in poker?</summary><p>It's the probability of losing your whole bankroll before your edge pays off. In cash games it is estimated as e^(−2 × win rate × bankroll ÷ standard deviation²), with the win rate and standard deviation in bb/100 and the bankroll in big blinds.</p></details>
+  <details><summary>How many buy-ins do you need for MTTs?</summary><p>More than the classic 100. In our simulations, a +20% ROI in 1,000-player fields needs about 150 buy-ins for a 5% risk of going broke within 1,000 tournaments, and about 230 in 5,000-player fields.</p></details>
+  <details><summary>What standard deviation should I use?</summary><p>Your tracker shows it. Without one, take 70 to 100 bb/100 for 6-max no-limit hold'em (90 is a good default), a bit less at full ring, and more for an aggressive style or pot-limit Omaha.</p></details>
+  <details><summary>Is 20 buy-ins enough for cash games?</summary><p>For a solid winner, roughly yes: about 8.5% risk of ruin at 5 bb/100. For a small winner it's risky (about 29% at 2.5 bb/100). And a 20 buy-in downswing is a normal event over 100,000 hands.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/guides/poker-variance/">Poker variance in numbers</a> · <a href="/en/icm-calculator/">ICM calculator</a> · <a href="/en/guides/push-fold-chart/">Push/fold charts</a> · <a href="/en/guides/how-to-study-poker/">How to study poker</a> · <a href="/en/poker-odds-calculator/">Poker equity calculator</a> · <a href="/en/methodology/">Methodology</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How big should my poker bankroll be?","acceptedAnswer":{"@type":"Answer","text":"In cash games, 20 to 40 buy-ins is the usual convention. In numbers: a 5 bb/100 winner with a standard deviation of 90 needs about 24 buy-ins for a 5% risk of ruin and 37 for 1%. A 2.5 bb/100 winner needs twice as much."}},
+  {"@type":"Question","name":"What is risk of ruin in poker?","acceptedAnswer":{"@type":"Answer","text":"It's the probability of losing your whole bankroll before your edge pays off. In cash games it is estimated as e^(−2 × win rate × bankroll ÷ standard deviation²), with the win rate and standard deviation in bb/100 and the bankroll in big blinds."}},
+  {"@type":"Question","name":"How many buy-ins do you need for MTTs?","acceptedAnswer":{"@type":"Answer","text":"More than the classic 100. In our simulations, a +20% ROI in 1,000-player fields needs about 150 buy-ins for a 5% risk of going broke within 1,000 tournaments, and about 230 in 5,000-player fields."}},
+  {"@type":"Question","name":"What standard deviation should I use?","acceptedAnswer":{"@type":"Answer","text":"Your tracker shows it. Without one, take 70 to 100 bb/100 for 6-max no-limit hold'em (90 is a good default), a bit less at full ring, and more for an aggressive style or pot-limit Omaha."}},
+  {"@type":"Question","name":"Is 20 buy-ins enough for cash games?","acceptedAnswer":{"@type":"Answer","text":"For a solid winner, roughly yes: about 8.5% risk of ruin at 5 bb/100. For a small winner it's risky (about 29% at 2.5 bb/100). And a 20 buy-in downswing is a normal event over 100,000 hands."}}
+]}
+</script>
+<script src="/assets/js/bankroll-calculator.js" defer></script>

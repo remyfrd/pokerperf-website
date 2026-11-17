@@ -1,0 +1,121 @@
+---
+layout: default
+lang: en
+title: "PLO Equity Calculator: Omaha Odds for 4 & 5 Card PLO — free"
+description: "Free PLO equity calculator for Pot-Limit Omaha (4 and 5 cards): up to 6 players, random hands, exact from the flop. Learn the 2+3 rule and why Omaha equities run so close."
+permalink: /en/plo-equity-calculator/
+webapp: "PLO Equity Calculator"
+last_modified_at: 2026-11-17
+stylesheets: ["/assets/css/outs-odds.css", "/assets/css/plo-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-omaha/" }
+  - { lang: "en", href: "https://pokerperf.com/en/plo-equity-calculator/" }
+x_default: "https://pokerperf.com/en/plo-equity-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>PLO equity calculator: Omaha odds for 4 and 5 card PLO</h1>
+  <p class="lead">Enter the Omaha hands and the board: you get each player's <strong>equity</strong> (their share of the pot) in Pot-Limit Omaha, with 4 or 5 cards. Up to 6 players, random hands allowed, <strong>exact from the flop</strong>. Free, no sign-up.</p>
+
+  <div id="plo-calculator" data-lang="en"></div>
+  <noscript><p class="tip">The calculator needs JavaScript. Without it, remember the rule that changes everything in Omaha: you must use exactly 2 of your cards and 3 from the board.</p></noscript>
+
+  <h2>How to use the Omaha calculator</h2>
+  <ol>
+    <li>Pick the game: <strong>PLO</strong> (4 cards) or <strong>PLO5</strong> (5-card Omaha).</li>
+    <li>Click a slot and choose the card. The next empty slot opens on its own, so you can type a whole hand quickly. Cards already used are greyed out.</li>
+    <li>Add opponents (up to 6 players) or check <em>random hand</em> to test against any holding.</li>
+    <li>Leave the board empty for preflop, or enter 3, 4 or 5 cards.</li>
+  </ol>
+  <p>From the flop the calculation is <strong>exact</strong>: every possible turn and river is enumerated. Preflop, there are over a million boards per matchup, so the calculator runs a Monte-Carlo simulation (tens of thousands of random boards, accurate to about ±0.5%).</p>
+
+  <h2>The Omaha rule: exactly 2 cards from your hand + 3 from the board</h2>
+  <p>This is the rule Hold'em players get wrong. In Omaha, your five-card hand is always made of <strong>exactly two hole cards and exactly three board cards</strong>. Never one, never three.</p>
+  <ul>
+    <li><strong>Four spades on the board, one spade in your hand: no flush.</strong> You need two spades in your hand. With A♠ K♦ 7♣ 2♥ on Q♠ J♠ 9♠ 4♠ 3♦, you have nothing better than ace-high.</li>
+    <li><strong>Four to a straight on the board doesn't make your straight</strong> with a single card. On A♠ K♠ Q♠ J♠ 2♦, a hand like T♠ 3♣ 4♣ 5♥ has no straight and no flush: its best five cards are A-K-Q-T-5, ace-high.</li>
+    <li><strong>Trips in your hand are not trips.</strong> With 9♥ 9♦ 9♣ 2♠ you can only play two nines. On K♣ K♦ 5♥ 7♠ 3♣ it's two pair (kings and nines), not a full house.</li>
+  </ul>
+  <p>The calculator applies this rule strictly. We test it against an independent brute-force evaluator that tries every legal combination (6 hole-card pairs × 10 board triples in PLO, 10 × 10 in PLO5).</p>
+
+  <h2>Why PLO equities are so much closer than Hold'em</h2>
+  <p>With four cards, every hand has six two-card combinations to make something. Even a monster rarely dominates. Compare these all-in equities, computed with the engine behind this page:</p>
+  <div class="odds-scroll" role="region" aria-label="Hold'em vs Omaha equities" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Matchup</th><th scope="col">Favourite's equity</th><th scope="col">Method</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Hold'em: A♠A♥ vs K♦K♣</th><td>81.2%</td><td>1,000,000 boards</td></tr>
+      <tr><th scope="row">PLO: A♠A♥7♦2♣ vs K♠K♥8♦3♣</th><td>74.8%</td><td>exact</td></tr>
+      <tr><th scope="row">Hold'em: A♠A♥ vs a random hand</th><td>85.2%</td><td>1,000,000 boards</td></tr>
+      <tr><th scope="row">PLO: A♠A♥K♠K♥ vs a random hand</th><td>70.7%</td><td>1,000,000 boards</td></tr>
+      <tr><th scope="row">PLO: A♠A♥K♠K♥ vs J♦T♦9♣8♣</th><td>61.5%</td><td>exact</td></tr>
+      <tr><th scope="row">PLO: A♠A♥7♦2♣ vs K♣Q♣J♦T♦</th><td>52.1%</td><td>exact</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The last line is the lesson: aces with two unconnected, unsuited cards are barely ahead of a connected, double-suited hand like KQJT. In Omaha, <strong>a pair of aces on its own is not a big hand</strong>. What counts is how all four cards work together.</p>
+
+  <h2>Suits matter: double-suited vs rainbow</h2>
+  <p>The same ranks, different suits, against a random hand (1,000,000 simulated boards each):</p>
+  <div class="odds-scroll" role="region" aria-label="Effect of suits on AAKK equity" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Hand</th><th scope="col">Equity vs a random hand</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">A♠A♥K♠K♥ (double-suited)</th><td>70.7%</td></tr>
+      <tr><th scope="row">A♠A♥K♦K♣ (rainbow)</th><td>65.0%</td></tr>
+      <tr><th scope="row">A♠A♥7♦2♣ (aces, no connection, rainbow)</th><td>61.1%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Being double-suited is worth almost 6 points here: two different nut-flush draws are possible. That's why Omaha players value "ds" hands so highly.</p>
+
+  <h2>On the flop, the draw can be the favourite</h2>
+  <p>In Hold'em, a set is a huge favourite against a straight draw. In Omaha, a big "wrap" (a straight draw using several of your cards) can be ahead. On 9♥ 8♣ 2♦:</p>
+  <div class="odds-scroll" role="region" aria-label="Set vs wrap on the flop" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Spot</th><th scope="col">Set</th><th scope="col">Draw</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Hold'em: 9♠9♦ vs J♥T♣</th><td>74.1%</td><td>25.9%</td></tr>
+      <tr><th scope="row">PLO: 9♠9♦K♣4♥ vs J♥T♣7♦6♠</th><td>45.6%</td><td>54.4%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Both are exact calculations. With J-T-7-6, <strong>20 of the 41 unseen cards complete a straight on the turn</strong> (any 5, 6, 7, ten, jack or queen still in the deck). In Hold'em, J-T has 8 outs. Top set is still alive because it fills up when the board pairs, but it's <strong>no longer the favourite</strong>. Try it in the calculator: it's the second example.</p>
+  <h2>5-card PLO: even closer</h2>
+  <p>In PLO5 each hand has ten two-card pairs instead of six, so the gaps shrink further. A♠A♥K♠Q♦J♣ (aces, three broadway cards, one suited ace) has <strong>60.6%</strong> against a random five-card hand (1,000,000 simulated boards). And multiway, even the best four-card hands shrink: A♠A♥K♠K♥ has only <strong>54.7%</strong> against two random hands.</p>
+
+  <h2>Classic Omaha mistakes</h2>
+  <ul>
+    <li><strong>Counting a flush with one card of the suit.</strong> Rule 2+3: you need two.</li>
+    <li><strong>Overvaluing aces without a structure.</strong> AA72 rainbow is only about 52% against KQJT double-suited.</li>
+    <li><strong>Playing non-nut draws for stacks.</strong> With four cards each, someone often holds the better flush or straight. Calculate against a realistic hand, not against a random hand.</li>
+    <li><strong>Forgetting your own blockers.</strong> If you hold four spades, there are fewer spades left to complete your flush: your hand blocks itself.</li>
+    <li><strong>Using Hold'em instincts on pot odds.</strong> Because equities run close, preflop all-ins are often near 50/50. The <a href="/en/pot-odds-calculator/">pot odds</a> you get matter more than the hand's "strength".</li>
+  </ul>
+
+  <div class="appcta">
+    <h2>PokerPerf trains Hold'em, not Omaha</h2>
+    <p>To be clear: the <strong>PokerPerf</strong> app trains your <em>Texas Hold'em</em> decisions (equity, outs, pot odds, ranges), 10 minutes a day. It has no Omaha drills yet. If you play both games, the reflexes it builds (estimating your equity, comparing it to your price) carry over directly to PLO.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Discover PokerPerf</a>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <details><summary>How do you calculate equity in Omaha?</summary><p>You take every possible remaining board and, for each one, find each player's best hand using exactly two hole cards and three board cards. Your equity is your average share of the pot: wins count fully, split pots count partially. From the flop the calculator enumerates every board exactly; preflop it simulates a large random sample.</p></details>
+  <details><summary>Do you have to use two cards in Omaha?</summary><p>Yes, exactly two hole cards and exactly three board cards. That's why four cards of a suit on the board don't give you a flush unless you hold two of that suit.</p></details>
+  <details><summary>Is AA a big favourite in PLO?</summary><p>Much less than in Hold'em. A♠A♥7♦2♣ has 74.8% against K♠K♥8♦3♣ (81.2% for AA vs KK in Hold'em), and only 52.1% against K♣Q♣J♦T♦. The other two cards matter as much as the aces.</p></details>
+  <details><summary>Does the calculator work for 5-card PLO?</summary><p>Yes. Select PLO5: each player gets five cards and the same rule applies (two from the hand, three from the board), with 10 possible pairs per hand instead of 6.</p></details>
+  <details><summary>Does it handle Omaha Hi-Lo?</summary><p>No. It calculates high-only Omaha (PLO, PLO5). Hi-Lo (Omaha 8 or better) splits the pot with the best low hand and needs a different evaluation.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/poker-odds-calculator/">Hold'em equity calculator</a> · <a href="/en/pot-odds-calculator/">Pot odds calculator</a> · <a href="/en/guides/how-to-count-outs/">How to count outs</a> · <a href="/en/guides/poker-blockers/">Poker blockers</a> · <a href="/en/guides/poker-math/">Poker math</a> · <a href="/en/methodology/">Methodology</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How do you calculate equity in Omaha?","acceptedAnswer":{"@type":"Answer","text":"You take every possible remaining board and, for each one, find each player's best hand using exactly two hole cards and three board cards. Your equity is your average share of the pot: wins count fully, split pots count partially. From the flop the calculator enumerates every board exactly; preflop it simulates a large random sample."}},
+  {"@type":"Question","name":"Do you have to use two cards in Omaha?","acceptedAnswer":{"@type":"Answer","text":"Yes, exactly two hole cards and exactly three board cards. That's why four cards of a suit on the board don't give you a flush unless you hold two of that suit."}},
+  {"@type":"Question","name":"Is AA a big favourite in PLO?","acceptedAnswer":{"@type":"Answer","text":"Much less than in Hold'em. A♠A♥7♦2♣ has 74.8% against K♠K♥8♦3♣ (81.2% for AA vs KK in Hold'em), and only 52.1% against K♣Q♣J♦T♦. The other two cards matter as much as the aces."}},
+  {"@type":"Question","name":"Does the calculator work for 5-card PLO?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select PLO5: each player gets five cards and the same rule applies (two from the hand, three from the board), with 10 possible pairs per hand instead of 6."}},
+  {"@type":"Question","name":"Does it handle Omaha Hi-Lo?","acceptedAnswer":{"@type":"Answer","text":"No. It calculates high-only Omaha (PLO, PLO5). Hi-Lo (Omaha 8 or better) splits the pot with the best low hand and needs a different evaluation."}}
+]}
+</script>
+<script src="/assets/js/plo-calculator.js" defer></script>

@@ -1,0 +1,112 @@
+---
+layout: default
+lang: fr
+title: "Calculateur de side pot poker : pot principal et pots annexes"
+description: "Calculateur de side pot gratuit : entre ce que chaque joueur a misé, qui s'est couché et l'ordre des mains au showdown. Tu vois le pot principal, chaque pot annexe, qui peut le gagner, la mise non payée rendue et les partages."
+permalink: /fr/calculateur-side-pot/
+webapp: "Calculateur de side pot poker"
+last_modified_at: 2026-11-17
+stylesheets: ["/assets/css/outs-odds.css", "/assets/css/side-pot-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-side-pot/" }
+  - { lang: "en", href: "https://pokerperf.com/en/side-pot-calculator/" }
+x_default: "https://pokerperf.com/en/side-pot-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculateur de side pot&nbsp;: qui gagne quoi quand plusieurs joueurs sont à tapis</h1>
+  <p class="lead">Quand un joueur part à tapis pour moins que les autres, l'argent se découpe en un <strong>pot principal</strong> et un ou plusieurs <strong>side pots</strong> (pots annexes). Entre ce que chaque joueur a misé dans la main, qui s'est couché et, si tu veux, l'ordre des mains au showdown&nbsp;: tu vois chaque pot, qui peut le gagner et ce que chacun récupère. Gratuit, sans inscription, jusqu'à 10 joueurs.</p>
+
+  <div id="side-pot-calculator" data-lang="fr"></div>
+  <noscript><p class="tip">Le calculateur a besoin de JavaScript. La règle sans lui&nbsp;: range les montants des tapis du plus petit au plus grand&nbsp;; à chaque palier, chaque joueur qui a misé au moins ce montant apporte la même tranche. Chaque tranche forme un pot, que seuls les joueurs encore en main ayant atteint ce palier peuvent gagner.</p></noscript>
+
+  <h2>Comment fonctionne un side pot&nbsp;?</h2>
+  <p>Une seule règle explique tout&nbsp;: <strong>tu ne peux gagner, de chaque adversaire, que ce que tu as misé toi-même</strong>. Un joueur à tapis pour 20 peut gagner 20 à chaque adversaire, pas plus. Le reste de l'argent se joue entre les joueurs qui ont encore des jetons, dans un pot à part&nbsp;: le side pot, ou pot annexe.</p>
+  <p>Pour construire les pots, prends les montants des tapis des joueurs encore en main, du plus petit au plus grand. Chaque palier découpe une tranche&nbsp;:</p>
+  <p class="formula">pot au palier P = Σ sur tous les joueurs de (min(leur total, P) − min(leur total, palier précédent))</p>
+  <p>Ce pot peut être gagné par tous les joueurs encore en main qui ont misé au moins P. Les jetons des joueurs couchés restent dans les pots qu'ils ont alimentés, mais ces joueurs ne peuvent rien gagner.</p>
+
+  <h2>Exemple pas à pas&nbsp;: 4 joueurs, 3 gagnants différents</h2>
+  <p>Le joueur 1 est à tapis pour 20, le joueur 2 à tapis pour 50, les joueurs 3 et 4 ont mis 100 chacun. C'est le premier exemple du calculateur.</p>
+  <div class="odds-scroll" role="region" aria-label="Construction des side pots" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Pot</th><th scope="col">Tranche par joueur</th><th scope="col">Calcul</th><th scope="col">Montant</th><th scope="col">Qui peut le gagner</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Pot principal</th><td>0 → 20</td><td>4 × 20</td><td>80</td><td>Joueurs 1, 2, 3, 4</td></tr>
+      <tr><th scope="row">Side pot 1</th><td>20 → 50</td><td>3 × 30</td><td>90</td><td>Joueurs 2, 3, 4</td></tr>
+      <tr><th scope="row">Side pot 2</th><td>50 → 100</td><td>2 × 50</td><td>100</td><td>Joueurs 3, 4</td></tr>
+      <tr><th scope="row">Total</th><td></td><td>20 + 50 + 100 + 100</td><td>270</td><td></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Au showdown, le joueur 1 a la meilleure main, le joueur 2 la deuxième, le joueur 3 la troisième. Le joueur 1 gagne le pot principal (80)&nbsp;: il ne peut pas toucher au reste. Le side pot 1 (90) revient à la meilleure main parmi les joueurs 2, 3 et 4, donc au joueur 2. Le side pot 2 (100) va au meilleur des joueurs 3 et 4, donc au joueur 3. <strong>On attribue toujours les pots du dernier side pot vers le pot principal</strong>, en ne comparant que les mains éligibles pour chacun.</p>
+
+  <h2>Les règles du side pot à connaître</h2>
+  <ul>
+    <li><strong>Mise non payée.</strong> Si tu mises 150 et que ton seul adversaire est à tapis pour 40, personne n'a payé les 110 restants&nbsp;: ils te reviennent directement, ils n'entrent dans aucun pot. Le calculateur les affiche à part.</li>
+    <li><strong>Joueurs couchés.</strong> Un joueur qui a payé 60 puis s'est couché laisse ces 60 au milieu. Ils alimentent le pot principal et les side pots jusqu'à son niveau, mais il ne peut pas les gagner.</li>
+    <li><strong>Partages.</strong> Chaque pot se partage séparément entre les meilleures mains éligibles. Tu peux partager un side pot et perdre le pot principal, ou l'inverse.</li>
+    <li><strong>Jeton indivisible.</strong> Quand un pot ne se divise pas exactement, le jeton en trop va au premier gagnant à gauche du bouton (la règle habituelle au Hold'em et à l'Omaha, appliquée aussi en tournoi). Le calculateur l'applique pot par pot&nbsp;: liste les joueurs dans l'ordre des sièges en partant de la gauche du bouton, et règle la plus petite unité si ce n'est pas 1.</li>
+    <li><strong>Relance incomplète à tapis.</strong> Un tapis inférieur à une relance complète ne rouvre pas les enchères pour les joueurs qui ont déjà parlé&nbsp;: ils peuvent payer ou se coucher, pas relancer. Cela change l'action, pas le découpage des pots.</li>
+  </ul>
+
+  <h2>Cote du pot avec des side pots&nbsp;: trois tapis devant toi</h2>
+  <p>Une vraie question de forum&nbsp;: brelan inférieur sur un flop sec, trois joueurs partent à tapis devant toi. Faut-il se coucher&nbsp;? Les side pots changent le calcul, parce que <strong>tu n'affrontes pas les mêmes adversaires dans chaque pot</strong>.</p>
+  <p>Exemple&nbsp;: tout le monde a mis 15 préflop (60 au pot). Sur un flop K♠&nbsp;8♠&nbsp;3♣, le joueur A part à tapis pour 100, le joueur B pour 250, le joueur C pour 400. Tu as 3♥&nbsp;3♦ et tu couvres tout le monde&nbsp;: payer coûte 400. Les totaux misés sont 115, 265, 415 et 415 (le deuxième exemple du calculateur)&nbsp;:</p>
+  <div class="odds-scroll" role="region" aria-label="Les pots après ton appel" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Pot</th><th scope="col">Montant</th><th scope="col">Tes adversaires dans ce pot</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Pot principal</th><td>460</td><td>A, B, C</td></tr>
+      <tr><th scope="row">Side pot 1</th><td>450</td><td>B, C</td></tr>
+      <tr><th scope="row">Side pot 2</th><td>300</td><td>C</td></tr>
+      <tr><th scope="row">Total que tu peux gagner</th><td>1&nbsp;210</td><td></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Si tu avais la même chance de gagner chaque pot, le seuil serait une <a href="/fr/cote-du-pot/">cote du pot</a> ordinaire sur tout ce que tu peux gagner&nbsp;:</p>
+  <p class="formula">équité requise ≈ appel ÷ total gagnable = 400 ÷ 1 210 ≈ 33,1 %</p>
+  <p>Mais ta chance n'est pas la même partout. Disons que A a A♠&nbsp;Q♠ (tirage couleur max), B a K♦&nbsp;Q♦ (top paire) et C a A♥&nbsp;A♣. En énumérant exactement les 820 combinaisons turn + river, ta part de chaque pot est&nbsp;:</p>
+  <div class="odds-scroll" role="region" aria-label="Ton équité dans chaque pot" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Pot</th><th scope="col">Montant</th><th scope="col">Ton équité</th><th scope="col">Part espérée</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Pot principal (contre A, B, C)</th><td>460</td><td>66,5 %</td><td>306</td></tr>
+      <tr><th scope="row">Side pot 1 (contre B, C)</th><td>450</td><td>93,4 %</td><td>420</td></tr>
+      <tr><th scope="row">Side pot 2 (contre C)</th><td>300</td><td>94,8 %</td><td>284</td></tr>
+      <tr><th scope="row">Total</th><td>1&nbsp;210</td><td>83,5 % en moyenne</td><td>1&nbsp;010</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Tu récupères en moyenne environ 1&nbsp;010 pour un appel de 400&nbsp;: <strong>+610 par rapport à te coucher</strong>. Le tirage couleur est le seul vrai danger, et il ne menace que le pot principal, un peu plus d'un tiers de l'argent. La méthode générale&nbsp;:</p>
+  <p class="formula">payer si Σ (ton équité dans le pot k × montant du pot k) &gt; montant de ton appel</p>
+  <p>Deux leçons pratiques. La main du plus petit tapis ne compte que pour le pot principal&nbsp;: un petit tapis inquiétant te coûte moins qu'il n'en a l'air. Et les side pots les plus profonds se jouent contre moins d'adversaires, donc ton équité y est en général plus haute.</p>
+
+  <div class="appcta">
+    <h2>Découper les pots, c'est mécanique&nbsp;; ton équité, c'est le vrai travail</h2>
+    <p>Le calculateur fait la comptabilité. À la table, ce qui décide ton appel, c'est d'estimer ton équité et ton prix en quelques secondes. <strong>PokerPerf</strong> t'entraîne exactement à ça, 10 minutes par jour, sans promesse de gains faciles.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Découvrir PokerPerf</a>
+  </div>
+
+  <h2>Questions fréquentes</h2>
+  <details><summary>Comment fonctionne un side pot au poker&nbsp;?</summary><p>Quand un joueur est à tapis pour moins que les autres, il ne peut gagner à chaque adversaire que ce qu'il a misé lui-même. Cet argent forme le pot principal. Ce que les autres misent au-delà va dans un side pot (pot annexe) qu'eux seuls peuvent gagner. Chaque tapis supplémentaire d'un montant différent crée un nouveau side pot.</p></details>
+  <details><summary>Qui gagne le side pot&nbsp;?</summary><p>La meilleure main parmi les joueurs éligibles&nbsp;: ceux encore en main qui ont misé au moins le niveau de ce pot. Le joueur à tapis avec le plus petit tapis n'est jamais éligible aux side pots, même s'il a la meilleure main de la table.</p></details>
+  <details><summary>Un joueur à tapis peut-il gagner plus que sa mise&nbsp;?</summary><p>Oui, mais au maximum sa propre mise à chaque adversaire. À tapis pour 20 contre trois joueurs, tu peux gagner 80 au total (tes 20 plus 20 de chaque adversaire), plus l'argent déjà au pot avant.</p></details>
+  <details><summary>Que deviennent les jetons d'un joueur couché&nbsp;?</summary><p>Ils restent au pot. Ils s'ajoutent au pot principal et aux side pots jusqu'au montant que ce joueur a misé, mais celui qui s'est couché ne peut rien en gagner.</p></details>
+  <details><summary>C'est quoi une mise non payée&nbsp;?</summary><p>La partie d'une mise que personne n'a égalée. Si tu mises 150 et que ton seul adversaire est à tapis pour 40, les 110 restants te sont rendus avant le découpage des pots.</p></details>
+  <details><summary>Qui reçoit le jeton indivisible en cas de partage&nbsp;?</summary><p>Au Hold'em et à l'Omaha, le premier gagnant à gauche du bouton. Chaque pot se partage séparément&nbsp;: le pot principal et un side pot peuvent chacun avoir leur jeton en trop.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/cote-du-pot/">Calculateur de cote du pot</a> · <a href="/fr/guides/spr-poker/">Le SPR (rapport tapis/pot)</a> · <a href="/fr/calculateur-icm/">Calculateur ICM</a> · <a href="/fr/calculateur-equite/">Calculateur d'équité</a> · <a href="/fr/guides/cotes-au-poker/">Les cotes au poker</a> · <a href="/fr/methodologie/">Méthodologie</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Comment fonctionne un side pot au poker ?","acceptedAnswer":{"@type":"Answer","text":"Quand un joueur est à tapis pour moins que les autres, il ne peut gagner à chaque adversaire que ce qu'il a misé lui-même. Cet argent forme le pot principal. Ce que les autres misent au-delà va dans un side pot (pot annexe) qu'eux seuls peuvent gagner. Chaque tapis supplémentaire d'un montant différent crée un nouveau side pot."}},
+  {"@type":"Question","name":"Qui gagne le side pot ?","acceptedAnswer":{"@type":"Answer","text":"La meilleure main parmi les joueurs éligibles : ceux encore en main qui ont misé au moins le niveau de ce pot. Le joueur à tapis avec le plus petit tapis n'est jamais éligible aux side pots, même s'il a la meilleure main de la table."}},
+  {"@type":"Question","name":"Un joueur à tapis peut-il gagner plus que sa mise ?","acceptedAnswer":{"@type":"Answer","text":"Oui, mais au maximum sa propre mise à chaque adversaire. À tapis pour 20 contre trois joueurs, tu peux gagner 80 au total (tes 20 plus 20 de chaque adversaire), plus l'argent déjà au pot avant."}},
+  {"@type":"Question","name":"Que deviennent les jetons d'un joueur couché ?","acceptedAnswer":{"@type":"Answer","text":"Ils restent au pot. Ils s'ajoutent au pot principal et aux side pots jusqu'au montant que ce joueur a misé, mais celui qui s'est couché ne peut rien en gagner."}},
+  {"@type":"Question","name":"C'est quoi une mise non payée ?","acceptedAnswer":{"@type":"Answer","text":"La partie d'une mise que personne n'a égalée. Si tu mises 150 et que ton seul adversaire est à tapis pour 40, les 110 restants te sont rendus avant le découpage des pots."}},
+  {"@type":"Question","name":"Qui reçoit le jeton indivisible en cas de partage ?","acceptedAnswer":{"@type":"Answer","text":"Au Hold'em et à l'Omaha, le premier gagnant à gauche du bouton. Chaque pot se partage séparément : le pot principal et un side pot peuvent chacun avoir leur jeton en trop."}}
+]}
+</script>
+<script src="/assets/js/side-pot-calculator.js" defer></script>

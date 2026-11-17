@@ -1,0 +1,30 @@
+/* Calculateur de side pots — s'appuie sur .pp-calc/.po/.ctl de pp.css et .odds-scroll/table.num de outs-odds.css. */
+.sp-presets{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 14px;color:var(--muted);font-size:.88rem;}
+.sp-presets .ctl{padding:10px 13px;min-height:44px;font-size:.88rem;}
+.sp .po-eq{margin:4px 0 14px;}
+.sp-row{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 14px;padding:10px 0;border-bottom:1px solid var(--gold-hair);}
+.sp-row:last-child{border-bottom:0;}
+.sp-name{flex:0 0 100%;font-weight:600;color:var(--cream);font-size:.92rem;}
+.sp .sp-bet{flex:1 1 160px;}
+.sp .sp-rank{flex:0 1 150px;}
+.sp .sp-rank select{min-height:44px;}
+.sp .sp-fold{flex:0 0 auto;flex-direction:row;align-items:center;gap:7px;min-width:auto;min-height:44px;cursor:pointer;}
+.sp .sp-fold input{width:20px;height:20px;padding:0;accent-color:var(--gold);}
+.sp-del{min-height:44px;padding:8px 12px;font-size:.85rem;}
+#sp-add{margin-top:10px;min-height:44px;}
+.sp .sp-unit{max-width:280px;margin:0 0 16px;}
+.sp .ctl:focus-visible,.sp select:focus-visible,.sp input:focus-visible{outline:2px solid var(--cream);outline-offset:2px;}
+.sp-refund{margin:0 0 12px;padding:10px 14px;border-left:3px solid var(--gold);background:oklch(0.82 0.06 85 / .08);border-radius:4px;}
+.sp-table{margin-bottom:16px;}
+.sp-table td.sp-names{text-align:left;font-size:.88rem;}
+.sp-table tr.win th,.sp-table tr.win td{background:oklch(0.82 0.06 85 / .08);}
+.sp-table tr.total th,.sp-table tr.total td{color:var(--muted);border-top:1px solid var(--gold-soft);}
+/* Mobile : tout doit tenir sans défilement horizontal. */
+@media (max-width:560px){
+  .sp .odds-scroll table{min-width:0;}
+  .sp-table{font-size:.8rem;}
+  .sp-table th,.sp-table td{padding:8px 4px;}
+  .sp-table thead th{font-size:.62rem;letter-spacing:.02em;}
+  .sp-table tbody th{font-size:.68rem;letter-spacing:.02em;}
+  .sp-presets .ctl{flex:1 1 auto;}
+}

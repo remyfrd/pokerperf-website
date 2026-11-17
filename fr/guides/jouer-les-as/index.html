@@ -1,0 +1,127 @@
+---
+layout: article
+lang: fr
+title: "Comment jouer les as au poker : préflop, slowplay, 4-bet et boards dangereux"
+headline: "Comment jouer les as sans laisser d'argent sur la table"
+description: "On reçoit une paire d'as une fois toutes les 221 mains. Quand relancer, quand le slowplay se défend, comment jouer AA face à un 3-bet ou un 4-bet (bloqueurs), et pourquoi une paire d'as est faible sur 9-8-7 bicolore. Toutes les équités calculées."
+permalink: /fr/guides/jouer-les-as/
+date: 2026-11-17
+last_modified_at: 2026-11-17
+stylesheets: ["/assets/css/outs-odds.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/guides/jouer-les-as/" }
+  - { lang: "en", href: "https://pokerperf.com/en/guides/how-to-play-pocket-aces/" }
+x_default: "https://pokerperf.com/en/guides/how-to-play-pocket-aces/"
+---
+<p class="lead">Tu reçois une paire d'as <strong>une fois toutes les 221 mains</strong> (0,45&nbsp;%). C'est la meilleure main de départ, mais ça reste une paire. Ce que tu gagnes avec AA dépend de deux choses&nbsp;: <strong>construire un gros pot contre un seul adversaire</strong> avant le flop, et <strong>savoir quand une paire ne suffit plus</strong> après. Toutes les équités de cette page sont calculées avec le moteur de notre <a href="/fr/calculateur-equite/">calculateur d'équité</a>.</p>
+
+<h2>Les as, c'est fort comment&nbsp;?</h2>
+<p>À tapis préflop, A♠A♥ contre des mains courantes&nbsp;:</p>
+<div class="odds-scroll" role="region" aria-label="Équité de AA contre des mains courantes" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">AA contre</th><th scope="col">Équité de AA</th><th scope="col">En gros</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">AKo (A♦K♣)</th><td>92,5&nbsp;%</td><td>gagne 12 fois sur 13</td></tr>
+    <tr><th scope="row">AKs (A♦K♦)</th><td>87,9&nbsp;%</td><td>gagne 7 fois sur 8</td></tr>
+    <tr><th scope="row">KK</th><td>81,3 à 82,6&nbsp;%</td><td>perd environ 1 fois sur 5</td></tr>
+    <tr><th scope="row">22</th><td>81,6&nbsp;%</td><td>perd environ 1 fois sur 5</td></tr>
+    <tr><th scope="row">QQ (Q♦Q♣)</th><td>80,9&nbsp;%</td><td>perd environ 1 fois sur 5</td></tr>
+    <tr><th scope="row">JTs (J♦T♦)</th><td>78,3&nbsp;%</td><td>perd un peu plus d'1 fois sur 5</td></tr>
+    <tr><th scope="row">76s (7♦6♦)</th><td>77,0&nbsp;%</td><td>perd presque 1 fois sur 4</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Contre KK, le chiffre dépend des couleurs&nbsp;: 81,3&nbsp;% si aucune couleur n'est partagée, 81,9&nbsp;% avec une couleur partagée, 82,6&nbsp;% si les deux le sont. Les connecteurs assortis sont les mains qui battent le plus souvent les as, parce qu'ils peuvent faire quinte et couleur. Mais à 77&nbsp;% ou plus, mettre tous ses jetons préflop avec AA en tête-à-tête reste toujours une très bonne affaire.</p>
+<p>Le problème, c'est le nombre d'adversaires. Contre des mains au hasard, l'équité de AA baisse vite (plus de détails dans <a href="/fr/guides/variance-poker/">combien de fois AA perd</a>)&nbsp;:</p>
+<div class="odds-scroll" role="region" aria-label="Équité de AA selon le nombre d'adversaires" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Situation</th><th scope="col">Équité de AA</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Contre 1 main au hasard</th><td>≈ 85&nbsp;%</td></tr>
+    <tr><th scope="row">Contre 2 mains au hasard</th><td>≈ 73&nbsp;%</td></tr>
+    <tr><th scope="row">Contre 3 mains au hasard</th><td>≈ 64&nbsp;%</td></tr>
+    <tr><th scope="row">Contre J♦T♦ et 7♣6♣</th><td>58,0&nbsp;%</td></tr>
+    <tr><th scope="row">Contre K♦Q♣, J♣T♣ et 9♦8♦</th><td>56,9&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Contre trois mains qui paient typiquement, les as ne valent guère mieux qu'un pile ou face. En tête-à-tête contre le même genre de main, ils sont autour de 78&nbsp;%.</p>
+
+<h2>Préflop&nbsp;: relance, et relance encore</h2>
+<p>Par défaut, c'est simple&nbsp;: <strong>avec AA, tu relances</strong>. Premier à parler, ouvre à ta taille habituelle (autour de 2 à 2,5 grosses blindes en ligne). Face à une ouverture, fais un 3-bet. Face à des limpers, relance plus gros pour isoler. Deux raisons&nbsp;:</p>
+<ul>
+  <li><strong>Le pot.</strong> C'est quand le pot est gros que la meilleure main rapporte le plus. Chaque relance préflop multiplie ce que tu peux gagner ensuite.</li>
+  <li><strong>Le nombre d'adversaires.</strong> Limper ou simplement payer invite trois ou quatre joueurs, et c'est exactement ce qui fait passer AA de 85&nbsp;% à moins de 60&nbsp;%.</li>
+</ul>
+<p>Garde les mêmes tailles qu'avec tes autres mains&nbsp;: relancer plus gros avec les as, c'est montrer ta main.</p>
+
+<h2>Slowplay des as préflop&nbsp;: quand ça se défend</h2>
+<p>Le slowplay, c'est cacher une main forte en se contentant de payer. Préflop avec AA, c'est l'exception, pas la règle. Ça peut avoir du sens dans quelques cas&nbsp;:</p>
+<ul>
+  <li><strong>Contre un joueur très agressif qui 3-bet ou 4-bet beaucoup.</strong> En payant, tu le laisses continuer à miser avec des mains qui se coucheraient face à une relance.</li>
+  <li><strong>Pour protéger ta range de call.</strong> Si tu ne paies jamais un 3-bet avec AA, ta range de call est <a href="/fr/guides/lexique-poker/#range-plafonnee">plafonnée</a>&nbsp;: un bon adversaire sait que tu ne peux pas avoir la meilleure main. Certains bons joueurs paient avec les as de temps en temps pour cette raison. C'est un réglage d'équilibre, pas la ligne par défaut.</li>
+  <li><strong>En position, avec des tapis profonds, contre un seul adversaire.</strong> Tu gardes le contrôle de la taille du pot et tu parles en dernier à chaque rue.</li>
+</ul>
+<p>C'est une mauvaise idée quand plusieurs joueurs doivent encore parler derrière toi, quand tu es hors de position, ou quand l'adversaire est passif&nbsp;: il checkera derrière et tu gagneras un petit pot avec la meilleure main.</p>
+
+<h2>AA face à un 3-bet ou un 4-bet&nbsp;: les bloqueurs jouent pour toi</h2>
+<p>Face à un 3-bet, le coup habituel est le 4-bet. Face à un 4-bet avec 100 grosses blindes, tu peux faire tapis (5-bet) ou payer&nbsp;; se coucher n'est jamais une option dans un cash game normal.</p>
+<p>Tenir deux as change aussi ce que l'adversaire peut avoir. Ce sont les <a href="/fr/guides/bloqueurs-poker/">bloqueurs</a>&nbsp;:</p>
+<div class="odds-scroll" role="region" aria-label="Combos adverses avec et sans AA en main" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Main adverse</th><th scope="col">Combos normaux</th><th scope="col">Combos si tu as AA</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">AA</th><td>6</td><td>1</td></tr>
+    <tr><th scope="row">AK</th><td>16</td><td>8</td></tr>
+    <tr><th scope="row">KK</th><td>6</td><td>6</td></tr>
+    <tr><th scope="row">QQ</th><td>6</td><td>6</td></tr>
+    <tr><th scope="row">Range totale QQ+, AK</th><td>34</td><td>21</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Prends un adversaire qui ne fait 4-bet qu'avec QQ+ et AK. Sans tes as, cette range compte 34 combos&nbsp;; avec A♠A♥ en main, il n'en reste que 21. En pondérant chaque combo par son équité exacte, <strong>AA a environ 84&nbsp;% contre cette range</strong>. Plus l'adversaire est serré, plus sa range est faite de rois et de dames, et c'est une excellente situation pour toi.</p>
+<div class="tip"><strong>Et avec les rois&nbsp;?</strong> Quand tu as KK, la probabilité qu'au moins un adversaire ait AA est de 0,49&nbsp;% contre un adversaire, 2,4&nbsp;% à une table de 6 et 3,9&nbsp;% contre huit adversaires. Coucher KK préflop avec 100 grosses blindes n'est presque jamais correct, même face à un 5-bet.</div>
+
+<h2>Après le flop&nbsp;: une paire, même d'as</h2>
+<p>Sur un board sec, les as sont généralement très devant. Sur K♣7♦2♠, contre K♦Q♣ (top paire, bon kicker), AA a 81,6&nbsp;% d'équité&nbsp;: mise pour la valeur, les rois moins bons paieront plusieurs rues.</p>
+<p>Sur un board connecté et bicolore, tout change. Voici A♥A♦ sur <strong>9♠8♠7♦</strong> (équités exactes, turn et river à venir)&nbsp;:</p>
+<div class="odds-scroll" role="region" aria-label="Équité de AA sur 9-8-7 bicolore" tabindex="0">
+<table class="num">
+  <thead><tr><th scope="col">Main adverse</th><th scope="col">Ce qu'il a</th><th scope="col">Équité de AA</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">K♠Q♠</th><td>tirage couleur</td><td>61,6&nbsp;%</td></tr>
+    <tr><th scope="row">T♥9♥</th><td>paire + tirage quinte bilatéral</td><td>54,1&nbsp;%</td></tr>
+    <tr><th scope="row">9♣8♣</th><td>double paire</td><td>27,9&nbsp;%</td></tr>
+    <tr><th scope="row">9♣9♥</th><td>brelan (set)</td><td>11,0&nbsp;%</td></tr>
+    <tr><th scope="row">J♣T♦</th><td>quinte</td><td>3,3&nbsp;%</td></tr>
+    <tr><th scope="row">T♠6♠</th><td>quinte + tirage couleur</td><td>3,3&nbsp;%</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Même contre un simple tirage, AA n'est favori qu'à 60/40. Et contre K♠Q♠ et J♣T♦ à la fois, A♥A♦ tombe à <strong>3,1&nbsp;%</strong>. Sur ce genre de board&nbsp;:</p>
+<ul>
+  <li><strong>Mise plus gros</strong> quand tu es devant&nbsp;: les tirages ont beaucoup d'équité, fais-les payer.</li>
+  <li><strong>Ralentis face à beaucoup d'action.</strong> Un check-raise ou une grosse relance sur 9-8-7 bicolore signifie très souvent double paire, brelan ou quinte, des mains contre lesquelles AA a entre 3 et 28&nbsp;%.</li>
+  <li><strong>Ne fais pas de slowplay.</strong> Checker les as sur ce board, c'est offrir une carte gratuite à tous les tirages.</li>
+</ul>
+
+<h2>La profondeur des tapis décide jusqu'où aller</h2>
+<p>La question «&nbsp;je mets tout avec les as&nbsp;?&nbsp;» dépend du <a href="/fr/guides/spr-poker/">SPR (rapport tapis/pot)</a>. Avec 100 grosses blindes, un 3-bet payé donne un SPR d'environ 4,7 au flop, un 4-bet payé environ 1,7. À SPR 1,7, tu es engagé&nbsp;: il te faut au plus 39&nbsp;% d'équité pour payer un tapis (SPR ÷ (1 + 2 × SPR)), et AA a plus que ça contre presque toutes les ranges qui continuent.</p>
+<p>Dans un pot relancé simple (SPR autour de 15 à 18), c'est différent&nbsp;: les tapis sont profonds par rapport au pot, et monter un pot de 100 grosses blindes avec une paire contre un adversaire qui relance encore et encore, c'est comme ça que les as perdent le plus d'argent.</p>
+
+<h2>Questions fréquentes</h2>
+<details><summary>Combien de fois reçoit-on une paire d'as&nbsp;?</summary><p>Une fois toutes les 221 mains en moyenne, soit 0,45&nbsp;%. Il y a 6 combinaisons d'AA sur 1 326 mains de départ possibles.</p></details>
+<details><summary>Faut-il slowplay les as préflop&nbsp;?</summary><p>Rarement. Relancer grossit le pot et limite le nombre d'adversaires, et c'est ce dont les as ont besoin. Simplement payer avec AA peut se justifier contre un adversaire très agressif, ou de temps en temps pour que ta range de call ne soit pas plafonnée, mais ça reste une exception.</p></details>
+<details><summary>Combien de fois les as perdent-ils contre les rois&nbsp;?</summary><p>À tapis préflop, AA a entre 81,3 et 82,6&nbsp;% d'équité contre KK selon les couleurs. Les rois gagnent environ 1 fois sur 5.</p></details>
+<details><summary>Faut-il parfois coucher les as préflop&nbsp;?</summary><p>Pas dans un cash game normal. En tournoi, à la bulle d'un satellite où ta place est presque assurée, le modèle ICM peut conseiller de coucher AA face à un adversaire qui te couvre&nbsp;: vois notre <a href="/fr/calculateur-icm/">calculateur ICM</a>.</p></details>
+
+<p style="margin-top:28px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/guides/mains-de-depart/">Tableau des mains de départ</a> · <a href="/fr/guides/variance-poker/">Combien de fois AA perd</a> · <a href="/fr/guides/bloqueurs-poker/">Les bloqueurs</a> · <a href="/fr/guides/spr-poker/">Le SPR</a> · <a href="/fr/guides/lexique-poker/">Lexique poker</a> · <a href="/fr/calculateur-equite/">Calculateur d'équité</a>.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Combien de fois reçoit-on une paire d'as ?","acceptedAnswer":{"@type":"Answer","text":"Une fois toutes les 221 mains en moyenne, soit 0,45 %. Il y a 6 combinaisons d'AA sur 1 326 mains de départ possibles."}},
+  {"@type":"Question","name":"Faut-il slowplay les as préflop ?","acceptedAnswer":{"@type":"Answer","text":"Rarement. Relancer grossit le pot et limite le nombre d'adversaires, et c'est ce dont les as ont besoin. Simplement payer avec AA peut se justifier contre un adversaire très agressif, ou de temps en temps pour que ta range de call ne soit pas plafonnée, mais ça reste une exception."}},
+  {"@type":"Question","name":"Combien de fois les as perdent-ils contre les rois ?","acceptedAnswer":{"@type":"Answer","text":"À tapis préflop, AA a entre 81,3 et 82,6 % d'équité contre KK selon les couleurs. Les rois gagnent environ 1 fois sur 5."}},
+  {"@type":"Question","name":"Faut-il parfois coucher les as préflop ?","acceptedAnswer":{"@type":"Answer","text":"Pas dans un cash game normal. En tournoi, à la bulle d'un satellite où ta place est presque assurée, le modèle ICM peut conseiller de coucher AA face à un adversaire qui te couvre."}}
+]}
+</script>

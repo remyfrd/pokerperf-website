@@ -1,0 +1,124 @@
+---
+layout: default
+lang: fr
+title: "Calculateur de bankroll poker : risque de ruine et caves nécessaires"
+description: "Calculateur de bankroll poker gratuit : entre ton winrate et ton écart-type (ou ton ROI en tournoi) pour connaître ton risque de ruine, la bankroll qu'il te faut pour 5 % ou 1 % de risque et les downswings à prévoir."
+permalink: /fr/calculateur-bankroll/
+webapp: "Calculateur de bankroll poker"
+last_modified_at: 2026-11-17
+stylesheets: ["/assets/css/outs-odds.css", "/assets/css/bankroll-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-bankroll/" }
+  - { lang: "en", href: "https://pokerperf.com/en/poker-bankroll-calculator/" }
+x_default: "https://pokerperf.com/en/poker-bankroll-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Calculateur de bankroll poker&nbsp;: ton risque de ruine en chiffres</h1>
+  <p class="lead">«&nbsp;20 caves en cash game, 100 buy-ins en tournoi&nbsp;»&nbsp;: tout le monde connaît ces règles, mais elles ne disent pas <strong>quel risque tu prends vraiment</strong>. Entre ton winrate et ton écart-type (ou ton ROI en tournoi)&nbsp;: tu obtiens ton <strong>risque de ruine</strong>, la bankroll qu'il te faut pour 5&nbsp;% ou 1&nbsp;% de risque, et la taille des downswings à prévoir. Gratuit, sans inscription.</p>
+
+  <div id="bankroll-calculator" data-lang="fr"></div>
+  <noscript><p class="tip">Le calculateur a besoin de JavaScript. La formule sans lui&nbsp;: risque de ruine = e<sup>−2 × winrate × bankroll ÷ écart-type²</sup>, avec le winrate et l'écart-type en bb/100 et la bankroll en grosses blindes.</p></noscript>
+
+  <h2>Quelle bankroll pour jouer au poker&nbsp;?</h2>
+  <p>La réponse habituelle, ce sont des conventions transmises de forum en forum&nbsp;:</p>
+  <ul>
+    <li><strong>cash game</strong>&nbsp;: 20 à 40 caves (une cave = 100 grosses blindes)&nbsp;;</li>
+    <li><strong>sit &amp; go</strong>&nbsp;: 50 à 100 buy-ins&nbsp;;</li>
+    <li><strong>tournois multi-tables (MTT)</strong>&nbsp;: 100 buy-ins ou plus, parfois 200 à 300 pour les gros champs.</li>
+  </ul>
+  <p>Ce sont de bons points de départ, mais ils cachent la vraie question&nbsp;: <strong>quel est ton avantage&nbsp;?</strong> Les mêmes 20 caves sont confortables pour un gros gagnant et risquées pour un petit. Et si tu es en réalité à l'équilibre ou perdant, aucune bankroll ne suffit&nbsp;: tu sautes tôt ou tard.</p>
+
+  <h2>La formule du risque de ruine</h2>
+  <p>En cash game, tes résultats se comportent à peu près comme une marche au hasard en pente&nbsp;: ton winrate te tire vers le haut, ton écart-type te secoue. Le modèle de diffusion classique donne la probabilité de perdre un jour toute ta bankroll&nbsp;:</p>
+  <p class="formula">risque de ruine = e<sup>−2 × winrate × bankroll ÷ écart-type²</sup></p>
+  <p>Winrate et écart-type en grosses blindes pour 100 mains (bb/100), bankroll en grosses blindes. Exemple avec 5&nbsp;bb/100, un écart-type de 90&nbsp;bb/100 (l'hypothèse de notre <a href="/fr/guides/variance-poker/">guide de la variance</a>) et 20 caves (2&nbsp;000&nbsp;bb)&nbsp;:</p>
+  <p class="formula">risque de ruine = e<sup>−2 × 5 × 2 000 ÷ 8 100</sup> = e<sup>−2,47</sup> ≈ 8,5 %</p>
+  <p>Dans l'autre sens, on obtient la bankroll nécessaire pour un risque visé&nbsp;:</p>
+  <p class="formula">bankroll = −écart-type² × ln(risque) ÷ (2 × winrate)</p>
+  <p>Pour 5&nbsp;% de risque&nbsp;: 8&nbsp;100 × 3,0 ÷ 10 ≈ 2&nbsp;430&nbsp;bb, soit <strong>24 caves</strong>. Pour 1&nbsp;%&nbsp;: <strong>37 caves</strong>.</p>
+
+  <h2>Cash game&nbsp;: risque de ruine selon la bankroll et le winrate</h2>
+  <p>Écart-type 90&nbsp;bb/100, une cave = 100&nbsp;bb, risque à long terme (formule ci-dessus)&nbsp;:</p>
+  <div class="odds-scroll" role="region" aria-label="Risque de ruine selon la bankroll et le winrate" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Winrate</th><th scope="col">20 caves</th><th scope="col">30 caves</th><th scope="col">40 caves</th><th scope="col">60 caves</th><th scope="col">Pour 5 % de risque</th><th scope="col">Pour 1 % de risque</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">1 bb/100</th><td>61 %</td><td>48 %</td><td>37 %</td><td>23 %</td><td>121 caves</td><td>187 caves</td></tr>
+      <tr><th scope="row">2,5 bb/100</th><td>29 %</td><td>16 %</td><td>8,5 %</td><td>2,5 %</td><td>49 caves</td><td>75 caves</td></tr>
+      <tr><th scope="row">5 bb/100</th><td>8,5 %</td><td>2,5 %</td><td>0,7 %</td><td>0,1 %</td><td>24 caves</td><td>37 caves</td></tr>
+      <tr><th scope="row">10 bb/100</th><td>0,7 %</td><td>0,1 %</td><td>&lt; 0,1 %</td><td>&lt; 0,1 %</td><td>12 caves</td><td>19 caves</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>La règle des «&nbsp;20 à 40 caves&nbsp;» tient à peu près <strong>pour un bon gagnant</strong> (5&nbsp;bb/100). Pour un petit gagnant à 2,5&nbsp;bb/100, 20 caves, c'est presque 1 chance sur 3 de sauter. La bankroll nécessaire double quand le winrate est divisé par deux.</p>
+  <p>La volatilité compte autant, et elle joue au carré&nbsp;: à 5&nbsp;bb/100, il faut 15 caves pour 5&nbsp;% de risque avec un écart-type de 70, 24 avec 90, et <strong>43 avec 120</strong> (style agressif, ou PLO).</p>
+
+  <h2>Les downswings à prévoir</h2>
+  <p>Une bankroll ne sert pas qu'à éviter de sauter&nbsp;: elle sert à traverser les mauvaises séries ordinaires sans changer ton jeu. En simulant 4&nbsp;000 parcours de 100&nbsp;000 mains avec un écart-type de 90&nbsp;:</p>
+  <div class="odds-scroll" role="region" aria-label="Pire downswing sur 100 000 mains" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Winrate</th><th scope="col">Pire downswing, cas typique</th><th scope="col">Pire downswing, 1 fois sur 10</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">2,5 bb/100</th><td>24 caves</td><td>41 caves</td></tr>
+      <tr><th scope="row">5 bb/100</th><td>19 caves</td><td>31 caves</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Autrement dit, un <strong>downswing de 20 caves est un événement normal</strong> sur 100&nbsp;000 mains, même pour un bon joueur. C'est pour ça que 20 caves est un plancher plutôt qu'un objectif confortable.</p>
+
+  <h2>Tournois et sit &amp; go</h2>
+  <p>En tournoi, tu perds la plupart du temps et tu gagnes rarement, mais gros. La variance est bien plus forte, et elle grandit avec le nombre d'inscrits. Le calculateur simule des séries de tournois avec une structure de prix type. Bankroll nécessaire pour limiter à 5&nbsp;% ou 1&nbsp;% le risque de sauter sur 1&nbsp;000 tournois&nbsp;:</p>
+  <div class="odds-scroll" role="region" aria-label="Bankroll en tournoi selon le format et le ROI" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Format (rake)</th><th scope="col">ROI</th><th scope="col">Pour 5 % de risque</th><th scope="col">Pour 1 % de risque</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Sit &amp; go 9 joueurs (7 %)</th><td>+5 %</td><td>55 buy-ins</td><td>77 buy-ins</td></tr>
+      <tr><th scope="row">Sit &amp; go 9 joueurs (7 %)</th><td>+10 %</td><td>32 buy-ins</td><td>50 buy-ins</td></tr>
+      <tr><th scope="row">MTT 200 joueurs (10 %)</th><td>+10 %</td><td>132 buy-ins</td><td>188 buy-ins</td></tr>
+      <tr><th scope="row">MTT 1 000 joueurs (10 %)</th><td>+20 %</td><td>148 buy-ins</td><td>207 buy-ins</td></tr>
+      <tr><th scope="row">MTT 1 000 joueurs (10 %)</th><td>+30 %</td><td>101 buy-ins</td><td>148 buy-ins</td></tr>
+      <tr><th scope="row">MTT 5 000 joueurs (10 %)</th><td>+20 %</td><td>234 buy-ins</td><td>299 buy-ins</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>La règle des «&nbsp;100 buy-ins en MTT&nbsp;» est donc <strong>plutôt basse</strong>&nbsp;: avec un bon ROI de +20&nbsp;% sur des champs de 1&nbsp;000 joueurs, elle laisse environ 15&nbsp;% de risque de sauter en 1&nbsp;000 tournois. Et ces chiffres sont un minimum&nbsp;: le modèle répartit ton avantage également sur toutes les places payées, alors qu'un vrai gagnant gagne surtout plus de grosses places, ce qui augmente la variance.</p>
+
+  <h2>Des règles de gestion qui servent vraiment</h2>
+  <ul>
+    <li><strong>Prends un winrate prudent.</strong> Sur 50&nbsp;000 mains, ton vrai winrate n'est connu qu'à environ ±8&nbsp;bb/100 près. Mets la fourchette basse, pas ton meilleur mois.</li>
+    <li><strong>Décide à l'avance quand descendre.</strong> Par exemple&nbsp;: descendre d'une limite dès que tu passes sous 20 caves de la limite actuelle. Décidée à froid, la règle tient quand tu es en tilt.</li>
+    <li><strong>Tente ta chance par petites tranches.</strong> Essaie la limite au-dessus avec 3 à 5 de ses caves, et redescends si elles sont perdues. Ton risque global reste maîtrisé.</li>
+    <li><strong>Sépare bankroll et argent pour vivre.</strong> Si tu prélèves dans ta bankroll, ton winrate effectif baisse, et le risque monte.</li>
+    <li><strong>Si tu n'es pas sûr d'être gagnant, la bonne bankroll, c'est ton budget.</strong> Pour un joueur loisir, la bankroll est ce que tu peux te permettre de perdre, pas une garantie.</li>
+  </ul>
+
+  <h2>Les limites du modèle</h2>
+  <p>La formule du cash suppose un winrate et un écart-type constants, sans retraits ni rakeback, et on ne peut jamais vraiment descendre sous zéro puisqu'on s'arrête avant. Son principal point faible, c'est l'entrée&nbsp;: ton winrate est incertain, et un winrate surestimé donne un risque sous-estimé. Le modèle des tournois utilise une structure de prix simplifiée (environ 15&nbsp;% de payés en MTT) et un avantage uniforme sur les places payées. Prends les résultats comme des ordres de grandeur, pas des certitudes.</p>
+
+  <div class="appcta">
+    <h2>La bankroll te protège, tes décisions font le winrate</h2>
+    <p>Le facteur le plus important du calculateur, c'est ton winrate, et il se construit décision par décision&nbsp;: équité, cote du pot, ranges. <strong>PokerPerf</strong> entraîne ces décisions jusqu'à en faire des réflexes, 10 minutes par jour. Aucune promesse de gains&nbsp;: juste plus de décisions justes.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Découvrir PokerPerf</a>
+  </div>
+
+  <h2>Questions fréquentes</h2>
+  <details><summary>Quelle bankroll faut-il pour jouer au poker&nbsp;?</summary><p>En cash game, la convention est de 20 à 40 caves. En chiffres&nbsp;: un gagnant à 5 bb/100 avec un écart-type de 90 a besoin d'environ 24 caves pour 5 % de risque de ruine et de 37 pour 1 %. Un gagnant à 2,5 bb/100 a besoin du double.</p></details>
+  <details><summary>Qu'est-ce que le risque de ruine au poker&nbsp;?</summary><p>C'est la probabilité de perdre toute ta bankroll avant que ton avantage ne paie. En cash game, on l'estime par e^(−2 × winrate × bankroll ÷ écart-type²), avec le winrate et l'écart-type en bb/100 et la bankroll en grosses blindes.</p></details>
+  <details><summary>Combien de buy-ins pour jouer des MTT&nbsp;?</summary><p>Plus que les 100 classiques. Dans nos simulations, un ROI de +20 % sur des champs de 1 000 joueurs demande environ 150 buy-ins pour 5 % de risque de sauter en 1 000 tournois, et environ 230 sur des champs de 5 000 joueurs.</p></details>
+  <details><summary>Quel écart-type utiliser&nbsp;?</summary><p>Ton tracker te l'indique. Sans tracker, prends 70 à 100 bb/100 en no-limit hold'em 6-max (90 est un bon défaut), un peu moins en full ring, et plus pour un style agressif ou en pot-limit Omaha.</p></details>
+  <details><summary>20 caves, est-ce suffisant en cash game&nbsp;?</summary><p>Pour un bon gagnant, à peu près&nbsp;: environ 8,5 % de risque de ruine à 5 bb/100. Pour un petit gagnant, c'est risqué (environ 29 % à 2,5 bb/100). Et un downswing de 20 caves est un événement normal sur 100 000 mains.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">Voir aussi&nbsp;: <a href="/fr/guides/variance-poker/">La variance au poker en chiffres</a> · <a href="/fr/calculateur-icm/">Calculateur ICM</a> · <a href="/fr/guides/push-fold/">Tableaux push/fold</a> · <a href="/fr/guides/comment-etudier-le-poker/">Comment étudier le poker</a> · <a href="/fr/calculateur-equite/">Calculateur d'équité</a> · <a href="/fr/methodologie/">Méthodologie</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Quelle bankroll faut-il pour jouer au poker ?","acceptedAnswer":{"@type":"Answer","text":"En cash game, la convention est de 20 à 40 caves. En chiffres : un gagnant à 5 bb/100 avec un écart-type de 90 a besoin d'environ 24 caves pour 5 % de risque de ruine et de 37 pour 1 %. Un gagnant à 2,5 bb/100 a besoin du double."}},
+  {"@type":"Question","name":"Qu'est-ce que le risque de ruine au poker ?","acceptedAnswer":{"@type":"Answer","text":"C'est la probabilité de perdre toute ta bankroll avant que ton avantage ne paie. En cash game, on l'estime par e^(−2 × winrate × bankroll ÷ écart-type²), avec le winrate et l'écart-type en bb/100 et la bankroll en grosses blindes."}},
+  {"@type":"Question","name":"Combien de buy-ins pour jouer des MTT ?","acceptedAnswer":{"@type":"Answer","text":"Plus que les 100 classiques. Dans nos simulations, un ROI de +20 % sur des champs de 1 000 joueurs demande environ 150 buy-ins pour 5 % de risque de sauter en 1 000 tournois, et environ 230 sur des champs de 5 000 joueurs."}},
+  {"@type":"Question","name":"Quel écart-type utiliser ?","acceptedAnswer":{"@type":"Answer","text":"Ton tracker te l'indique. Sans tracker, prends 70 à 100 bb/100 en no-limit hold'em 6-max (90 est un bon défaut), un peu moins en full ring, et plus pour un style agressif ou en pot-limit Omaha."}},
+  {"@type":"Question","name":"20 caves, est-ce suffisant en cash game ?","acceptedAnswer":{"@type":"Answer","text":"Pour un bon gagnant, à peu près : environ 8,5 % de risque de ruine à 5 bb/100. Pour un petit gagnant, c'est risqué (environ 29 % à 2,5 bb/100). Et un downswing de 20 caves est un événement normal sur 100 000 mains."}}
+]}
+</script>
+<script src="/assets/js/bankroll-calculator.js" defer></script>

@@ -1,0 +1,12 @@
+/* Glossaire / lexique poker : sommaire + liste de définitions (une ancre par terme). */
+.toc{border:1px solid var(--gold-hair);border-radius:12px;padding:14px 18px;margin:22px 0 8px;background:var(--panel);}
+.toc .toc-title{margin:0 0 6px;font-weight:600;color:var(--gold);}
+.toc ol{margin:0;padding-left:1.2em;columns:2;column-gap:28px;}
+.toc li{margin:2px 0;}
+@media(max-width:520px){.toc ol{columns:1;}}
+.glossary{margin:10px 0 0;}
+.glossary dt{font-weight:700;color:var(--cream);margin-top:18px;scroll-margin-top:84px;}
+.glossary dt:target{color:var(--gold);}
+.glossary dd{margin:4px 0 0;line-height:1.6;}
+.glossary .gl-more{display:inline-block;margin-left:2px;font-size:.92em;}
+h2[id]{scroll-margin-top:84px;}

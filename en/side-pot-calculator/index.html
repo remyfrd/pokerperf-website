@@ -1,0 +1,112 @@
+---
+layout: default
+lang: en
+title: "Side Pot Calculator: How Side Pots Work in Poker — free"
+description: "Free poker side pot calculator: enter what each player put in, who folded and the showdown order, and see the main pot, every side pot, who can win each one, uncalled bets and split pots."
+permalink: /en/side-pot-calculator/
+webapp: "Poker Side Pot Calculator"
+last_modified_at: 2026-11-17
+stylesheets: ["/assets/css/outs-odds.css", "/assets/css/side-pot-calculator.css"]
+alternates:
+  - { lang: "fr", href: "https://pokerperf.com/fr/calculateur-side-pot/" }
+  - { lang: "en", href: "https://pokerperf.com/en/side-pot-calculator/" }
+x_default: "https://pokerperf.com/en/side-pot-calculator/"
+---
+<div class="wrap">
+  <p class="brand">PokerPerf</p>
+  <h1>Side pot calculator: who wins what when several players are all-in</h1>
+  <p class="lead">When a player goes all-in for less than the others, the money is split into a <strong>main pot</strong> and one or more <strong>side pots</strong>. Enter how much each player put in during the hand, who folded and, if you like, the order of hands at showdown: you see every pot, who can win it, and what each player takes home. Free, no sign-up, up to 10 players.</p>
+
+  <div id="side-pot-calculator" data-lang="en"></div>
+  <noscript><p class="tip">The calculator needs JavaScript. The rule without it: sort the all-in amounts from smallest to largest; at each level, every player who put in at least that much contributes the same slice. Each slice is a pot, and only the players still in the hand who reached that level can win it.</p></noscript>
+
+  <h2>How do side pots work?</h2>
+  <p>One rule explains everything: <strong>you can only win from each opponent as much as you put in yourself</strong>. A player who is all-in for 20 can win 20 from each opponent, not more. The rest of the money is played for by the players who still have chips, in a separate pot.</p>
+  <p>To build the pots, take the all-in amounts of the players still in the hand, from smallest to largest. Each level cuts off a slice:</p>
+  <p class="formula">pot at level L = Σ over all players of (min(their total, L) − min(their total, previous level))</p>
+  <p>The pot can be won by every player still in the hand who put in at least L. Chips from folded players stay in the pots they fed, but those players can't win anything.</p>
+
+  <h2>Step-by-step example: 4 players, 3 different winners</h2>
+  <p>Player 1 is all-in for 20, player 2 all-in for 50, players 3 and 4 each put in 100. This is the calculator's first example.</p>
+  <div class="odds-scroll" role="region" aria-label="Building the side pots" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Pot</th><th scope="col">Slice per player</th><th scope="col">Calculation</th><th scope="col">Amount</th><th scope="col">Who can win it</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Main pot</th><td>0 → 20</td><td>4 × 20</td><td>80</td><td>Players 1, 2, 3, 4</td></tr>
+      <tr><th scope="row">Side pot 1</th><td>20 → 50</td><td>3 × 30</td><td>90</td><td>Players 2, 3, 4</td></tr>
+      <tr><th scope="row">Side pot 2</th><td>50 → 100</td><td>2 × 50</td><td>100</td><td>Players 3, 4</td></tr>
+      <tr><th scope="row">Total</th><td></td><td>20 + 50 + 100 + 100</td><td>270</td><td></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>At showdown, player 1 has the best hand, player 2 the second best, player 3 the third. Player 1 wins the main pot (80): they can't touch the rest. Side pot 1 (90) goes to the best hand among players 2, 3 and 4, so player 2. Side pot 2 (100) goes to the best of players 3 and 4, so player 3. <strong>Pots are always awarded from the last side pot back to the main pot</strong>, comparing only the hands eligible for each one.</p>
+
+  <h2>Side pot rules worth knowing</h2>
+  <ul>
+    <li><strong>Uncalled bet.</strong> If you bet 150 and the only caller is all-in for 40, nobody called the other 110: it goes straight back to you, it's in no pot. The calculator shows it on its own line.</li>
+    <li><strong>Folded players.</strong> A player who called 60 and then folded leaves those 60 in the middle. They feed the main pot and the side pots up to their level, but that player can't win them.</li>
+    <li><strong>Split pots.</strong> Each pot is split separately between the best eligible hands. You can tie for a side pot and lose the main pot, or the other way round.</li>
+    <li><strong>Odd chips.</strong> When a pot can't be split evenly, the indivisible chip goes to the first winner left of the button (the usual rule in hold'em and Omaha; tournament rules follow it too). The calculator applies it pot by pot: list players in seat order starting left of the button, and set the smallest chip if it isn't 1.</li>
+    <li><strong>Incomplete all-in raise.</strong> An all-in that is less than a full raise does not reopen the betting for players who have already acted: they can call or fold, but not re-raise. It changes the action, not how the pots are split.</li>
+  </ul>
+
+  <h2>Pot odds with side pots: three all-ins in front of you</h2>
+  <p>A real question from a forum: bottom set on a dry flop, three players move all-in in front of you. Do you fold? Side pots change the math, because <strong>you aren't playing the same opponents in every pot</strong>.</p>
+  <p>Example: everyone put 15 in preflop (60 in the pot). On a K♠&nbsp;8♠&nbsp;3♣ flop, player A moves all-in for 100, player B for 250, player C for 400. You have 3♥&nbsp;3♦ and cover everyone: calling costs 400. Total contributions are 115, 265, 415 and 415 (the calculator's second example):</p>
+  <div class="odds-scroll" role="region" aria-label="Pots after the call" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Pot</th><th scope="col">Amount</th><th scope="col">Your opponents in it</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Main pot</th><td>460</td><td>A, B, C</td></tr>
+      <tr><th scope="row">Side pot 1</th><td>450</td><td>B, C</td></tr>
+      <tr><th scope="row">Side pot 2</th><td>300</td><td>C</td></tr>
+      <tr><th scope="row">Total you can win</th><td>1,210</td><td></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>If you had the same chance of winning every pot, the threshold would be ordinary <a href="/en/pot-odds-calculator/">pot odds</a> on everything you can win:</p>
+  <p class="formula">required equity ≈ call ÷ total you can win = 400 ÷ 1,210 ≈ 33.1%</p>
+  <p>But your chance isn't the same everywhere. Say A has A♠&nbsp;Q♠ (nut flush draw), B has K♦&nbsp;Q♦ (top pair) and C has A♥&nbsp;A♣. Enumerating all 820 turn and river combinations exactly, your share of each pot is:</p>
+  <div class="odds-scroll" role="region" aria-label="Your equity in each pot" tabindex="0">
+  <table class="num">
+    <thead><tr><th scope="col">Pot</th><th scope="col">Amount</th><th scope="col">Your equity</th><th scope="col">Expected share</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Main pot (vs A, B, C)</th><td>460</td><td>66.5%</td><td>306</td></tr>
+      <tr><th scope="row">Side pot 1 (vs B, C)</th><td>450</td><td>93.4%</td><td>420</td></tr>
+      <tr><th scope="row">Side pot 2 (vs C)</th><td>300</td><td>94.8%</td><td>284</td></tr>
+      <tr><th scope="row">Total</th><td>1,210</td><td>83.5% on average</td><td>1,010</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>You get back about 1,010 on average for a 400 call: <strong>+610 compared with folding</strong>. The flush draw is the only real danger, and it only threatens the main pot, a bit more than a third of the money. The general method:</p>
+  <p class="formula">call if Σ (your equity in pot k × amount of pot k) &gt; amount of your call</p>
+  <p>Two practical lessons. The short stack's hand only matters for the main pot, so a scary short all-in costs you less than it seems. And the deeper side pots are played against fewer opponents, so your equity there is usually higher.</p>
+
+  <div class="appcta">
+    <h2>Splitting pots is mechanical; your equity is the hard part</h2>
+    <p>The calculator handles the bookkeeping. At the table, what decides the call is estimating your equity and your price in a few seconds. <strong>PokerPerf</strong> trains exactly that, 10 minutes a day, with no promises of easy money.</p>
+    <a class="btn" href="{{ site.data.i18n[page.lang].play_url }}">Discover PokerPerf</a>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <details><summary>How do side pots work in poker?</summary><p>When a player is all-in for less than the others, they can only win from each opponent what they put in themselves. That money forms the main pot. Anything the other players bet beyond that goes into a side pot that only they can win. Each additional all-in at a different amount creates another side pot.</p></details>
+  <details><summary>Who wins the side pot?</summary><p>The best hand among the players eligible for it: those still in the hand who put in at least that pot's level. The all-in player with the smallest stack is never eligible for the side pots, even if they have the best hand at the table.</p></details>
+  <details><summary>Can an all-in player win more than they bet?</summary><p>Yes, but at most their own bet from each opponent. All-in for 20 against three players, you can win 80 in total (your 20 plus 20 from each opponent), plus any dead money from earlier in the hand.</p></details>
+  <details><summary>What happens to a folded player's chips?</summary><p>They stay in the pot. They are added to the main pot and to the side pots up to the amount that player put in, but the player who folded can't win any of it.</p></details>
+  <details><summary>What is an uncalled bet?</summary><p>The part of a bet nobody matched. If you bet 150 and your only opponent is all-in for 40, the other 110 is returned to you before the pots are split.</p></details>
+  <details><summary>Who gets the odd chip in a split pot?</summary><p>In hold'em and Omaha, the first winner to the left of the button. Each pot is split separately, so the main pot and a side pot can each have their own odd chip.</p></details>
+
+  <p style="margin-top:34px;color:var(--muted);font-size:.9rem;">See also: <a href="/en/pot-odds-calculator/">Pot odds calculator</a> · <a href="/en/guides/stack-to-pot-ratio/">Stack-to-pot ratio (SPR)</a> · <a href="/en/icm-calculator/">ICM calculator</a> · <a href="/en/poker-odds-calculator/">Poker equity calculator</a> · <a href="/en/guides/poker-pot-odds/">Poker pot odds guide</a> · <a href="/en/methodology/">Methodology</a>.</p>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How do side pots work in poker?","acceptedAnswer":{"@type":"Answer","text":"When a player is all-in for less than the others, they can only win from each opponent what they put in themselves. That money forms the main pot. Anything the other players bet beyond that goes into a side pot that only they can win. Each additional all-in at a different amount creates another side pot."}},
+  {"@type":"Question","name":"Who wins the side pot?","acceptedAnswer":{"@type":"Answer","text":"The best hand among the players eligible for it: those still in the hand who put in at least that pot's level. The all-in player with the smallest stack is never eligible for the side pots, even if they have the best hand at the table."}},
+  {"@type":"Question","name":"Can an all-in player win more than they bet?","acceptedAnswer":{"@type":"Answer","text":"Yes, but at most their own bet from each opponent. All-in for 20 against three players, you can win 80 in total (your 20 plus 20 from each opponent), plus any dead money from earlier in the hand."}},
+  {"@type":"Question","name":"What happens to a folded player's chips?","acceptedAnswer":{"@type":"Answer","text":"They stay in the pot. They are added to the main pot and to the side pots up to the amount that player put in, but the player who folded can't win any of it."}},
+  {"@type":"Question","name":"What is an uncalled bet?","acceptedAnswer":{"@type":"Answer","text":"The part of a bet nobody matched. If you bet 150 and your only opponent is all-in for 40, the other 110 is returned to you before the pots are split."}},
+  {"@type":"Question","name":"Who gets the odd chip in a split pot?","acceptedAnswer":{"@type":"Answer","text":"In hold'em and Omaha, the first winner to the left of the button. Each pot is split separately, so the main pot and a side pot can each have their own odd chip."}}
+]}
+</script>
+<script src="/assets/js/side-pot-calculator.js" defer></script>
