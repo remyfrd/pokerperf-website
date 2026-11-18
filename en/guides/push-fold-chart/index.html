@@ -6,8 +6,8 @@ headline: "Push/fold charts: Nash shove and call ranges from 10 to 20bb"
 description: "Nash push/fold charts for tournaments: which hands to shove from the small blind and which to call from the big blind at 10, 12, 15 and 20bb."
 permalink: /en/guides/push-fold-chart/
 date: 2026-11-12
-last_modified_at: 2026-11-14
-stylesheets: ["/assets/css/starting-hands.css"]
+last_modified_at: 2026-11-18
+stylesheets: ["/assets/css/starting-hands.css", "/assets/css/push-fold.css"]
 alternates:
   - { lang: "fr", href: "https://pokerperf.com/fr/guides/push-fold/" }
   - { lang: "en", href: "https://pokerperf.com/en/guides/push-fold-chart/" }
@@ -15,6 +15,11 @@ alternates:
 x_default: "https://pokerperf.com/en/guides/push-fold-chart/"
 ---
 <p class="lead">When your stack gets short in a tournament, poker gets simple: <strong>shove or fold</strong>. These charts tell you, hand by hand, when to move all-in from the small blind and when to call from the big blind, from <strong>10 to 20 big blinds</strong>.</p>
+
+<h2 id="tool">Shove or fold? Check your hand</h2>
+<p>Pick your two cards, your stack and your seat: the tool reads the charts below for you.</p>
+<div id="push-fold-tool" data-lang="en"></div>
+<noscript><p class="tip">The tool needs JavaScript; the full charts are below.</p></noscript>
 
 <h2>What is push/fold?</h2>
 <p>With a short stack (below roughly 15 to 20 big blinds, <em>bb</em>), making a normal raise and then folding to a re-raise costs too much. The soundest strategy becomes binary: <strong>you push your whole stack, or you fold</strong>. That's <em>push/fold</em> (or <em>shove/fold</em>).</p>
@@ -213,6 +218,24 @@ x_default: "https://pokerperf.com/en/guides/push-fold-chart/"
 </details>
 <!--/PF:GRIDS-->
 
+<h2 id="examples">Worked examples: why the chart says what it says</h2>
+<p>Every cell of the chart comes from one simple comparison. We recomputed seven decisions independently with the engine behind our <a href="/en/poker-odds-calculator/">equity calculator</a>: 1.2 million simulated deals per example, against the opposing range weighted by combos and by its equilibrium frequencies, with card removal.</p>
+<p><strong>Big blind facing a shove.</strong> The small blind puts in its whole stack <em>S</em>. You have already posted 1bb, so calling costs <em>S</em> − 1 to win a final pot of 2<em>S</em>. You need at least:</p>
+<p class="formula">required equity = (S − 1) ÷ 2S → 45.0% at 10bb, 45.8% at 12bb, 46.7% at 15bb, 47.5% at 20bb</p>
+<p><strong>Small blind shoving.</strong> Folding costs your 0.5bb small blind. Shoving wins +1bb (the big blind) when your opponent folds, and S × (2 × equity − 1) when he calls. Shove when the average beats −0.5bb.</p>
+<div class="sh-scroll" role="region" aria-label="Small blind: shove or fold" tabindex="0">
+<table><caption>Small blind: shove or fold. Folding = −0.50bb.</caption><thead><tr><th scope="col">Hand</th><th scope="col">Stack</th><th scope="col">Big blind folds</th><th scope="col">Equity when called</th><th scope="col">EV of shoving</th><th scope="col">Chart</th></tr></thead><tbody><tr><th scope="row">K7o</th><td>15bb</td><td>73.0%</td><td>36.2%</td><td>−0.39bb</td><td>● Shove</td></tr><tr><th scope="row">K7o</th><td>20bb</td><td>79.7%</td><td>33.6%</td><td>−0.54bb</td><td>– Fold</td></tr><tr><th scope="row">22</th><td>20bb</td><td>77.5%</td><td>42.5%</td><td>+0.10bb</td><td>● Shove</td></tr></tbody></table>
+</div>
+<div class="sh-scroll" role="region" aria-label="Big blind: call or fold" tabindex="0">
+<table><caption>Big blind: call or fold</caption><thead><tr><th scope="col">Hand</th><th scope="col">Stack</th><th scope="col">Equity vs shoving range</th><th scope="col">Required equity</th><th scope="col">Chart</th></tr></thead><tbody><tr><th scope="row">K7o</th><td>12bb</td><td>46.0%</td><td>45.8%</td><td>● Call</td></tr><tr><th scope="row">K7o</th><td>15bb</td><td>44.2%</td><td>46.7%</td><td>– Fold</td></tr><tr><th scope="row">22</th><td>20bb</td><td>46.0%</td><td>47.5%</td><td>– Fold</td></tr><tr><th scope="row">Q9o</th><td>12bb</td><td>45.5%</td><td>45.8%</td><td>◐ Call 11%</td></tr></tbody></table>
+</div>
+<ul>
+  <li><strong>K7o shrinks with the stack.</strong> At 15bb the shove is worth −0.39bb, better than folding (−0.50bb). At 20bb the big blind calls tighter and with stronger hands: K7o drops to 33.6% when called and the shove falls to −0.54bb, just below folding.</li>
+  <li><strong>22 at 20bb: shove it, but don't call with it.</strong> In the small blind it earns +0.10bb, because the big blind folds 77.5% of the time. In the big blind it has 46.0% against the shoving range when it needs 47.5%: fold. The shover has fold equity; the caller doesn't.</li>
+  <li><strong>Q9o at 12bb sits right on the line.</strong> 45.5% against a 45.8% threshold: calling loses only 0.07bb compared with folding. That's exactly the kind of hand the equilibrium mixes (call 11% of the time). A mixed cell means "close to break-even", not "do whatever".</li>
+</ul>
+<p>Our recalculation agrees with the chart on all seven decisions. Notice how thin the margins are, often a few hundredths of a big blind: that's why the edges of a push/fold chart move as soon as antes, ICM or a loose opponent come into play.</p>
+
 <h2>Why are the ranges so wide?</h2>
 <p>A small-blind shove wins in two ways:</p>
 <ol>
@@ -240,12 +263,17 @@ x_default: "https://pokerperf.com/en/guides/push-fold-chart/"
 <details><summary>Why does the big blind call tighter than the small blind shoves?</summary><p>The shover also wins when the opponent folds; the caller only wins by having the best hand at showdown. So the caller needs stronger cards.</p></details>
 <details><summary>Do these charts account for ICM?</summary><p>No: they're computed in chip-EV (a chip is a chip). Near the bubble or at a final table, ICM means calling much tighter.</p></details>
 <details><summary>What if I'm not in the small blind?</summary><p>The more players left behind you, the tighter you should shove. These charts are built for the small blind (or heads-up); from an earlier position, remove the weakest hands.</p></details>
+<details><summary>How do you know if you should call an all-in from the big blind?</summary><p>Compare your equity against the shoving range with the price of the call: required equity = (S − 1) ÷ 2S, where S is the effective stack in big blinds. At 12bb you need 45.8%. K7o has 46.0% against the 12bb shoving range, so it calls; Q9o has 45.5%, just below.</p></details>
+<details><summary>What does a mixed frequency mean in a push/fold chart?</summary><p>The hand is almost exactly break-even: both options earn about the same. Q9o in the big blind at 12bb is an example (45.5% equity for 45.8% needed, 0.07bb apart). Calling or folding are both fine; the frequency shows how often the equilibrium picks each one.</p></details>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
  {"@type":"Question","name":"At how many big blinds should you switch to push/fold?","acceptedAnswer":{"@type":"Answer","text":"Below about 15bb, push/fold is the standard strategy. Between 15 and 20bb it's often mixed with small raises; above that, you play normally again."}},
  {"@type":"Question","name":"Why does the big blind call tighter than the small blind shoves?","acceptedAnswer":{"@type":"Answer","text":"The shover also wins when the opponent folds; the caller only wins by having the best hand at showdown. So the caller needs stronger cards."}},
  {"@type":"Question","name":"Do these charts account for ICM?","acceptedAnswer":{"@type":"Answer","text":"No: they're computed in chip-EV. Near the bubble or at a final table, ICM means calling much tighter."}},
- {"@type":"Question","name":"What if I'm not in the small blind?","acceptedAnswer":{"@type":"Answer","text":"The more players left behind you, the tighter you should shove. These charts are built for the small blind (or heads-up); from an earlier position, remove the weakest hands."}}
+ {"@type":"Question","name":"What if I'm not in the small blind?","acceptedAnswer":{"@type":"Answer","text":"The more players left behind you, the tighter you should shove. These charts are built for the small blind (or heads-up); from an earlier position, remove the weakest hands."}},
+  {"@type": "Question", "name": "How do you know if you should call an all-in from the big blind?", "acceptedAnswer": {"@type": "Answer", "text": "Compare your equity against the shoving range with the price of the call: required equity = (S − 1) ÷ 2S, where S is the effective stack in big blinds. At 12bb you need 45.8%. K7o has 46.0% against the 12bb shoving range, so it calls; Q9o has 45.5%, just below."}},
+  {"@type": "Question", "name": "What does a mixed frequency mean in a push/fold chart?", "acceptedAnswer": {"@type": "Answer", "text": "The hand is almost exactly break-even: both options earn about the same. Q9o in the big blind at 12bb is an example (45.5% equity for 45.8% needed, 0.07bb apart). Calling or folding are both fine; the frequency shows how often the equilibrium picks each one."}}
 ]}
 </script>
+<script src="/assets/js/push-fold.js" defer></script>

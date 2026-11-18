@@ -6,8 +6,8 @@ headline: "Tablas push/fold: rangos Nash de all-in y de pago de 10 a 20bb"
 description: "Tablas push/fold Nash para torneos: con qué manos ir all-in desde la ciega pequeña y cuáles pagar desde la ciega grande con 10, 12, 15 y 20bb."
 permalink: /es/guias/tablas-push-fold/
 date: 2026-11-12
-last_modified_at: 2026-11-14
-stylesheets: ["/assets/css/starting-hands.css"]
+last_modified_at: 2026-11-18
+stylesheets: ["/assets/css/starting-hands.css", "/assets/css/push-fold.css"]
 alternates:
   - { lang: "fr", href: "https://pokerperf.com/fr/guides/push-fold/" }
   - { lang: "en", href: "https://pokerperf.com/en/guides/push-fold-chart/" }
@@ -15,6 +15,11 @@ alternates:
 x_default: "https://pokerperf.com/en/guides/push-fold-chart/"
 ---
 <p class="lead">Cuando tu stack se queda corto en un torneo, el poker se simplifica: <strong>all-in o fold</strong>. Estas tablas te dicen, mano por mano, cuándo ir all-in desde la ciega pequeña y cuándo pagar desde la ciega grande, de <strong>10 a 20 ciegas grandes</strong>.</p>
+
+<h2 id="tool">¿All-in o fold? Comprueba tu mano</h2>
+<p>Elige tus dos cartas, tu stack y tu posición: la herramienta lee las tablas de abajo por ti.</p>
+<div id="push-fold-tool" data-lang="es"></div>
+<noscript><p class="tip">La herramienta necesita JavaScript; las tablas completas están más abajo.</p></noscript>
 
 <h2>¿Qué es el push/fold?</h2>
 <p>Con un stack corto (por debajo de unas 15 a 20 ciegas grandes, <em>bb</em>), hacer una subida normal y luego foldear ante una resubida cuesta demasiado. La estrategia más sólida pasa a ser binaria: <strong>empujas todo tu stack o te retiras</strong>. Eso es el <em>push/fold</em> (o <em>shove/fold</em>).</p>
@@ -213,6 +218,24 @@ x_default: "https://pokerperf.com/en/guides/push-fold-chart/"
 </details>
 <!--/PF:GRIDS-->
 
+<h2 id="examples">Ejemplos con cifras: por qué la tabla dice lo que dice</h2>
+<p>Cada casilla de la tabla sale de una comparación sencilla. Hemos recalculado siete decisiones de forma independiente con el motor de nuestra <a href="/es/calculadora-equity-poker/">calculadora de equity</a>: 1,2 millones de manos simuladas por ejemplo, contra el rango rival ponderado por combos y por sus frecuencias de equilibrio, quitando las cartas que ya están en juego.</p>
+<p><strong>Ciega grande ante el all-in.</strong> La ciega pequeña mete todo su stack <em>S</em>. Ya has puesto 1bb, así que pagar te cuesta <em>S</em> − 1 para un bote final de 2<em>S</em>. Necesitas al menos:</p>
+<p class="formula">equity necesaria = (S − 1) ÷ 2S → 45,0 % con 10bb, 45,8 % con 12bb, 46,7 % con 15bb, 47,5 % con 20bb</p>
+<p><strong>Ciega pequeña que va all-in.</strong> Foldear te cuesta la ciega pequeña (0,5bb). Ir all-in gana +1bb (la ciega grande) cuando el rival foldea, y S × (2 × equity − 1) cuando paga. Vas all-in cuando la media supera −0,5bb.</p>
+<div class="sh-scroll" role="region" aria-label="Ciega pequeña: all-in o fold" tabindex="0">
+<table><caption>Ciega pequeña: all-in o fold. Foldear = −0,50bb.</caption><thead><tr><th scope="col">Mano</th><th scope="col">Stack</th><th scope="col">La ciega grande foldea</th><th scope="col">Equity si te pagan</th><th scope="col">EV del all-in</th><th scope="col">Tabla</th></tr></thead><tbody><tr><th scope="row">K7o</th><td>15bb</td><td>73,0&nbsp;%</td><td>36,2&nbsp;%</td><td>−0,39bb</td><td>● All-in</td></tr><tr><th scope="row">K7o</th><td>20bb</td><td>79,7&nbsp;%</td><td>33,6&nbsp;%</td><td>−0,54bb</td><td>– Fold</td></tr><tr><th scope="row">22</th><td>20bb</td><td>77,5&nbsp;%</td><td>42,5&nbsp;%</td><td>+0,10bb</td><td>● All-in</td></tr></tbody></table>
+</div>
+<div class="sh-scroll" role="region" aria-label="Ciega grande: pagar o fold" tabindex="0">
+<table><caption>Ciega grande: pagar o fold</caption><thead><tr><th scope="col">Mano</th><th scope="col">Stack</th><th scope="col">Equity contra el rango de all-in</th><th scope="col">Equity necesaria</th><th scope="col">Tabla</th></tr></thead><tbody><tr><th scope="row">K7o</th><td>12bb</td><td>46,0&nbsp;%</td><td>45,8&nbsp;%</td><td>● Paga</td></tr><tr><th scope="row">K7o</th><td>15bb</td><td>44,2&nbsp;%</td><td>46,7&nbsp;%</td><td>– Fold</td></tr><tr><th scope="row">22</th><td>20bb</td><td>46,0&nbsp;%</td><td>47,5&nbsp;%</td><td>– Fold</td></tr><tr><th scope="row">Q9o</th><td>12bb</td><td>45,5&nbsp;%</td><td>45,8&nbsp;%</td><td>◐ Paga 11&nbsp;%</td></tr></tbody></table>
+</div>
+<ul>
+  <li><strong>K7o se encoge con el stack.</strong> Con 15bb, el all-in vale −0,39bb, mejor que foldear (−0,50bb). Con 20bb, la ciega grande paga más cerrado y con manos más fuertes: K7o baja al 33,6&nbsp;% cuando le pagan y el all-in cae a −0,54bb, justo por debajo del fold.</li>
+  <li><strong>22 con 20bb: all-in sí, pagar no.</strong> En la ciega pequeña gana +0,10bb, porque la ciega grande foldea el 77,5&nbsp;% de las veces. En la ciega grande tiene un 46,0&nbsp;% contra el rango de all-in cuando necesita un 47,5&nbsp;%: fold. Quien va all-in tiene fold equity; quien paga, no.</li>
+  <li><strong>Q9o con 12bb está justo en la línea.</strong> 45,5&nbsp;% para un umbral del 45,8&nbsp;%: pagar solo pierde 0,07bb frente a foldear. Es justo el tipo de mano que el equilibrio mezcla (pagar el 11&nbsp;% de las veces). Una casilla mixta significa «casi en equilibrio», no «haz lo que quieras».</li>
+</ul>
+<p>Nuestro recálculo coincide con la tabla en las siete decisiones. Fíjate en lo finos que son los márgenes, a menudo unas centésimas de ciega grande: por eso los bordes de una tabla push/fold se mueven en cuanto entran antes, ICM o un rival que paga demasiado.</p>
+
 <h2>¿Por qué los rangos son tan amplios?</h2>
 <p>Un all-in desde la ciega pequeña gana de dos formas:</p>
 <ol>
@@ -240,12 +263,17 @@ x_default: "https://pokerperf.com/en/guides/push-fold-chart/"
 <details><summary>¿Por qué la ciega grande paga más cerrado de lo que la ciega pequeña va all-in?</summary><p>Quien va all-in también gana cuando el rival foldea; quien paga solo gana si tiene la mejor mano en el showdown. Por eso quien paga necesita cartas más fuertes.</p></details>
 <details><summary>¿Estas tablas tienen en cuenta el ICM?</summary><p>No: están calculadas en chip-EV (una ficha es una ficha). Cerca de la burbuja o en la mesa final, el ICM obliga a pagar mucho más cerrado.</p></details>
 <details><summary>¿Y si no estoy en la ciega pequeña?</summary><p>Cuantos más jugadores queden detrás de ti, más cerrado debes ir all-in. Estas tablas están hechas para la ciega pequeña (o heads-up); desde una posición anterior, quita las manos más débiles.</p></details>
+<details><summary>¿Cómo saber si hay que pagar un all-in desde la ciega grande?</summary><p>Compara tu equity contra el rango de all-in con el precio del call: equity necesaria = (S − 1) ÷ 2S, donde S es el stack efectivo en ciegas grandes. Con 12bb necesitas un 45,8&nbsp;%. K7o tiene un 46,0&nbsp;% contra el rango de all-in con 12bb, así que paga; Q9o tiene un 45,5&nbsp;%, justo por debajo.</p></details>
+<details><summary>¿Qué significa una frecuencia mixta en una tabla push/fold?</summary><p>La mano está casi exactamente en equilibrio: las dos opciones rinden más o menos lo mismo. Q9o en la ciega grande con 12bb es un ejemplo (45,5&nbsp;% de equity para un 45,8&nbsp;% necesario, 0,07bb de diferencia). Pagar o foldear son correctas; la frecuencia indica cuántas veces elige cada una el equilibrio.</p></details>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
  {"@type":"Question","name":"¿Con cuántas ciegas grandes hay que pasar a push/fold?","acceptedAnswer":{"@type":"Answer","text":"Por debajo de unas 15bb, el push/fold es la estrategia estándar. Entre 15 y 20bb se suele combinar con subidas pequeñas; por encima, vuelves a jugar normal."}},
  {"@type":"Question","name":"¿Por qué la ciega grande paga más cerrado de lo que la ciega pequeña va all-in?","acceptedAnswer":{"@type":"Answer","text":"Quien va all-in también gana cuando el rival foldea; quien paga solo gana si tiene la mejor mano en el showdown. Por eso quien paga necesita cartas más fuertes."}},
  {"@type":"Question","name":"¿Estas tablas tienen en cuenta el ICM?","acceptedAnswer":{"@type":"Answer","text":"No: están calculadas en chip-EV. Cerca de la burbuja o en la mesa final, el ICM obliga a pagar mucho más cerrado."}},
- {"@type":"Question","name":"¿Y si no estoy en la ciega pequeña?","acceptedAnswer":{"@type":"Answer","text":"Cuantos más jugadores queden detrás de ti, más cerrado debes ir all-in. Estas tablas están hechas para la ciega pequeña (o heads-up); desde una posición anterior, quita las manos más débiles."}}
+ {"@type":"Question","name":"¿Y si no estoy en la ciega pequeña?","acceptedAnswer":{"@type":"Answer","text":"Cuantos más jugadores queden detrás de ti, más cerrado debes ir all-in. Estas tablas están hechas para la ciega pequeña (o heads-up); desde una posición anterior, quita las manos más débiles."}},
+  {"@type": "Question", "name": "¿Cómo saber si hay que pagar un all-in desde la ciega grande?", "acceptedAnswer": {"@type": "Answer", "text": "Compara tu equity contra el rango de all-in con el precio del call: equity necesaria = (S − 1) ÷ 2S, donde S es el stack efectivo en ciegas grandes. Con 12bb necesitas un 45,8 %. K7o tiene un 46,0 % contra el rango de all-in con 12bb, así que paga; Q9o tiene un 45,5 %, justo por debajo."}},
+  {"@type": "Question", "name": "¿Qué significa una frecuencia mixta en una tabla push/fold?", "acceptedAnswer": {"@type": "Answer", "text": "La mano está casi exactamente en equilibrio: las dos opciones rinden más o menos lo mismo. Q9o en la ciega grande con 12bb es un ejemplo (45,5 % de equity para un 45,8 % necesario, 0,07bb de diferencia). Pagar o foldear son correctas; la frecuencia indica cuántas veces elige cada una el equilibrio."}}
 ]}
 </script>
+<script src="/assets/js/push-fold.js" defer></script>

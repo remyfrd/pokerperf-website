@@ -6,8 +6,8 @@ headline: "Push/fold : les tableaux tapis ou se coucher, de 10 à 20 bb"
 description: "Tableaux push/fold de Nash pour tournoi : quelles mains mettre à tapis en petite blinde et lesquelles payer en grosse blinde, à 10, 12, 15 et 20 bb."
 permalink: /fr/guides/push-fold/
 date: 2026-11-12
-last_modified_at: 2026-11-14
-stylesheets: ["/assets/css/starting-hands.css"]
+last_modified_at: 2026-11-18
+stylesheets: ["/assets/css/starting-hands.css", "/assets/css/push-fold.css"]
 alternates:
   - { lang: "fr", href: "https://pokerperf.com/fr/guides/push-fold/" }
   - { lang: "en", href: "https://pokerperf.com/en/guides/push-fold-chart/" }
@@ -15,6 +15,11 @@ alternates:
 x_default: "https://pokerperf.com/en/guides/push-fold-chart/"
 ---
 <p class="lead">Quand ton tapis fond en tournoi, le poker se simplifie&nbsp;: <strong>tapis ou se coucher</strong>. Ces tableaux te disent, main par main, quand mettre à tapis depuis la petite blinde et quand payer depuis la grosse blinde, de <strong>10 à 20 grosses blindes</strong>.</p>
+
+<h2 id="tool">Tapis ou fold&nbsp;? Vérifie ta main</h2>
+<p>Choisis tes deux cartes, ton tapis et ta position&nbsp;: l'outil lit les tableaux ci-dessous à ta place.</p>
+<div id="push-fold-tool" data-lang="fr"></div>
+<noscript><p class="tip">L'outil a besoin de JavaScript&nbsp;; les tableaux complets sont plus bas.</p></noscript>
 
 <h2>Le push/fold, c'est quoi&nbsp;?</h2>
 <p>Avec un petit tapis (en dessous d'environ 15 à 20 grosses blindes, <em>bb</em>), relancer «&nbsp;normalement&nbsp;» puis se coucher sur une relance te coûte trop cher. La stratégie la plus solide devient alors binaire&nbsp;: <strong>tu pousses tout ton tapis, ou tu te couches</strong>. On appelle ça le <em>push/fold</em> (ou <em>shove/fold</em>).</p>
@@ -213,6 +218,24 @@ x_default: "https://pokerperf.com/en/guides/push-fold-chart/"
 </details>
 <!--/PF:GRIDS-->
 
+<h2 id="examples">Exemples chiffrés&nbsp;: pourquoi le tableau dit ce qu'il dit</h2>
+<p>Chaque case du tableau vient d'une comparaison simple. Nous avons recalculé sept décisions de façon indépendante avec le moteur de notre <a href="/fr/calculateur-equite/">calculateur d'équité</a>&nbsp;: 1,2 million de donnes simulées par exemple, contre la range adverse pondérée par les combos et par ses fréquences d'équilibre, en retirant les cartes déjà en main.</p>
+<p><strong>Grosse blinde face au tapis.</strong> La petite blinde met tout son tapis <em>S</em>. Tu as déjà posté 1&nbsp;bb&nbsp;: payer te coûte <em>S</em>&nbsp;−&nbsp;1 pour un pot final de 2<em>S</em>. Il te faut au moins&nbsp;:</p>
+<p class="formula">équité requise = (S − 1) ÷ 2S → 45,0 % à 10 bb, 45,8 % à 12 bb, 46,7 % à 15 bb, 47,5 % à 20 bb</p>
+<p><strong>Petite blinde qui pousse.</strong> Se coucher coûte ta petite blinde (0,5&nbsp;bb). Pousser rapporte +1&nbsp;bb (la grosse blinde) quand l'adversaire se couche, et S × (2 × équité − 1) quand il paie. On pousse quand la moyenne dépasse −0,5&nbsp;bb.</p>
+<div class="sh-scroll" role="region" aria-label="Petite blinde : tapis ou se coucher" tabindex="0">
+<table><caption>Petite blinde&nbsp;: tapis ou se coucher. Se coucher = −0,50&nbsp;bb.</caption><thead><tr><th scope="col">Main</th><th scope="col">Tapis</th><th scope="col">La grosse blinde se couche</th><th scope="col">Équité si payé</th><th scope="col">EV du tapis</th><th scope="col">Tableau</th></tr></thead><tbody><tr><th scope="row">K7o</th><td>15&nbsp;bb</td><td>73,0&nbsp;%</td><td>36,2&nbsp;%</td><td>−0,39&nbsp;bb</td><td>● Tapis</td></tr><tr><th scope="row">K7o</th><td>20&nbsp;bb</td><td>79,7&nbsp;%</td><td>33,6&nbsp;%</td><td>−0,54&nbsp;bb</td><td>– Couché</td></tr><tr><th scope="row">22</th><td>20&nbsp;bb</td><td>77,5&nbsp;%</td><td>42,5&nbsp;%</td><td>+0,10&nbsp;bb</td><td>● Tapis</td></tr></tbody></table>
+</div>
+<div class="sh-scroll" role="region" aria-label="Grosse blinde : payer ou se coucher" tabindex="0">
+<table><caption>Grosse blinde&nbsp;: payer ou se coucher</caption><thead><tr><th scope="col">Main</th><th scope="col">Tapis</th><th scope="col">Équité contre la range de tapis</th><th scope="col">Équité requise</th><th scope="col">Tableau</th></tr></thead><tbody><tr><th scope="row">K7o</th><td>12&nbsp;bb</td><td>46,0&nbsp;%</td><td>45,8&nbsp;%</td><td>● Paie</td></tr><tr><th scope="row">K7o</th><td>15&nbsp;bb</td><td>44,2&nbsp;%</td><td>46,7&nbsp;%</td><td>– Couché</td></tr><tr><th scope="row">22</th><td>20&nbsp;bb</td><td>46,0&nbsp;%</td><td>47,5&nbsp;%</td><td>– Couché</td></tr><tr><th scope="row">Q9o</th><td>12&nbsp;bb</td><td>45,5&nbsp;%</td><td>45,8&nbsp;%</td><td>◐ Paie 11&nbsp;%</td></tr></tbody></table>
+</div>
+<ul>
+  <li><strong>K7o rétrécit avec le tapis.</strong> À 15&nbsp;bb, le tapis vaut −0,39&nbsp;bb, mieux que se coucher (−0,50&nbsp;bb). À 20&nbsp;bb, la grosse blinde paie plus serré et avec de meilleures mains&nbsp;: K7o tombe à 33,6&nbsp;% quand il est payé et le tapis descend à −0,54&nbsp;bb, juste en dessous du fold.</li>
+  <li><strong>22 à 20&nbsp;bb&nbsp;: on pousse, mais on ne paie pas.</strong> En petite blinde, la main rapporte +0,10&nbsp;bb, parce que la grosse blinde se couche 77,5&nbsp;% du temps. En grosse blinde, elle a 46,0&nbsp;% contre la range de tapis alors qu'il en faut 47,5&nbsp;%&nbsp;: on se couche. Celui qui pousse a de la fold equity, celui qui paie n'en a pas.</li>
+  <li><strong>Q9o à 12&nbsp;bb est pile sur la ligne.</strong> 45,5&nbsp;% pour un seuil de 45,8&nbsp;%&nbsp;: payer ne perd que 0,07&nbsp;bb par rapport au fold. C'est exactement le genre de main que l'équilibre mélange (payer 11&nbsp;% du temps). Une case mixte veut dire «&nbsp;presque à l'équilibre&nbsp;», pas «&nbsp;fais ce que tu veux&nbsp;».</li>
+</ul>
+<p>Notre recalcul donne la même décision que le tableau sur les sept cas. Note à quel point les marges sont fines, souvent quelques centièmes de grosse blinde&nbsp;: c'est pour ça que les bords d'un tableau push/fold bougent dès qu'on ajoute des antes, l'ICM ou un adversaire qui paie trop large.</p>
+
 <h2>Pourquoi des ranges si larges&nbsp;?</h2>
 <p>Un tapis de la petite blinde gagne de deux manières&nbsp;:</p>
 <ol>
@@ -240,12 +263,17 @@ x_default: "https://pokerperf.com/en/guides/push-fold-chart/"
 <details><summary>Pourquoi la grosse blinde paie-t-elle plus serré que la petite blinde ne pousse&nbsp;?</summary><p>Celui qui pousse gagne aussi quand l'adversaire se couche&nbsp;; celui qui paie ne gagne qu'en ayant la meilleure main à l'abattage. Il lui faut donc des cartes plus fortes.</p></details>
 <details><summary>Ces tableaux tiennent-ils compte de l'ICM&nbsp;?</summary><p>Non&nbsp;: ils sont calculés en chip-EV (un jeton vaut un jeton). Près de la bulle ou en table finale, l'ICM impose de payer nettement plus serré.</p></details>
 <details><summary>Que faire si je ne suis pas en petite blinde&nbsp;?</summary><p>Plus il reste de joueurs derrière toi, plus il faut pousser serré. Ces tableaux sont faits pour la petite blinde (ou le tête-à-tête)&nbsp;; depuis une position plus précoce, retire les mains les plus faibles.</p></details>
+<details><summary>Comment savoir s'il faut payer un tapis en grosse blinde&nbsp;?</summary><p>Compare ton équité contre la range de tapis au prix du call&nbsp;: équité requise = (S − 1) ÷ 2S, où S est le tapis effectif en grosses blindes. À 12 bb, il faut 45,8&nbsp;%. K7o a 46,0&nbsp;% contre la range de tapis à 12 bb, donc il paie&nbsp;; Q9o a 45,5&nbsp;%, juste en dessous.</p></details>
+<details><summary>Que veut dire une fréquence mixte dans un tableau push/fold&nbsp;?</summary><p>La main est presque exactement à l'équilibre&nbsp;: les deux options rapportent à peu près autant. Q9o en grosse blinde à 12 bb en est un exemple (45,5&nbsp;% d'équité pour 45,8&nbsp;% requis, 0,07 bb d'écart). Payer ou se coucher sont tous deux corrects&nbsp;; la fréquence indique à quelle fréquence l'équilibre choisit chacun.</p></details>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
  {"@type":"Question","name":"À partir de combien de grosses blindes faut-il jouer en push/fold ?","acceptedAnswer":{"@type":"Answer","text":"En dessous d'environ 15 bb, le push/fold est la stratégie de référence. Entre 15 et 20 bb, on mélange souvent avec de petites relances ; au-delà, on rejoue normalement."}},
  {"@type":"Question","name":"Pourquoi la grosse blinde paie-t-elle plus serré que la petite blinde ne pousse ?","acceptedAnswer":{"@type":"Answer","text":"Celui qui pousse gagne aussi quand l'adversaire se couche ; celui qui paie ne gagne qu'en ayant la meilleure main à l'abattage. Il lui faut donc des cartes plus fortes."}},
  {"@type":"Question","name":"Ces tableaux tiennent-ils compte de l'ICM ?","acceptedAnswer":{"@type":"Answer","text":"Non : ils sont calculés en chip-EV. Près de la bulle ou en table finale, l'ICM impose de payer nettement plus serré."}},
- {"@type":"Question","name":"Que faire si je ne suis pas en petite blinde ?","acceptedAnswer":{"@type":"Answer","text":"Plus il reste de joueurs derrière toi, plus il faut pousser serré. Ces tableaux sont faits pour la petite blinde (ou le tête-à-tête) ; depuis une position plus précoce, retire les mains les plus faibles."}}
+ {"@type":"Question","name":"Que faire si je ne suis pas en petite blinde ?","acceptedAnswer":{"@type":"Answer","text":"Plus il reste de joueurs derrière toi, plus il faut pousser serré. Ces tableaux sont faits pour la petite blinde (ou le tête-à-tête) ; depuis une position plus précoce, retire les mains les plus faibles."}},
+  {"@type": "Question", "name": "Comment savoir s'il faut payer un tapis en grosse blinde ?", "acceptedAnswer": {"@type": "Answer", "text": "Compare ton équité contre la range de tapis au prix du call : équité requise = (S − 1) ÷ 2S, où S est le tapis effectif en grosses blindes. À 12 bb, il faut 45,8 %. K7o a 46,0 % contre la range de tapis à 12 bb, donc il paie ; Q9o a 45,5 %, juste en dessous."}},
+  {"@type": "Question", "name": "Que veut dire une fréquence mixte dans un tableau push/fold ?", "acceptedAnswer": {"@type": "Answer", "text": "La main est presque exactement à l'équilibre : les deux options rapportent à peu près autant. Q9o en grosse blinde à 12 bb en est un exemple (45,5 % d'équité pour 45,8 % requis, 0,07 bb d'écart). Payer ou se coucher sont tous deux corrects ; la fréquence indique à quelle fréquence l'équilibre choisit chacun."}}
 ]}
 </script>
+<script src="/assets/js/push-fold.js" defer></script>
